@@ -17,10 +17,7 @@ import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -41,7 +38,6 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
-import org.privacyguides.verifiedapps.data.SubmissionUiState
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
 import org.privacyguides.verifiedapps.ui.AppListScreen
 import org.privacyguides.verifiedapps.ui.CreditsScreen
@@ -79,9 +75,6 @@ fun AppVerifierApp(
     val preferencesUiState = preferencesViewModel.uiState.collectAsState()
 
     val verifyAppUiState = verifyAppViewModel.uiState.collectAsState()
-    val submissionState = verifyAppViewModel.submissionState.collectAsState()
-
-    val snackbarHostState = remember { SnackbarHostState() }
 
     val navController = rememberNavController()
 
@@ -110,11 +103,6 @@ fun AppVerifierApp(
     Scaffold(
         topBar = {
             AppVerifierAppBar()
-        },
-        snackbarHost = {
-            SnackbarHost(
-                hostState = snackbarHostState,
-            )
         },
     ) { innerPadding ->
         NavHost(
@@ -174,19 +162,6 @@ fun AppVerifierApp(
                 )
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.VerifyApp) {
-                LaunchedEffect(submissionState.value) {
-                    when (val state = submissionState.value) {
-                        SubmissionUiState.Success -> {
-                            snackbarHostState.showSnackbar("App submitted successfully. Thank you!")
-                            verifyAppViewModel.clearSubmissionMessage()
-                        }
-                        is SubmissionUiState.Error -> {
-                            snackbarHostState.showSnackbar(state.message)
-                            verifyAppViewModel.clearSubmissionMessage()
-                        }
-                        else -> Unit
-                    }
-                }
                 VerifyAppScreen(
                     verifyAppUiState.value.icon.value,
                     verifyAppUiState.value.name.value,
@@ -197,8 +172,6 @@ fun AppVerifierApp(
                     verifyAppUiState.value.apkFailedToParse.value,
                     preferencesUiState.value.showHasMultipleSigners.second.value,
                     preferencesUiState.value.showSharingTools.second.value,
-                    submissionState.value,
-                    { verifyAppViewModel.submitAppForDatabaseInclusion() },
                 )
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.Settings) {

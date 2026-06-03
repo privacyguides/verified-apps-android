@@ -1,9 +1,12 @@
 package org.privacyguides.verifiedapps.ui
 
 import android.app.ActivityOptions
+import android.content.ActivityNotFoundException
 import android.content.ClipData
 import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -47,11 +50,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import org.privacyguides.verifiedapps.BuildConfig
 import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.data.InternalDatabaseStatus
-import org.privacyguides.verifiedapps.data.SubmissionUiState
+import org.privacyguides.verifiedapps.github.GitHubAppSubmission
 
 @Composable
 fun VerifyAppScreen(
@@ -64,15 +66,10 @@ fun VerifyAppScreen(
     apkFailedToParse: Boolean,
     showHasMultipleSigners: Boolean,
     showSharingTools: Boolean,
-    submissionState: SubmissionUiState,
-    onSubmitApp: () -> Unit,
 ) {
     val context = LocalContext.current
     val verticalScroll = rememberScrollState()
     var showMoreInfoAboutInternalDatabaseStatusDialog by rememberSaveable { mutableStateOf(false) }
-
-    val submissionUrlConfigured = BuildConfig.APP_SUBMISSION_URL.isNotBlank()
-    val isSubmitting = submissionState is SubmissionUiState.Submitting
 
     LaunchedEffect(Unit) {
         if (hashes.hashes.isEmpty()) {
@@ -116,23 +113,21 @@ fun VerifyAppScreen(
             Spacer(Modifier.height(8.dp))
             if (internalDatabaseInfo.internalDatabaseStatus == InternalDatabaseStatus.NOT_FOUND) {
                 Text(
-                    "Not in database — submit fingerprints for review.",
+                    "Not in database — submit fingerprints for review on GitHub.",
                     style = typography.bodyMedium,
                 )
                 Spacer(Modifier.height(8.dp))
-                if (submissionUrlConfigured) {
-                    Button(
-                        onClick = onSubmitApp,
-                        enabled = !isSubmitting,
-                    ) {
-                        Text(
-                            if (isSubmitting) {
-                                "Submitting…"
-                            } else {
-                                "Submit app for inclusion"
-                            }
+                Button(
+                    onClick = {
+                        val issueUri = GitHubAppSubmission.newIssueUri(
+                            packageName = packageName,
+                            appLabel = name,
+                            hashes = hashes,
                         )
-                    }
+                        openGitHubSubmission(context, issueUri)
+                    },
+                ) {
+                    Text("Submit on GitHub")
                 }
                 Spacer(Modifier.height(8.dp))
             }
@@ -163,7 +158,7 @@ fun VerifyAppScreen(
             }
             if (showSharingTools) {
                 val clipboardManager = LocalClipboardManager.current
-                val verificationData = "$packageName\n${hashes.hashes.joinToString("\n")}"
+                val verificationData = GitHubAppSubmission.buildVerificationInfo(packageName, hashes)
                 val mimeType = "text/plain"
                 Button(onClick = {
                     val sendIntent = Intent().apply {
@@ -236,5 +231,18 @@ fun VerifyAppScreen(
                 }
             }
         )
+    }
+}
+
+private fun openGitHubSubmission(context: android.content.Context, issueUri: Uri) {
+    val intent = Intent(Intent.ACTION_VIEW, issueUri)
+    try {
+        startActivity(context, intent, ActivityOptions.makeBasic().toBundle())
+    } catch (_: ActivityNotFoundException) {
+        Toast.makeText(
+            context,
+            "No browser found to open the GitHub submission page.",
+            Toast.LENGTH_LONG,
+        ).show()
     }
 }

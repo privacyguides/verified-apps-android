@@ -16,7 +16,6 @@ android {
         targetSdk = 35
         versionCode = 13
         versionName = versionCode.toString()
-        buildConfigField("String", "APP_SUBMISSION_URL", "\"\"")
 
         vectorDrawables {
             useSupportLibrary = true
@@ -37,7 +36,6 @@ android {
     }
     buildFeatures {
         compose = true
-        buildConfig = true
     }
     androidResources {
         generateLocaleConfig = true
@@ -56,18 +54,12 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             signingConfig = signingConfigs.getByName("debug")
-            buildConfigField(
-                "String",
-                "APP_SUBMISSION_URL",
-                "\"http://10.0.2.2:8080/api/apps\"",
-            )
         }
         create("staging") {
             initWith(getByName("release"))
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
             signingConfig = signingConfigs.getByName("debug")
-            buildConfigField("String", "APP_SUBMISSION_URL", "\"\"")
         }
     }
     // Useless since we don't publish to the Google Play Store and they are the only ones who can

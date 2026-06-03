@@ -32,8 +32,8 @@ enum class InternalDatabaseStatus(
     val simpleInternalDatabaseStatus: SimpleInternalDatabaseStatus,
 ) {
     NOT_FOUND(
-        "This app was not found in the internal database. You can submit its signing fingerprints for " +
-                "review using the button below.",
+        "This app was not found in the internal database. You can open a pre-filled GitHub submission " +
+                "using the button below.",
         SimpleInternalDatabaseStatus.NOT_FOUND,
     ),
     MATCH(
@@ -71,10 +71,3 @@ data class Hashes(
 }
 
 data class VerificationInfo(val packageName: String, val hashes: Hashes)
-
-sealed class SubmissionUiState {
-    data object Idle : SubmissionUiState()
-    data object Submitting : SubmissionUiState()
-    data object Success : SubmissionUiState()
-    data class Error(val message: String) : SubmissionUiState()
-}
