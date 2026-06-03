@@ -15,6 +15,7 @@ import androidx.compose.animation.slideIn
 import androidx.compose.animation.slideOut
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.FileOpen
@@ -30,52 +31,41 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDeepLink
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import kotlinx.coroutines.launch
 import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
-import org.privacyguides.verifiedapps.ui.AboutScreen
-import org.privacyguides.verifiedapps.ui.AppListScreen
+import org.privacyguides.verifiedapps.ui.BottomNavPage
 import org.privacyguides.verifiedapps.ui.CreditsScreen
 import org.privacyguides.verifiedapps.ui.LicenseScreen
-import org.privacyguides.verifiedapps.ui.OpenApkScreen
+import org.privacyguides.verifiedapps.ui.MainTabsScreen
 import org.privacyguides.verifiedapps.ui.PrivacyPolicyScreen
-import org.privacyguides.verifiedapps.ui.SettingsScreen
 import org.privacyguides.verifiedapps.ui.VerifyAppScreen
 import org.privacyguides.verifiedapps.ui.VerifyAppViewModel
 
 enum class AppVerifierScreens(@StringRes val title: Int) {
-    AppList(title = R.string.app_list),
-    OpenApk(title = R.string.nav_open_apk),
+    MainTabs(title = R.string.app_name),
     VerifyApp(title = R.string.verify_app),
-    Settings(title = R.string.settings),
-    About(title = R.string.about),
     License(title = R.string.license),
     PrivacyPolicy(title = R.string.privacy_policy),
     Credits(title = R.string.credits),
 }
-
-private val bottomNavRoutes = setOf(
-    AppVerifierScreens.About.name,
-    AppVerifierScreens.AppList.name,
-    AppVerifierScreens.OpenApk.name,
-    AppVerifierScreens.Settings.name,
-)
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -95,6 +85,12 @@ fun AppVerifierApp(
     val currentRoute = backStackEntry?.destination?.route
 
     val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
+
+    val pagerState = rememberPagerState(
+        initialPage = BottomNavPage.About.ordinal,
+        pageCount = { BottomNavPage.entries.size },
+    )
 
     val openApkFileLauncher =
         rememberLauncherForActivityResult(contract = ActivityResultContracts.OpenDocument()) { uri ->
@@ -110,13 +106,12 @@ fun AppVerifierApp(
 
     var searchQuery by rememberSaveable { mutableStateOf("") }
 
-    fun navigateToBottomNavDestination(screen: AppVerifierScreens) {
-        navController.navigate(screen.name) {
-            popUpTo(AppVerifierScreens.About.name) {
-                saveState = true
+    fun navigateToTab(page: BottomNavPage) {
+        coroutineScope.launch {
+            if (currentRoute != AppVerifierScreens.MainTabs.name) {
+                navController.popBackStack(AppVerifierScreens.MainTabs.name, inclusive = false)
             }
-            launchSingleTop = true
-            restoreState = true
+            pagerState.animateScrollToPage(page.ordinal)
         }
     }
 
@@ -124,11 +119,11 @@ fun AppVerifierApp(
         modifier = modifier,
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         bottomBar = {
-            if (currentRoute in bottomNavRoutes) {
+            if (currentRoute == AppVerifierScreens.MainTabs.name) {
                 NavigationBar {
                     NavigationBarItem(
-                        selected = currentRoute == AppVerifierScreens.About.name,
-                        onClick = { navigateToBottomNavDestination(AppVerifierScreens.About) },
+                        selected = pagerState.currentPage == BottomNavPage.About.ordinal,
+                        onClick = { navigateToTab(BottomNavPage.About) },
                         icon = {
                             Icon(
                                 imageVector = Icons.Default.Info,
@@ -138,8 +133,8 @@ fun AppVerifierApp(
                         label = { Text(stringResource(R.string.about)) },
                     )
                     NavigationBarItem(
-                        selected = currentRoute == AppVerifierScreens.AppList.name,
-                        onClick = { navigateToBottomNavDestination(AppVerifierScreens.AppList) },
+                        selected = pagerState.currentPage == BottomNavPage.AppList.ordinal,
+                        onClick = { navigateToTab(BottomNavPage.AppList) },
                         icon = {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.List,
@@ -149,8 +144,8 @@ fun AppVerifierApp(
                         label = { Text(stringResource(R.string.app_list)) },
                     )
                     NavigationBarItem(
-                        selected = currentRoute == AppVerifierScreens.OpenApk.name,
-                        onClick = { navigateToBottomNavDestination(AppVerifierScreens.OpenApk) },
+                        selected = pagerState.currentPage == BottomNavPage.OpenApk.ordinal,
+                        onClick = { navigateToTab(BottomNavPage.OpenApk) },
                         icon = {
                             Icon(
                                 imageVector = Icons.Default.FileOpen,
@@ -160,8 +155,8 @@ fun AppVerifierApp(
                         label = { Text(stringResource(R.string.nav_open_apk)) },
                     )
                     NavigationBarItem(
-                        selected = currentRoute == AppVerifierScreens.Settings.name,
-                        onClick = { navigateToBottomNavDestination(AppVerifierScreens.Settings) },
+                        selected = pagerState.currentPage == BottomNavPage.Settings.ordinal,
+                        onClick = { navigateToTab(BottomNavPage.Settings) },
                         icon = {
                             Icon(
                                 imageVector = Icons.Default.Settings,
@@ -179,25 +174,25 @@ fun AppVerifierApp(
             startDestination = if (isActionSend || isActionView) {
                 AppVerifierScreens.VerifyApp.name
             } else {
-                AppVerifierScreens.About.name
+                AppVerifierScreens.MainTabs.name
             },
             modifier = Modifier.padding(bottom = innerPadding.calculateBottomPadding()),
         ) {
-            composableWithDefaultSlideTransitions(route = AppVerifierScreens.AppList) {
-                AppListScreen(
-                    searchQuery,
-                    { name: String, packageName: String, hashes: Hashes, icon: Drawable, internalDatabaseInfo:
-                    InternalDatabaseInfo ->
+            composableWithDefaultSlideTransitions(route = AppVerifierScreens.MainTabs) {
+                MainTabsScreen(
+                    pagerState = pagerState,
+                    searchQuery = searchQuery,
+                    onAppListItemClick = { name, packageName, hashes, icon, internalDatabaseInfo ->
                         verifyAppViewModel.setAppVerificationInfo(
                             name,
                             packageName,
                             hashes,
-                            internalDatabaseInfo
+                            internalDatabaseInfo,
                         )
                         verifyAppViewModel.setAppIcon(icon)
                         navController.navigate(AppVerifierScreens.VerifyApp.name)
                     },
-                    onLaunchedEffect = {
+                    onAppListLaunchedEffect = {
                         verifyAppViewModel.clearUiState()
                         searchQuery = ""
                     },
@@ -209,14 +204,20 @@ fun AppVerifierApp(
                         verifyAppViewModel.getInternalDatabaseInfoFromVerificationInfo(it)
                     },
                     showSystemApps = preferencesUiState.value.showSystemApps.second.value,
-                )
-            }
-            composableWithDefaultSlideTransitions(route = AppVerifierScreens.OpenApk) {
-                OpenApkScreen(
                     onOpenApkFile = {
                         openApkFileLauncher.launch(
                             arrayOf("application/vnd.android.package-archive"),
                         )
+                    },
+                    preferencesViewModel = preferencesViewModel,
+                    onLicenseIconButtonClicked = {
+                        navController.navigate(AppVerifierScreens.License.name)
+                    },
+                    onPrivacyPolicyIconButtonClicked = {
+                        navController.navigate(AppVerifierScreens.PrivacyPolicy.name)
+                    },
+                    onCreditsIconButtonClicked = {
+                        navController.navigate(AppVerifierScreens.Credits.name)
                     },
                 )
             }
@@ -233,24 +234,6 @@ fun AppVerifierApp(
                     preferencesUiState.value.showHasMultipleSigners.second.value,
                     preferencesUiState.value.showSharingTools.second.value,
                     preferencesUiState.value.alwaysShowGitHubSubmit.second.value,
-                )
-            }
-            composableWithDefaultSlideTransitions(route = AppVerifierScreens.Settings) {
-                SettingsScreen(
-                    preferencesViewModel = preferencesViewModel,
-                )
-            }
-            composableWithDefaultSlideTransitions(route = AppVerifierScreens.About) {
-                AboutScreen(
-                    onLicenseIconButtonClicked = {
-                        navController.navigate(AppVerifierScreens.License.name)
-                    },
-                    onPrivacyPolicyIconButtonClicked = {
-                        navController.navigate(AppVerifierScreens.PrivacyPolicy.name)
-                    },
-                    onCreditsIconButtonClicked = {
-                        navController.navigate(AppVerifierScreens.Credits.name)
-                    },
                 )
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.License) {
