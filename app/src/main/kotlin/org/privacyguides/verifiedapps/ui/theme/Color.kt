@@ -16,6 +16,5 @@ val TealDarkOnPrimaryContainer = Color(0xFFA8F0E8)
 val SurfaceContainerLight = Color(0xFFF0F4F3)
 val SurfaceContainerDark = Color(0xFF1A211F)
 
-val VerifiedGreen = Color(0xFF2E7D32)
+/** Used when building static [androidx.compose.material3.ColorScheme] (e.g. error). */
 val MismatchRed = Color(0xFFC62828)
-val UnknownGray = Color(0xFF757575)

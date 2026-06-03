@@ -13,10 +13,6 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideIn
 import androidx.compose.animation.slideOut
-import androidx.compose.foundation.layout.calculateEndPadding
-import androidx.compose.foundation.layout.calculateStartPadding
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -26,7 +22,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
@@ -56,12 +51,6 @@ enum class AppVerifierScreens(@StringRes val title: Int) {
     License(title = R.string.license),
     PrivacyPolicy(title = R.string.privacy_policy),
     Credits(title = R.string.credits),
-}
-
-@Composable
-fun AppVerifierAppBar(
-) {
-
 }
 
 @Composable
@@ -100,24 +89,15 @@ fun AppVerifierApp(
 
     var searchQuery by rememberSaveable { mutableStateOf("") }
 
-    Scaffold(
-        topBar = {
-            AppVerifierAppBar()
+    NavHost(
+        navController = navController,
+        startDestination = if (isActionSend || isActionView) {
+            AppVerifierScreens.VerifyApp.name
+        } else {
+            AppVerifierScreens.Start.name
         },
-    ) { innerPadding ->
-        NavHost(
-            navController = navController,
-            startDestination = if (isActionSend || isActionView) {
-                AppVerifierScreens.VerifyApp.name
-            } else {
-                AppVerifierScreens.Start.name
-            },
-            modifier = modifier.padding(
-                innerPadding.calculateStartPadding(LocalLayoutDirection.current),
-                innerPadding.calculateTopPadding(),
-                innerPadding.calculateEndPadding(LocalLayoutDirection.current)
-            ),
-        ) {
+        modifier = modifier,
+    ) {
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.Start) {
                 StartupScreen(
                     modifier = modifier,
@@ -140,6 +120,7 @@ fun AppVerifierApp(
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.AppList) {
                 AppListScreen(
+                    onNavigateUp = { navController.navigateUp() },
                     searchQuery,
                     { name: String, packageName: String, hashes: Hashes, icon: Drawable, internalDatabaseInfo:
                     InternalDatabaseInfo ->
@@ -163,6 +144,7 @@ fun AppVerifierApp(
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.VerifyApp) {
                 VerifyAppScreen(
+                    onNavigateUp = { navController.navigateUp() },
                     verifyAppUiState.value.icon.value,
                     verifyAppUiState.value.name.value,
                     verifyAppUiState.value.packageName.value,
@@ -177,6 +159,7 @@ fun AppVerifierApp(
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.Settings) {
                 SettingsScreen(
+                    onNavigateUp = { navController.navigateUp() },
                     onLicenseIconButtonClicked = {
                         navController.navigate(AppVerifierScreens.License.name)
                     },
@@ -190,16 +173,15 @@ fun AppVerifierApp(
                 )
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.License) {
-                LicenseScreen()
+                LicenseScreen(onNavigateUp = { navController.navigateUp() })
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.PrivacyPolicy) {
-                PrivacyPolicyScreen()
+                PrivacyPolicyScreen(onNavigateUp = { navController.navigateUp() })
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.Credits) {
-                CreditsScreen()
+                CreditsScreen(onNavigateUp = { navController.navigateUp() })
             }
         }
-    }
 }
 
 fun getStateDestinationRoute(state: NavBackStackEntry): AppVerifierScreens? {

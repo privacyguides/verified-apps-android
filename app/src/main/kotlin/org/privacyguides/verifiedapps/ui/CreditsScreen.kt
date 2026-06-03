@@ -7,21 +7,29 @@ import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
-import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
+import org.privacyguides.verifiedapps.R
 
 const val APACHE2LICENSE =
         "\n" +
@@ -539,154 +547,140 @@ private const val CC_BY_4_LICENSE =
         "Creative Commons may be contacted at creativecommons.org.\n" +
         "\n"
 
+private data class CreditEntry(
+    val name: String,
+    val packageName: String,
+    val license: String,
+)
+
+private val creditEntries = listOf(
+    CreditEntry(
+        name = "Verified Apps (Privacy Guides)",
+        packageName = "Crowdsourced Android app signature data",
+        license = CC_BY_4_LICENSE,
+    ),
+    CreditEntry(
+        name = "AppVerifier",
+        packageName = "dev.soupslurpr.appverifier",
+        license = ISC_LICENSE_SOUPSURPR,
+    ),
+    CreditEntry(
+        name = "AppVerifierBG",
+        packageName = "com.roundsalmon4.appverifier",
+        license = ISC_LICENSE_SOUPSURPR_ROUNDSALMON,
+    ),
+    CreditEntry(
+        name = "Core Ktx",
+        packageName = "androidx.core:core-ktx",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Lifecycle ViewModel Ktx",
+        packageName = "androidx.lifecycle:lifecycle-viewmodel-ktx",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Kotlin Coroutines Android",
+        packageName = "org.jetbrains.kotlinx:kotlinx-coroutines-android",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Activity Compose",
+        packageName = "androidx.activity:activity-compose",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Compose Navigation",
+        packageName = "androidx.navigation:navigation-compose",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Android Preferences DataStore",
+        packageName = "androidx.datastore:datastore-preferences",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Accompanist DrawablePainter",
+        packageName = "com.google.accompanist:accompanist-drawablepainter",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Jetpack Compose BOM",
+        packageName = "androidx.compose:compose-bom",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Compose Material3 Components",
+        packageName = "androidx.compose.material3:material3",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Material Symbols",
+        packageName = "androidx.compose.material:material-icons-extended",
+        license = APACHE2LICENSE,
+    ),
+    CreditEntry(
+        name = "Compose UI Preview Tooling",
+        packageName = "androidx.compose.ui:ui-tooling-preview",
+        license = APACHE2LICENSE,
+    ),
+)
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CreditsScreen() {
-    LazyColumn(
-        modifier = Modifier
-    ) {
-        item {
-            CreditsItem(
-                dependencyName = "Verified Apps (Privacy Guides)",
-                dependencyPackageName = "Crowdsourced Android app signature data",
-                dependencyLicense = CC_BY_4_LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "AppVerifier",
-                dependencyPackageName = "dev.soupslurpr.appverifier",
-                dependencyLicense = ISC_LICENSE_SOUPSURPR,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "AppVerifierBG",
-                dependencyPackageName = "com.roundsalmon4.appverifier",
-                dependencyLicense = ISC_LICENSE_SOUPSURPR_ROUNDSALMON,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Core Ktx",
-                dependencyPackageName = "androidx.core:core-ktx",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Lifecycle ViewModel Ktx",
-                dependencyPackageName = "androidx.lifecycle:lifecycle-viewmodel-ktx",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Kotlin Coroutines Android",
-                dependencyPackageName = "org.jetbrains.kotlinx:kotlinx-coroutines-android",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Activity Compose",
-                dependencyPackageName = "androidx.activity:activity-compose",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Compose Navigation",
-                dependencyPackageName = "androidx.navigation:navigation-compose",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Android Preferences DataStore",
-                dependencyPackageName = "androidx.datastore:datastore-preferences",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Accompanist DrawablePainter",
-                dependencyPackageName = "com.google.accompanist:accompanist-drawablepainter",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Jetpack Compose BOM",
-                dependencyPackageName = "androidx.compose:compose-bom",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Compose Material3 Components",
-                dependencyPackageName = "androidx.compose.material3:material3",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Material Symbols",
-                dependencyPackageName = "androidx.compose.material:material-icons-extended",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-        item {
-            CreditsItem(
-                dependencyName = "Compose UI Preview Tooling",
-                dependencyPackageName = "androidx.compose.ui:ui-tooling-preview",
-                dependencyLicense = APACHE2LICENSE,
-            )
-        }
-
-
-        // This MUST stay at the bottom or else when fully scrolled some credits will be blocked.
-        item {
-            Spacer(Modifier.padding(WindowInsets.navigationBars.asPaddingValues()))
-        }
-    }
-}
-
-@Composable
-fun CreditsItem(
-    dependencyName: String,
-    dependencyPackageName: String,
-    dependencyLicense: String,
-) {
-    var dropped by rememberSaveable { mutableStateOf(false) }
-
-    ListItem(
-        modifier = Modifier.clickable(
-            onClickLabel = "View $dependencyName's license",
-            role = Role.DropdownList,
-            onClick = { dropped = !dropped },
-        ),
-        headlineContent = { Text(text = dependencyName) },
-        supportingContent = { Text(text = dependencyPackageName) },
-        trailingContent = {
-            Icon(
-                imageVector = if (dropped) {
-                    Icons.Filled.KeyboardArrowDown
-                } else {
-                    Icons.Filled.KeyboardArrowRight
-                },
-                contentDescription = if (dropped) {
-                    "Collapse $dependencyName license"
-                } else {
-                    "Expand $dependencyName license"
+fun CreditsScreen(onNavigateUp: () -> Unit) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(R.string.credits)) },
+                navigationIcon = {
+                    IconButton(onClick = onNavigateUp) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.navigate_up),
+                        )
+                    }
                 },
             )
+        },
+    ) { innerPadding ->
+        LazyColumn(modifier = Modifier.padding(innerPadding)) {
+            items(creditEntries, key = { it.name }) { entry ->
+                var expanded by rememberSaveable(entry.name) { mutableStateOf(false) }
+                ListItem(
+                    modifier = Modifier.clickable(
+                        onClickLabel = "View ${entry.name}'s license",
+                        role = Role.DropdownList,
+                        onClick = { expanded = !expanded },
+                    ),
+                    headlineContent = { Text(text = entry.name) },
+                    supportingContent = { Text(text = entry.packageName) },
+                    trailingContent = {
+                        Icon(
+                            imageVector = if (expanded) {
+                                Icons.Filled.KeyboardArrowDown
+                            } else {
+                                Icons.Filled.KeyboardArrowRight
+                            },
+                            contentDescription = if (expanded) {
+                                "Collapse ${entry.name} license"
+                            } else {
+                                "Expand ${entry.name} license"
+                            },
+                        )
+                    },
+                )
+                if (expanded) {
+                    Text(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        style = MaterialTheme.typography.bodySmall,
+                        text = entry.license,
+                    )
+                }
+            }
+            item {
+                Spacer(Modifier.padding(WindowInsets.navigationBars.asPaddingValues()))
+            }
         }
-    )
-    if (dropped) {
-        Text(
-            modifier = Modifier.padding(horizontal = 16.dp),
-            style = typography.bodySmall,
-            text = dependencyLicense,
-        )
     }
 }

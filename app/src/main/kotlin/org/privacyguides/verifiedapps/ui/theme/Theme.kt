@@ -19,6 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
 
 private val DarkColorScheme = darkColorScheme(
+    error = MismatchRed,
     primary = TealDarkPrimary,
     onPrimary = TealDarkOnPrimary,
     primaryContainer = TealDarkPrimaryContainer,
@@ -36,6 +37,7 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
+    error = MismatchRed,
     primary = TealPrimary,
     onPrimary = TealOnPrimary,
     primaryContainer = TealPrimaryContainer,

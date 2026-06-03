@@ -1,17 +1,14 @@
-@file:OptIn(ExperimentalMaterial3ExpressiveApi::class)
+@file:OptIn(ExperimentalMaterial3ExpressiveApi::class, ExperimentalMaterial3Api::class)
 
 package org.privacyguides.verifiedapps.ui
 
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
-
-import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -19,43 +16,39 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Error
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.HelpOutline
-import androidx.compose.material.icons.automirrored.filled.Sort
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Search
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SearchBarDefaults
 import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -70,14 +63,12 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import org.privacyguides.verifiedapps.R
 import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
-import org.privacyguides.verifiedapps.data.InternalDatabaseStatus
 import org.privacyguides.verifiedapps.data.VerificationInfo
 
 private enum class AppListTab {
@@ -85,9 +76,9 @@ private enum class AppListTab {
     System,
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppListScreen(
+    onNavigateUp: () -> Unit,
     searchQuery: String,
     onClickAppItem: (
         name: String,
@@ -131,6 +122,12 @@ fun AppListScreen(
     var sortMenuExpanded by remember { mutableStateOf(false) }
     var searchFieldVisible by rememberSaveable { mutableStateOf(false) }
     val searchFocusRequester = remember { FocusRequester() }
+
+    fun closeSearch() {
+        onQueryChange("")
+        onSearch("")
+        searchFieldVisible = false
+    }
 
     LaunchedEffect(searchFieldVisible) {
         onSearchActiveChange(searchFieldVisible)
@@ -183,51 +180,21 @@ fun AppListScreen(
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.background,
-        contentWindowInsets = WindowInsets(0, 0, 0, 0),
-    ) { innerPadding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding),
-        ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(SearchBarDefaults.InputFieldHeight)
-                    .padding(horizontal = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                if (searchFieldVisible) {
-                    IconButton(onClick = { searchFieldVisible = false }) {
+        topBar = {
+            CenterAlignedTopAppBar(
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.background,
+                ),
+                navigationIcon = {
+                    IconButton(onClick = onNavigateUp) {
                         Icon(
-                            imageVector = Icons.Default.Close,
-                            contentDescription = stringResource(R.string.app_list_search_close),
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.navigate_up),
                         )
                     }
-                } else {
-                    IconButton(onClick = { searchFieldVisible = true }) {
-                        Icon(
-                            imageVector = Icons.Default.Search,
-                            contentDescription = stringResource(R.string.app_list_search),
-                            tint = if (searchQuery.isNotEmpty()) {
-                                MaterialTheme.colorScheme.primary
-                            } else {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            },
-                        )
-                    }
-                }
-                AnimatedContent(
-                    targetState = searchFieldVisible,
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxHeight(),
-                    transitionSpec = {
-                        fadeIn() togetherWith fadeOut()
-                    },
-                    label = "app_list_header_search",
-                ) { searchActive ->
-                    if (searchActive) {
+                },
+                title = {
+                    if (searchFieldVisible) {
                         SearchBarDefaults.InputField(
                             query = searchQuery,
                             onQueryChange = onQueryChange,
@@ -238,36 +205,46 @@ fun AppListScreen(
                             expanded = true,
                             onExpandedChange = { expanded ->
                                 if (!expanded) {
-                                    searchFieldVisible = false
+                                    closeSearch()
                                 }
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .height(SearchBarDefaults.InputFieldHeight)
                                 .focusRequester(searchFocusRequester),
                             placeholder = { Text(stringResource(R.string.app_list_search_hint)) },
                             leadingIcon = null,
                             trailingIcon = null,
                         )
                     } else {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .fillMaxHeight(),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            Text(
-                                text = stringResource(R.string.app_list),
-                                style = MaterialTheme.typography.titleLargeEmphasized,
-                                textAlign = TextAlign.Center,
-                                maxLines = 1,
-                                overflow = TextOverflow.Ellipsis,
-                                modifier = Modifier.fillMaxWidth(),
+                        Text(
+                            text = stringResource(R.string.app_list),
+                            style = MaterialTheme.typography.titleLargeEmphasized,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                },
+                actions = {
+                    if (searchFieldVisible) {
+                        IconButton(onClick = { closeSearch() }) {
+                            Icon(
+                                imageVector = Icons.Default.Close,
+                                contentDescription = stringResource(R.string.app_list_search_close),
+                            )
+                        }
+                    } else {
+                        IconButton(onClick = { searchFieldVisible = true }) {
+                            Icon(
+                                imageVector = Icons.Default.Search,
+                                contentDescription = stringResource(R.string.app_list_search),
+                                tint = if (searchQuery.isNotEmpty()) {
+                                    MaterialTheme.colorScheme.primary
+                                } else {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                },
                             )
                         }
                     }
-                }
-                Box {
                     IconButton(onClick = { sortMenuExpanded = true }) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.Sort,
@@ -293,9 +270,15 @@ fun AppListScreen(
                             )
                         }
                     }
-                }
-            }
-
+                },
+            )
+        },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+        ) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -316,11 +299,21 @@ fun AppListScreen(
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 AppListFilter.entries.forEach { filter ->
-                    StatusFilterChip(
-                        filter = filter,
-                        selected = isStatusFilterSelected(statusFilterMask, filter),
+                    val selected = isStatusFilterSelected(statusFilterMask, filter)
+                    FilterChip(
+                        selected = selected,
                         onClick = {
                             statusFilterMask = toggleStatusFilter(statusFilterMask, filter)
+                        },
+                        label = { Text(appListFilterLabel(filter)) },
+                        leadingIcon = {
+                            if (selected) {
+                                Icon(
+                                    imageVector = Icons.Default.Check,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(FilterChipDefaults.IconSize),
+                                )
+                            }
                         },
                     )
                 }
@@ -372,44 +365,56 @@ fun AppListScreen(
                         top = 8.dp,
                         bottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding(),
                     ),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
                     items(visibleEntries, key = { it.packageName }) { entry ->
-                        AppItem(
-                            name = entry.name,
-                            packageName = entry.packageName,
-                            hashes = entry.hashes,
-                            icon = entry.icon,
-                            onClickAppItem = onClickAppItem,
-                            internalDatabaseInfo = entry.internalDatabaseInfo,
+                        val status = entry.internalDatabaseInfo.internalDatabaseStatus
+                        ListItem(
+                            modifier = Modifier.clickable {
+                                onClickAppItem(
+                                    entry.name,
+                                    entry.packageName,
+                                    entry.hashes,
+                                    entry.icon,
+                                    entry.internalDatabaseInfo,
+                                )
+                            },
+                            leadingContent = {
+                                Image(
+                                    painter = rememberDrawablePainter(drawable = entry.icon),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(48.dp),
+                                )
+                            },
+                            headlineContent = {
+                                Text(
+                                    text = entry.name,
+                                    style = MaterialTheme.typography.titleMediumEmphasized,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                            },
+                            supportingContent = {
+                                Text(
+                                    text = entry.packageName,
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                            },
+                            trailingContent = {
+                                Icon(
+                                    imageVector = status.statusIcon(),
+                                    contentDescription = stringResource(status.labelRes()),
+                                    tint = status.contentColor(),
+                                )
+                            },
                         )
                     }
                 }
             }
         }
     }
-}
-
-@Composable
-private fun StatusFilterChip(
-    filter: AppListFilter,
-    selected: Boolean,
-    onClick: () -> Unit,
-) {
-    FilterChip(
-        selected = selected,
-        onClick = onClick,
-        label = { Text(appListFilterLabel(filter)) },
-        leadingIcon = {
-            if (selected) {
-                Icon(
-                    imageVector = Icons.Default.Check,
-                    contentDescription = null,
-                    modifier = Modifier.size(FilterChipDefaults.IconSize),
-                )
-            }
-        },
-    )
 }
 
 @Composable
@@ -453,64 +458,4 @@ private fun buildAppListEntries(
         hashes = hashes,
         internalDatabaseInfo = getInternalDatabaseInfoFromVerificationInfo(verificationInfo),
     )
-}
-
-@Composable
-fun AppItem(
-    name: String,
-    packageName: String,
-    hashes: Hashes,
-    icon: Drawable,
-    onClickAppItem: (
-        name: String,
-        packageName: String,
-        hash: Hashes,
-        icon: Drawable,
-        internalDatabaseInfo: InternalDatabaseInfo,
-    ) -> Unit,
-    internalDatabaseInfo: InternalDatabaseInfo,
-) {
-    val status = internalDatabaseInfo.internalDatabaseStatus
-
-    Card(
-        onClick = {
-            onClickAppItem(name, packageName, hashes, icon, internalDatabaseInfo)
-        },
-        modifier = Modifier.fillMaxWidth(),
-        shape = MaterialTheme.shapes.large,
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-    ) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-        ) {
-            Image(
-                painter = rememberDrawablePainter(drawable = icon),
-                contentDescription = null,
-                modifier = Modifier.size(48.dp),
-            )
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = name,
-                    style = MaterialTheme.typography.titleMediumEmphasized,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Text(
-                    text = packageName,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-            }
-            DatabaseStatusIcon(status = status)
-        }
-    }
 }

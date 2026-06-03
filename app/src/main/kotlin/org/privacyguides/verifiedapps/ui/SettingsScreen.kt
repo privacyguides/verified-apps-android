@@ -1,5 +1,6 @@
 package org.privacyguides.verifiedapps.ui
 
+import android.os.Build
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,15 +13,18 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MaterialTheme.typography
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
-import android.os.Build
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -28,18 +32,16 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 import org.privacyguides.verifiedapps.R
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
-import kotlinx.coroutines.launch
 
-/**
- * Composable for settings screen
- */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SettingsScreen(
+    onNavigateUp: () -> Unit,
     onLicenseIconButtonClicked: () -> Unit,
     onPrivacyPolicyIconButtonClicked: () -> Unit,
     onCreditsIconButtonClicked: () -> Unit,
@@ -50,235 +52,246 @@ fun SettingsScreen(
     val coroutineScope = rememberCoroutineScope()
     val dynamicColorAvailable = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
 
-    Column(
-        modifier = Modifier
-            .verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
-        Column {
-            SettingsCategoryText(category = stringResource(id = R.string.theme))
-            SettingsItem(
-                name = stringResource(id = R.string.dynamic_color_setting_name),
-                description = stringResource(
-                    id = if (dynamicColorAvailable) {
-                        R.string.dynamic_color_setting_description
-                    } else {
-                        R.string.dynamic_color_setting_unavailable_description
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(R.string.settings)) },
+                navigationIcon = {
+                    IconButton(onClick = onNavigateUp) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                            contentDescription = stringResource(R.string.navigate_up),
+                        )
+                    }
+                },
+            )
+        },
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Column {
+                Text(
+                    text = stringResource(R.string.theme),
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(8.dp),
+                    style = MaterialTheme.typography.labelLarge,
+                )
+                ListItem(
+                    modifier = Modifier.toggleable(
+                        value = preferencesUiState.dynamicColor.second.value,
+                        enabled = dynamicColorAvailable,
+                        onValueChange = {
+                            coroutineScope.launch {
+                                preferencesViewModel.setPreference(
+                                    preferencesUiState.dynamicColor.first,
+                                    it,
+                                )
+                            }
+                        },
+                    ),
+                    headlineContent = {
+                        Text(stringResource(R.string.dynamic_color_setting_name))
                     },
-                ),
-                hasSwitch = true,
-                enabled = dynamicColorAvailable,
-                checked = preferencesUiState.dynamicColor.second.value,
-                onCheckedChange = {
-                    coroutineScope.launch {
-                        preferencesViewModel.setPreference(preferencesUiState.dynamicColor.first, it)
-                    }
-                },
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.pitch_black_background_setting_name),
-                description = stringResource(id = R.string.pitch_black_background_setting_description),
-                hasSwitch = true,
-                checked = preferencesUiState.pitchBlackBackground.second.value,
-                onCheckedChange = {
-                    coroutineScope.launch {
-                        preferencesViewModel.setPreference(preferencesUiState.pitchBlackBackground.first, it)
-                    }
-                }
-            )
-        }
-
-        Column {
-            SettingsCategoryText(category = stringResource(id = R.string.about))
-//            SettingsItem(
-//                name = stringResource(id = R.string.open_appverifier_website_setting_name),
-//                description = stringResource(id = R.string.open_appverifier_website_setting_description),
-//                hasIcon = true,
-//                onClickIconSetting = {
-//                    localUriHandler.openUri("https://appverifier.soupslurpr.dev")
-//                },
-//                icon = {
-//                    Icon(
-//                        imageVector = Icons.Filled.ExitToApp,
-//                        contentDescription = null
-//                    )
-//                }
-//            )
-            SettingsItem(
-                name = stringResource(R.string.donation_setting_name),
-                description = stringResource(R.string.donation_setting_description),
-                hasIcon = true,
-                onClickIconSetting = {
-                    localUriHandler.openUri("https://www.privacyguides.org/donate")
-                },
-                icon = {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ExitToApp,
-                        contentDescription = null,
-                    )
-                },
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.view_source_code_setting_name),
-                description = stringResource(id = R.string.view_source_code_setting_description),
-                hasIcon = true,
-                onClickIconSetting = {
-                    localUriHandler.openUri("https://github.com/privacyguides/verified-apps-android")
-                },
-                icon = {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ExitToApp,
-                        contentDescription = null
-                    )
-                }
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.license_setting_name),
-                description = stringResource(id = R.string.license_setting_description),
-                hasIcon = true,
-                onClickIconSetting = { onLicenseIconButtonClicked() },
-                icon = {
-                    Icon(
-                        imageVector = Icons.Filled.Info,
-                        contentDescription = null
-                    )
-                }
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.privacy_policy_setting_name),
-                description = stringResource(id = R.string.privacy_policy_setting_description),
-                hasIcon = true,
-                onClickIconSetting = { onPrivacyPolicyIconButtonClicked() },
-                icon = {
-                    Icon(
-                        imageVector = Icons.Filled.Info,
-                        contentDescription = null,
-                    )
-                }
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.credits_setting_name),
-                description = stringResource(id = R.string.credits_setting_description),
-                hasIcon = true,
-                onClickIconSetting = { onCreditsIconButtonClicked() },
-                icon = {
-                    Icon(
-                        imageVector = Icons.Filled.Info,
-                        contentDescription = null
-                    )
-                }
-            )
-        }
-
-        Column {
-            SettingsCategoryText(category = stringResource(id = R.string.advanced))
-            SettingsItem(
-                name = stringResource(id = R.string.show_system_apps_setting_name),
-                description = stringResource(R.string.show_system_apps_setting_description),
-                hasSwitch = true,
-                checked = preferencesUiState.showSystemApps.second.value,
-                onCheckedChange = {
-                    coroutineScope.launch {
-                        preferencesViewModel.setPreference(preferencesUiState.showSystemApps.first, it)
-                    }
-                },
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.show_hasmultiplesigners_setting_name),
-                description = stringResource(R.string.show_hasmultiplesigners_setting_description),
-                hasSwitch = true,
-                checked = preferencesUiState.showHasMultipleSigners.second.value,
-                onCheckedChange = {
-                    coroutineScope.launch {
-                        preferencesViewModel.setPreference(preferencesUiState.showHasMultipleSigners.first, it)
-                    }
-                },
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.show_sharing_tools_setting_name),
-                description = stringResource(R.string.show_sharing_tools_setting_description),
-                hasSwitch = true,
-                checked = preferencesUiState.showSharingTools.second.value,
-                onCheckedChange = {
-                    coroutineScope.launch {
-                        preferencesViewModel.setPreference(preferencesUiState.showSharingTools.first, it)
-                    }
-                },
-            )
-            SettingsItem(
-                name = stringResource(id = R.string.always_show_github_submit_setting_name),
-                description = stringResource(R.string.always_show_github_submit_setting_description),
-                hasSwitch = true,
-                checked = preferencesUiState.alwaysShowGitHubSubmit.second.value,
-                onCheckedChange = {
-                    coroutineScope.launch {
-                        preferencesViewModel.setPreference(preferencesUiState.alwaysShowGitHubSubmit.first, it)
-                    }
-                },
-            )
-        }
-
-        Spacer(Modifier.padding(WindowInsets.navigationBars.asPaddingValues()))
-    }
-}
-
-/**
- * An individual settings item
- */
-@Composable
-fun SettingsItem(
-    name: String,
-    description: String,
-    hasSwitch: Boolean = false,
-    hasIcon: Boolean = false,
-    enabled: Boolean = true,
-    onCheckedChange: (Boolean) -> Unit = {},
-    checked: Boolean = false,
-    onClickIconSetting: () -> Unit = {},
-    icon: @Composable () -> Unit = {},
-) {
-    ListItem(
-        modifier = when {
-            hasIcon -> Modifier.clickable(
-                enabled = enabled,
-                onClick = { onClickIconSetting() },
-            )
-            hasSwitch -> Modifier.toggleable(
-                value = checked,
-                enabled = enabled,
-                onValueChange = { onCheckedChange(it) },
-            )
-
-            else -> Modifier
-        },
-        headlineContent = {
-            Text(
-                text = name,
-                fontWeight = FontWeight.SemiBold
-            )
-        },
-        supportingContent = { Text(text = description) },
-        trailingContent = {
-            when {
-                hasIcon -> icon()
-                hasSwitch -> Switch(
-                    checked = checked,
-                    onCheckedChange = null,
-                    enabled = enabled,
+                    supportingContent = {
+                        Text(
+                            stringResource(
+                                if (dynamicColorAvailable) {
+                                    R.string.dynamic_color_setting_description
+                                } else {
+                                    R.string.dynamic_color_setting_unavailable_description
+                                },
+                            ),
+                        )
+                    },
+                    trailingContent = {
+                        Switch(
+                            checked = preferencesUiState.dynamicColor.second.value,
+                            onCheckedChange = null,
+                            enabled = dynamicColorAvailable,
+                        )
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.toggleable(
+                        value = preferencesUiState.pitchBlackBackground.second.value,
+                        onValueChange = {
+                            coroutineScope.launch {
+                                preferencesViewModel.setPreference(
+                                    preferencesUiState.pitchBlackBackground.first,
+                                    it,
+                                )
+                            }
+                        },
+                    ),
+                    headlineContent = {
+                        Text(stringResource(R.string.pitch_black_background_setting_name))
+                    },
+                    supportingContent = {
+                        Text(stringResource(R.string.pitch_black_background_setting_description))
+                    },
+                    trailingContent = {
+                        Switch(
+                            checked = preferencesUiState.pitchBlackBackground.second.value,
+                            onCheckedChange = null,
+                        )
+                    },
                 )
             }
-        }
-    )
-}
 
-@Composable
-fun SettingsCategoryText(category: String) {
-    Text(
-        text = category,
-        textAlign = TextAlign.Center,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.padding(8.dp),
-        style = typography.bodyMedium,
-        fontWeight = FontWeight.Bold
-    )
+            Column {
+                Text(
+                    text = stringResource(R.string.about),
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(8.dp),
+                    style = MaterialTheme.typography.labelLarge,
+                )
+                ListItem(
+                    modifier = Modifier.clickable {
+                        localUriHandler.openUri("https://www.privacyguides.org/donate")
+                    },
+                    headlineContent = { Text(stringResource(R.string.donation_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.donation_setting_description)) },
+                    trailingContent = {
+                        Icon(Icons.AutoMirrored.Filled.ExitToApp, contentDescription = null)
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.clickable {
+                        localUriHandler.openUri("https://github.com/privacyguides/verified-apps-android")
+                    },
+                    headlineContent = { Text(stringResource(R.string.view_source_code_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.view_source_code_setting_description)) },
+                    trailingContent = {
+                        Icon(Icons.AutoMirrored.Filled.ExitToApp, contentDescription = null)
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.clickable(onClick = onLicenseIconButtonClicked),
+                    headlineContent = { Text(stringResource(R.string.license_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.license_setting_description)) },
+                    trailingContent = {
+                        Icon(Icons.Filled.Info, contentDescription = null)
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.clickable(onClick = onPrivacyPolicyIconButtonClicked),
+                    headlineContent = { Text(stringResource(R.string.privacy_policy_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.privacy_policy_setting_description)) },
+                    trailingContent = {
+                        Icon(Icons.Filled.Info, contentDescription = null)
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.clickable(onClick = onCreditsIconButtonClicked),
+                    headlineContent = { Text(stringResource(R.string.credits_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.credits_setting_description)) },
+                    trailingContent = {
+                        Icon(Icons.Filled.Info, contentDescription = null)
+                    },
+                )
+            }
+
+            Column {
+                Text(
+                    text = stringResource(R.string.advanced),
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.padding(8.dp),
+                    style = MaterialTheme.typography.labelLarge,
+                )
+                ListItem(
+                    modifier = Modifier.toggleable(
+                        value = preferencesUiState.showSystemApps.second.value,
+                        onValueChange = {
+                            coroutineScope.launch {
+                                preferencesViewModel.setPreference(
+                                    preferencesUiState.showSystemApps.first,
+                                    it,
+                                )
+                            }
+                        },
+                    ),
+                    headlineContent = { Text(stringResource(R.string.show_system_apps_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.show_system_apps_setting_description)) },
+                    trailingContent = {
+                        Switch(
+                            checked = preferencesUiState.showSystemApps.second.value,
+                            onCheckedChange = null,
+                        )
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.toggleable(
+                        value = preferencesUiState.showHasMultipleSigners.second.value,
+                        onValueChange = {
+                            coroutineScope.launch {
+                                preferencesViewModel.setPreference(
+                                    preferencesUiState.showHasMultipleSigners.first,
+                                    it,
+                                )
+                            }
+                        },
+                    ),
+                    headlineContent = { Text(stringResource(R.string.show_hasmultiplesigners_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.show_hasmultiplesigners_setting_description)) },
+                    trailingContent = {
+                        Switch(
+                            checked = preferencesUiState.showHasMultipleSigners.second.value,
+                            onCheckedChange = null,
+                        )
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.toggleable(
+                        value = preferencesUiState.showSharingTools.second.value,
+                        onValueChange = {
+                            coroutineScope.launch {
+                                preferencesViewModel.setPreference(
+                                    preferencesUiState.showSharingTools.first,
+                                    it,
+                                )
+                            }
+                        },
+                    ),
+                    headlineContent = { Text(stringResource(R.string.show_sharing_tools_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.show_sharing_tools_setting_description)) },
+                    trailingContent = {
+                        Switch(
+                            checked = preferencesUiState.showSharingTools.second.value,
+                            onCheckedChange = null,
+                        )
+                    },
+                )
+                ListItem(
+                    modifier = Modifier.toggleable(
+                        value = preferencesUiState.alwaysShowGitHubSubmit.second.value,
+                        onValueChange = {
+                            coroutineScope.launch {
+                                preferencesViewModel.setPreference(
+                                    preferencesUiState.alwaysShowGitHubSubmit.first,
+                                    it,
+                                )
+                            }
+                        },
+                    ),
+                    headlineContent = { Text(stringResource(R.string.always_show_github_submit_setting_name)) },
+                    supportingContent = { Text(stringResource(R.string.always_show_github_submit_setting_description)) },
+                    trailingContent = {
+                        Switch(
+                            checked = preferencesUiState.alwaysShowGitHubSubmit.second.value,
+                            onCheckedChange = null,
+                        )
+                    },
+                )
+            }
+
+            Spacer(Modifier.padding(WindowInsets.navigationBars.asPaddingValues()))
+        }
+    }
 }
