@@ -20,9 +20,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerDefaults
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.Check
@@ -56,8 +61,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.launch
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -75,14 +84,13 @@ import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.data.VerificationInfo
 
-private enum class AppListTab {
-    User,
-    System,
-}
-
 @Composable
 fun AppListScreen(
     searchQuery: String,
+    sortOrdinal: Int,
+    onSortOrdinalChange: (Int) -> Unit,
+    statusFilterMask: Int,
+    onStatusFilterMaskChange: (Int) -> Unit,
     onClickAppItem: (
         name: String,
         packageName: String,
@@ -119,10 +127,13 @@ fun AppListScreen(
         allInstalledPackages.filter { it.packageName in systemPackageNames }
     }
 
-    var selectedTab by rememberSaveable { mutableIntStateOf(AppListTab.User.ordinal) }
-    var sortOrdinal by rememberSaveable { mutableIntStateOf(AppListSort.NAME_ASC.ordinal) }
-    var statusFilterMask by rememberSaveable { mutableIntStateOf(defaultStatusFilterMask()) }
+    val coroutineScope = rememberCoroutineScope()
     val sortOrder = AppListSort.entries[sortOrdinal]
+    var selectedAppListTab by rememberSaveable { mutableIntStateOf(AppListTab.User.ordinal) }
+    val innerPagerState = rememberPagerState(
+        initialPage = selectedAppListTab,
+        pageCount = { if (showSystemApps) 2 else 1 },
+    )
     var sortMenuExpanded by remember { mutableStateOf(false) }
     var searchFieldVisible by rememberSaveable { mutableStateOf(false) }
     val searchFocusRequester = remember { FocusRequester() }
@@ -142,8 +153,24 @@ fun AppListScreen(
 
     LaunchedEffect(showSystemApps) {
         if (!showSystemApps) {
-            selectedTab = AppListTab.User.ordinal
+            selectedAppListTab = AppListTab.User.ordinal
         }
+    }
+
+    LaunchedEffect(selectedAppListTab) {
+        if (innerPagerState.currentPage != selectedAppListTab) {
+            innerPagerState.animateScrollToPage(selectedAppListTab)
+        }
+    }
+
+    LaunchedEffect(innerPagerState) {
+        snapshotFlow { innerPagerState.currentPage }
+            .distinctUntilChanged()
+            .collect { page ->
+                if (selectedAppListTab != page) {
+                    selectedAppListTab = page
+                }
+            }
     }
 
     val selfPackageName = context.packageName
@@ -173,23 +200,30 @@ fun AppListScreen(
         }
     }
 
-    val allEntries = when {
-        showSystemApps && selectedTab == AppListTab.System.ordinal ->
-            appListUiState.systemEntries
-        else -> appListUiState.userEntries
-    }
-
-    val isLoadingEntries = when {
-        showSystemApps && selectedTab == AppListTab.System.ordinal ->
-            appListUiState.isLoadingSystem && allEntries.isEmpty()
-        else -> appListUiState.isLoadingUser && allEntries.isEmpty()
-    }
-
-    val visibleEntries = remember(allEntries, searchQuery, statusFilterMask, sortOrder) {
-        allEntries
+    val userVisibleEntries = remember(
+        appListUiState.userEntries,
+        searchQuery,
+        statusFilterMask,
+        sortOrder,
+    ) {
+        appListUiState.userEntries
             .filter { it.matchesStatusFilters(statusFilterMask) && it.matchesSearch(searchQuery) }
             .sortedWith { a, b -> compareAppListEntries(a, b, sortOrder) }
     }
+
+    val systemVisibleEntries = remember(
+        appListUiState.systemEntries,
+        searchQuery,
+        statusFilterMask,
+        sortOrder,
+    ) {
+        appListUiState.systemEntries
+            .filter { it.matchesStatusFilters(statusFilterMask) && it.matchesSearch(searchQuery) }
+            .sortedWith { a, b -> compareAppListEntries(a, b, sortOrder) }
+    }
+
+    val userResultsCount = userVisibleEntries.size
+    val systemResultsCount = systemVisibleEntries.size
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -270,7 +304,7 @@ fun AppListScreen(
                                     DropdownMenuItem(
                                         text = { Text(appListSortLabel(option)) },
                                         onClick = {
-                                            sortOrdinal = option.ordinal
+                                            onSortOrdinalChange(option.ordinal)
                                             sortMenuExpanded = false
                                         },
                                         leadingIcon = if (sortOrder == option) {
@@ -306,8 +340,13 @@ fun AppListScreen(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
+                val resultsCount = if (selectedAppListTab == AppListTab.System.ordinal) {
+                    systemResultsCount
+                } else {
+                    userResultsCount
+                }
                 Text(
-                    text = stringResource(R.string.app_list_results_count, visibleEntries.size),
+                    text = stringResource(R.string.app_list_results_count, resultsCount),
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -322,7 +361,7 @@ fun AppListScreen(
                     FilterChip(
                         selected = selected,
                         onClick = {
-                            statusFilterMask = toggleStatusFilter(statusFilterMask, filter)
+                            onStatusFilterMaskChange(toggleStatusFilter(statusFilterMask, filter))
                         },
                         label = { Text(appListFilterLabel(filter)) },
                         leadingIcon = {
@@ -340,108 +379,175 @@ fun AppListScreen(
 
             if (showSystemApps) {
                 PrimaryTabRow(
-                    selectedTabIndex = selectedTab,
+                    selectedTabIndex = selectedAppListTab,
                     containerColor = MaterialTheme.colorScheme.background,
                 ) {
                     Tab(
-                        selected = selectedTab == AppListTab.User.ordinal,
-                        onClick = { selectedTab = AppListTab.User.ordinal },
+                        selected = selectedAppListTab == AppListTab.User.ordinal,
+                        onClick = {
+                            coroutineScope.launch {
+                                innerPagerState.animateScrollToPage(AppListTab.User.ordinal)
+                            }
+                        },
                         text = { Text(stringResource(R.string.user_apps_tab)) },
                     )
                     Tab(
-                        selected = selectedTab == AppListTab.System.ordinal,
-                        onClick = { selectedTab = AppListTab.System.ordinal },
+                        selected = selectedAppListTab == AppListTab.System.ordinal,
+                        onClick = {
+                            coroutineScope.launch {
+                                innerPagerState.animateScrollToPage(AppListTab.System.ordinal)
+                            }
+                        },
                         text = { Text(stringResource(R.string.system_apps_tab)) },
                     )
                 }
             }
 
-            if (isLoadingEntries) {
-                Column(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                ) {
-                    CircularProgressIndicator()
-                }
-            } else if (visibleEntries.isEmpty()) {
-                Column(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth()
-                        .padding(32.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                ) {
-                    Icon(
-                        Icons.Default.HelpOutline,
-                        contentDescription = null,
-                        modifier = Modifier.size(48.dp),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                    Text(
-                        text = stringResource(R.string.app_list_empty),
-                        style = MaterialTheme.typography.bodyLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    )
-                }
-            } else {
-                LazyColumn(
-                    modifier = Modifier.weight(1f),
-                    contentPadding = PaddingValues(
-                        start = 16.dp,
-                        end = 16.dp,
-                        top = 8.dp,
-                        bottom = 8.dp,
-                    ),
-                ) {
-                    items(visibleEntries, key = { it.packageName }) { entry ->
-                        val status = entry.internalDatabaseInfo.internalDatabaseStatus
-                        ListItem(
-                            modifier = Modifier.clickable {
-                                onClickAppItem(
-                                    entry.name,
-                                    entry.packageName,
-                                    entry.hashes,
-                                    AppIconCache.get(packageManager, entry.packageName),
-                                    entry.internalDatabaseInfo,
-                                )
-                            },
-                            leadingContent = {
-                                AppListItemIcon(
-                                    packageName = entry.packageName,
-                                    modifier = Modifier.size(48.dp),
-                                )
-                            },
-                            headlineContent = {
-                                Text(
-                                    text = entry.name,
-                                    style = MaterialTheme.typography.titleMediumEmphasized,
-                                    maxLines = 1,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                            },
-                            supportingContent = {
-                                Text(
-                                    text = entry.packageName,
-                                    style = MaterialTheme.typography.bodySmall,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    maxLines = 1,
-                                    overflow = TextOverflow.Ellipsis,
-                                )
-                            },
-                            trailingContent = {
-                                Icon(
-                                    imageVector = status.statusIcon(),
-                                    contentDescription = stringResource(status.labelRes()),
-                                    tint = status.contentColor(),
-                                )
-                            },
+            val listPagerModifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .then(
+                    if (showSystemApps) {
+                        Modifier.nestedScroll(
+                            PagerDefaults.pageNestedScrollConnection(
+                                innerPagerState,
+                                Orientation.Horizontal,
+                            ),
+                        )
+                    } else {
+                        Modifier
+                    },
+                )
+
+            if (showSystemApps) {
+                HorizontalPager(
+                    state = innerPagerState,
+                    modifier = listPagerModifier,
+                    beyondViewportPageCount = 1,
+                ) { page ->
+                    when (page) {
+                        AppListTab.User.ordinal -> AppListEntriesBody(
+                            visibleEntries = userVisibleEntries,
+                            isLoading = appListUiState.isLoadingUser && userVisibleEntries.isEmpty(),
+                            packageManager = packageManager,
+                            onClickAppItem = onClickAppItem,
+                        )
+                        else -> AppListEntriesBody(
+                            visibleEntries = systemVisibleEntries,
+                            isLoading = appListUiState.isLoadingSystem && systemVisibleEntries.isEmpty(),
+                            packageManager = packageManager,
+                            onClickAppItem = onClickAppItem,
                         )
                     }
                 }
+            } else {
+                AppListEntriesBody(
+                    modifier = listPagerModifier,
+                    visibleEntries = userVisibleEntries,
+                    isLoading = appListUiState.isLoadingUser && userVisibleEntries.isEmpty(),
+                    packageManager = packageManager,
+                    onClickAppItem = onClickAppItem,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun AppListEntriesBody(
+    visibleEntries: List<AppListEntry>,
+    isLoading: Boolean,
+    packageManager: PackageManager,
+    onClickAppItem: (
+        name: String,
+        packageName: String,
+        hash: Hashes,
+        icon: Drawable,
+        internalDatabaseInfo: InternalDatabaseInfo,
+    ) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    if (isLoading) {
+        Column(
+            modifier = modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
+            CircularProgressIndicator()
+        }
+    } else if (visibleEntries.isEmpty()) {
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .padding(32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Icon(
+                Icons.Default.HelpOutline,
+                contentDescription = null,
+                modifier = Modifier.size(48.dp),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = stringResource(R.string.app_list_empty),
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    } else {
+        LazyColumn(
+            modifier = modifier,
+            contentPadding = PaddingValues(
+                start = 16.dp,
+                end = 16.dp,
+                top = 8.dp,
+                bottom = 8.dp,
+            ),
+        ) {
+            items(visibleEntries, key = { it.packageName }) { entry ->
+                val status = entry.internalDatabaseInfo.internalDatabaseStatus
+                ListItem(
+                    modifier = Modifier.clickable {
+                        onClickAppItem(
+                            entry.name,
+                            entry.packageName,
+                            entry.hashes,
+                            AppIconCache.get(packageManager, entry.packageName),
+                            entry.internalDatabaseInfo,
+                        )
+                    },
+                    leadingContent = {
+                        AppListItemIcon(
+                            packageName = entry.packageName,
+                            modifier = Modifier.size(48.dp),
+                        )
+                    },
+                    headlineContent = {
+                        Text(
+                            text = entry.name,
+                            style = MaterialTheme.typography.titleMediumEmphasized,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    },
+                    supportingContent = {
+                        Text(
+                            text = entry.packageName,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    },
+                    trailingContent = {
+                        Icon(
+                            imageVector = status.statusIcon(),
+                            contentDescription = stringResource(status.labelRes()),
+                            tint = status.contentColor(),
+                        )
+                    },
+                )
             }
         }
     }

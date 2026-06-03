@@ -2,29 +2,31 @@ package org.privacyguides.verifiedapps.ui
 
 import android.graphics.drawable.Drawable
 import android.content.pm.PackageInfo
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import org.privacyguides.verifiedapps.R
 import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.data.VerificationInfo
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
 
-enum class BottomNavPage(@StringRes val labelRes: Int) {
-    About(R.string.about),
-    AppList(R.string.app_list),
-    OpenApk(R.string.nav_open_apk),
-    Settings(R.string.settings),
+enum class BottomNavPage {
+    About,
+    AppList,
+    OpenApk,
+    Settings,
 }
 
 @Composable
 fun MainTabsScreen(
     pagerState: PagerState,
     searchQuery: String,
+    sortOrdinal: Int,
+    onSortOrdinalChange: (Int) -> Unit,
+    statusFilterMask: Int,
+    onStatusFilterMaskChange: (Int) -> Unit,
     onAppListItemClick: (
         name: String,
         packageName: String,
@@ -49,14 +51,18 @@ fun MainTabsScreen(
         modifier = Modifier.fillMaxSize(),
         beyondViewportPageCount = 1,
     ) { page ->
-        when (BottomNavPage.entries[page]) {
-            BottomNavPage.About -> AboutScreen(
+        when (MainPagerLayout.pages[page]) {
+            MainPagerPage.About -> AboutScreen(
                 onLicenseIconButtonClicked = onLicenseIconButtonClicked,
                 onPrivacyPolicyIconButtonClicked = onPrivacyPolicyIconButtonClicked,
                 onCreditsIconButtonClicked = onCreditsIconButtonClicked,
             )
-            BottomNavPage.AppList -> AppListScreen(
+            MainPagerPage.AppList -> AppListScreen(
                 searchQuery = searchQuery,
+                sortOrdinal = sortOrdinal,
+                onSortOrdinalChange = onSortOrdinalChange,
+                statusFilterMask = statusFilterMask,
+                onStatusFilterMaskChange = onStatusFilterMaskChange,
                 onClickAppItem = onAppListItemClick,
                 onQueryChange = onQueryChange,
                 onSearch = onSearch,
@@ -65,8 +71,8 @@ fun MainTabsScreen(
                 getInternalDatabaseInfoFromVerificationInfo = getInternalDatabaseInfoFromVerificationInfo,
                 showSystemApps = showSystemApps,
             )
-            BottomNavPage.OpenApk -> OpenApkScreen(onOpenApkFile = onOpenApkFile)
-            BottomNavPage.Settings -> SettingsScreen(preferencesViewModel = preferencesViewModel)
+            MainPagerPage.OpenApk -> OpenApkScreen(onOpenApkFile = onOpenApkFile)
+            MainPagerPage.Settings -> SettingsScreen(preferencesViewModel = preferencesViewModel)
         }
     }
 }

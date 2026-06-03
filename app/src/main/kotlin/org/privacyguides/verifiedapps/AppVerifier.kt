@@ -28,8 +28,10 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -51,8 +53,11 @@ import kotlinx.coroutines.launch
 import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
+import org.privacyguides.verifiedapps.ui.AppListSort
+import org.privacyguides.verifiedapps.ui.defaultStatusFilterMask
 import org.privacyguides.verifiedapps.ui.BottomNavPage
 import org.privacyguides.verifiedapps.ui.CreditsScreen
+import org.privacyguides.verifiedapps.ui.MainPagerLayout
 import org.privacyguides.verifiedapps.ui.LicenseScreen
 import org.privacyguides.verifiedapps.ui.MainTabsScreen
 import org.privacyguides.verifiedapps.ui.PrivacyPolicyScreen
@@ -87,9 +92,11 @@ fun AppVerifierApp(
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
 
+    val showSystemApps = preferencesUiState.value.showSystemApps.second.value
+
     val pagerState = rememberPagerState(
-        initialPage = BottomNavPage.About.ordinal,
-        pageCount = { BottomNavPage.entries.size },
+        initialPage = 0,
+        pageCount = { MainPagerLayout.pages.size },
     )
 
     val openApkFileLauncher =
@@ -105,13 +112,15 @@ fun AppVerifierApp(
         }
 
     var searchQuery by rememberSaveable { mutableStateOf("") }
+    var appListSortOrdinal by rememberSaveable { mutableIntStateOf(AppListSort.NAME_ASC.ordinal) }
+    var appListStatusFilterMask by rememberSaveable { mutableIntStateOf(defaultStatusFilterMask()) }
 
     fun navigateToTab(page: BottomNavPage) {
         coroutineScope.launch {
             if (currentRoute != AppVerifierScreens.MainTabs.name) {
                 navController.popBackStack(AppVerifierScreens.MainTabs.name, inclusive = false)
             }
-            pagerState.animateScrollToPage(page.ordinal)
+            pagerState.animateScrollToPage(MainPagerLayout.pagerIndexFor(page))
         }
     }
 
@@ -122,7 +131,7 @@ fun AppVerifierApp(
             if (currentRoute == AppVerifierScreens.MainTabs.name) {
                 NavigationBar {
                     NavigationBarItem(
-                        selected = pagerState.currentPage == BottomNavPage.About.ordinal,
+                        selected = pagerState.currentPage == MainPagerLayout.pagerIndexFor(BottomNavPage.About),
                         onClick = { navigateToTab(BottomNavPage.About) },
                         icon = {
                             Icon(
@@ -133,7 +142,7 @@ fun AppVerifierApp(
                         label = { Text(stringResource(R.string.about)) },
                     )
                     NavigationBarItem(
-                        selected = pagerState.currentPage == BottomNavPage.AppList.ordinal,
+                        selected = pagerState.currentPage == MainPagerLayout.pagerIndexFor(BottomNavPage.AppList),
                         onClick = { navigateToTab(BottomNavPage.AppList) },
                         icon = {
                             Icon(
@@ -144,7 +153,7 @@ fun AppVerifierApp(
                         label = { Text(stringResource(R.string.app_list)) },
                     )
                     NavigationBarItem(
-                        selected = pagerState.currentPage == BottomNavPage.OpenApk.ordinal,
+                        selected = pagerState.currentPage == MainPagerLayout.pagerIndexFor(BottomNavPage.OpenApk),
                         onClick = { navigateToTab(BottomNavPage.OpenApk) },
                         icon = {
                             Icon(
@@ -155,7 +164,7 @@ fun AppVerifierApp(
                         label = { Text(stringResource(R.string.nav_open_apk)) },
                     )
                     NavigationBarItem(
-                        selected = pagerState.currentPage == BottomNavPage.Settings.ordinal,
+                        selected = pagerState.currentPage == MainPagerLayout.pagerIndexFor(BottomNavPage.Settings),
                         onClick = { navigateToTab(BottomNavPage.Settings) },
                         icon = {
                             Icon(
@@ -182,6 +191,10 @@ fun AppVerifierApp(
                 MainTabsScreen(
                     pagerState = pagerState,
                     searchQuery = searchQuery,
+                    sortOrdinal = appListSortOrdinal,
+                    onSortOrdinalChange = { appListSortOrdinal = it },
+                    statusFilterMask = appListStatusFilterMask,
+                    onStatusFilterMaskChange = { appListStatusFilterMask = it },
                     onAppListItemClick = { name, packageName, hashes, icon, internalDatabaseInfo ->
                         verifyAppViewModel.setAppVerificationInfo(
                             name,
@@ -199,7 +212,7 @@ fun AppVerifierApp(
                     getInternalDatabaseInfoFromVerificationInfo = {
                         verifyAppViewModel.getInternalDatabaseInfoFromVerificationInfo(it)
                     },
-                    showSystemApps = preferencesUiState.value.showSystemApps.second.value,
+                    showSystemApps = showSystemApps,
                     onOpenApkFile = {
                         openApkFileLauncher.launch(
                             arrayOf("application/vnd.android.package-archive"),

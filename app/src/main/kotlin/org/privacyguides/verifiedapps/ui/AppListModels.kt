@@ -5,6 +5,11 @@ import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.data.InternalDatabaseStatus
 
+enum class AppListTab {
+    User,
+    System,
+}
+
 data class AppListEntry(
     val name: String,
     val packageName: String,
