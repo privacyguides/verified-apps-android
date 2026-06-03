@@ -45,7 +45,6 @@ import org.privacyguides.verifiedapps.data.SubmissionUiState
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
 import org.privacyguides.verifiedapps.ui.AppListScreen
 import org.privacyguides.verifiedapps.ui.CreditsScreen
-import org.privacyguides.verifiedapps.ui.DonationScreen
 import org.privacyguides.verifiedapps.ui.LicenseScreen
 import org.privacyguides.verifiedapps.ui.PrivacyPolicyScreen
 import org.privacyguides.verifiedapps.ui.SettingsScreen
@@ -61,7 +60,6 @@ enum class AppVerifierScreens(@StringRes val title: Int) {
     License(title = R.string.license),
     PrivacyPolicy(title = R.string.privacy_policy),
     Credits(title = R.string.credits),
-    Donation(title = R.string.donation)
 }
 
 @Composable
@@ -214,9 +212,6 @@ fun AppVerifierApp(
                         navController.navigate(AppVerifierScreens.Credits.name)
                     },
                     preferencesViewModel = preferencesViewModel,
-                    onDonationSettingsItemClicked = {
-                        navController.navigate(AppVerifierScreens.Donation.name)
-                    }
                 )
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.License) {
@@ -227,9 +222,6 @@ fun AppVerifierApp(
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.Credits) {
                 CreditsScreen()
-            }
-            composableWithDefaultSlideTransitions(route = AppVerifierScreens.Donation) {
-                DonationScreen()
             }
         }
     }
