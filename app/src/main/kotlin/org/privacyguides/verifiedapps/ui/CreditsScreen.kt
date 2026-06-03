@@ -8,7 +8,8 @@ import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme.typography
@@ -365,7 +366,18 @@ fun CreditsItem(
         headlineContent = { Text(text = dependencyName) },
         supportingContent = { Text(text = dependencyPackageName) },
         trailingContent = {
-            Icon(imageVector = Icons.Filled.Info, contentDescription = null)
+            Icon(
+                imageVector = if (dropped) {
+                    Icons.Filled.KeyboardArrowDown
+                } else {
+                    Icons.Filled.KeyboardArrowRight
+                },
+                contentDescription = if (dropped) {
+                    "Collapse $dependencyName license"
+                } else {
+                    "Expand $dependencyName license"
+                },
+            )
         }
     )
     if (dropped) {
