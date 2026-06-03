@@ -93,16 +93,38 @@ fun VerifyAppScreen(
                 "Make sure you provided a valid apk file."
             )
         } else {
+            if (icon != null) {
+                Image(
+                    rememberDrawablePainter(drawable = icon),
+                    null,
+                    Modifier.size(150.dp),
+                )
+            }
             Text(
-                "Internal Database Status:"
+                text = name,
+                style = typography.titleLarge,
             )
+            Text(text = packageName)
+            Text(
+                text = hashes.hashes.joinToString("\n"),
+                fontFamily = FontFamily.Monospace,
+            )
+            if (showHasMultipleSigners) {
+                Text("hasMultipleSigners: ")
+                Text(
+                    hashes.hasMultipleSigners.toString(),
+                    fontWeight = FontWeight.Black,
+                )
+            }
+            Spacer(Modifier.height(16.dp))
+            Text("Internal Database Status:")
             Row {
                 FilledTonalButton(
                     onClick = { showMoreInfoAboutInternalDatabaseStatusDialog = true },
                 ) {
                     Text(
                         internalDatabaseInfo.internalDatabaseStatus.simpleInternalDatabaseStatus.name.replace('_', ' '),
-                        style = typography.headlineLarge
+                        style = typography.headlineLarge,
                     )
                     Spacer(Modifier.width(8.dp))
                     Icon(
@@ -150,31 +172,6 @@ fun VerifyAppScreen(
                     Text("Submit on GitHub")
                 }
                 Spacer(Modifier.height(8.dp))
-            }
-            if (icon != null) {
-                Image(
-                    rememberDrawablePainter(drawable = icon),
-                    null,
-                    Modifier.size(150.dp),
-                )
-            }
-            Text(
-                text = name,
-                style = typography.titleLarge
-            )
-            Text(text = packageName)
-            Text(
-                text = hashes.hashes.joinToString("\n"),
-                fontFamily = FontFamily.Monospace
-            )
-            if (showHasMultipleSigners) {
-                Text(
-                    "hasMultipleSigners: "
-                )
-                Text(
-                    hashes.hasMultipleSigners.toString(),
-                    fontWeight = FontWeight.Black
-                )
             }
             if (showSharingTools) {
                 val clipboardManager = LocalClipboardManager.current
