@@ -225,11 +225,7 @@ const val APACHE2LICENSE = "\n" +
         "   See the License for the specific language governing permissions and\n" +
         "   limitations under the License."
 
-const val ISCLICENSE = "\n" +
-        "ISC License\n" +
-        "\n" +
-        "Copyright (c) 2024-2025 soupslurpr\n" +
-        "\n" +
+private const val ISC_LICENSE_TERMS =
         "Permission to use, copy, modify, and/or distribute this software for any\n" +
         "purpose with or without fee is hereby granted, provided that the above\n" +
         "copyright notice and this permission notice appear in all copies.\n" +
@@ -242,6 +238,17 @@ const val ISCLICENSE = "\n" +
         "OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR\n" +
         "PERFORMANCE OF THIS SOFTWARE."
 
+private fun iscLicense(copyrightNotice: String): String =
+    "\nISC License\n\n$copyrightNotice\n\n$ISC_LICENSE_TERMS"
+
+private val ISC_LICENSE_SOUPSURPR =
+    iscLicense("Copyright (c) 2024-2025 soupslurpr")
+
+private val ISC_LICENSE_SOUPSURPR_ROUNDSALMON =
+    iscLicense(
+        "Copyright (c) 2024-2025 soupslurpr\nCopyright (c) 2026 RoundSalmon4",
+    )
+
 @Composable
 fun CreditsScreen() {
     LazyColumn(
@@ -251,7 +258,14 @@ fun CreditsScreen() {
             CreditsItem(
                 dependencyName = "AppVerifier",
                 dependencyPackageName = "dev.soupslurpr.appverifier",
-                dependencyLicense = ISCLICENSE,
+                dependencyLicense = ISC_LICENSE_SOUPSURPR,
+            )
+        }
+        item {
+            CreditsItem(
+                dependencyName = "AppVerifierBG",
+                dependencyPackageName = "com.roundsalmon4.appverifier",
+                dependencyLicense = ISC_LICENSE_SOUPSURPR_ROUNDSALMON,
             )
         }
         item {
