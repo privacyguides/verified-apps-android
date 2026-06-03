@@ -57,6 +57,13 @@ class PreferencesViewModel(private val dataStore: DataStore<Preferences>) : View
                                 .showSharingTools.second.value
                         )
                     ),
+                    alwaysShowGitHubSubmit = Pair(
+                        uiState.value.alwaysShowGitHubSubmit.first,
+                        mutableStateOf(
+                            settings[uiState.value.alwaysShowGitHubSubmit.first] ?: uiState.value
+                                .alwaysShowGitHubSubmit.second.value
+                        )
+                    ),
                     showSystemApps = Pair(
                         uiState.value.showSystemApps.first,
                         mutableStateOf(

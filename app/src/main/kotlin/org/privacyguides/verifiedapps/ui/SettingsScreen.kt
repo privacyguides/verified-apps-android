@@ -185,6 +185,17 @@ fun SettingsScreen(
                     }
                 },
             )
+            SettingsItem(
+                name = stringResource(id = R.string.always_show_github_submit_setting_name),
+                description = stringResource(R.string.always_show_github_submit_setting_description),
+                hasSwitch = true,
+                checked = preferencesUiState.alwaysShowGitHubSubmit.second.value,
+                onCheckedChange = {
+                    coroutineScope.launch {
+                        preferencesViewModel.setPreference(preferencesUiState.alwaysShowGitHubSubmit.first, it)
+                    }
+                },
+            )
         }
 
         Spacer(Modifier.padding(WindowInsets.navigationBars.asPaddingValues()))

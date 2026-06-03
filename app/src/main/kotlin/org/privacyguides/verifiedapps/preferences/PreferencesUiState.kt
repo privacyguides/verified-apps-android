@@ -25,6 +25,12 @@ data class PreferencesUiState(
         mutableStateOf(false)
     ),
 
+    /** Whether to always show the GitHub submission button on the verify app screen. */
+    val alwaysShowGitHubSubmit: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
+        (booleanPreferencesKey("ALWAYS_SHOW_GITHUB_SUBMIT")),
+        mutableStateOf(false)
+    ),
+
     /** Whether to include system apps in the app list. */
     val showSystemApps: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
         (booleanPreferencesKey("SHOW_SYSTEM_APPS")),

@@ -66,6 +66,7 @@ fun VerifyAppScreen(
     apkFailedToParse: Boolean,
     showHasMultipleSigners: Boolean,
     showSharingTools: Boolean,
+    alwaysShowGitHubSubmit: Boolean,
 ) {
     val context = LocalContext.current
     val verticalScroll = rememberScrollState()
@@ -111,12 +112,17 @@ fun VerifyAppScreen(
                 }
             }
             Spacer(Modifier.height(8.dp))
-            if (internalDatabaseInfo.internalDatabaseStatus == InternalDatabaseStatus.NOT_FOUND) {
-                Text(
-                    "Not in database — submit fingerprints for review on GitHub.",
-                    style = typography.bodyMedium,
-                )
-                Spacer(Modifier.height(8.dp))
+            val showGitHubSubmit =
+                internalDatabaseInfo.internalDatabaseStatus == InternalDatabaseStatus.NOT_FOUND ||
+                    alwaysShowGitHubSubmit
+            if (showGitHubSubmit) {
+                if (internalDatabaseInfo.internalDatabaseStatus == InternalDatabaseStatus.NOT_FOUND) {
+                    Text(
+                        "Not in database — submit fingerprints for review on GitHub.",
+                        style = typography.bodyMedium,
+                    )
+                    Spacer(Modifier.height(8.dp))
+                }
                 Button(
                     onClick = {
                         val issueUri = GitHubAppSubmission.newIssueUri(

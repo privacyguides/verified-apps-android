@@ -172,6 +172,7 @@ fun AppVerifierApp(
                     verifyAppUiState.value.apkFailedToParse.value,
                     preferencesUiState.value.showHasMultipleSigners.second.value,
                     preferencesUiState.value.showSharingTools.second.value,
+                    preferencesUiState.value.alwaysShowGitHubSubmit.second.value,
                 )
             }
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.Settings) {
