@@ -82,6 +82,17 @@ fun SettingsScreen(
                     }
                 }
             )
+            SettingsItem(
+                name = stringResource(id = R.string.show_sharing_tools_setting_name),
+                description = stringResource(R.string.show_sharing_tools_setting_description),
+                hasSwitch = true,
+                checked = preferencesUiState.showSharingTools.second.value,
+                onCheckedChange = {
+                    coroutineScope.launch {
+                        preferencesViewModel.setPreference(preferencesUiState.showSharingTools.first, it)
+                    }
+                }
+            )
         }
 
         Column {

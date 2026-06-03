@@ -63,11 +63,11 @@ fun VerifyAppScreen(
     internalDatabaseInfo: InternalDatabaseInfo,
     apkFailedToParse: Boolean,
     showHasMultipleSigners: Boolean,
+    showSharingTools: Boolean,
     submissionState: SubmissionUiState,
     onSubmitApp: () -> Unit,
 ) {
     val context = LocalContext.current
-    val clipboardManager = LocalClipboardManager.current
     val verticalScroll = rememberScrollState()
     var showMoreInfoAboutInternalDatabaseStatusDialog by rememberSaveable { mutableStateOf(false) }
 
@@ -161,29 +161,32 @@ fun VerifyAppScreen(
                     fontWeight = FontWeight.Black
                 )
             }
-            val verificationData = "$packageName\n${hashes.hashes.joinToString("\n")}"
-            val mimeType = "text/plain"
-            Button(onClick = {
-                val sendIntent = Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, verificationData)
-                    type = mimeType
+            if (showSharingTools) {
+                val clipboardManager = LocalClipboardManager.current
+                val verificationData = "$packageName\n${hashes.hashes.joinToString("\n")}"
+                val mimeType = "text/plain"
+                Button(onClick = {
+                    val sendIntent = Intent().apply {
+                        action = Intent.ACTION_SEND
+                        putExtra(Intent.EXTRA_TEXT, verificationData)
+                        type = mimeType
+                    }
+
+                    val shareIntent = Intent.createChooser(
+                        sendIntent,
+                        null,
+                    )
+
+                    startActivity(context, shareIntent, ActivityOptions.makeBasic().toBundle())
+                }) {
+                    Text("Share Verification Info")
                 }
-
-                val shareIntent = Intent.createChooser(
-                    sendIntent,
-                    null,
-                )
-
-                startActivity(context, shareIntent, ActivityOptions.makeBasic().toBundle())
-            }) {
-                Text("Share Verification Info")
-            }
-            Button(onClick = {
-                val clip: ClipData = ClipData.newPlainText(mimeType, verificationData)
-                clipboardManager.setClip(ClipEntry(clip))
-            }) {
-                Text("Copy Verification Info")
+                Button(onClick = {
+                    val clip: ClipData = ClipData.newPlainText(mimeType, verificationData)
+                    clipboardManager.setClip(ClipEntry(clip))
+                }) {
+                    Text("Copy Verification Info")
+                }
             }
         }
 

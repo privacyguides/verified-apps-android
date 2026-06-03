@@ -50,6 +50,13 @@ class PreferencesViewModel(private val dataStore: DataStore<Preferences>) : View
                                 .showHasMultipleSigners.second.value
                         )
                     ),
+                    showSharingTools = Pair(
+                        uiState.value.showSharingTools.first,
+                        mutableStateOf(
+                            settings[uiState.value.showSharingTools.first] ?: uiState.value
+                                .showSharingTools.second.value
+                        )
+                    ),
                     pitchBlackBackground = Pair(
                         uiState.value.pitchBlackBackground.first,
                         mutableStateOf(

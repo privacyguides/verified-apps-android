@@ -19,6 +19,12 @@ data class PreferencesUiState(
         mutableStateOf(false)
     ),
 
+    /** Whether to show share and copy verification info on the verify app screen. */
+    val showSharingTools: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
+        (booleanPreferencesKey("SHOW_SHARING_TOOLS")),
+        mutableStateOf(false)
+    ),
+
     /** Pitch black background. */
     val pitchBlackBackground: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
         (booleanPreferencesKey("PITCH_BLACK_BACKGROUND")),

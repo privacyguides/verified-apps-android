@@ -197,6 +197,7 @@ fun AppVerifierApp(
                     verifyAppUiState.value.internalDatabaseInfo.value,
                     verifyAppUiState.value.apkFailedToParse.value,
                     preferencesUiState.value.showHasMultipleSigners.second.value,
+                    preferencesUiState.value.showSharingTools.second.value,
                     submissionState.value,
                     { verifyAppViewModel.submitAppForDatabaseInclusion() },
                 )
