@@ -14,6 +14,7 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideIn
 import androidx.compose.animation.slideOut
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material.icons.Icons
@@ -112,8 +113,15 @@ fun AppVerifierApp(
         }
 
     var searchQuery by rememberSaveable { mutableStateOf("") }
+    var appListSearchActive by rememberSaveable { mutableStateOf(false) }
     var appListSortOrdinal by rememberSaveable { mutableIntStateOf(AppListSort.NAME_ASC.ordinal) }
     var appListStatusFilterMask by rememberSaveable { mutableIntStateOf(defaultStatusFilterMask()) }
+
+    val onAppListTab = pagerState.currentPage == MainPagerLayout.pagerIndexFor(BottomNavPage.AppList)
+    val hideBottomBarForSearch =
+        currentRoute == AppVerifierScreens.MainTabs.name && onAppListTab && appListSearchActive
+    val showMainTabsBottomBar =
+        currentRoute == AppVerifierScreens.MainTabs.name && !hideBottomBarForSearch
 
     fun navigateToTab(page: BottomNavPage) {
         coroutineScope.launch {
@@ -128,7 +136,7 @@ fun AppVerifierApp(
         modifier = modifier,
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         bottomBar = {
-            if (currentRoute == AppVerifierScreens.MainTabs.name) {
+            if (currentRoute == AppVerifierScreens.MainTabs.name && !hideBottomBarForSearch) {
                 NavigationBar {
                     NavigationBarItem(
                         selected = pagerState.currentPage == MainPagerLayout.pagerIndexFor(BottomNavPage.About),
@@ -185,7 +193,15 @@ fun AppVerifierApp(
             } else {
                 AppVerifierScreens.MainTabs.name
             },
-            modifier = Modifier.padding(bottom = innerPadding.calculateBottomPadding()),
+            modifier = Modifier
+                .fillMaxSize()
+                .then(
+                    if (showMainTabsBottomBar) {
+                        Modifier.padding(bottom = innerPadding.calculateBottomPadding())
+                    } else {
+                        Modifier
+                    },
+                ),
         ) {
             composableWithDefaultSlideTransitions(route = AppVerifierScreens.MainTabs) {
                 MainTabsScreen(
@@ -208,7 +224,7 @@ fun AppVerifierApp(
                     },
                     onQueryChange = { searchQuery = it },
                     onSearch = { },
-                    onSearchActiveChange = { },
+                    onSearchActiveChange = { appListSearchActive = it },
                     getHashesFromPackageInfo = { verifyAppViewModel.getHashesFromPackageInfo(it) },
                     getInternalDatabaseInfoFromVerificationInfo = {
                         verifyAppViewModel.getInternalDatabaseInfoFromVerificationInfo(it)

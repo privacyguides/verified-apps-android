@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.gestures.Orientation
@@ -406,7 +407,8 @@ fun AppListScreen(
 
             val listPagerModifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
+                .fillMaxSize()
+                .imePadding()
                 .then(
                     if (showSystemApps) {
                         Modifier.nestedScroll(
@@ -428,6 +430,7 @@ fun AppListScreen(
                 ) { page ->
                     when (page) {
                         AppListTab.User.ordinal -> AppListEntriesBody(
+                            modifier = Modifier.fillMaxSize(),
                             visibleEntries = userVisibleEntries,
                             isLoading = appListUiState.isLoadingUser && userVisibleEntries.isEmpty(),
                             packageManager = packageManager,
@@ -435,6 +438,7 @@ fun AppListScreen(
                             onClickAppItem = onClickAppItem,
                         )
                         else -> AppListEntriesBody(
+                            modifier = Modifier.fillMaxSize(),
                             visibleEntries = systemVisibleEntries,
                             isLoading = appListUiState.isLoadingSystem && systemVisibleEntries.isEmpty(),
                             packageManager = packageManager,
@@ -485,9 +489,9 @@ private fun AppListEntriesBody(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(32.dp),
+                .padding(horizontal = 32.dp, vertical = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.Top),
         ) {
             Icon(
                 Icons.Default.HelpOutline,
@@ -503,7 +507,7 @@ private fun AppListEntriesBody(
         }
     } else {
         LazyColumn(
-            modifier = modifier,
+            modifier = modifier.fillMaxSize(),
             contentPadding = PaddingValues(
                 start = 16.dp,
                 end = 16.dp,
