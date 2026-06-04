@@ -29,3 +29,7 @@ This is a fork of [AppVerifier](https://github.com/soupslurpr/AppVerifier), but 
 We recommend continuing to use the original [AppVerifier](https://github.com/soupslurpr/AppVerifier) for general-purpose signing key verification. There are also some forks such as [AppVerifierBG](https://github.com/RoundSalmon4/AppVerifierBG) which add additional features like a locally-stored personal database, database exports, and more.
 
 The goal of our app is to be a streamlined and trusted source of information, and we will not be adding any features unrelated to our own dataset like the features AppVerifierBG is building. Our app could be used in conjunction with these to verify AppVerifier itself or other app verification forks (assuming they are in our database), or vice versa. This may be especially useful if you downloaded our app and the other app from different sources.
+
+## Roadmap
+
+- [ ] We would like this app to serve as a [content provider](https://developer.android.com/guide/topics/providers/content-providers) for other apps, so that if anyone wishes to incorporate our dataset into their Android application, they can obtain the data from this app installed on the same device, also allowing us to issue updates independently.
