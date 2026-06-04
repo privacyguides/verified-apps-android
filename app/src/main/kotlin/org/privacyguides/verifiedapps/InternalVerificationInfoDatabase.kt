@@ -6521,6 +6521,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.onedigital.buythedip.customer",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "60:9A:3C:62:95:F7:EF:58:F5:37:99:32:AA:D6:0E:2C:7E:DF:47:E8:22:58:9B:CD:F4:79:B3:39:2A:C6:EC:66"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.ph1b.audiobook",
         listOf(
             Hashes(
