@@ -32,4 +32,12 @@ The goal of our app is to be a streamlined and trusted source of information, an
 
 ## Roadmap
 
+- [ ] Official F-Droid repo coming *very* soon.
+
 - [ ] We would like this app to serve as a [content provider](https://developer.android.com/guide/topics/providers/content-providers) for other apps, so that if anyone wishes to incorporate our dataset into their Android application, they can obtain the data from this app installed on the same device, also allowing us to issue updates independently.
+
+- [ ] Submit to F-Droid Official - need to ensure reproducible builds work, avoiding F-Droid signing is critical.
+
+- [ ] Submit to Accrescent
+
+- [ ] Submit to Play Store
