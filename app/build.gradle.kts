@@ -54,6 +54,7 @@ android {
                 keyAlias = System.getenv("ANDROID_KEY_ALIAS")
                 keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
             }
+            enableV4Signing = true
         }
     }
     buildTypes {

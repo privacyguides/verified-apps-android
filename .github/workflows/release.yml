@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       path: ${{ steps.apk.outputs.path }}
+      idsig: ${{ steps.apk.outputs.idsig }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -80,6 +81,7 @@ jobs:
         run: |
           UNSIGNED="app/build/outputs/apk/release/app-release-unsigned.apk"
           SIGNED="app/build/outputs/apk/release/app-release.apk"
+          IDSIG_SRC="app/build/outputs/apk/release/app-release.apk.idsig"
           if [ -f "$SIGNED" ]; then
             APK="$SIGNED"
           elif [ -f "$UNSIGNED" ]; then
@@ -89,15 +91,24 @@ jobs:
             echo "::error::No release APK found under app/build/outputs/apk/release/"
             exit 1
           fi
-          ASSET="VerifiedApps-${{ github.ref_name }}.apk"
-          cp "$APK" "$ASSET"
-          echo "path=${ASSET}" >> "$GITHUB_OUTPUT"
+          if [ ! -f "$IDSIG_SRC" ]; then
+            echo "::error::APK Signature Scheme v4 sidecar (.idsig) not found. Ensure enableV4Signing = true in the release signing config."
+            exit 1
+          fi
+          APK_ASSET="VerifiedApps-${{ github.ref_name }}.apk"
+          IDSIG_ASSET="VerifiedApps-${{ github.ref_name }}.apk.idsig"
+          cp "$APK" "$APK_ASSET"
+          cp "$IDSIG_SRC" "$IDSIG_ASSET"
+          echo "path=${APK_ASSET}" >> "$GITHUB_OUTPUT"
+          echo "idsig=${IDSIG_ASSET}" >> "$GITHUB_OUTPUT"
 
       - name: Upload release APK
         uses: actions/upload-artifact@v7
         with:
           name: built-apk
-          path: ${{ steps.apk.outputs.path }}
+          path: |
+            ${{ steps.apk.outputs.path }}
+            ${{ steps.apk.outputs.idsig }}
 
   attest:
     needs: build
@@ -127,6 +138,6 @@ jobs:
         id: release
         uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd
         with:
-          artifacts: ${{ needs.build.outputs.path }}
+          artifacts: "${{ needs.build.outputs.path }},${{ needs.build.outputs.idsig }}"
           draft: true
           prerelease: true
