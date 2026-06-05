@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag to verify (nightly-YYYY-MM-DD or vX.Y.Z). Leave blank for latest.'
+        description: 'CalVer tag to verify (YY.MM.PATCH, e.g. 26.6.0). Leave blank for latest.'
         required: false
         default: ''
 
@@ -84,18 +84,14 @@ jobs:
       - name: Rebuild APK from tag
         run: |
           TAG="${{ steps.tag.outputs.tag }}"
-          if [[ "$TAG" == nightly-* ]]; then
-            SUFFIX=-nightly-$(echo "$TAG" | sed 's/^nightly-//')
-            SOURCE_DATE_EPOCH=$(git log -1 --format=%ct) \
-              ./gradlew assembleRelease -PversionSuffix="$SUFFIX" --rerun-tasks
-          elif [[ "$TAG" == v* ]]; then
-            VERSION="${TAG#v}"
-            SOURCE_DATE_EPOCH=$(git log -1 --format=%ct) \
-              ./gradlew assembleRelease -PversionOverride="$VERSION" --rerun-tasks
-          else
-            echo "Unrecognized tag format: $TAG (expected nightly-* or v*)"
+          if [[ ! "$TAG" =~ ^[0-9][0-9]\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Unrecognized tag format: $TAG (expected CalVer YY.MM.PATCH, e.g. 26.6.0)"
             exit 1
           fi
+          # The version is baked into app/build.gradle.kts at this tag, so no
+          # version override is needed — just rebuild from the checked-out source.
+          SOURCE_DATE_EPOCH=$(git log -1 --format=%ct) \
+            ./gradlew :app:assembleRelease --rerun-tasks
 
       - name: Compare APKs
         run: |
