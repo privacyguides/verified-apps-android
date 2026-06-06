@@ -21,6 +21,7 @@ enum class Source(val displayName: String) {
     F_DROID_BRIARPROJECT_ORG("F-Droid (briarproject.org)"),
     F_DROID_FDROID_EMERSION_FR("F-Droid (fdroid.emersion.fr)"),
     F_DROID_FDROID_STORCHP_DE("F-Droid (fdroid.storchp.de)"),
+    F_DROID_FDROID_TYPEBLOG_NET("F-Droid (fdroid.typeblog.net)"),
     F_DROID_GROBOX_DE("F-Droid (grobox.de)"),
     F_DROID_MOBILEAPP_BITWARDEN_COM("F-Droid (mobileapp.bitwarden.com)"),
     F_DROID_PRIVACYGUIDES_GITHUB_IO("F-Droid (privacyguides.github.io)"),
@@ -1380,6 +1381,21 @@ val internalVerificationInfoDatabase = setOf(
     ),
     InternalDatabaseVerificationInfo(
         "com.bnyro.translate",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "B3:BC:73:B1:17:DF:5D:FE:38:13:0C:6C:2B:94:68:52:AE:70:88:55:7F:E8:E4:33:F0:D9:98:3A:6B:55:CC:95"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.bnyro.wallpaper",
         listOf(
             Hashes(
                 listOf(
@@ -3601,12 +3617,7 @@ val internalVerificationInfoDatabase = setOf(
                     "AF:A3:19:DC:E2:2C:6A:8F:B3:E4:D8:52:A2:C0:DF:6C:07:CF:99:5D:AB:2F:78:33:1E:4B:C5:B5:DD:48:BF:AF"
                 ),
                 false
-            )
-        )
-    ),
-    InternalDatabaseVerificationInfo(
-        "com.kylecorry.trail_sense.github",
-        listOf(
+            ),
             Hashes(
                 listOf(
                     Source.DIRECT_APK_LINK
@@ -4150,6 +4161,16 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "57:09:57:6F:9D:6C:6A:76:87:DD:5D:56:B2:69:D1:FA:5E:37:97:02:B9:1B:C8:3F:39:FD:7B:7C:59:7C:1B:83"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.DIRECT_APK_LINK,
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "FB:00:95:22:F6:5E:25:80:22:61:B6:7B:10:A4:5F:D7:0E:61:00:31:97:6F:40:B2:8A:64:9E:15:2D:ED:03:73"
                 ),
                 false
             )
@@ -7312,6 +7333,21 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "eu.auct.twitter2nitter",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.DIRECT_APK_LINK,
+                    Source.FDROID
+                ),
+                listOf(
+                    "26:E0:02:F6:0D:0F:D6:C6:41:A5:8F:84:36:23:AC:2D:5A:A9:0A:80:F6:25:65:F5:20:61:83:62:7B:C2:96:85"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "eu.depau.etchdroid",
         listOf(
             Hashes(
@@ -8774,6 +8810,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "05:6B:FA:FB:45:02:49:50:2F:D9:22:62:28:70:4C:25:29:E1:B8:22:DA:06:76:0D:47:A8:5C:95:57:74:1F:BD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "net.typeblog.shelter",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.F_DROID_FDROID_TYPEBLOG_NET
+                ),
+                listOf(
+                    "D7:3D:3C:71:5B:DE:7F:C8:6C:1C:15:6F:F3:D5:73:CF:8B:9C:67:0F:5A:1F:3C:5E:F8:23:BE:40:E6:05:29:8A"
                 ),
                 false
             )
