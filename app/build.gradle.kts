@@ -117,7 +117,7 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.19.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.10.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.11.0")
     implementation("androidx.activity:activity-compose:1.13.0")
     implementation("androidx.navigation:navigation-compose:2.9.8")
     implementation("androidx.datastore:datastore-preferences:1.2.1")
