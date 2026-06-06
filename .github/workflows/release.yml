@@ -177,14 +177,19 @@ jobs:
           # MessageDigest, which uses no RNG), and android_hardcoded is a regex
           # hit on library constants (MobSF's secret extractor finds nothing).
           # The container is ephemeral, so these must be re-applied every run.
+          # Non-fatal (no -f): a suppression API change must not fail this
+          # informational job or lose the report artifact.
           for RULE in android_insecure_random android_hardcoded; do
-            curl -sf -X POST \
+            if curl -s -X POST \
               -d "hash=$HASH" \
               -d "type=code" \
               -d "rule=$RULE" \
               -H "Authorization: $MOBSF_API_KEY" \
-              http://localhost:8000/api/v1/suppress_by_rule > /dev/null
-            echo "Suppressed false-positive rule: $RULE"
+              http://localhost:8000/api/v1/suppress_by_rule | jq -e '.response == "ok"' > /dev/null; then
+              echo "Suppressed false-positive rule: $RULE"
+            else
+              echo "::warning::Could not suppress rule $RULE (MobSF API may have changed)"
+            fi
           done
 
           curl -sf -X POST \
