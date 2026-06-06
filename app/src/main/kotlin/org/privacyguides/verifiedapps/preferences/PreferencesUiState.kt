@@ -1,51 +1,40 @@
 package org.privacyguides.verifiedapps.preferences
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 
-/** Preference pairs, the first is the preference key, and the second is the default value. */
+/**
+ * Immutable snapshot of the boolean user preferences. Each value defaults to false until the
+ * DataStore is read. The DataStore keys are stateless constants and live in [Keys].
+ */
 data class PreferencesUiState(
-    /** Whether to show hasMultipleSigners */
-    val showHasMultipleSigners: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
-        (booleanPreferencesKey("SHOW_HAS_MULTIPLE_SIGNERS")),
-        mutableStateOf(false)
-    ),
+    /** Whether to show hasMultipleSigners. */
+    val showHasMultipleSigners: Boolean = false,
 
     /** Whether to show share and copy verification info on the verify app screen. */
-    val showSharingTools: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
-        (booleanPreferencesKey("SHOW_SHARING_TOOLS")),
-        mutableStateOf(false)
-    ),
+    val showSharingTools: Boolean = false,
 
     /** Whether to always show the GitHub submission button on the verify app screen. */
-    val alwaysShowGitHubSubmit: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
-        (booleanPreferencesKey("ALWAYS_SHOW_GITHUB_SUBMIT")),
-        mutableStateOf(false)
-    ),
+    val alwaysShowGitHubSubmit: Boolean = false,
 
     /** Whether to show the Codeberg submission button on the verify app screen. */
-    val showCodebergSubmit: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
-        booleanPreferencesKey("SHOW_CODEBERG_SUBMIT"),
-        mutableStateOf(false),
-    ),
+    val showCodebergSubmit: Boolean = false,
 
     /** Whether to include system apps in the app list. */
-    val showSystemApps: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
-        (booleanPreferencesKey("SHOW_SYSTEM_APPS")),
-        mutableStateOf(false)
-    ),
+    val showSystemApps: Boolean = false,
 
     /** Use Material You dynamic color from the system wallpaper (Android 12+). */
-    val dynamicColor: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
-        booleanPreferencesKey("DYNAMIC_COLOR"),
-        mutableStateOf(false),
-    ),
+    val dynamicColor: Boolean = false,
 
     /** Pitch black background. */
-    val pitchBlackBackground: Pair<Preferences.Key<Boolean>, MutableState<Boolean>> = Pair(
-        (booleanPreferencesKey("PITCH_BLACK_BACKGROUND")),
-        mutableStateOf(false)
-    ),
-)
+    val pitchBlackBackground: Boolean = false,
+) {
+    object Keys {
+        val SHOW_HAS_MULTIPLE_SIGNERS = booleanPreferencesKey("SHOW_HAS_MULTIPLE_SIGNERS")
+        val SHOW_SHARING_TOOLS = booleanPreferencesKey("SHOW_SHARING_TOOLS")
+        val ALWAYS_SHOW_GITHUB_SUBMIT = booleanPreferencesKey("ALWAYS_SHOW_GITHUB_SUBMIT")
+        val SHOW_CODEBERG_SUBMIT = booleanPreferencesKey("SHOW_CODEBERG_SUBMIT")
+        val SHOW_SYSTEM_APPS = booleanPreferencesKey("SHOW_SYSTEM_APPS")
+        val DYNAMIC_COLOR = booleanPreferencesKey("DYNAMIC_COLOR")
+        val PITCH_BLACK_BACKGROUND = booleanPreferencesKey("PITCH_BLACK_BACKGROUND")
+    }
+}

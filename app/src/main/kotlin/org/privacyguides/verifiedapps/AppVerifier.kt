@@ -29,7 +29,6 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -93,7 +92,7 @@ fun AppVerifierApp(
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
 
-    val showSystemApps = preferencesUiState.value.showSystemApps.second.value
+    val showSystemApps = preferencesUiState.value.showSystemApps
 
     val pagerState = rememberPagerState(
         initialPage = 0,
@@ -258,10 +257,10 @@ fun AppVerifierApp(
                     { navController.navigateUp() },
                     verifyAppUiState.value.internalDatabaseInfo,
                     verifyAppUiState.value.apkFailedToParse,
-                    preferencesUiState.value.showHasMultipleSigners.second.value,
-                    preferencesUiState.value.showSharingTools.second.value,
-                    preferencesUiState.value.alwaysShowGitHubSubmit.second.value,
-                    preferencesUiState.value.showCodebergSubmit.second.value,
+                    preferencesUiState.value.showHasMultipleSigners,
+                    preferencesUiState.value.showSharingTools,
+                    preferencesUiState.value.alwaysShowGitHubSubmit,
+                    preferencesUiState.value.showCodebergSubmit,
                     verifyAppUiState.value.isSystemApp,
                 )
             }

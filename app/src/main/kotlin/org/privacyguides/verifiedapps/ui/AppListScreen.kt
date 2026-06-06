@@ -224,9 +224,6 @@ fun AppListScreen(
             .sortedWith { a, b -> compareAppListEntries(a, b, sortOrder) }
     }
 
-    val userResultsCount = userVisibleEntries.size
-    val systemResultsCount = systemVisibleEntries.size
-
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
@@ -343,9 +340,9 @@ fun AppListScreen(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 val resultsCount = if (selectedAppListTab == AppListTab.System.ordinal) {
-                    systemResultsCount
+                    systemVisibleEntries.size
                 } else {
-                    userResultsCount
+                    userVisibleEntries.size
                 }
                 Text(
                     text = stringResource(R.string.app_list_results_count, resultsCount),

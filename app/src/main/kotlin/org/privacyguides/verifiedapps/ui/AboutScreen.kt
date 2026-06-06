@@ -47,6 +47,8 @@ fun AboutScreen(
     onCreditsIconButtonClicked: () -> Unit,
 ) {
     val localUriHandler = LocalUriHandler.current
+    val pgCardBackground = Color(0xFFFFD06F)
+    val pgCardContent = Color(0xFF28323F)
 
     Scaffold(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
@@ -116,7 +118,7 @@ fun AboutScreen(
                     .padding(horizontal = 16.dp),
                 shape = MaterialTheme.shapes.extraLarge,
                 colors = CardDefaults.cardColors(
-                    containerColor = Color(0xFFFFD06F),
+                    containerColor = pgCardBackground,
                 ),
             ) {
                 Row(
@@ -135,18 +137,18 @@ fun AboutScreen(
                         Text(
                             text = stringResource(R.string.visit_privacy_guides_setting_name),
                             style = MaterialTheme.typography.bodyLarge,
-                            color = Color(0xFF28323F),
+                            color = pgCardContent,
                         )
                         Text(
                             text = stringResource(R.string.visit_privacy_guides_setting_description),
                             style = MaterialTheme.typography.bodyMedium,
-                            color = Color(0xFF28323F),
+                            color = pgCardContent,
                         )
                     }
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ExitToApp,
                         contentDescription = null,
-                        tint = Color(0xFF28323F),
+                        tint = pgCardContent,
                     )
                 }
             }

@@ -73,8 +73,10 @@ fun compareAppListEntries(a: AppListEntry, b: AppListEntry, sort: AppListSort): 
     AppListSort.NAME_DESC -> b.name.compareTo(a.name, ignoreCase = true)
     AppListSort.PACKAGE_ASC -> a.packageName.compareTo(b.packageName, ignoreCase = true)
     AppListSort.STATUS -> {
-        val order = statusSortOrder(a.internalDatabaseInfo.internalDatabaseStatus) -
-            statusSortOrder(b.internalDatabaseInfo.internalDatabaseStatus)
+        val order = compareValues(
+            statusSortOrder(a.internalDatabaseInfo.internalDatabaseStatus),
+            statusSortOrder(b.internalDatabaseInfo.internalDatabaseStatus),
+        )
         if (order != 0) order else a.name.compareTo(b.name, ignoreCase = true)
     }
 }

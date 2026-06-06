@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ListItem
@@ -31,6 +30,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import org.privacyguides.verifiedapps.R
+import org.privacyguides.verifiedapps.preferences.PreferencesUiState
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +46,7 @@ fun SettingsScreen(
     fun setShowCodebergSubmit(enabled: Boolean) {
         coroutineScope.launch {
             preferencesViewModel.setPreference(
-                preferencesUiState.showCodebergSubmit.first,
+                PreferencesUiState.Keys.SHOW_CODEBERG_SUBMIT,
                 enabled,
             )
         }
@@ -98,12 +98,12 @@ fun SettingsScreen(
                 )
                 ListItem(
                     modifier = Modifier.toggleable(
-                        value = preferencesUiState.dynamicColor.second.value,
+                        value = preferencesUiState.dynamicColor,
                         enabled = dynamicColorAvailable,
                         onValueChange = {
                             coroutineScope.launch {
                                 preferencesViewModel.setPreference(
-                                    preferencesUiState.dynamicColor.first,
+                                    PreferencesUiState.Keys.DYNAMIC_COLOR,
                                     it,
                                 )
                             }
@@ -125,7 +125,7 @@ fun SettingsScreen(
                     },
                     trailingContent = {
                         Switch(
-                            checked = preferencesUiState.dynamicColor.second.value,
+                            checked = preferencesUiState.dynamicColor,
                             onCheckedChange = null,
                             enabled = dynamicColorAvailable,
                         )
@@ -133,11 +133,11 @@ fun SettingsScreen(
                 )
                 ListItem(
                     modifier = Modifier.toggleable(
-                        value = preferencesUiState.pitchBlackBackground.second.value,
+                        value = preferencesUiState.pitchBlackBackground,
                         onValueChange = {
                             coroutineScope.launch {
                                 preferencesViewModel.setPreference(
-                                    preferencesUiState.pitchBlackBackground.first,
+                                    PreferencesUiState.Keys.PITCH_BLACK_BACKGROUND,
                                     it,
                                 )
                             }
@@ -151,7 +151,7 @@ fun SettingsScreen(
                     },
                     trailingContent = {
                         Switch(
-                            checked = preferencesUiState.pitchBlackBackground.second.value,
+                            checked = preferencesUiState.pitchBlackBackground,
                             onCheckedChange = null,
                         )
                     },
@@ -167,11 +167,11 @@ fun SettingsScreen(
                 )
                 ListItem(
                     modifier = Modifier.toggleable(
-                        value = preferencesUiState.showSystemApps.second.value,
+                        value = preferencesUiState.showSystemApps,
                         onValueChange = {
                             coroutineScope.launch {
                                 preferencesViewModel.setPreference(
-                                    preferencesUiState.showSystemApps.first,
+                                    PreferencesUiState.Keys.SHOW_SYSTEM_APPS,
                                     it,
                                 )
                             }
@@ -181,18 +181,18 @@ fun SettingsScreen(
                     supportingContent = { Text(stringResource(R.string.show_system_apps_setting_description)) },
                     trailingContent = {
                         Switch(
-                            checked = preferencesUiState.showSystemApps.second.value,
+                            checked = preferencesUiState.showSystemApps,
                             onCheckedChange = null,
                         )
                     },
                 )
                 ListItem(
                     modifier = Modifier.toggleable(
-                        value = preferencesUiState.showHasMultipleSigners.second.value,
+                        value = preferencesUiState.showHasMultipleSigners,
                         onValueChange = {
                             coroutineScope.launch {
                                 preferencesViewModel.setPreference(
-                                    preferencesUiState.showHasMultipleSigners.first,
+                                    PreferencesUiState.Keys.SHOW_HAS_MULTIPLE_SIGNERS,
                                     it,
                                 )
                             }
@@ -202,18 +202,18 @@ fun SettingsScreen(
                     supportingContent = { Text(stringResource(R.string.show_hasmultiplesigners_setting_description)) },
                     trailingContent = {
                         Switch(
-                            checked = preferencesUiState.showHasMultipleSigners.second.value,
+                            checked = preferencesUiState.showHasMultipleSigners,
                             onCheckedChange = null,
                         )
                     },
                 )
                 ListItem(
                     modifier = Modifier.toggleable(
-                        value = preferencesUiState.showSharingTools.second.value,
+                        value = preferencesUiState.showSharingTools,
                         onValueChange = {
                             coroutineScope.launch {
                                 preferencesViewModel.setPreference(
-                                    preferencesUiState.showSharingTools.first,
+                                    PreferencesUiState.Keys.SHOW_SHARING_TOOLS,
                                     it,
                                 )
                             }
@@ -223,18 +223,18 @@ fun SettingsScreen(
                     supportingContent = { Text(stringResource(R.string.show_sharing_tools_setting_description)) },
                     trailingContent = {
                         Switch(
-                            checked = preferencesUiState.showSharingTools.second.value,
+                            checked = preferencesUiState.showSharingTools,
                             onCheckedChange = null,
                         )
                     },
                 )
                 ListItem(
                     modifier = Modifier.toggleable(
-                        value = preferencesUiState.alwaysShowGitHubSubmit.second.value,
+                        value = preferencesUiState.alwaysShowGitHubSubmit,
                         onValueChange = {
                             coroutineScope.launch {
                                 preferencesViewModel.setPreference(
-                                    preferencesUiState.alwaysShowGitHubSubmit.first,
+                                    PreferencesUiState.Keys.ALWAYS_SHOW_GITHUB_SUBMIT,
                                     it,
                                 )
                             }
@@ -244,14 +244,14 @@ fun SettingsScreen(
                     supportingContent = { Text(stringResource(R.string.always_show_github_submit_setting_description)) },
                     trailingContent = {
                         Switch(
-                            checked = preferencesUiState.alwaysShowGitHubSubmit.second.value,
+                            checked = preferencesUiState.alwaysShowGitHubSubmit,
                             onCheckedChange = null,
                         )
                     },
                 )
                 ListItem(
                     modifier = Modifier.toggleable(
-                        value = preferencesUiState.showCodebergSubmit.second.value,
+                        value = preferencesUiState.showCodebergSubmit,
                         onValueChange = { enabled ->
                             if (enabled) {
                                 showCodebergSubmitDialog = true
@@ -264,7 +264,7 @@ fun SettingsScreen(
                     supportingContent = { Text(stringResource(R.string.show_codeberg_submit_setting_description)) },
                     trailingContent = {
                         Switch(
-                            checked = preferencesUiState.showCodebergSubmit.second.value,
+                            checked = preferencesUiState.showCodebergSubmit,
                             onCheckedChange = null,
                         )
                     },

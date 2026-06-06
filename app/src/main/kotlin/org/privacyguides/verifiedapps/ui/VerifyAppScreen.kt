@@ -10,6 +10,7 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -40,7 +41,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -299,7 +299,7 @@ fun VerifyAppScreen(
                                     appLabel = name,
                                     hashes = hashes,
                                 )
-                                openGitHubSubmission(context, issueUri)
+                                openSubmissionUri(context, issueUri, R.string.github_submission_no_browser)
                             },
                         ) {
                             Text(stringResource(R.string.submit_on_github))
@@ -320,7 +320,7 @@ fun VerifyAppScreen(
                                         appLabel = name,
                                         hashes = hashes,
                                     )
-                                    openCodebergSubmission(context, issueUri)
+                                    openSubmissionUri(context, issueUri, R.string.codeberg_submission_no_browser)
                                 },
                             ) {
                                 Text(stringResource(R.string.submit_to_codeberg))
@@ -333,6 +333,7 @@ fun VerifyAppScreen(
             if (showSharingTools) {
                 val verificationData = GitHubAppSubmission.buildVerificationInfo(packageName, hashes)
                 val mimeType = "text/plain"
+                val clipLabel = stringResource(R.string.verification_info_clip_label)
                 Column(
                     modifier = Modifier.fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -349,18 +350,18 @@ fun VerifyAppScreen(
                             context.startActivity(shareIntent)
                         },
                     ) {
-                        Text("Share verification info")
+                        Text(stringResource(R.string.share_verification_info))
                     }
                     OutlinedButton(
                         modifier = Modifier.fillMaxWidth(),
                         onClick = {
                             coroutineScope.launch {
-                                val clip = ClipData.newPlainText(mimeType, verificationData)
+                                val clip = ClipData.newPlainText(clipLabel, verificationData)
                                 clipboard.setClipEntry(ClipEntry(clip))
                             }
                         },
                     ) {
-                        Text("Copy verification info")
+                        Text(stringResource(R.string.copy_verification_info))
                     }
                 }
             }
@@ -376,7 +377,10 @@ private suspend fun copyVerificationInfoToClipboard(
     clipboard: Clipboard,
     verificationData: String,
 ) {
-    val clip = ClipData.newPlainText("text/plain", verificationData)
+    val clip = ClipData.newPlainText(
+        context.getString(R.string.verification_info_clip_label),
+        verificationData,
+    )
     clipboard.setClipEntry(ClipEntry(clip))
     Toast.makeText(
         context,
@@ -385,27 +389,18 @@ private suspend fun copyVerificationInfoToClipboard(
     ).show()
 }
 
-private fun openGitHubSubmission(context: android.content.Context, issueUri: Uri) {
+private fun openSubmissionUri(
+    context: android.content.Context,
+    issueUri: Uri,
+    @StringRes noBrowserMessageRes: Int,
+) {
     val intent = Intent(Intent.ACTION_VIEW, issueUri)
     try {
         context.startActivity(intent)
     } catch (_: ActivityNotFoundException) {
         Toast.makeText(
             context,
-            context.getString(R.string.github_submission_no_browser),
-            Toast.LENGTH_LONG,
-        ).show()
-    }
-}
-
-private fun openCodebergSubmission(context: android.content.Context, issueUri: Uri) {
-    val intent = Intent(Intent.ACTION_VIEW, issueUri)
-    try {
-        context.startActivity(intent)
-    } catch (_: ActivityNotFoundException) {
-        Toast.makeText(
-            context,
-            context.getString(R.string.codeberg_submission_no_browser),
+            context.getString(noBrowserMessageRes),
             Toast.LENGTH_LONG,
         ).show()
     }

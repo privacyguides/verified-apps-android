@@ -41,19 +41,14 @@ class AppListViewModel(application: Application) : AndroidViewModel(application)
     ) {
         if (userLoadStarted || _uiState.value.userEntries.isNotEmpty()) return
         userLoadStarted = true
-        viewModelScope.launch {
-            _uiState.update { it.copy(isLoadingUser = true) }
-            val entries = withContext(Dispatchers.Default) {
-                buildAppListEntries(
-                    packages = userPackages,
-                    packageManager = packageManager,
-                    selfPackageName = selfPackageName,
-                    getHashesFromPackageInfo = getHashesFromPackageInfo,
-                    getInternalDatabaseInfoFromVerificationInfo = getInternalDatabaseInfoFromVerificationInfo,
-                )
-            }
-            _uiState.update { it.copy(userEntries = entries, isLoadingUser = false) }
-        }
+        loadEntries(
+            packages = userPackages,
+            selfPackageName = selfPackageName,
+            getHashesFromPackageInfo = getHashesFromPackageInfo,
+            getInternalDatabaseInfoFromVerificationInfo = getInternalDatabaseInfoFromVerificationInfo,
+            setLoading = { _uiState.update { it.copy(isLoadingUser = true) } },
+            setEntries = { entries -> _uiState.update { it.copy(userEntries = entries, isLoadingUser = false) } },
+        )
     }
 
     fun ensureSystemEntriesLoaded(
@@ -64,18 +59,36 @@ class AppListViewModel(application: Application) : AndroidViewModel(application)
     ) {
         if (systemLoadStarted || _uiState.value.systemEntries.isNotEmpty()) return
         systemLoadStarted = true
+        loadEntries(
+            packages = systemPackages,
+            selfPackageName = selfPackageName,
+            getHashesFromPackageInfo = getHashesFromPackageInfo,
+            getInternalDatabaseInfoFromVerificationInfo = getInternalDatabaseInfoFromVerificationInfo,
+            setLoading = { _uiState.update { it.copy(isLoadingSystem = true) } },
+            setEntries = { entries -> _uiState.update { it.copy(systemEntries = entries, isLoadingSystem = false) } },
+        )
+    }
+
+    private fun loadEntries(
+        packages: List<PackageInfo>,
+        selfPackageName: String,
+        getHashesFromPackageInfo: (PackageInfo) -> Hashes,
+        getInternalDatabaseInfoFromVerificationInfo: (VerificationInfo) -> InternalDatabaseInfo,
+        setLoading: () -> Unit,
+        setEntries: (List<AppListEntry>) -> Unit,
+    ) {
         viewModelScope.launch {
-            _uiState.update { it.copy(isLoadingSystem = true) }
+            setLoading()
             val entries = withContext(Dispatchers.Default) {
                 buildAppListEntries(
-                    packages = systemPackages,
+                    packages = packages,
                     packageManager = packageManager,
                     selfPackageName = selfPackageName,
                     getHashesFromPackageInfo = getHashesFromPackageInfo,
                     getInternalDatabaseInfoFromVerificationInfo = getInternalDatabaseInfoFromVerificationInfo,
                 )
             }
-            _uiState.update { it.copy(systemEntries = entries, isLoadingSystem = false) }
+            setEntries(entries)
         }
     }
 }

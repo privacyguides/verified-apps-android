@@ -86,6 +86,7 @@
     <string name="submit_on_github">Submit on GitHub</string>
     <string name="submit_to_codeberg">Submit on Codeberg</string>
     <string name="verification_info_copied_toast">Copied Verification Info to Clipboard</string>
+    <string name="verification_info_clip_label">Verification info</string>
     <string name="codeberg_submission_no_browser">No browser found to open the Codeberg submission page.</string>
     <string name="github_submission_no_browser">No browser found to open the GitHub submission page.</string>
     <string name="always_show_github_submit_setting_name">Always show submission buttons</string>
@@ -98,4 +99,9 @@
     <string name="system_apps_tab">System Apps</string>
     <string name="show_system_apps_setting_name">Show system apps</string>
     <string name="show_system_apps_setting_description">Include pre-installed system apps in the app list. Note that many of these apps are not eligible for submission!</string>
+    <string name="credits_view_license">View %1$s license</string>
+    <string name="credits_collapse_license">Collapse %1$s license</string>
+    <string name="credits_expand_license">Expand %1$s license</string>
+    <string name="share_verification_info">Share verification info</string>
+    <string name="copy_verification_info">Copy verification info</string>
 </resources>

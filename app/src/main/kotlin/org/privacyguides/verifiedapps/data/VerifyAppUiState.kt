@@ -12,14 +12,13 @@ data class VerifyAppUiState(
     val isSystemApp: Boolean = false,
     val internalDatabaseInfo: InternalDatabaseInfo = InternalDatabaseInfo(
         InternalDatabaseStatus.NOT_FOUND,
-        listOf(Source.NONE)
+        listOf(Source.NONE),
     ),
 )
 
-
-class InternalDatabaseInfo(
+data class InternalDatabaseInfo(
     val internalDatabaseStatus: InternalDatabaseStatus,
-    val sources: List<Source>
+    val sources: List<Source>,
 )
 
 enum class InternalDatabaseStatus {

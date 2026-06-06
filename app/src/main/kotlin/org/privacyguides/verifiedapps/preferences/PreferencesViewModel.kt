@@ -2,6 +2,7 @@ package org.privacyguides.verifiedapps.preferences
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import org.privacyguides.verifiedapps.preferences.PreferencesUiState.Keys
 import androidx.datastore.preferences.core.edit
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -27,22 +28,16 @@ class PreferencesViewModel(private val dataStore: DataStore<Preferences>) : View
 
     private suspend fun populateSettingsFromDatastore() {
         dataStore.data.collect { settings ->
-            _uiState.update { state ->
-                state.showHasMultipleSigners.second.value =
-                    settings[state.showHasMultipleSigners.first] ?: false
-                state.showSharingTools.second.value =
-                    settings[state.showSharingTools.first] ?: false
-                state.alwaysShowGitHubSubmit.second.value =
-                    settings[state.alwaysShowGitHubSubmit.first] ?: false
-                state.showCodebergSubmit.second.value =
-                    settings[state.showCodebergSubmit.first] ?: false
-                state.showSystemApps.second.value =
-                    settings[state.showSystemApps.first] ?: false
-                state.dynamicColor.second.value =
-                    settings[state.dynamicColor.first] ?: false
-                state.pitchBlackBackground.second.value =
-                    settings[state.pitchBlackBackground.first] ?: false
-                state
+            _uiState.update {
+                PreferencesUiState(
+                    showHasMultipleSigners = settings[Keys.SHOW_HAS_MULTIPLE_SIGNERS] ?: false,
+                    showSharingTools = settings[Keys.SHOW_SHARING_TOOLS] ?: false,
+                    alwaysShowGitHubSubmit = settings[Keys.ALWAYS_SHOW_GITHUB_SUBMIT] ?: false,
+                    showCodebergSubmit = settings[Keys.SHOW_CODEBERG_SUBMIT] ?: false,
+                    showSystemApps = settings[Keys.SHOW_SYSTEM_APPS] ?: false,
+                    dynamicColor = settings[Keys.DYNAMIC_COLOR] ?: false,
+                    pitchBlackBackground = settings[Keys.PITCH_BLACK_BACKGROUND] ?: false,
+                )
             }
             _preferencesLoaded.value = true
         }
@@ -58,26 +53,21 @@ class PreferencesViewModel(private val dataStore: DataStore<Preferences>) : View
     private fun updateLocalPreference(key: Preferences.Key<Boolean>, value: Boolean) {
         _uiState.update { state ->
             when (key) {
-                state.showHasMultipleSigners.first ->
-                    state.showHasMultipleSigners.second.value = value
-                state.showSharingTools.first ->
-                    state.showSharingTools.second.value = value
-                state.alwaysShowGitHubSubmit.first ->
-                    state.alwaysShowGitHubSubmit.second.value = value
-                state.showCodebergSubmit.first ->
-                    state.showCodebergSubmit.second.value = value
-                state.showSystemApps.first ->
-                    state.showSystemApps.second.value = value
-                state.dynamicColor.first ->
-                    state.dynamicColor.second.value = value
-                state.pitchBlackBackground.first ->
-                    state.pitchBlackBackground.second.value = value
+                Keys.SHOW_HAS_MULTIPLE_SIGNERS -> state.copy(showHasMultipleSigners = value)
+                Keys.SHOW_SHARING_TOOLS -> state.copy(showSharingTools = value)
+                Keys.ALWAYS_SHOW_GITHUB_SUBMIT -> state.copy(alwaysShowGitHubSubmit = value)
+                Keys.SHOW_CODEBERG_SUBMIT -> state.copy(showCodebergSubmit = value)
+                Keys.SHOW_SYSTEM_APPS -> state.copy(showSystemApps = value)
+                Keys.DYNAMIC_COLOR -> state.copy(dynamicColor = value)
+                Keys.PITCH_BLACK_BACKGROUND -> state.copy(pitchBlackBackground = value)
+                else -> state
             }
-            state
         }
     }
 
-    class PreferencesViewModelFactory(private val dataStore: DataStore<Preferences>) : ViewModelProvider.Factory {
+    class PreferencesViewModelFactory(
+        private val dataStore: DataStore<Preferences>,
+    ) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(PreferencesViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")

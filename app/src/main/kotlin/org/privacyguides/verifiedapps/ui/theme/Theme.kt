@@ -4,6 +4,7 @@ package org.privacyguides.verifiedapps.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MotionScheme
@@ -17,6 +18,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import org.privacyguides.verifiedapps.preferences.PreferencesViewModel
+
+private fun ColorScheme.withPitchBlackBackground() =
+    copy(background = Color.Black, surface = Color.Black)
 
 private val DarkColorScheme = darkColorScheme(
     error = MismatchRed,
@@ -61,36 +65,23 @@ fun AppVerifierTheme(
     content: @Composable () -> Unit,
 ) {
     val settingsUiState by preferencesViewModel.uiState.collectAsState()
-    val pitchBlackBackground = settingsUiState.pitchBlackBackground.second.value && darkTheme
-    val useDynamicColor = settingsUiState.dynamicColor.second.value &&
+    val pitchBlackBackground = settingsUiState.pitchBlackBackground && darkTheme
+    val useDynamicColor = settingsUiState.dynamicColor &&
         Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
 
     val colorScheme = when {
         useDynamicColor -> {
             val context = LocalContext.current
             if (darkTheme) {
-                if (pitchBlackBackground) {
-                    dynamicDarkColorScheme(context).copy(
-                        background = Color.Black,
-                        surface = Color.Black,
-                    )
-                } else {
-                    dynamicDarkColorScheme(context)
-                }
+                val scheme = dynamicDarkColorScheme(context)
+                if (pitchBlackBackground) scheme.withPitchBlackBackground() else scheme
             } else {
                 dynamicLightColorScheme(context)
             }
         }
 
         darkTheme -> {
-            if (pitchBlackBackground) {
-                DarkColorScheme.copy(
-                    background = Color.Black,
-                    surface = Color.Black,
-                )
-            } else {
-                DarkColorScheme
-            }
+            if (pitchBlackBackground) DarkColorScheme.withPitchBlackBackground() else DarkColorScheme
         }
 
         else -> LightColorScheme

@@ -31,7 +31,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import org.privacyguides.verifiedapps.R
 
-const val APACHE2LICENSE =
+private const val APACHE2LICENSE =
         "\n" +
         "Apache License\n" +
         "Version 2.0, January 2004\n" +
@@ -649,7 +649,7 @@ fun CreditsScreen(onNavigateUp: () -> Unit) {
                 var expanded by rememberSaveable(entry.name) { mutableStateOf(false) }
                 ListItem(
                     modifier = Modifier.clickable(
-                        onClickLabel = "View ${entry.name}'s license",
+                        onClickLabel = stringResource(R.string.credits_view_license, entry.name),
                         role = Role.DropdownList,
                         onClick = { expanded = !expanded },
                     ),
@@ -663,9 +663,9 @@ fun CreditsScreen(onNavigateUp: () -> Unit) {
                                 Icons.AutoMirrored.Filled.KeyboardArrowRight
                             },
                             contentDescription = if (expanded) {
-                                "Collapse ${entry.name} license"
+                                stringResource(R.string.credits_collapse_license, entry.name)
                             } else {
-                                "Expand ${entry.name} license"
+                                stringResource(R.string.credits_expand_license, entry.name)
                             },
                         )
                     },
