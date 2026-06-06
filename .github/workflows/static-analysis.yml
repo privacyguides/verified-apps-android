@@ -1,0 +1,64 @@
+name: Static Analysis
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  semgrep:
+    name: Semgrep
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      # pipx avoids Ubuntu 24.04's PEP 668 block on global pip installs, and
+      # running the CLI directly avoids the deprecated semgrep-action wrapper.
+      - name: Install Semgrep
+        run: pipx install semgrep
+
+      # semgrep scan exits 0 even when it reports findings, so the SARIF upload
+      # still runs; it only exits non-zero on a real scan error.
+      - name: Run Semgrep
+        run: >-
+          semgrep scan
+          --config p/kotlin
+          --config p/secrets
+          --config p/owasp-top-ten
+          --sarif --output semgrep.sarif
+
+      - name: Upload results to code scanning
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('semgrep.sarif') != ''
+        with:
+          sarif_file: semgrep.sarif
+
+  detekt:
+    name: Detekt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - uses: gradle/actions/setup-gradle@v6
+
+      # ignoreFailures = true (see app/build.gradle.kts) lets the task emit the
+      # SARIF report and exit 0; findings surface in code scanning, not as a
+      # build failure. A non-zero exit here means a real Gradle/compile error.
+      - name: Run Detekt
+        run: ./gradlew :app:detekt
+
+      - name: Upload results to code scanning
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('app/build/reports/detekt/detekt.sarif') != ''
+        with:
+          sarif_file: app/build/reports/detekt/detekt.sarif

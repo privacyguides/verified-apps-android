@@ -26,19 +26,19 @@ jobs:
       idsig: ${{ steps.apk.outputs.idsig }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up JDK
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Verify version matches tag
         run: |
@@ -109,6 +109,93 @@ jobs:
           path: |
             ${{ steps.apk.outputs.path }}
             ${{ steps.apk.outputs.idsig }}
+
+  mobsf:
+    name: MobSF Security Scan
+    needs: build
+    runs-on: ubuntu-latest
+    # Informational only: the `release` job depends on [build, attest], not this
+    # job, so a MobSF failure never blocks publishing.
+    #
+    # MOBSF_API_KEY is not a secret: the container is reachable only from
+    # localhost on the ephemeral runner and is destroyed when the job ends.
+    env:
+      MOBSF_API_KEY: ci-ephemeral-key
+    steps:
+      - name: Download release APK
+        uses: actions/download-artifact@v8
+        with:
+          name: built-apk
+
+      # Run MobSF ourselves rather than as a `services:` container: its ~80s
+      # boot (JADX download + DB migrations) exceeds GitHub's service
+      # healthcheck window, so a service container is killed as "unhealthy"
+      # before any step runs. Here we own the readiness wait instead.
+      - name: Start MobSF
+        run: |
+          docker run -d --name mobsf \
+            -e MOBSF_API_KEY="$MOBSF_API_KEY" \
+            -p 8000:8000 \
+            opensecurity/mobile-security-framework-mobsf:latest
+
+      - name: Wait for MobSF to be ready
+        run: |
+          for i in $(seq 1 60); do
+            if curl -sf -o /dev/null http://localhost:8000/; then
+              echo "MobSF is up after $((i * 5))s."
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::MobSF did not become ready within 300s."
+          docker logs mobsf
+          exit 1
+
+      - name: Scan APK
+        run: |
+          APK="${{ needs.build.outputs.path }}"
+          echo "Scanning: $APK"
+
+          HASH=$(curl -sf -F "file=@$APK" \
+            -H "Authorization: $MOBSF_API_KEY" \
+            http://localhost:8000/api/v1/upload | jq -r .hash)
+          echo "Upload hash: $HASH"
+
+          curl -sf -X POST --max-time 600 \
+            -d "hash=$HASH" \
+            -H "Authorization: $MOBSF_API_KEY" \
+            http://localhost:8000/api/v1/scan > /dev/null
+
+          curl -sf -X POST \
+            -d "hash=$HASH" \
+            -H "Authorization: $MOBSF_API_KEY" \
+            http://localhost:8000/api/v1/report_json > mobsf-report.json
+
+          curl -sf -X POST \
+            -d "hash=$HASH" \
+            -H "Authorization: $MOBSF_API_KEY" \
+            http://localhost:8000/api/v1/scorecard > mobsf-scorecard.json
+
+          # Defensive extraction: tolerate schema changes without failing the step.
+          echo "## MobSF AppSec Scorecard" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Security score: $(jq -r '.security_score // "N/A"' mobsf-scorecard.json)/100" >> "$GITHUB_STEP_SUMMARY"
+          echo "- High: $(jq -r '.high | length // 0' mobsf-scorecard.json)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Warning: $(jq -r '.warning | length // 0' mobsf-scorecard.json)" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Info: $(jq -r '.info | length // 0' mobsf-scorecard.json)" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Stop MobSF
+        if: always()
+        run: docker rm -f mobsf || true
+
+      - name: Upload MobSF report
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: mobsf-security-report
+          path: |
+            mobsf-report.json
+            mobsf-scorecard.json
+          retention-days: 90
 
   attest:
     needs: build

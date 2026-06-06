@@ -15,7 +15,7 @@ jobs:
     env:
       PRIVACYGUIDES_DATA_URL: https://raw.githubusercontent.com/privacyguides/verified-apps/main/data.yml
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Download verified-apps database
         run: curl -fsSL -o "$RUNNER_TEMP/data.yml" "$PRIVACYGUIDES_DATA_URL"
@@ -38,7 +38,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.x"
 

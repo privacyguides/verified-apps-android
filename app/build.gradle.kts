@@ -1,14 +1,30 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose") version "2.2.10"
+    id("io.gitlab.arturbosch.detekt")
 }
 
+import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 tasks.withType<KotlinCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_17)
+    }
+}
+
+detekt {
+    config.setFrom("$rootDir/config/detekt/detekt.yml")
+    buildUponDefaultConfig = true
+    // Report findings to SARIF/code scanning instead of failing the build; CI
+    // still fails on real Gradle/compile errors.
+    ignoreFailures = true
+}
+
+tasks.withType<Detekt>().configureEach {
+    reports {
+        sarif.required.set(true)
     }
 }
 

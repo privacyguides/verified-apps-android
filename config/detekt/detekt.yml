@@ -1,0 +1,36 @@
+# Disable pure style/naming rules.
+
+build:
+  maxIssues: 0
+
+comments:
+  active: false
+
+naming:
+  active: false
+
+style:
+  active: false
+
+complexity:
+  active: true
+  # Composable functions are legitimately long, deeply nested, and take many
+  # parameters; these size/complexity rules are pure noise on Compose UI code.
+  LongParameterList:
+    active: false
+  LongMethod:
+    active: false
+  CyclomaticComplexMethod:
+    active: false
+
+coroutines:
+  active: true
+
+empty-blocks:
+  active: true
+
+exceptions:
+  active: true
+
+potential-bugs:
+  active: true

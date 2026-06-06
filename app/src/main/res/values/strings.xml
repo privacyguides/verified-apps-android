@@ -65,7 +65,7 @@
     <string name="internal_database_status_match_info">This app\'s verification info matches an entry in the internal database.</string>
     <string name="internal_database_status_nomatch_info">This app was found in the internal database, but its hash did not match. This app may be non-genuine.</string>
     <string name="visit_privacy_guides_setting_name">Visit Privacy Guides</string>
-    <string name="visit_privacy_guides_setting_description">Learn more at www.privacyguides.org in your web browser</string>
+    <string name="visit_privacy_guides_setting_description">Learn more at privacyguides.org in your web browser</string>
     <string name="donation">Donation</string>
     <string name="donation_setting_name">Donation</string>
     <string name="donation_setting_description">Help Privacy Guides by making a donation in your web browser to support our non-profit mission</string>
