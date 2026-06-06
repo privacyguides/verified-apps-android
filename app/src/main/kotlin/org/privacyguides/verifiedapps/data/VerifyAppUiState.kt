@@ -14,7 +14,6 @@ data class VerifyAppUiState(
         InternalDatabaseStatus.NOT_FOUND,
         listOf(Source.NONE)
     ),
-    val searchQuery: String = "",
 )
 
 

@@ -14,10 +14,8 @@ updates:
       compose-bom:
         patterns:
           - "androidx.compose:compose-bom"
-      kotlin:
-        patterns:
-          - "com.android.application"
-          - "org.jetbrains.kotlin.plugin.compose"
+    ignore:
+      - dependency-name: "org.jetbrains.kotlin.plugin.compose"
 
   - package-ecosystem: github-actions
     directory: /
@@ -30,7 +28,4 @@ updates:
         patterns:
           - "*"
     ignore:
-      # Internal reusable workflow with no release tags to anchor to; without a
-      # version, Dependabot follows commits (dependabot-core#13466). Bump its
-      # pinned SHA manually when privacyguides/.github changes.
       - dependency-name: "privacyguides/.github/.github/workflows/sign-artifact.yml"

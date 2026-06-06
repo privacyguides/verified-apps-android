@@ -22,6 +22,7 @@ import kotlinx.coroutines.flow.update
 import java.io.File
 import java.io.IOException
 import java.security.MessageDigest
+import java.util.UUID
 
 class VerifyAppViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -48,10 +49,6 @@ class VerifyAppViewModel(application: Application) : AndroidViewModel(applicatio
 
     fun setAppIcon(icon: Drawable) {
         _uiState.update { it.copy(icon = icon) }
-    }
-
-    fun setSearchQuery(query: String) {
-        _uiState.update { it.copy(searchQuery = query) }
     }
 
     fun getHashesFromPackageInfo(packageInfo: PackageInfo): Hashes {
@@ -115,9 +112,11 @@ class VerifyAppViewModel(application: Application) : AndroidViewModel(applicatio
         packageManager: PackageManager,
     ) {
         contentResolver.openInputStream(uri).use { inputStream ->
-            // Use a deterministic cache file rather than File.createTempFile(): getPackageArchiveInfo()
-            // needs a real path (there's no streaming API), and a fixed name gives predictable cleanup.
-            val tempFile = File(getApplication<Application>().cacheDir, "pending-verification.apk")
+            // Use a unique cache file per verification to avoid concurrent overwrite/delete races.
+            val tempFile = File(
+                getApplication<Application>().cacheDir,
+                "pending-verification-${UUID.randomUUID()}.apk"
+            )
 
             tempFile.outputStream().use { fileOut ->
                 val nonNullInputStream = inputStream
@@ -133,7 +132,7 @@ class VerifyAppViewModel(application: Application) : AndroidViewModel(applicatio
 
             if (packageInfo == null) {
                 setApkFailedToParse(true)
-                deleteTempFileOrThrow(tempFile)
+                deleteTempFile(tempFile)
                 return
             }
 
@@ -153,19 +152,12 @@ class VerifyAppViewModel(application: Application) : AndroidViewModel(applicatio
             )
             setAppIcon(packageManager.getApplicationIcon(applicationInfo))
 
-            deleteTempFileOrThrow(tempFile)
+            deleteTempFile(tempFile)
         }
     }
 
-    private fun deleteTempFileOrThrow(tempFile: File) {
-        val isFileDeleted = tempFile.delete()
-
-        if (!isFileDeleted) {
-            throw IOException(
-                "Temporary APK file couldn't be deleted! Report this bug please with instructions " +
-                        "on how to reproduce!"
-            )
-        }
+    private fun deleteTempFile(tempFile: File) {
+        tempFile.delete()
     }
 }
 
