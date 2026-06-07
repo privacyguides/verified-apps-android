@@ -256,4 +256,4 @@ jobs:
         with:
           artifacts: "${{ needs.build.outputs.path }},${{ needs.build.outputs.idsig }}"
           immutableCreate: true
-          prerelease: true
+          prerelease: false
