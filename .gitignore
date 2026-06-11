@@ -23,3 +23,7 @@ local.properties
 /app/release/apk/release/output-metadata.json
 /app/release/bundletool-all-1.15.6.jar
 __pycache__
+
+# Play publishing secrets — never commit
+play-service-account*.json
+*upload*.keystore

@@ -34,6 +34,13 @@ android {
     buildToolsVersion = "37.0.0"
     ndkVersion = "28.1.13356709"
 
+    // When -PplayBuild=true, build the Google Play variant: a distinct
+    // applicationId (org.privacyguides.verifiedapps.play) signed with a
+    // dedicated upload key. Absent the flag, the build is byte-for-byte
+    // identical to the canonical GitHub build (keeps verify-reproducible.yml
+    // and artifact attestation intact).
+    val playBuild = (project.findProperty("playBuild") as? String)?.toBoolean() == true
+
     defaultConfig {
         applicationId = "org.privacyguides.verifiedapps"
         minSdk = 34
@@ -41,7 +48,7 @@ android {
         // CalVer YY.MM.PATCH (e.g. 26.6.0). versionCode = YY*1_000_000 + MM*10_000 + PATCH.
         val releaseVersionYear = 26
         val releaseVersionMonth = 6
-        val releaseVersionPatch = 7
+        val releaseVersionPatch = 8
         versionCode = releaseVersionYear * 1_000_000 + releaseVersionMonth * 10_000 + releaseVersionPatch
         versionName = "${releaseVersionYear}.${releaseVersionMonth}.${releaseVersionPatch}"
 
@@ -78,6 +85,19 @@ android {
             enableV3Signing = true
             enableV4Signing = true
         }
+        // Dedicated Play upload key, kept separate from the GitHub release key.
+        // Google's Play App Signing re-signs the distributed app, so this is
+        // only the upload signature; v4/.idsig is unnecessary here.
+        create("playUpload") {
+            val keystorePath = System.getenv("PLAY_UPLOAD_KEYSTORE_PATH")
+            if (!keystorePath.isNullOrBlank()) {
+                storeFile = file(keystorePath)
+                storePassword = System.getenv("PLAY_UPLOAD_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("PLAY_UPLOAD_KEY_ALIAS")
+                keyPassword = System.getenv("PLAY_UPLOAD_KEY_PASSWORD")
+            }
+            enableV3Signing = true
+        }
     }
     buildTypes {
         release {
@@ -87,8 +107,14 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            signingConfigs.findByName("release")?.takeIf { it.storeFile?.exists() == true }?.let {
+            val activeSigning =
+                signingConfigs.getByName(if (playBuild) "playUpload" else "release")
+            activeSigning.takeIf { it.storeFile?.exists() == true }?.let {
                 signingConfig = it
+            }
+            if (playBuild) {
+                // -> org.privacyguides.verifiedapps.play
+                applicationIdSuffix = ".play"
             }
         }
         getByName("debug") {
@@ -103,8 +129,9 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
-    // Useless since we don't publish to the Google Play Store and they are the only ones who can
-    // view it.
+    // The Play build (-PplayBuild) does upload a bundle to Google, but we still
+    // omit dependency metadata: only Google can read it, and we'd rather not
+    // ship it. The canonical GitHub APK never goes to Play at all.
     // Reference: https://developer.android.com/reference/tools/gradle-api/8.6/com/android/build/api/dsl/DependenciesInfo
     dependenciesInfo {
         // Disables dependency metadata when building APKs.

@@ -7,7 +7,7 @@ import org.privacyguides.verifiedapps.github.GitHubAppSubmission
 /**
  * Builds a Codeberg "new issue" URL for [app-submission.yml].
  *
- * Codeberg currently only applies the `title` query parameter; `verificationInfo` is
+ * Codeberg currently only applies the `title` query parameter; the other fields are
  * included for forward compatibility if form prefills are added later.
  */
 object CodebergAppSubmission {
@@ -29,6 +29,7 @@ object CodebergAppSubmission {
             .appendQueryParameter("template", TEMPLATE)
             .appendQueryParameter("title", title)
             .appendQueryParameter("verificationInfo", verificationInfo)
+            .appendQueryParameter("verifierSource", GitHubAppSubmission.VERIFIER_SOURCE_VERIFIED_APPS)
             .build()
     }
 }

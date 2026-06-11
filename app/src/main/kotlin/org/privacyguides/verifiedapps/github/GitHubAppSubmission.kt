@@ -17,7 +17,7 @@ object GitHubAppSubmission {
     private const val TEMPLATE = "app-submission.yml"
 
     /** Dropdown option text must match the issue form exactly. */
-    private const val VERIFIER_SOURCE_OTHER = "Other"
+    const val VERIFIER_SOURCE_VERIFIED_APPS = "N/A - I'm using Verified Apps from PrivacyGuides"
 
     fun newIssueUri(
         packageManager: PackageManager,
@@ -34,7 +34,7 @@ object GitHubAppSubmission {
             .appendQueryParameter("title", title)
             .appendQueryParameter("verificationInfo", verificationInfo)
             .appendQueryParameter("appSource", appSource)
-            .appendQueryParameter("verifierSource", VERIFIER_SOURCE_OTHER)
+            .appendQueryParameter("verifierSource", VERIFIER_SOURCE_VERIFIED_APPS)
             .build()
     }
 
