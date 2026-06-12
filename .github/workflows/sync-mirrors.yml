@@ -17,15 +17,6 @@ jobs:
   codeberg:
     runs-on: ubuntu-latest
     steps:
-      # Pinned to main so secrets/ and scripts/ resolve on delete events too.
-      - name: Checkout
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-        with:
-          ref: main
-
-      - name: Install sops
-        run: bash scripts/ci/install-sops.sh
-
       # In-repo clone --mirror + push --mirror so no third-party action holds
       # the deploy key. Source clone is public https; only the push uses SSH.
       - name: Mirror to Codeberg
@@ -44,4 +35,8 @@ jobs:
           echo "codeberg.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIVIC02vnjFyL+I4RHfvIGNtOgJMe769VTF1VR4EB3ZB" > "$KNOWN_HOSTS"
           export GIT_SSH_COMMAND="ssh -i $KEY_FILE -o IdentitiesOnly=yes -o UserKnownHostsFile=$KNOWN_HOSTS -o StrictHostKeyChecking=yes"
           git clone --mirror "$SOURCE_REPO" "$RUNNER_TEMP/mirror.git"
+          # GitHub mirror clones carry read-only refs/pull/*, which Codeberg
+          # rejects ("hidden ref") and fails the whole push; drop them first.
+          git -C "$RUNNER_TEMP/mirror.git" for-each-ref --format 'delete %(refname)' refs/pull \
+            | git -C "$RUNNER_TEMP/mirror.git" update-ref --stdin
           git -C "$RUNNER_TEMP/mirror.git" push --mirror "$DEST_REPO"

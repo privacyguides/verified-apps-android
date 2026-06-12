@@ -1,9 +1,10 @@
 # CI secrets (SOPS)
 
 CI secrets live here as [SOPS](https://github.com/getsops/sops)-encrypted
-files. The only secret stored in GitHub is `SOPS_AGE_KEY`, the [age](https://age-encryption.org)
-private key that decrypts them; everything else is reviewable ciphertext.
-Any runner with a checkout and that one key can build and publish.
+files, decrypted in CI by the `SOPS_AGE_KEY` GitHub secret (an [age](https://age-encryption.org)
+private key); everything else is reviewable ciphertext. The Codeberg mirror's
+deploy key is the one exception — it stays a plain `ACTIONS_SSH_KEY` GitHub
+secret, since it's GitHub-specific and not part of this store.
 
 ## Inventory
 
@@ -11,7 +12,7 @@ Any runner with a checkout and that one key can build and publish.
 | --- | --- | --- |
 | `android-signing.yaml` | `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD` | `release.yml` (GitHub APK signing) |
 | `google-play.yaml` | `PLAY_SERVICE_ACCOUNT_JSON`, `PLAY_UPLOAD_KEYSTORE_BASE64`, `PLAY_UPLOAD_KEYSTORE_PASSWORD`, `PLAY_UPLOAD_KEY_ALIAS`, `PLAY_UPLOAD_KEY_PASSWORD` | `release-play.yml` |
-| `codeberg.yaml` | `CB_SYNC_TOKEN` | `sync-mirrors.yml`, `sync-releases.yml` |
+| `codeberg.yaml` | `CB_SYNC_TOKEN` | `sync-releases.yml` |
 
 Top-level YAML keys are the exact env var names the build expects;
 `scripts/ci/sops-env.sh` exports them verbatim.
