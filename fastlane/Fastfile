@@ -20,8 +20,11 @@ platform :android do
       raise "PLAY_VERSION_CODE must be an integer, got #{code.inspect}" unless code.match?(/\A\d+\z/)
       already_on_play = PLAY_TRACKS.any? do |track|
         google_play_track_version_codes(track: track).include?(code.to_i)
-      rescue StandardError
-        # Track empty or never used; treat as "not uploaded there".
+      rescue StandardError => e
+        # Track empty or never used; treat as "not uploaded there". A real
+        # auth/API problem also lands here, but then upload_to_play_store
+        # fails loudly right after — the log line keeps the diagnosis easy.
+        UI.important("Could not query track '#{track}': #{e.message}")
         false
       end
       if already_on_play

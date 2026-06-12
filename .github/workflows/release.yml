@@ -274,9 +274,11 @@ jobs:
         with:
           name: built-apk
 
-      # May be absent when Play isn't configured.
+      # The artifact only exists when Play is configured, and then the
+      # immutable release must include the attested AAB — so this is skipped
+      # rather than continue-on-error, and a download failure is fatal.
       - name: Download Play App Bundle
-        continue-on-error: true
+        if: needs.play.outputs.configured == 'true'
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: built-play-aab
@@ -290,11 +292,15 @@ jobs:
           PLAY_AAB: ${{ needs.play.outputs.asset_name }}
         run: |
           LIST="${MAIN_APK},${MAIN_IDSIG}"
-          if [ -n "$PLAY_AAB" ] && [ -f "$PLAY_AAB" ]; then
+          if [ -n "$PLAY_AAB" ]; then
+            if [ ! -f "$PLAY_AAB" ]; then
+              echo "::error::Play is configured but ${PLAY_AAB} is not present; refusing to publish the immutable release without it."
+              exit 1
+            fi
             LIST="${LIST},${PLAY_AAB}"
             echo "Including Play App Bundle: ${PLAY_AAB}"
           else
-            echo "No Play App Bundle to include (Play not configured or skipped)."
+            echo "No Play App Bundle to include (Play not configured)."
           fi
           echo "artifacts=${LIST}" >> "$GITHUB_OUTPUT"
 
