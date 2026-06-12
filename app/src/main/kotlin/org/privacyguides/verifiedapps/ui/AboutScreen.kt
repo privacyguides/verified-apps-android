@@ -2,6 +2,11 @@
 
 package org.privacyguides.verifiedapps.ui
 
+import android.content.ActivityNotFoundException
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -32,7 +37,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -46,7 +51,7 @@ fun AboutScreen(
     onPrivacyPolicyIconButtonClicked: () -> Unit,
     onCreditsIconButtonClicked: () -> Unit,
 ) {
-    val localUriHandler = LocalUriHandler.current
+    val context = LocalContext.current
     val pgCardBackground = Color(0xFFFFD06F)
     val pgCardContent = Color(0xFF28323F)
 
@@ -111,7 +116,7 @@ fun AboutScreen(
 
             Card(
                 onClick = {
-                    localUriHandler.openUri("https://www.privacyguides.org")
+                    openExternalLink(context, "https://www.privacyguides.org")
                 },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -154,7 +159,7 @@ fun AboutScreen(
             }
             ListItem(
                 modifier = Modifier.clickable {
-                    localUriHandler.openUri("https://www.privacyguides.org/donate")
+                    openExternalLink(context, "https://www.privacyguides.org/donate")
                 },
                 headlineContent = { Text(stringResource(R.string.donation_setting_name)) },
                 supportingContent = { Text(stringResource(R.string.donation_setting_description)) },
@@ -164,7 +169,7 @@ fun AboutScreen(
             )
             ListItem(
                 modifier = Modifier.clickable {
-                    localUriHandler.openUri("https://github.com/privacyguides/verified-apps")
+                    openExternalLink(context, "https://github.com/privacyguides/verified-apps")
                 },
                 headlineContent = { Text(stringResource(R.string.database_setting_name)) },
                 supportingContent = { Text(stringResource(R.string.database_setting_description)) },
@@ -174,7 +179,7 @@ fun AboutScreen(
             )
             ListItem(
                 modifier = Modifier.clickable {
-                    localUriHandler.openUri("https://github.com/privacyguides/verified-apps-android")
+                    openExternalLink(context, "https://github.com/privacyguides/verified-apps-android")
                 },
                 headlineContent = { Text(stringResource(R.string.view_source_code_setting_name)) },
                 supportingContent = { Text(stringResource(R.string.view_source_code_setting_description)) },
@@ -207,5 +212,21 @@ fun AboutScreen(
                 },
             )
         }
+    }
+}
+
+// LocalUriHandler.openUri wraps a missing-browser ActivityNotFoundException in
+// IllegalArgumentException and crashes the screen; launch the intent directly
+// so we can catch it and toast instead, matching openSubmissionUri.
+private fun openExternalLink(context: Context, url: String) {
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    try {
+        context.startActivity(intent)
+    } catch (_: ActivityNotFoundException) {
+        Toast.makeText(
+            context,
+            context.getString(R.string.link_no_browser),
+            Toast.LENGTH_LONG,
+        ).show()
     }
 }

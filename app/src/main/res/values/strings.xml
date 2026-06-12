@@ -89,6 +89,7 @@
     <string name="verification_info_clip_label">Verification info</string>
     <string name="codeberg_submission_no_browser">No browser found to open the Codeberg submission page.</string>
     <string name="github_submission_no_browser">No browser found to open the GitHub submission page.</string>
+    <string name="link_no_browser">No browser found to open this link.</string>
     <string name="always_show_github_submit_setting_name">Always show submission buttons</string>
     <string name="always_show_github_submit_setting_description">Shows the Submit on GitHub button even when the app is already in the internal database</string>
     <string name="show_codeberg_submit_setting_name">Show Submit on Codeberg</string>
