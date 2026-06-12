@@ -21,14 +21,15 @@ jobs:
       - name: Install Semgrep
         run: pipx install semgrep
 
-      # semgrep scan exits 0 even when it reports findings, so the SARIF upload
-      # still runs; it only exits non-zero on a real scan error.
+      # semgrep exits 0 on findings (SARIF still uploads), non-zero only on a
+      # scan error. secrets/ excluded: its ciphertext trips p/secrets.
       - name: Run Semgrep
         run: >-
           semgrep scan
           --config p/kotlin
           --config p/secrets
           --config p/owasp-top-ten
+          --exclude secrets
           --sarif --output semgrep.sarif
 
       - name: Upload results to code scanning
@@ -62,6 +63,46 @@ jobs:
         with:
           sarif_file: app/build/reports/detekt/detekt.sarif
 
+  # Fails the build if any secrets file no longer decrypts with the CI key.
+  sops-decrypt-check:
+    name: SOPS decrypt check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      # Shell tracing could echo decrypted secrets before masking; forbid it.
+      # (Patterns use character classes so they don't match their own source.)
+      - name: Forbid shell tracing where secrets flow
+        run: |
+          if grep -rnE 'set[[:space:]]+-[a-z]*x|set[[:space:]]+-o[[:space:]]+xtrace|\b(bash|sh)[[:space:]]+-[a-z]*x' \
+              .github/workflows scripts; then
+            echo "::error::Shell tracing found in CI code (see matches above). It can leak decrypted secrets into job logs; remove it."
+            exit 1
+          fi
+          echo "No shell tracing in workflows or scripts."
+
+      - name: Install sops
+        run: ./scripts/ci/install-sops.sh
+
+      - name: Verify every secrets file decrypts with the CI key
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+        run: |
+          if [ -z "$SOPS_AGE_KEY" ]; then
+            echo "::notice::SOPS_AGE_KEY not available (fork PR?); skipping decrypt check."
+            exit 0
+          fi
+          status=0
+          for f in secrets/*.yaml; do
+            if sops decrypt "$f" > /dev/null 2>&1; then
+              echo "OK: $f decrypts."
+            else
+              echo "::error::Cannot decrypt $f with the CI age key. Re-encrypt it to the recipient in .sops.yaml."
+              status=1
+            fi
+          done
+          exit "$status"
+
   unit-tests:
     name: Unit tests
     runs-on: ubuntu-latest
@@ -77,8 +118,6 @@ jobs:
         with:
           validate-wrappers: true
 
-      # Verifies security-critical signature-match logic, the database lookup,
-      # and the fingerprint formatter. Will fail workflow on failure.
       - name: Run unit tests
         run: ./gradlew :app:testDebugUnitTest
 

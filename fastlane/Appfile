@@ -1,0 +1,6 @@
+# Distinct package so the Play build never collides with the GitHub build,
+# which keeps org.privacyguides.verifiedapps and its own signing key.
+package_name("org.privacyguides.verifiedapps.play")
+
+# Play Developer API service account; PLAY_JSON_KEY_FILE points at the JSON.
+json_key_file(ENV.fetch("PLAY_JSON_KEY_FILE", ""))

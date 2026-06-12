@@ -17,10 +17,35 @@ jobs:
   codeberg:
     runs-on: ubuntu-latest
     steps:
-      - name: Mirror to Codeberg
-        uses: wearerequired/git-mirror-action@c44c68aebe42de49a80a8dfd557416b6a0cafdad # v1.2.0
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.ACTIONS_SSH_KEY }}
+      # Pinned to main so secrets/ and scripts/ resolve on delete events too.
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
-          source-repo: "git@github.com:privacyguides/verified-apps-android.git"
-          destination-repo: "git@codeberg.org:privacyguides/verified-apps-android.git"
+          ref: main
+
+      - name: Install sops
+        run: ./scripts/ci/install-sops.sh
+
+      - name: Load mirror SSH key
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+        run: ./scripts/ci/sops-env.sh secrets/codeberg.yaml ACTIONS_SSH_KEY
+
+      # In-repo clone --mirror + push --mirror so no third-party action holds
+      # the deploy key. Source clone is public https; only the push uses SSH.
+      - name: Mirror to Codeberg
+        env:
+          SOURCE_REPO: https://github.com/privacyguides/verified-apps-android.git
+          DEST_REPO: git@codeberg.org:privacyguides/verified-apps-android.git
+        run: |
+          umask 077
+          KEY_FILE="$RUNNER_TEMP/mirror_key"
+          KNOWN_HOSTS="$RUNNER_TEMP/known_hosts"
+          trap 'rm -f "$KEY_FILE" "$KNOWN_HOSTS"' EXIT
+          printf '%s\n' "$ACTIONS_SSH_KEY" > "$KEY_FILE"
+          unset ACTIONS_SSH_KEY
+          # Codeberg's published ed25519 host key, pinned.
+          echo "codeberg.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIVIC02vnjFyL+I4RHfvIGNtOgJMe769VTF1VR4EB3ZB" > "$KNOWN_HOSTS"
+          export GIT_SSH_COMMAND="ssh -i $KEY_FILE -o IdentitiesOnly=yes -o UserKnownHostsFile=$KNOWN_HOSTS -o StrictHostKeyChecking=yes"
+          git clone --mirror "$SOURCE_REPO" "$RUNNER_TEMP/mirror.git"
+          git -C "$RUNNER_TEMP/mirror.git" push --mirror "$DEST_REPO"

@@ -30,9 +30,22 @@ jobs:
       github.event.release.draft == false
 
     steps:
+      # Pinned to main so secrets/ and scripts/ resolve regardless of the tag.
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          ref: main
+
+      - name: Install sops
+        run: ./scripts/ci/install-sops.sh
+
+      - name: Load Codeberg API token
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+        run: ./scripts/ci/sops-env.sh secrets/codeberg.yaml CB_SYNC_TOKEN
+
       - name: Mirror GitHub release to Codeberg
         env:
-          CB_SYNC_TOKEN: ${{ secrets.CB_SYNC_TOKEN }}
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
           RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
@@ -51,8 +64,7 @@ jobs:
             exit 1
           fi
 
-          # Forgejo API call with auth headers. Writes the response body to $API_BODY and
-          # prints the HTTP status code on stdout.
+          # Forgejo API call: body to $API_BODY, HTTP status to stdout.
           API_BODY="$(mktemp)"
           trap 'rm -f "$API_BODY"' EXIT
           api() {
@@ -60,6 +72,13 @@ jobs:
               -H "Authorization: token ${CB_SYNC_TOKEN}" \
               -H "Accept: application/json" \
               "$@"
+          }
+
+          # Log only the .message field, never the raw body (it could echo auth).
+          api_err() {
+            if ! jq -r '"Codeberg said: " + (.message // "(no message field in error body)")' "$API_BODY" >&2 2>/dev/null; then
+              echo "Codeberg error body was not JSON; withheld from logs." >&2
+            fi
           }
 
           urlencode() { jq -rn --arg x "$1" '$x | @uri'; }
@@ -80,8 +99,7 @@ jobs:
           rel_prerelease=$(jq -r '.isPrerelease' <<<"$release_json")
           [[ -n "$rel_name" ]] || rel_name="$RELEASE_TAG"
 
-          # Commit the tag points at, so Forgejo can create the tag if the git mirror has
-          # not pushed it yet. Ignored by Forgejo when the tag already exists on Codeberg.
+          # Lets Forgejo create the tag if the git mirror hasn't pushed it yet.
           target_sha=$(gh api "repos/${GH_REPO}/commits/${RELEASE_TAG}" --jq '.sha' 2>/dev/null || true)
 
           # --- Find or create the Codeberg release ----------------------------------
@@ -89,7 +107,7 @@ jobs:
           case "$http" in
             200) release_id=$(jq -r '.id' "$API_BODY") ;;
             404) release_id="" ;;
-            *) echo "Codeberg get-release-by-tag failed (HTTP $http):" >&2; cat "$API_BODY" >&2; exit 1 ;;
+            *) echo "Codeberg get-release-by-tag failed (HTTP $http):" >&2; api_err; exit 1 ;;
           esac
 
           if [[ -n "$release_id" && "$release_id" != "null" ]]; then
@@ -107,7 +125,7 @@ jobs:
               --data-binary "$payload" "${base}/releases")
             if [[ "$http" != "201" ]]; then
               echo "Codeberg create-release failed (HTTP $http):" >&2
-              cat "$API_BODY" >&2
+              api_err
               exit 1
             fi
             release_id=$(jq -r '.id' "$API_BODY")
@@ -123,7 +141,7 @@ jobs:
           http=$(api "${base}/releases/${release_id}/assets")
           if [[ "$http" != "200" ]]; then
             echo "Codeberg list-release-assets failed (HTTP $http):" >&2
-            cat "$API_BODY" >&2
+            api_err
             exit 1
           fi
           existing_names=$(jq -r '.[].name' "$API_BODY")
@@ -141,7 +159,7 @@ jobs:
               "${base}/releases/${release_id}/assets?name=$(urlencode "$name")")
             if [[ "$http" != "201" ]]; then
               echo "Codeberg upload-asset failed for $name (HTTP $http):" >&2
-              cat "$API_BODY" >&2
+              api_err
               exit 1
             fi
           done

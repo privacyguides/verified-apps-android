@@ -98,7 +98,6 @@ jobs:
 
       - name: Compare APKs
         run: |
-          set -x
           ORIGINAL=$(ls /tmp/original/*.apk 2>/dev/null || true)
           REBUILT=$(ls app/build/outputs/apk/release/*.apk 2>/dev/null || true)
           if [ -z "$ORIGINAL" ] || [ -z "$REBUILT" ]; then

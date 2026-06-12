@@ -17,8 +17,7 @@ tasks.withType<KotlinCompile>().configureEach {
 detekt {
     config.setFrom("$rootDir/config/detekt/detekt.yml")
     buildUponDefaultConfig = true
-    // Report findings to SARIF/code scanning instead of failing the build; CI
-    // still fails on real Gradle/compile errors.
+    // Report to SARIF instead of failing the build.
     ignoreFailures = true
 }
 
@@ -34,11 +33,8 @@ android {
     buildToolsVersion = "37.0.0"
     ndkVersion = "28.1.13356709"
 
-    // When -PplayBuild=true, build the Google Play variant: a distinct
-    // applicationId (org.privacyguides.verifiedapps.play) signed with a
-    // dedicated upload key. Absent the flag, the build is byte-for-byte
-    // identical to the canonical GitHub build (keeps verify-reproducible.yml
-    // and artifact attestation intact).
+    // -PplayBuild=true builds the Play variant (distinct applicationId, Play
+    // upload key). Without it, the build matches the canonical GitHub build.
     val playBuild = (project.findProperty("playBuild") as? String)?.toBoolean() == true
 
     defaultConfig {
@@ -85,9 +81,8 @@ android {
             enableV3Signing = true
             enableV4Signing = true
         }
-        // Dedicated Play upload key, kept separate from the GitHub release key.
-        // Google's Play App Signing re-signs the distributed app, so this is
-        // only the upload signature; v4/.idsig is unnecessary here.
+        // Play upload key, separate from the GitHub release key. Google
+        // re-signs on its end, so no v4/.idsig here.
         create("playUpload") {
             val keystorePath = System.getenv("PLAY_UPLOAD_KEYSTORE_PATH")
             if (!keystorePath.isNullOrBlank()) {
@@ -129,14 +124,9 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
-    // The Play build (-PplayBuild) does upload a bundle to Google, but we still
-    // omit dependency metadata: only Google can read it, and we'd rather not
-    // ship it. The canonical GitHub APK never goes to Play at all.
-    // Reference: https://developer.android.com/reference/tools/gradle-api/8.6/com/android/build/api/dsl/DependenciesInfo
+    // Omit the Google-only dependency metadata block from both APK and bundle.
     dependenciesInfo {
-        // Disables dependency metadata when building APKs.
         includeInApk = false
-        // Disables dependency metadata when building Android App Bundles.
         includeInBundle = false
     }
 }

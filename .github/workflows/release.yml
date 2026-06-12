@@ -1,10 +1,5 @@
 # Builds a signed release APK and publishes it to a GitHub Release.
-#
-# Required repository secrets:
-#   ANDROID_KEYSTORE_BASE64  — release keystore file, base64-encoded
-#   ANDROID_KEYSTORE_PASSWORD
-#   ANDROID_KEY_ALIAS
-#   ANDROID_KEY_PASSWORD
+# Signing material is in secrets/android-signing.yaml; SOPS_AGE_KEY decrypts it.
 
 name: Build Release
 
@@ -25,6 +20,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Install sops
+        run: ./scripts/ci/install-sops.sh
+
+      # First, so an unpopulated secrets store fails before toolchain setup.
+      - name: Load signing secrets
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+        run: |
+          ./scripts/ci/sops-env.sh secrets/android-signing.yaml \
+            ANDROID_KEYSTORE_BASE64 \
+            ANDROID_KEYSTORE_PASSWORD \
+            ANDROID_KEY_ALIAS \
+            ANDROID_KEY_PASSWORD
 
       - name: Set up JDK
         uses: actions/setup-java@be666c2fcd27ec809703dec50e508c2fdc7f6654 # v5.2.0
@@ -57,13 +66,12 @@ jobs:
           echo "Version ${GRADLE_VERSION} matches tag ${TAG}."
 
       - name: Prepare release keystore
-        env:
-          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
         run: |
           if [ -z "$ANDROID_KEYSTORE_BASE64" ]; then
-            echo "::error::Missing ANDROID_KEYSTORE_BASE64 secret. Add release signing secrets before publishing."
+            echo "::error::Missing ANDROID_KEYSTORE_BASE64. Populate secrets/android-signing.yaml before publishing."
             exit 1
           fi
+          umask 077
           KEYSTORE_PATH="${{ runner.temp }}/release.keystore"
           echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > "$KEYSTORE_PATH"
           echo "path=${KEYSTORE_PATH}" >> "$GITHUB_OUTPUT"
@@ -72,11 +80,7 @@ jobs:
       - name: Build release APK
         env:
           ANDROID_KEYSTORE_PATH: ${{ steps.keystore.outputs.path }}
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
-        # Pin SOURCE_DATE_EPOCH to the tag's commit time so the release build is
-        # byte-for-byte reproducible by verify-reproducible.yml.
+        # SOURCE_DATE_EPOCH pinned to the tag commit for reproducible builds.
         run: SOURCE_DATE_EPOCH=$(git log -1 --format=%ct) ./gradlew :app:assembleRelease --no-daemon
 
       - name: Package release APK
@@ -90,7 +94,7 @@ jobs:
           if [ -f "$SIGNED" ]; then
             APK="$SIGNED"
           elif [ -f "$UNSIGNED" ]; then
-            echo "::error::Release APK is unsigned. Check ANDROID_KEYSTORE_* secrets and signing config."
+            echo "::error::Release APK is unsigned. Check the values in secrets/android-signing.yaml and the signing config."
             exit 1
           else
             echo "::error::No release APK found under app/build/outputs/apk/release/"
@@ -119,11 +123,8 @@ jobs:
     name: MobSF Security Scan
     needs: build
     runs-on: ubuntu-latest
-    # Informational only: the `release` job depends on [build, attest], not this
-    # job, so a MobSF failure never blocks publishing.
-    #
-    # MOBSF_API_KEY is not a secret: the container is reachable only from
-    # localhost on the ephemeral runner and is destroyed when the job ends.
+    # Informational only; the release job doesn't depend on it. MOBSF_API_KEY
+    # isn't a secret: the container is localhost-only and dies with the job.
     env:
       MOBSF_API_KEY: ci-ephemeral-key
     steps:
@@ -132,10 +133,8 @@ jobs:
         with:
           name: built-apk
 
-      # Run MobSF ourselves rather than as a `services:` container: its ~80s
-      # boot (JADX download + DB migrations) exceeds GitHub's service
-      # healthcheck window, so a service container is killed as "unhealthy"
-      # before any step runs. Here we own the readiness wait instead.
+      # Not a `services:` container: MobSF's slow boot exceeds the service
+      # healthcheck window, so we start it here and own the readiness wait.
       - name: Start MobSF
         run: |
           docker run -d --name mobsf \
@@ -171,16 +170,8 @@ jobs:
             -H "Authorization: $MOBSF_API_KEY" \
             http://localhost:8000/api/v1/scan > /dev/null
 
-          # Suppress confirmed false positives before pulling the report so the
-          # scorecard recomputes without them. Both rules only ever match R8-
-          # minified third-party code (AndroidX/Compose/Kotlin), never our own
-          # sources: android_insecure_random fires on non-cryptographic
-          # java.util.Random use in those libraries (our only crypto is SHA-256
-          # MessageDigest, which uses no RNG), and android_hardcoded is a regex
-          # hit on library constants (MobSF's secret extractor finds nothing).
-          # The container is ephemeral, so these must be re-applied every run.
-          # Non-fatal (no -f): a suppression API change must not fail this
-          # informational job or lose the report artifact.
+          # Suppress two confirmed library-only false positives before pulling
+          # the scorecard. Non-fatal so an API change can't fail this job.
           for RULE in android_insecure_random android_hardcoded; do
             if curl -s -X POST \
               -d "hash=$HASH" \
@@ -204,7 +195,6 @@ jobs:
             -H "Authorization: $MOBSF_API_KEY" \
             http://localhost:8000/api/v1/scorecard > mobsf-scorecard.json
 
-          # Defensive extraction: tolerate schema changes without failing the step.
           echo "## MobSF AppSec Scorecard" >> "$GITHUB_STEP_SUMMARY"
           echo "- Security score: $(jq -r '.security_score // "N/A"' mobsf-scorecard.json)/100" >> "$GITHUB_STEP_SUMMARY"
           echo "- High: $(jq -r '.high | length // 0' mobsf-scorecard.json)" >> "$GITHUB_STEP_SUMMARY"
@@ -235,25 +225,72 @@ jobs:
     uses: privacyguides/.github/.github/workflows/sign-artifact.yml@5c41b37a937aab5e50262f3ab672fc9b9438dbf9
     with:
       artifact-name: built-apk
-      artifact-path: ${{ needs.build.outputs.path }}
+      # Attest both the APK and its .idsig sidecar.
+      artifact-path: |
+        ${{ needs.build.outputs.path }}
+        ${{ needs.build.outputs.idsig }}
+
+  # Play variant; soft-skips when Play isn't configured.
+  play:
+    needs: build
+    uses: ./.github/workflows/release-play.yml
+    with:
+      tag: ${{ github.ref_name }}
+    secrets: inherit
+
+  attest-play:
+    needs: play
+    if: needs.play.outputs.configured == 'true'
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    uses: privacyguides/.github/.github/workflows/sign-artifact.yml@5c41b37a937aab5e50262f3ab672fc9b9438dbf9
+    with:
+      artifact-name: built-play-aab
+      artifact-path: ${{ needs.play.outputs.asset_name }}
 
   release:
-    needs: [build, attest]
+    needs: [build, attest, play]
     runs-on: ubuntu-latest
     permissions:
       contents: write
       id-token: write
 
     steps:
-      - name: Download artifact
+      - name: Download release APK
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
           name: built-apk
+
+      # May be absent when Play isn't configured.
+      - name: Download Play App Bundle
+        continue-on-error: true
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: built-play-aab
+
+      # Immutable release: all assets must be present at creation.
+      - name: Collect release assets
+        id: assets
+        env:
+          MAIN_APK: ${{ needs.build.outputs.path }}
+          MAIN_IDSIG: ${{ needs.build.outputs.idsig }}
+          PLAY_AAB: ${{ needs.play.outputs.asset_name }}
+        run: |
+          LIST="${MAIN_APK},${MAIN_IDSIG}"
+          if [ -n "$PLAY_AAB" ] && [ -f "$PLAY_AAB" ]; then
+            LIST="${LIST},${PLAY_AAB}"
+            echo "Including Play App Bundle: ${PLAY_AAB}"
+          else
+            echo "No Play App Bundle to include (Play not configured or skipped)."
+          fi
+          echo "artifacts=${LIST}" >> "$GITHUB_OUTPUT"
 
       - name: Create release notes
         id: release
         uses: ncipollo/release-action@339a81892b84b4eeb0f6e744e4574d79d0d9b8dd # v1.21.0
         with:
-          artifacts: "${{ needs.build.outputs.path }},${{ needs.build.outputs.idsig }}"
+          artifacts: ${{ steps.assets.outputs.artifacts }}
           immutableCreate: true
           prerelease: false

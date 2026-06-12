@@ -8,7 +8,6 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /.idea/deploymentTargetDropDown.xml
-.DS_Store
 /build
 /captures
 .externalNativeBuild
@@ -27,3 +26,10 @@ __pycache__
 # Play publishing secrets — never commit
 play-service-account*.json
 *upload*.keystore
+
+# SOPS / age — never commit plaintext secrets or private keys
+*.agekey
+age-key*.txt
+keys.txt
+secrets/*.plain*
+sops-migration-export/

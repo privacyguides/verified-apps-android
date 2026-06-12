@@ -1,0 +1,34 @@
+# Fastlane lanes for the Google Play build. Build the bundle first:
+#   ./gradlew :app:bundleRelease -PplayBuild=true
+#
+# Env: PLAY_JSON_KEY_FILE (set in Appfile), PLAY_AAB_PATH, PLAY_TRACK,
+# PLAY_RELEASE_STATUS (draft | completed | halted | inProgress).
+
+default_platform(:android)
+
+AAB_DEFAULT = "app/build/outputs/bundle/release/app-release.aab".freeze
+
+platform :android do
+  desc "Upload the Play App Bundle (and matching changelog) to the internal track"
+  lane :internal do
+    upload_to_play_store(
+      track: ENV.fetch("PLAY_TRACK", "internal"),
+      aab: ENV.fetch("PLAY_AAB_PATH", AAB_DEFAULT),
+      # Draft by default so a human confirms rollout; CI can override.
+      release_status: ENV.fetch("PLAY_RELEASE_STATUS", "draft"),
+      # Binary + release notes only; the listing is the separate `metadata` lane.
+      skip_upload_metadata: true,
+      skip_upload_images: true,
+      skip_upload_screenshots: true
+    )
+  end
+
+  desc "Push the in-repo store listing (title, descriptions, screenshots, icon) only"
+  lane :metadata do
+    upload_to_play_store(
+      skip_upload_aab: true,
+      skip_upload_apk: true,
+      skip_upload_changelogs: true
+    )
+  end
+end
