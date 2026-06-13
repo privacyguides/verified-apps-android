@@ -4,12 +4,15 @@ import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material.icons.filled.Error
+import androidx.compose.material.icons.filled.Verified
 import androidx.compose.material.icons.automirrored.filled.HelpOutline
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import org.privacyguides.verifiedapps.R
+import org.privacyguides.verifiedapps.Source
+import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.data.InternalDatabaseStatus
 
 @StringRes
@@ -31,6 +34,13 @@ fun InternalDatabaseStatus.statusIcon(): ImageVector = when (this) {
     InternalDatabaseStatus.NOMATCH -> Icons.Default.Error
     InternalDatabaseStatus.NOT_FOUND -> Icons.AutoMirrored.Filled.HelpOutline
 }
+
+fun InternalDatabaseInfo.statusIcon(): ImageVector =
+    if (internalDatabaseStatus == InternalDatabaseStatus.MATCH && Source.VERIFIED_DOMAIN in sources) {
+        Icons.Default.Verified
+    } else {
+        internalDatabaseStatus.statusIcon()
+    }
 
 @Composable
 fun InternalDatabaseStatus.contentColor(): Color = when (this) {

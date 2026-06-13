@@ -557,7 +557,7 @@ private fun AppListEntriesBody(
                         },
                         trailingContent = {
                             Icon(
-                                imageVector = status.statusIcon(),
+                                imageVector = entry.internalDatabaseInfo.statusIcon(),
                                 contentDescription = stringResource(status.labelRes()),
                                 tint = status.contentColor(),
                             )

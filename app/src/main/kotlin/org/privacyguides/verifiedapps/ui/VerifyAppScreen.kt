@@ -28,6 +28,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Verified
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -55,6 +56,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import kotlinx.coroutines.launch
 import org.privacyguides.verifiedapps.R
+import org.privacyguides.verifiedapps.Source
 import org.privacyguides.verifiedapps.data.Hashes
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo
 import org.privacyguides.verifiedapps.data.InternalDatabaseStatus
@@ -240,10 +242,25 @@ fun VerifyAppScreen(
                             text = stringResource(R.string.internal_database_sources_label),
                             style = MaterialTheme.typography.bodyMedium,
                         )
-                        Text(
-                            text = internalDatabaseInfo.sources.joinToString("\n") { it.displayName },
-                            style = MaterialTheme.typography.titleMedium,
-                        )
+                        Column {
+                            internalDatabaseInfo.sources.forEach { source ->
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Text(
+                                        text = source.displayName,
+                                        style = MaterialTheme.typography.titleMedium,
+                                    )
+                                    if (source == Source.VERIFIED_DOMAIN) {
+                                        Spacer(Modifier.width(4.dp))
+                                        Icon(
+                                            imageVector = Icons.Default.Verified,
+                                            contentDescription = null,
+                                            tint = MaterialTheme.colorScheme.primary,
+                                            modifier = Modifier.size(20.dp),
+                                        )
+                                    }
+                                }
+                            }
+                        }
                         Text(
                             text = stringResource(R.string.internal_database_sources_explanation),
                             style = MaterialTheme.typography.bodyMedium,
