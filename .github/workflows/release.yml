@@ -336,7 +336,11 @@ jobs:
 
             ---
 
-            Google Play builds are now available for approved testers: <https://play.google.com/apps/internaltest/4701501654503346441>
+            [<img src="https://raw.githubusercontent.com/steverichey/google-play-badge-svg/266d2b2df26f10d3c00b8129a0bd9f6da6b19f00/img/en_get.svg"
+                alt="Get it on Google Play"
+                height="80">](https://play.google.com/store/apps/details?id=org.privacyguides.verifiedapps.play)
+
+            Google Play builds are now available for open testing: <https://play.google.com/apps/testing/org.privacyguides.verifiedapps.play>
 
             ```
             org.privacyguides.verifiedapps.play
