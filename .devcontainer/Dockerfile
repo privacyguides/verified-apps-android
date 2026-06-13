@@ -79,13 +79,13 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
         ruby-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY Gemfile Gemfile.lock /tmp/verified-apps-bundle/
-RUN set -exu && \
-    gem install bundler -v 2.4.22 --no-document && \
-    cd /tmp/verified-apps-bundle && \
-    bundle install --jobs 4 --retry 3 && \
-    chmod -R a+rX "${GEM_HOME}" && \
-    rm -rf /tmp/verified-apps-bundle
+# COPY Gemfile Gemfile.lock /tmp/verified-apps-bundle/
+# RUN set -exu && \
+#     gem install bundler -v 2.4.22 --no-document && \
+#     cd /tmp/verified-apps-bundle && \
+#     bundle install --jobs 4 --retry 3 && \
+#     chmod -R a+rX "${GEM_HOME}" && \
+#     rm -rf /tmp/verified-apps-bundle
 
 ARG AGE_VERSION=1.3.1
 ARG SOPS_VERSION=3.13.1
