@@ -1,6 +1,6 @@
 Verified Apps is an app signing certificate hash viewer and verifier. It checks your installed apps (or any APK file) against a built-in database of known-good app signing fingerprints.
 
-IMPORTANT:
+<b>IMPORTANT:</b>
 We maintain and release this app and our dataset in good faith and on a best-effort basis. We are not committing to perfect security, immediate bug fixes, or comprehensive app coverage in our dataset. As always with security tools like this, you must consider your own threat model and plan accordingly. We cannot advise you personally on the appropriate security measures for your specific situation. Your use of this app is at your own risk, and you may not hold any contributors liable for any adverse events which may occur.
 
 README: https://github.com/privacyguides/verified-apps-android/blob/main/README.md
@@ -9,32 +9,28 @@ MAINTAINER: https://www.privacyguides.org/
 
 You can share or copy verification info for use outside the app. If an app is not in the database, you'll have the option to open a pre-filled GitHub submission issue in your browser.
 
-What is this?
-===========
+<b>What is this?</b>
 
-This is a fork of [AppVerifier](https://github.com/soupslurpr/AppVerifier), but many components have been removed, so it no longer serves the same purpose. Notably, it no longer includes peer-to-peer verification via clipboard sharing. This app **only** checks apps against our crowdsourced database.
+This is a fork of AppVerifier (https://github.com/soupslurpr/AppVerifier), but many components have been removed, so it no longer serves the same purpose. Notably, it no longer includes peer-to-peer verification via clipboard sharing. This app **only** checks apps against our crowdsourced database.
 
-App verifications & reliability
-=============================
+<b>App verifications & reliability</b>
 
-Please note that **mismatch** results may not always indicate an illegitimate app. For example, if we only have the F-Droid version of an app in our database, and you downloaded the app from Google Play where Google signed it with their own certificate, then your app would not match our database and will be flagged.
+Please note that <b>mismatch</b> results may not always indicate an illegitimate app. For example, if we only have the F-Droid version of an app in our database, and you downloaded the app from Google Play where Google signed it with their own certificate, then your app would not match our database and will be flagged.
 
-When you find a mismatch, we **always** recommend submitting that app information to our issue tracker, you will be prompted to do so within the app. We will work to verify the legitimacy of your submission. If the app you have is indeed legitimate, we will include it in the next app release. If the app you have is illegitimate, we will inform you in the submitted issue.
+When you find a mismatch, we <b>always</b> recommend submitting that app information to our issue tracker, you will be prompted to do so within the app. We will work to verify the legitimacy of your submission. If the app you have is indeed legitimate, we will include it in the next app release. If the app you have is illegitimate, we will inform you in the submitted issue.
 
-What this app is good for
-=====================
+<b>What this app is good for</b>
 
-1. **Contributing to Privacy Guides' [crowdsourced database](https://github.com/privacyguides/verified-apps/) of developer signing certificates.**
+1. <b>Contributing to Privacy Guides' crowdsourced database (https://github.com/privacyguides/verified-apps/) of developer signing certificates.</b>
 
    If an app on your device is listed as unknown or a mismatch in this app, you will be shown a button to make a submission to our issue tracker, and it will automatically fill out the submission form to make the process as easy as possible for you. You will still need an account with our issue tracker to make a submission.
   
-2. **Comparing your installed apps to Privacy Guides' database without needing to trust any additional parties/developers.**
+2. <b>Comparing your installed apps to Privacy Guides' database without needing to trust any additional parties/developers.</b>
   
    We include our entire database locally in this app, which is built and signed by us. We therefore control the entire pipeline end-to-end, and once downloaded your local data can never be modified without updating the app to a new build.
 
-What this app is not good for
-==========================
+<b>What this app is not good for</b>
 
-1. **Comparing your apps to anyone's hashes besides our crowdsourced database.**
+1. <b>Comparing your apps to anyone's hashes besides our crowdsourced database.</b>
   
    We've removed all clipboard/user-based verification tools, as many other apps already provide this functionality well, and we do not want to maintain parallel features unnecessarily.
