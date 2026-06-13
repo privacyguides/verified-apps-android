@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Play launcher icon background; src/main uses #DCFFF0. To change the
+         icon further, override drawable/ic_launcher_foreground.xml or
+         drawable/ic_launcher_monochrome.xml in this source set too. -->
+    <color name="ic_launcher_background">#00CEA4</color>
+</resources>

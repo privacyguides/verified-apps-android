@@ -137,6 +137,21 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
     }
+    // Play-only resource overrides (e.g. the launcher icon). Not a flavor
+    // source set: the Play variant is release + -PplayBuild=true, so the
+    // overlay is attached conditionally. Resources here win over src/main.
+    // debug + staging get it too (set playBuild=true in gradle.properties) so
+    // the Play icon can be previewed from Android Studio. Prefer the debug
+    // variant for emulator preview — staging is minified and carries a merged
+    // baseline profile whose .dm install fails on many emulators
+    // (INSTALL_BASELINE_PROFILE_FAILED).
+    if (playBuild) {
+        listOf("debug", "staging", "release").forEach { name ->
+            sourceSets.getByName(name) {
+                res.srcDir("src/play/res")
+            }
+        }
+    }
     // Omit the Google-only dependency metadata block from both APK and bundle.
     dependenciesInfo {
         includeInApk = false
