@@ -1,8 +1,8 @@
-# Builds the Google Play variant and uploads its App Bundle to Play, and
-# attaches the signed bundle to the GitHub release for provenance. Called by
-# release.yml and also dispatchable on its own. Soft-skips when Play isn't
-# configured. Play values are in secrets/google-play.yaml (SOPS_AGE_KEY
-# decrypts them).
+# Builds the Google Play variant and (optionally) uploads its App Bundle to
+# Play. Called by release.yml with upload=false — the caller uploads after the
+# GitHub release is published — and also dispatchable on its own, where it
+# builds and uploads (the retry path). Soft-skips when Play isn't configured.
+# Play values are in secrets/google-play.yaml (SOPS_AGE_KEY decrypts them).
 
 name: Build & Publish to Google Play
 
@@ -25,6 +25,11 @@ on:
         default: "draft"
         type: choice
         options: [draft, completed, halted, inProgress]
+      upload:
+        description: "Upload the bundle to Google Play after building."
+        required: false
+        default: true
+        type: boolean
   workflow_call:
     inputs:
       tag:
@@ -40,6 +45,12 @@ on:
         required: false
         default: "draft"
         type: string
+      upload:
+        # Default false so a caller can't upload to Play before its own
+        # release gating runs unless it opts in explicitly.
+        required: false
+        default: false
+        type: boolean
     outputs:
       configured:
         description: "Whether Play secrets were present and the build ran."
@@ -47,9 +58,6 @@ on:
       asset_name:
         description: "Filename of the produced -play.aab (empty if skipped)."
         value: ${{ jobs.play.outputs.asset_name }}
-      uploaded:
-        description: "Whether the upload to Play succeeded ('false' when skipped or failed)."
-        value: ${{ jobs.play.outputs.uploaded }}
     secrets:
       SOPS_AGE_KEY:
         description: "age key for secrets/google-play.yaml. Optional: absent means soft-skip."
@@ -72,7 +80,6 @@ jobs:
     outputs:
       configured: ${{ steps.cfg.outputs.configured }}
       asset_name: ${{ steps.aab.outputs.name }}
-      uploaded: ${{ steps.upload.outcome == 'success' }}
     steps:
       - name: Resolve tag
         id: tag
@@ -255,7 +262,7 @@ jobs:
       # so re-running a tag after a partial failure isn't rejected by Play.
       - name: Compute version code
         id: vc
-        if: steps.cfg.outputs.configured == 'true'
+        if: steps.cfg.outputs.configured == 'true' && inputs.upload
         run: |
           CODE=$(awk '
             /releaseVersionYear =/{ y=$NF }
@@ -270,13 +277,12 @@ jobs:
           echo "code=${CODE}" >> "$GITHUB_OUTPUT"
           echo "versionCode ${CODE}"
 
-      # On dispatch a failure fails the run directly. When called from
-      # release.yml it must not block the GitHub release — the caller surfaces
-      # a failed upload through the `uploaded` output instead.
+      # Only on dispatch (the retry path) — release.yml calls this workflow
+      # with upload=false and uploads itself after the GitHub release is
+      # published, so a tag whose release fails never reaches Play.
       - name: Upload App Bundle to Google Play
         id: upload
-        if: steps.cfg.outputs.configured == 'true'
-        continue-on-error: ${{ github.event_name != 'workflow_dispatch' }}
+        if: steps.cfg.outputs.configured == 'true' && inputs.upload
         env:
           PLAY_JSON_KEY_FILE: ${{ steps.secrets.outputs.json }}
           PLAY_AAB_PATH: app/build/outputs/bundle/release/app-release.aab
