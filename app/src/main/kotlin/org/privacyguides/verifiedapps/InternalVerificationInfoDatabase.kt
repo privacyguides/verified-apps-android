@@ -1063,6 +1063,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.android.chrome",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "F0:FD:6C:5B:41:0F:25:CB:25:C3:B5:33:46:C8:97:2F:AE:30:F8:EE:74:11:DF:91:04:80:AD:6B:2D:60:DB:83"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.aniplex.fategrandorder.en",
         listOf(
             Hashes(
@@ -4741,6 +4755,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "E7:B7:18:35:4F:61:71:59:14:74:84:E6:18:6D:AB:C5:29:76:98:12:23:69:E4:73:39:B2:81:6F:ED:82:10:5A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.pittvandewitt.wavelet",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "68:92:26:16:82:81:AB:24:22:C9:EB:50:6C:BD:2C:3A:6C:3A:9A:5F:51:AE:C1:23:C9:41:93:D1:C5:87:E0:49"
                 ),
                 false
             )
@@ -9592,6 +9620,22 @@ val internalVerificationInfoDatabase = setOf(
     ),
     InternalDatabaseVerificationInfo(
         "org.fossify.messages",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID,
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "AF:FD:B1:24:D3:F4:72:0C:2F:98:DB:CA:9E:AC:BA:05:14:FB:A4:30:6E:20:A2:78:6C:86:1C:3C:0D:6F:F2:92"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.fossify.notes",
         listOf(
             Hashes(
                 listOf(
