@@ -16,7 +16,7 @@ on:
       track:
         description: "Play track to publish to."
         required: false
-        default: "internal"
+        default: "beta"
         type: choice
         options: [internal, alpha, beta, production]
       release_status:
@@ -39,7 +39,7 @@ on:
         type: string
       track:
         required: false
-        default: "internal"
+        default: "beta"
         type: string
       release_status:
         required: false
