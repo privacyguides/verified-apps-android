@@ -1,0 +1,1 @@
+When you click the submission button it will now always open the GitHub website in your default browser instead of launching the GitHub app. When GitHub makes their app good, maybe we can go back!
