@@ -9,6 +9,7 @@ import android.content.ClipData
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.content.pm.PackageManager.NameNotFoundException
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Parcelable
@@ -32,6 +33,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Verified
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -42,10 +44,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ClipEntry
@@ -87,6 +94,7 @@ fun VerifyAppScreen(
     val clipboard = LocalClipboard.current
     val coroutineScope = rememberCoroutineScope()
     val verticalScroll = rememberScrollState()
+    var pendingGitHubSubmissionUri by remember { mutableStateOf<Uri?>(null) }
     LaunchedEffect(Unit) {
         if (hashes.hashes.isEmpty()) {
             onLaunchedEffectHashEmpty()
@@ -94,6 +102,29 @@ fun VerifyAppScreen(
     }
 
     val databaseStatus = internalDatabaseInfo.internalDatabaseStatus
+
+    pendingGitHubSubmissionUri?.let { issueUri ->
+        AlertDialog(
+            onDismissRequest = { pendingGitHubSubmissionUri = null },
+            title = { Text(stringResource(R.string.github_app_submission_warning_title)) },
+            text = { Text(stringResource(R.string.github_app_submission_warning_message)) },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        pendingGitHubSubmissionUri = null
+                        openSubmissionUri(context, issueUri, R.string.github_submission_no_browser)
+                    },
+                ) {
+                    Text(stringResource(R.string.github_app_submission_warning_continue))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { pendingGitHubSubmissionUri = null }) {
+                    Text(stringResource(android.R.string.cancel))
+                }
+            },
+        )
+    }
 
     Scaffold(
         topBar = {
@@ -319,7 +350,11 @@ fun VerifyAppScreen(
                                     appLabel = name,
                                     hashes = hashes,
                                 )
-                                openSubmissionUri(context, issueUri, R.string.github_submission_no_browser)
+                                if (isGitHubAppInstalled(context.packageManager)) {
+                                    pendingGitHubSubmissionUri = issueUri
+                                } else {
+                                    openSubmissionUri(context, issueUri, R.string.github_submission_no_browser)
+                                }
                             },
                         ) {
                             Text(stringResource(R.string.submit_on_github))
@@ -471,3 +506,14 @@ private fun browserOnlyIntent(context: Context, uri: Uri): Intent? {
         }
     }
 }
+
+private fun isGitHubAppInstalled(packageManager: PackageManager): Boolean =
+    try {
+        packageManager.getPackageInfo(
+            "com.github.android",
+            PackageManager.PackageInfoFlags.of(0),
+        )
+        true
+    } catch (_: NameNotFoundException) {
+        false
+    }

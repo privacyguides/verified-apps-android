@@ -84,6 +84,9 @@
     <string name="not_found_submit_message">We don\'t have a record of this app (yet). Please submit the signing information below to our issue tracker. Our team will investigate the legitimacy of your submission, we\'ll let you know our findings, and you\'ll help contribute to our crowdsourced database!</string>
     <string name="nomatch_github_submit_message">It\'s possible this app is not legitimate, or this app is outdated, or our database is outdated. Please submit this fingerprint to our database, and our team will further investigate whether your copy of the app is legitimate and let you know in a reply online.</string>
     <string name="submit_on_github">Submit on GitHub</string>
+    <string name="github_app_submission_warning_title">GitHub app installed</string>
+    <string name="github_app_submission_warning_message">You have the GitHub app installed, which does not preserve the prefilled issue form fields. We\'ll try to open the form in your browser, but some browsers may still open GitHub links in the GitHub app, which can create a blank issue. If that happens you will need to stop your default browser from opening links in apps, or uninstall GitHub, before this button will work. And tell GitHub to fix their broken app!</string>
+    <string name="github_app_submission_warning_continue">Open anyway</string>
     <string name="submit_to_codeberg">Submit on Codeberg</string>
     <string name="verification_info_copied_toast">Copied Verification Info to Clipboard</string>
     <string name="verification_info_clip_label">Verification info</string>
