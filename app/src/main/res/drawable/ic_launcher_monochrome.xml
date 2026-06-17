@@ -1,15 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Adaptive-icon MONOCHROME: line-art (FILL@0) for themed icons. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="108dp"
     android:height="108dp"
-    android:viewportWidth="960"
-    android:viewportHeight="960">
+    android:viewportWidth="108"
+    android:viewportHeight="108">
     <group
-        android:scaleX="0.54497354"
-        android:scaleY="0.54497354"
-        android:translateX="218.186243"
-        android:translateY="730.687831">
+        android:scaleX="0.058646"
+        android:scaleY="0.058646"
+        android:translateX="25.84992"
+        android:translateY="80.97716">
         <path
             android:fillColor="#000000"
-            android:pathData="M240,-40v-329L110,-580l185,-300h370l185,300-130,211v329l-240,-80-240,80Zm80,-111l160,-53 160,53v-129H320v129ZM340,-800L204,-580l136,220h280l136,-220-136,-220H340Zm98,383L296,-558l57,-57 85,85 169,-170 57,56-226,227ZM320,-280h320-320Z" />
+            android:pathData="M254.69-28v-351.61L119.23-599l180.69-293h360.16l180.69 293-135.46 219.39V-28L480-104.92 254.69-28Zm86-120.85L480-194.54l139.31 50.69V-306H340.69v157.15ZM347.38-806l-128 207 128 207h265.24l128-207-128-207H347.38ZM438-432.23 292.23-577 353-637.77l85 85 169-170L667.77-663 438-432.23ZM340.69-306h278.62-278.62Z" />
     </group>
 </vector>
