@@ -6,9 +6,12 @@ import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 
 import android.content.ActivityNotFoundException
 import android.content.ClipData
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.Uri
+import android.os.Parcelable
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
@@ -407,11 +410,20 @@ private suspend fun copyVerificationInfoToClipboard(
 }
 
 private fun openSubmissionUri(
-    context: android.content.Context,
+    context: Context,
     issueUri: Uri,
     @StringRes noBrowserMessageRes: Int,
 ) {
-    val intent = Intent(Intent.ACTION_VIEW, issueUri)
+    val intent = browserOnlyIntent(context, issueUri)
+    if (intent == null) {
+        Toast.makeText(
+            context,
+            context.getString(noBrowserMessageRes),
+            Toast.LENGTH_LONG,
+        ).show()
+        return
+    }
+
     try {
         context.startActivity(intent)
     } catch (_: ActivityNotFoundException) {
@@ -420,5 +432,42 @@ private fun openSubmissionUri(
             context.getString(noBrowserMessageRes),
             Toast.LENGTH_LONG,
         ).show()
+    }
+}
+
+private fun browserOnlyIntent(context: Context, uri: Uri): Intent? {
+    val packageManager = context.packageManager
+    val browserProbeIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.example.com")).apply {
+        addCategory(Intent.CATEGORY_BROWSABLE)
+    }
+    val browserPackages = packageManager.queryIntentActivities(
+        browserProbeIntent,
+        PackageManager.ResolveInfoFlags.of(PackageManager.MATCH_DEFAULT_ONLY.toLong()),
+    ).map { it.activityInfo.packageName }
+        .distinct()
+
+    val viewIntent = Intent(Intent.ACTION_VIEW, uri).apply {
+        addCategory(Intent.CATEGORY_BROWSABLE)
+    }
+
+    val defaultBrowserPackage = packageManager.resolveActivity(
+        browserProbeIntent,
+        PackageManager.ResolveInfoFlags.of(PackageManager.MATCH_DEFAULT_ONLY.toLong()),
+    )?.activityInfo?.packageName
+        ?.takeIf { it in browserPackages }
+
+    if (defaultBrowserPackage != null) {
+        return Intent(viewIntent).setPackage(defaultBrowserPackage)
+    }
+
+    val browserIntents = browserPackages.map { packageName ->
+        Intent(viewIntent).setPackage(packageName)
+    }
+    return when (browserIntents.size) {
+        0 -> null
+        1 -> browserIntents.single()
+        else -> Intent.createChooser(browserIntents.first(), null).apply {
+            putExtra(Intent.EXTRA_INITIAL_INTENTS, browserIntents.drop(1).toTypedArray<Parcelable>())
+        }
     }
 }
