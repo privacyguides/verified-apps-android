@@ -1,0 +1,112 @@
+# Uploads the attested App Bundle to Google Play when a maintainer publishes
+# the GitHub release (draft → published). Tag builds attach the AAB as a
+# release asset; this workflow downloads it and uploads to Play. A failure here
+# can't affect the already-published release; retry by dispatching the
+# 'Build & Publish to Google Play' workflow for the tag.
+
+name: Upload to Google Play on Release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  play-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for Play App Bundle asset
+        id: asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          AAB=$(gh release view "$TAG" --repo "$REPO" --json assets \
+            -q '.assets[].name' | grep -E '\-play\.aab$' | head -1 || true)
+          if [ -z "$AAB" ]; then
+            echo "No Play App Bundle on release ${TAG}; skipping Play upload."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Found Play App Bundle: ${AAB}"
+            echo "asset=${AAB}" >> "$GITHUB_OUTPUT"
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.asset.outputs.skip != 'true'
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Install sops
+        if: steps.asset.outputs.skip != 'true'
+        run: bash scripts/ci/install-sops.sh
+
+      - name: Load Play secrets
+        if: steps.asset.outputs.skip != 'true'
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+        run: bash scripts/ci/sops-env.sh secrets/google-play.yaml PLAY_SERVICE_ACCOUNT_JSON
+
+      - name: Set up Ruby & fastlane
+        if: steps.asset.outputs.skip != 'true'
+        uses: ruby/setup-ruby@afeafc3d1ab54a631816aba4c914a0081c12ff2f # v1.310.0
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Download Play App Bundle from release
+        if: steps.asset.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+          REPO: ${{ github.repository }}
+          AAB: ${{ steps.asset.outputs.asset }}
+        run: gh release download "$TAG" --repo "$REPO" --pattern "$AAB" --dir .
+
+      - name: Prepare Play service account
+        id: secrets
+        if: steps.asset.outputs.skip != 'true'
+        run: |
+          umask 077
+          JSON_PATH="${{ runner.temp }}/play-service-account.json"
+          printf '%s' "$PLAY_SERVICE_ACCOUNT_JSON" > "$JSON_PATH"
+          echo "json=${JSON_PATH}" >> "$GITHUB_OUTPUT"
+
+      # Lets the upload lane treat an already-uploaded versionCode as success,
+      # so re-running a tag after a partial failure isn't rejected by Play.
+      - name: Compute version code
+        id: vc
+        if: steps.asset.outputs.skip != 'true'
+        run: |
+          CODE=$(awk '
+            /releaseVersionYear =/{ y=$NF }
+            /releaseVersionMonth =/{ m=$NF }
+            /releaseVersionPatch =/{ p=$NF; sub(/,.*/, "", p) }
+            END { if (y && m && p != "") printf "%d", y * 1000000 + m * 10000 + p }
+          ' app/build.gradle.kts)
+          if ! [[ "$CODE" =~ ^[0-9]+$ ]]; then
+            echo "::error::Could not derive versionCode from app/build.gradle.kts (got '${CODE}')."
+            exit 1
+          fi
+          echo "code=${CODE}" >> "$GITHUB_OUTPUT"
+          echo "versionCode ${CODE}"
+
+      # Same track/status as release-play.yml defaults: draft on the beta
+      # track, so a human still confirms rollout.
+      - name: Upload App Bundle to Google Play
+        if: steps.asset.outputs.skip != 'true'
+        env:
+          PLAY_JSON_KEY_FILE: ${{ steps.secrets.outputs.json }}
+          PLAY_AAB_PATH: ${{ steps.asset.outputs.asset }}
+          PLAY_TRACK: beta
+          PLAY_RELEASE_STATUS: draft
+          PLAY_VERSION_CODE: ${{ steps.vc.outputs.code }}
+        run: bundle exec fastlane internal
+
+      - name: Remove decrypted Play secrets
+        if: always() && steps.asset.outputs.skip != 'true'
+        run: rm -f "${{ runner.temp }}/play-service-account.json"

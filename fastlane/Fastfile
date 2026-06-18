@@ -11,7 +11,7 @@ AAB_DEFAULT = "app/build/outputs/bundle/release/app-release.aab".freeze
 PLAY_TRACKS = %w[internal alpha beta production].freeze
 
 platform :android do
-  desc "Upload the Play App Bundle (and matching changelog) to the internal track"
+  desc "Upload the Play App Bundle (and matching changelog) to Google Play"
   lane :internal do
     # Play rejects a versionCode it has already seen, so a re-run of the same
     # tag treats "already uploaded" as success rather than an error.
@@ -34,7 +34,7 @@ platform :android do
     end
 
     upload_to_play_store(
-      track: ENV.fetch("PLAY_TRACK", "internal"),
+      track: ENV.fetch("PLAY_TRACK", "beta"),
       aab: ENV.fetch("PLAY_AAB_PATH", AAB_DEFAULT),
       # Draft by default so a human confirms rollout; CI can override.
       release_status: ENV.fetch("PLAY_RELEASE_STATUS", "draft"),

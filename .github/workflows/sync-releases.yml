@@ -111,7 +111,19 @@ jobs:
           esac
 
           if [[ -n "$release_id" && "$release_id" != "null" ]]; then
-            echo "Codeberg release for $RELEASE_TAG already exists (id $release_id); leaving metadata untouched."
+            payload=$(jq -n \
+              --arg name "$rel_name" \
+              --arg body "$rel_body" \
+              --argjson prerelease "$rel_prerelease" \
+              '{name: $name, body: $body, draft: false, prerelease: $prerelease}')
+            http=$(api -X PATCH -H "Content-Type: application/json" \
+              --data-binary "$payload" "${base}/releases/${release_id}")
+            if [[ "$http" != "200" ]]; then
+              echo "Codeberg update-release failed (HTTP $http):" >&2
+              api_err
+              exit 1
+            fi
+            echo "Updated Codeberg release metadata for $RELEASE_TAG (id $release_id)."
           else
             payload=$(jq -n \
               --arg tag "$RELEASE_TAG" \

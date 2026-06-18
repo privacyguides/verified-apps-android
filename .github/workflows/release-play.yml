@@ -1,8 +1,8 @@
 # Builds the Google Play variant and (optionally) uploads its App Bundle to
-# Play. Called by release.yml with upload=false — the caller uploads after the
-# GitHub release is published — and also dispatchable on its own, where it
-# builds and uploads (the retry path). Soft-skips when Play isn't configured.
-# Play values are in secrets/google-play.yaml (SOPS_AGE_KEY decrypts them).
+# Play. Called by release.yml with upload=false (play-upload.yml handles
+# upload after publish); also dispatchable on its own as the retry path.
+# Soft-skips when Play isn't configured. Play values are in
+# secrets/google-play.yaml (SOPS_AGE_KEY decrypts them).
 
 name: Build & Publish to Google Play
 
