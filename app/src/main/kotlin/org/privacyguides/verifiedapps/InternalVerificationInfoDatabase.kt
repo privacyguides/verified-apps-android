@@ -32,7 +32,6 @@ enum class Source(val displayName: String) {
     GOOGLE_PLAY_STORE("Google Play"),
     HTTPS_VERIFIED_DOMAIN("HTTPS Verified Domain"),
     VERIFIED_APPS("Verified Apps"),
-    VERIFIED_DOMAIN("Verified Domain"),
     WEBSITE("App's Website"),
 }
 
@@ -6692,8 +6691,7 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.DIRECT_APK_LINK,
-                    Source.DNS_VERIFIED_DOMAIN,
-                    Source.VERIFIED_DOMAIN
+                    Source.DNS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "1E:76:F1:A1:5C:BE:20:1F:0F:E2:6A:F2:7A:12:D9:1D:0D:34:81:FE:7D:CC:7D:89:E9:D2:05:69:30:F6:D5:A9"
@@ -12575,8 +12573,7 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.DIRECT_APK_LINK,
-                    Source.DNS_VERIFIED_DOMAIN,
-                    Source.VERIFIED_DOMAIN
+                    Source.DNS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "15:FA:52:78:85:F7:04:21:10:30:4D:1A:F0:08:81:07:27:09:BD:38:E9:84:2C:AF:9C:D8:9E:08:06:1C:5E:52"
@@ -12744,8 +12741,7 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     Source.DIRECT_APK_LINK,
                     Source.DNS_VERIFIED_DOMAIN,
-                    Source.F_DROID_PRIVACYGUIDES_GITHUB_IO,
-                    Source.VERIFIED_DOMAIN
+                    Source.F_DROID_PRIVACYGUIDES_GITHUB_IO
                 ),
                 listOf(
                     "40:5C:6B:D2:CA:7C:3A:AE:8F:46:3C:6F:8B:55:BC:F0:DD:AC:43:1C:5E:D8:EA:FF:65:D1:06:C9:81:7A:20:7F"
@@ -12759,8 +12755,7 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.DNS_VERIFIED_DOMAIN,
-                    Source.VERIFIED_DOMAIN
+                    Source.DNS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "E8:58:37:5B:7C:45:CF:C1:D4:E4:F5:1B:4A:D6:59:73:5B:38:2C:82:4F:E2:24:48:36:A8:14:AD:7A:F3:00:61"
@@ -13154,6 +13149,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "F5:40:E9:37:41:9A:1F:E3:08:E3:35:31:35:9C:23:CE:19:DF:D8:4A:66:01:E2:EF:85:C2:17:C8:23:A7:08:7F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.woheller69.whisperplus",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "22:E3:8A:D0:5E:16:BE:41:E3:5F:F6:86:EC:CE:26:32:F4:1A:C6:98:60:5F:58:35:CD:81:6B:07:43:FB:7B:FE"
                 ),
                 false
             )
