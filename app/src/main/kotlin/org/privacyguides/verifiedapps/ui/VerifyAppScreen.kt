@@ -283,7 +283,9 @@ fun VerifyAppScreen(
                                         text = source.displayName,
                                         style = MaterialTheme.typography.titleMedium,
                                     )
-                                    if (source == Source.VERIFIED_DOMAIN) {
+                                    if (source == Source.HTTPS_VERIFIED_DOMAIN ||
+                                        source == Source.DNS_VERIFIED_DOMAIN
+                                    ) {
                                         Spacer(Modifier.width(4.dp))
                                         Icon(
                                             imageVector = Icons.Default.Verified,

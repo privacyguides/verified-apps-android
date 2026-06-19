@@ -36,7 +36,9 @@ fun InternalDatabaseStatus.statusIcon(): ImageVector = when (this) {
 }
 
 fun InternalDatabaseInfo.statusIcon(): ImageVector =
-    if (internalDatabaseStatus == InternalDatabaseStatus.MATCH && Source.VERIFIED_DOMAIN in sources) {
+    if (internalDatabaseStatus == InternalDatabaseStatus.MATCH &&
+        (Source.HTTPS_VERIFIED_DOMAIN in sources || Source.DNS_VERIFIED_DOMAIN in sources)
+    ) {
         Icons.Default.Verified
     } else {
         internalDatabaseStatus.statusIcon()
