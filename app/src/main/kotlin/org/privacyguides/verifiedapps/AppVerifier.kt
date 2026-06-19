@@ -1,6 +1,8 @@
 package org.privacyguides.verifiedapps
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
@@ -29,6 +31,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -40,6 +43,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
+import androidx.core.content.IntentCompat
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDeepLink
@@ -78,8 +82,7 @@ fun AppVerifierApp(
     modifier: Modifier,
     verifyAppViewModel: VerifyAppViewModel,
     preferencesViewModel: PreferencesViewModel,
-    isActionSend: Boolean,
-    isActionView: Boolean,
+    incomingIntent: Intent,
 ) {
     val preferencesUiState = preferencesViewModel.uiState.collectAsState()
 
@@ -91,6 +94,31 @@ fun AppVerifierApp(
 
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
+
+    val isActionSend = incomingIntent.action == Intent.ACTION_SEND
+    val isActionView = incomingIntent.action == Intent.ACTION_VIEW
+
+    LaunchedEffect(incomingIntent) {
+        val apkUri: Uri? = when {
+            isActionSend -> IntentCompat.getParcelableExtra(
+                incomingIntent,
+                Intent.EXTRA_STREAM,
+                Uri::class.java,
+            )
+            isActionView -> incomingIntent.data
+            else -> null
+        }
+        if (apkUri != null) {
+            verifyAppViewModel.setApkVerificationInfoAndInternalDatabaseStatusFromUri(
+                context.contentResolver,
+                apkUri,
+                context.packageManager,
+            )
+            navController.navigate(AppVerifierScreens.VerifyApp.name) {
+                launchSingleTop = true
+            }
+        }
+    }
 
     val showSystemApps = preferencesUiState.value.showSystemApps
 
