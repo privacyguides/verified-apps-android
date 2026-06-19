@@ -1,0 +1,2 @@
+Database update.
+Adds support for wider domain verification scheme.
