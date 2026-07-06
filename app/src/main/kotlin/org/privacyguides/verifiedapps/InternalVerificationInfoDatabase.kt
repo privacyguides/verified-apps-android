@@ -251,6 +251,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "app.eduroam.geteduroam",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "D3:56:57:29:73:0E:DB:6D:CC:E3:A3:8E:B3:7D:92:9C:FB:F5:E0:50:48:48:2E:CB:CD:D7:D4:A1:36:21:2F:6C"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "app.govroam.getgovroam",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "14:25:A0:14:D9:42:36:54:60:D6:05:82:E4:E5:A8:06:00:2C:67:B5:40:94:1C:6C:FF:6F:56:DD:CC:32:3E:96"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "app.grapheneos.apps",
         listOf(
             Hashes(
@@ -791,7 +819,8 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     Source.APPVERIFIER,
                     Source.DIRECT_APK_LINK,
-                    Source.F_DROID_APP_SIMPLEX_CHAT
+                    Source.F_DROID_APP_SIMPLEX_CHAT,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "3C:52:C4:FD:3C:AD:1C:07:C9:B0:0A:70:80:E3:58:FA:B9:FE:FC:B8:AF:5A:EC:14:77:65:F1:6D:0F:21:AD:85"
@@ -801,7 +830,8 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.APPVERIFIER,
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "5E:3E:DC:C2:00:FB:A8:D5:F4:88:F3:CA:4C:32:5B:05:78:C5:6A:9C:03:A1:CC:B5:92:9C:D7:5C:7E:57:E2:4D"
@@ -811,7 +841,8 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.APPVERIFIER,
-                    Source.FDROID
+                    Source.FDROID,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "AE:C1:95:DC:FD:46:14:BD:3A:91:EC:26:D1:D5:14:C8:75:71:C5:CC:8D:CF:48:08:3F:92:83:14:3C:A2:B9:A6"
@@ -884,7 +915,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "3C:9E:97:5E:34:B9:9E:AA:B1:E6:CE:09:55:BD:B7:F5:49:9E:36:CB:BA:56:61:9C:1E:EE:D1:96:C5:63:5E:5F"
@@ -1021,6 +1053,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.adt.adtcontrolalarm",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "5F:CD:C6:E1:B0:20:D4:F0:52:17:F0:5C:BB:1D:AC:F4:35:5D:D9:9B:FB:A4:18:B9:F7:EB:B1:02:0B:30:43:75"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.aegean.airlines.prod",
         listOf(
             Hashes(
@@ -1057,6 +1103,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "FE:5B:C8:AD:00:6A:FC:67:81:A6:4B:4F:3C:39:DC:C5:33:68:CC:C5:45:CE:33:E5:75:12:07:EA:4B:98:75:A4"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.aftership.AfterShip",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "42:5C:56:B5:7A:C5:FF:3E:1E:7F:7B:49:E2:46:DF:A3:50:DB:1A:8D:74:03:E2:63:8E:9D:4F:85:C1:34:44:9F"
                 ),
                 false
             )
@@ -1232,11 +1292,27 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.amaze.filemanager",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID,
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "AF:F6:56:D7:CA:84:D7:12:54:D2:72:C5:5F:B4:20:ED:F1:72:B2:54:9D:E1:4F:5C:CE:FD:5A:82:52:8D:F5:54"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.amazon.dee.app",
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "2F:19:AD:EB:28:4E:B3:6F:7F:07:78:61:52:B9:A1:D1:4B:21:65:32:03:AD:0B:04:EB:BF:9C:73:AB:6D:76:25"
@@ -1251,7 +1327,8 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.APPVERIFIER,
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "2F:19:AD:EB:28:4E:B3:6F:7F:07:78:61:52:B9:A1:D1:4B:21:65:32:03:AD:0B:04:EB:BF:9C:73:AB:6D:76:25"
@@ -1387,6 +1464,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.apkmirror.helper.prod",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "D2:7D:AF:C6:88:19:3C:F5:79:E0:30:B0:2B:3A:15:33:E5:05:E0:55:F5:3E:77:BC:49:F0:41:00:AA:A2:24:8E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.apple.android.music",
         listOf(
             Hashes(
@@ -1477,6 +1568,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.arumcomm.systeminfo",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "C3:F4:61:EC:35:A4:6D:B3:31:0C:E6:9F:14:D2:FB:C8:AE:8A:40:D6:6C:EA:D8:E0:C0:13:EB:42:21:ED:F4:3F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.aryan.reader.oss",
         listOf(
             Hashes(
@@ -1500,6 +1605,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "D2:4B:40:DE:53:0C:D6:22:A6:04:74:0C:9D:D0:36:47:5E:E6:AC:FB:32:6D:29:E3:4A:06:AD:CD:1F:6C:6A:1F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.att.myWireless",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "C7:F7:9A:BA:69:D3:A7:5C:FA:4F:A0:35:99:D0:8E:EB:C5:D1:C0:EE:B1:C3:90:CF:6C:A8:79:40:D4:F1:92:AD"
                 ),
                 false
             )
@@ -1630,7 +1749,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "54:80:4A:91:1A:6A:E3:EE:64:C3:18:A4:28:3D:DF:3C:A2:A9:45:A4:16:A9:A7:AA:11:DA:86:B7:80:2E:B7:75"
@@ -1711,6 +1831,48 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.bbva.nxt_peru",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "1D:55:A1:6E:02:25:EE:C1:DE:45:C2:03:6D:60:74:B6:3F:04:B3:45:D3:7D:B6:A8:D0:AC:68:A1:55:D1:2B:0A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.bcp.bank.bcp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "B1:63:C1:C3:CB:B9:AB:7F:44:72:87:37:60:17:E9:88:6C:27:35:3E:E8:6C:C1:2C:94:BF:94:2B:46:77:9C:A1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.bcp.innovacxion.yapeapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "EF:25:08:E6:29:68:EB:51:1B:02:DC:2C:8C:FA:4B:4B:78:F4:2A:DC:15:4E:04:4F:1A:F9:89:AC:AD:23:16:16"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.beemdevelopment.aegis",
         listOf(
             Hashes(
@@ -1772,7 +1934,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "83:E0:E9:06:D7:F0:6F:4E:2E:D1:1F:7F:CF:51:96:2A:72:54:3D:1A:F4:18:99:FE:AD:87:F5:46:AF:CC:CE:9B"
@@ -1862,6 +2025,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.block.puzzle.jewel.games.blast.free",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "E6:76:1C:85:FE:63:1F:F8:B9:04:41:9D:D5:C3:F1:A0:2D:8D:8D:2F:8A:D2:D9:7E:F7:6C:54:26:9A:DC:07:36"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.bnyro.translate",
         listOf(
             Hashes(
@@ -1925,7 +2102,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "6A:C8:C8:A9:E6:F3:6E:14:E5:2A:0A:05:15:A3:6B:70:66:E7:20:A1:B0:C8:A1:B0:59:E0:78:17:50:A8:71:99"
@@ -1967,10 +2145,25 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "5E:6E:4B:82:82:99:CA:01:D7:A4:92:21:1F:CC:88:FA:68:05:0B:AA:A2:5A:50:EA:69:59:6F:D2:A3:E6:B3:66"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.branded.arrl",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "AC:1F:16:F0:D9:4D:8B:75:D6:16:20:0B:EF:A3:2B:23:45:A7:B9:D4:B8:E3:D2:4E:62:EC:D3:BD:F9:88:F9:B7"
                 ),
                 false
             )
@@ -2071,7 +2264,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "E2:9E:74:1A:F1:ED:08:9E:8B:A1:89:FE:55:B3:EE:E7:68:30:82:17:50:2B:8E:CF:E3:A5:C2:16:A5:1D:C3:BF"
@@ -2249,7 +2443,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "73:F0:D9:50:8A:25:72:C1:10:07:7C:FF:1C:AD:4E:D9:2C:00:F0:20:4F:AF:ED:BA:C8:43:4B:D7:6B:C4:AC:D1"
@@ -2339,6 +2534,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.claro.pe.miclaro",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "7D:72:26:77:2D:4F:6D:77:8F:EF:53:A3:6B:E1:5A:D7:8D:8D:9D:4B:C4:CE:00:C5:F2:E3:21:6C:19:48:0F:A0"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.cloudflare.onedotonedotonedotone",
         listOf(
             Hashes(
@@ -2391,6 +2600,34 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "FF:5D:DC:C4:B7:B8:1F:70:89:64:98:38:C5:36:0B:6C:DA:CE:E6:27:1E:FC:4A:55:32:05:0B:9D:F6:30:91:58"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.comdirect.phototan",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "8F:EF:54:18:47:9F:56:B2:77:76:CD:91:14:E1:7D:DA:26:31:E1:8A:93:58:DA:90:FD:5B:1F:23:47:2A:60:3F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.comuto",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "D0:F8:58:4B:7D:13:8B:47:1D:29:ED:D0:D8:CE:A8:F5:A1:81:76:F0:02:FF:4D:E6:D3:5D:38:31:6B:AC:07:26"
                 ),
                 false
             )
@@ -2538,6 +2775,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "93:6F:83:B9:14:21:6D:8A:87:A7:97:EF:FB:5C:A9:D4:50:0B:D2:78:D8:92:07:9F:DB:0D:5D:05:FE:F2:10:B5"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.debank.rabbymobile",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "2C:55:F6:E7:EA:A6:07:D5:76:A8:61:85:1E:37:96:F0:57:03:C7:7E:69:77:BA:B9:67:38:D3:AA:2A:35:52:1E"
                 ),
                 false
             )
@@ -2819,6 +3070,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.dozingcatsoftware.bouncy",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "A0:32:B0:9E:9A:AD:9E:06:F5:90:6E:39:0D:69:B6:13:5D:FE:F1:BA:20:D8:4B:A5:3E:4B:2A:4A:ED:64:2E:31"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.driveby.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "92:56:48:24:3A:B7:CB:E5:F7:3A:C5:7F:5C:E3:B6:FE:D9:23:BC:9F:6E:CA:AF:E4:9B:71:3D:FC:E2:B0:21:D8"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.dsemu.drastic",
         listOf(
             Hashes(
@@ -2837,7 +3116,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "BB:7B:B3:1C:57:3C:46:A1:DA:7F:C5:C5:28:A6:AC:F4:32:10:84:56:FE:EC:50:81:0C:7F:33:69:4E:B3:D2:D4"
@@ -2876,6 +3156,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.ebay.kleinanzeigen",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "FC:96:EA:1B:82:69:39:0A:B1:A8:35:B8:53:46:EC:3B:E4:C3:D6:AD:10:A4:32:3C:A4:B8:3F:40:60:7A:B9:80"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.ebay.mobile",
         listOf(
             Hashes(
@@ -2884,6 +3178,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "85:B4:01:54:97:15:4D:FA:89:DE:30:87:71:A9:FC:61:A6:4B:19:AF:1A:3F:B0:32:56:E8:CC:3A:79:55:67:E5"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.eboks.activities",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "5F:13:3E:11:D7:5C:33:D2:1A:93:25:B3:B6:77:FC:86:3A:95:3A:D5:CE:42:91:EF:CC:17:22:A6:DA:DC:B2:31"
                 ),
                 false
             )
@@ -3060,7 +3368,8 @@ val internalVerificationInfoDatabase = setOf(
             ),
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "E3:F9:E1:E0:CF:99:D0:E5:6A:05:5B:A6:5E:24:1B:33:99:F7:CE:A5:24:32:6B:0C:DD:6E:C1:32:7E:D0:FD:C1"
@@ -3187,6 +3496,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "26:31:2B:03:E0:66:C8:C1:1C:AC:3E:87:CE:80:4A:01:5F:D3:DE:AC:72:79:F7:77:18:FF:F7:0E:F3:23:0A:6C"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.firstdirect.bankingonthego",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "1F:3C:64:81:45:3D:FC:5F:41:ED:FE:E2:01:DD:CE:47:6A:A0:AA:60:5F:6D:8E:32:59:C2:52:F4:6A:0A:09:2F"
                 ),
                 false
             )
@@ -3427,6 +3750,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "12:E3:00:21:DA:68:B8:A4:5F:1A:3B:C0:28:CF:C8:87:7D:18:3F:52:DF:50:5D:C6:59:F4:37:70:46:36:B9:60"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.funnycat.virustotal",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "42:6A:A4:14:0F:71:CD:1F:F2:C3:B9:F6:A3:BC:17:D9:A1:A8:F7:9C:2C:EB:46:61:29:10:43:FC:55:7A:A7:9A"
                 ),
                 false
             )
@@ -3763,6 +4100,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.google.android.apps.authenticator2",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "F0:FD:6C:5B:41:0F:25:CB:25:C3:B5:33:46:C8:97:2F:AE:30:F8:EE:74:11:DF:91:04:80:AD:6B:2D:60:DB:83"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.google.android.apps.bard",
         listOf(
             Hashes(
@@ -3905,6 +4256,35 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     "3D:7A:12:23:01:9A:A3:9D:9E:A0:E3:43:6A:B7:C0:89:6B:FB:4F:B6:79:F4:DE:5F:E7:C2:3F:32:6C:8F:99:4A",
                     "5A:AD:2B:EE:6D:B9:5D:17:E0:5A:08:D7:D1:E6:4C:10:A1:51:18:79:15:44:83:91:6B:6A:E6:C7:FD:9C:B0:C6"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.google.android.apps.pixel.creativeassistant",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "F5:3A:B3:53:FB:00:42:BA:99:05:BA:B5:0E:83:8A:54:9B:A4:A8:F2:5D:F9:D5:6C:8A:75:92:77:A1:58:FD:7D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.google.android.apps.recorder",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "26:EC:42:C1:C3:F7:8B:73:D2:90:42:B0:6C:7D:9B:23:49:E0:91:1A:E5:10:F1:AD:CE:74:5F:9C:69:98:56:F9",
+                    "AD:57:4F:AA:ED:A5:56:3E:67:78:E7:4C:A4:A0:94:AB:7F:75:9A:B0:87:9C:B4:2E:85:21:5A:D4:EB:3E:B4:E8"
                 ),
                 false
             )
@@ -4054,6 +4434,21 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.google.android.contacts",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "60:9C:2B:E6:52:B1:68:55:74:3E:42:73:99:D3:B0:5F:F5:7A:82:B0:97:09:BB:B1:DC:3A:98:90:A6:DA:D4:78",
+                    "91:7F:87:19:D4:C2:C8:92:DB:F2:6B:BE:2B:DB:17:9F:FF:0E:0D:DB:EB:8F:F9:F3:1A:4D:D9:8B:B4:A4:D2:5D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.google.android.deskclock",
         listOf(
             Hashes(
@@ -4148,6 +4543,7 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
+                    Source.APPVERIFIER,
                     Source.GOOGLE_PLAY_STORE
                 ),
                 listOf(
@@ -4505,7 +4901,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "C3:10:73:8F:60:AC:5B:F6:65:95:53:BE:C7:21:7D:BF:24:4E:9D:4C:04:BD:7D:5B:F5:51:51:2D:22:E5:03:03"
@@ -4533,7 +4930,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "67:A4:DF:80:B1:D9:A4:88:FF:DB:10:07:54:84:1F:D8:3F:90:9C:7C:73:DF:16:E2:46:8C:EC:75:AB:81:C5:8A"
@@ -4574,6 +4972,15 @@ val internalVerificationInfoDatabase = setOf(
     InternalDatabaseVerificationInfo(
         "com.jarsilio.android.scrambledeggsif",
         listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "24:06:CA:D9:83:B1:C5:A1:D9:9C:5C:D5:06:4F:D3:D7:83:E9:85:02:7A:1C:4C:E9:CE:87:9B:50:ED:3C:08:B6"
+                ),
+                false
+            ),
             Hashes(
                 listOf(
                     Source.FDROID
@@ -4854,7 +5261,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "40:AB:4B:44:11:60:00:25:83:A3:62:45:FE:36:11:7D:2A:BF:CF:12:D1:E3:CC:F8:9D:A5:D6:F4:95:19:7B:0E"
@@ -5050,7 +5458,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "3B:6A:40:3C:A9:1D:56:AB:85:45:17:72:02:03:17:66:40:81:6D:3F:92:3F:92:CC:A1:61:38:F5:CC:3D:07:27"
@@ -5296,6 +5705,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.melodis.midomiMusicIdentifier.freemium",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "56:D8:B2:57:7B:EA:4C:B3:44:87:E6:C6:02:25:F1:E3:F0:AB:C3:9E:24:FD:34:E4:57:69:87:6E:BB:06:2A:3C"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.menards.mobile",
         listOf(
             Hashes(
@@ -5328,7 +5751,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.DIRECT_APK_LINK
+                    Source.DIRECT_APK_LINK,
+                    Source.FDROID_IZZYONDROID
                 ),
                 listOf(
                     "E3:2C:4F:2E:FD:7E:E9:54:8F:AE:E2:2E:45:A6:04:25:F7:72:8A:55:A6:10:FD:5E:8A:B9:36:4F:74:B7:BC:C9"
@@ -5371,7 +5795,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "7A:F4:8E:E5:0F:6E:3A:54:19:A8:9B:82:34:08:0C:37:A6:B9:84:8C:6F:8E:4D:E7:EC:71:C5:79:4D:11:84:E2"
@@ -5599,7 +6024,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "0B:8B:85:23:BB:4A:EF:FA:34:6E:4B:DD:4F:BF:7D:19:34:50:56:9A:A1:4A:AA:D4:AD:FD:94:A3:F7:B2:27:BB"
@@ -5641,10 +6067,25 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "5C:5E:93:50:3C:6A:C4:89:88:6A:29:BE:0C:28:6B:A6:04:82:E2:C2:5A:A6:D6:EF:56:84:FD:6E:8F:D7:C3:19"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.nexowallet",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "4C:59:7D:8B:39:5C:20:6A:3D:68:4B:9B:D5:F7:A4:A7:2E:06:6A:CA:FE:CB:FB:FD:00:6C:99:C0:48:D0:F3:A8"
                 ),
                 false
             )
@@ -5752,6 +6193,7 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     Source.ACCRESCENT,
                     Source.DIRECT_APK_LINK,
+                    Source.FDROID_IZZYONDROID,
                     Source.GOOGLE_PLAY_STORE
                 ),
                 listOf(
@@ -6000,6 +6442,15 @@ val internalVerificationInfoDatabase = setOf(
             ),
             Hashes(
                 listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "93:5F:E7:26:8B:C3:FF:93:B1:F8:4E:4F:EE:D9:DE:23:26:54:87:49:45:EE:68:5D:21:42:7E:A3:6D:F5:EB:3D"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
                     Source.FDROID
                 ),
                 listOf(
@@ -6056,7 +6507,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "B2:4F:4B:FB:B3:CF:29:3F:93:87:03:B9:D8:70:27:C1:10:2C:C3:6D:C4:FA:20:69:10:E0:89:27:DB:40:47:3C"
@@ -6090,6 +6542,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "6F:C9:C2:E2:2D:07:D2:5C:E7:7E:2E:96:34:55:05:3C:38:B8:31:8A:1A:24:91:B3:ED:95:D5:0C:BA:85:49:3D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.otp.octopilauncher",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "94:FB:88:56:2B:A7:F2:47:A0:AB:9B:15:4C:44:A1:2F:53:5B:54:BC:2B:E7:7A:0F:C7:CE:C7:65:C5:33:6F:25"
                 ),
                 false
             )
@@ -6459,6 +6925,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.prosegur.smart20",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "39:49:AB:3B:71:A8:69:53:D4:47:7D:D5:51:5D:7B:4B:92:27:9B:69:7B:C5:77:4D:27:B4:24:8D:B6:E1:F8:8D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.q2e.pawtucket5040android.pcumobile.uwnmobile",
         listOf(
             Hashes(
@@ -6481,6 +6961,35 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "02:F0:A1:4B:84:5D:32:65:6F:7F:8B:2D:7A:2B:32:77:F7:CC:D4:E9:2B:D8:10:4C:F7:8B:FB:0A:77:C3:20:9A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.qobuz.club",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
+                ),
+                listOf(
+                    "2C:E2:F1:9A:17:9C:13:FA:C9:EA:F1:39:C3:F0:84:D5:5B:02:64:58:96:29:52:D4:E6:B5:F2:F1:A2:9C:A2:1E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.qobuz.music",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "20:C8:21:2F:97:13:A6:2A:C5:BA:EE:54:F5:C9:C7:16:CD:01:91:2F:AB:47:CD:E2:17:A9:29:B0:0B:D6:B6:A9"
                 ),
                 false
             )
@@ -6535,7 +7044,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "97:0B:91:14:38:13:B4:C9:D5:F3:63:4F:67:2C:9F:CA:A5:62:1B:4E:FA:AE:DA:FD:6C:23:5C:BB:B8:69:73:6F"
@@ -7201,6 +7711,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.sentryapplications.alarmclock",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "78:FF:98:6E:59:5C:9C:F3:54:B1:36:C7:CE:6B:38:35:E1:AD:A4:72:64:80:A1:0A:64:A3:D3:73:E3:14:6B:48"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.shatteredpixel.shatteredpixeldungeon",
         listOf(
             Hashes(
@@ -7300,6 +7824,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.smbc_card.vpass",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "10:18:A2:EB:10:EF:51:1F:52:F8:48:4B:11:39:42:FE:99:12:41:26:C0:E1:AF:16:D9:95:3E:AC:5B:84:76:2C"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.sonova.chb.control",
         listOf(
             Hashes(
@@ -7348,7 +7886,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "65:05:B1:81:93:33:44:F9:38:93:D5:86:E3:99:B9:46:16:18:3F:04:34:9C:B5:72:A9:E8:1A:33:35:E2:8F:FD"
@@ -7402,7 +7941,77 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.starfinanz.mobile.android.bwpushtan",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "48:53:EB:52:4C:DF:4A:22:EB:41:94:7B:0D:3F:49:F0:2F:9C:F3:00:42:88:0E:F6:29:85:47:92:2E:3A:E9:DD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.starfinanz.mobile.android.invest",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "48:53:EB:52:4C:DF:4A:22:EB:41:94:7B:0D:3F:49:F0:2F:9C:F3:00:42:88:0E:F6:29:85:47:92:2E:3A:E9:DD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.starfinanz.mobile.android.pushtan",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "48:53:EB:52:4C:DF:4A:22:EB:41:94:7B:0D:3F:49:F0:2F:9C:F3:00:42:88:0E:F6:29:85:47:92:2E:3A:E9:DD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.starfinanz.smob.android.bwmobilbanking",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "48:53:EB:52:4C:DF:4A:22:EB:41:94:7B:0D:3F:49:F0:2F:9C:F3:00:42:88:0E:F6:29:85:47:92:2E:3A:E9:DD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.starfinanz.smob.android.sfinanzstatus",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "48:53:EB:52:4C:DF:4A:22:EB:41:94:7B:0D:3F:49:F0:2F:9C:F3:00:42:88:0E:F6:29:85:47:92:2E:3A:E9:DD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.starfinanz.smob.android.starmoney",
         listOf(
             Hashes(
                 listOf(
@@ -7556,6 +8165,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "C2:0F:71:D4:25:62:53:57:F0:C0:52:3A:E1:C2:20:C5:9E:22:E4:9A:94:BC:9F:26:6F:9C:97:77:36:89:A0:9B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.tecdrop.pitchblackwallpaper",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "2E:8C:34:27:C5:D3:2D:9D:A0:A0:A5:61:AF:2D:BE:1A:A1:18:C6:CA:0D:9F:C6:CB:1B:2E:19:AB:B3:36:5F:D4"
                 ),
                 false
             )
@@ -7734,6 +8357,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.topsmarkets.app.android",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "F2:F0:EF:B6:17:AC:85:C3:65:BC:45:DC:78:D6:27:4D:84:81:DC:A6:0C:8A:C7:DA:13:83:6B:43:F4:37:6B:EF"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.tplink.kasa_android",
         listOf(
             Hashes(
@@ -7776,6 +8413,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.trafi.whitelabel.bvg",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "3F:EC:E6:B5:C2:27:18:9B:1E:F5:89:66:4F:92:26:61:BB:39:B5:60:C5:63:8E:58:34:88:9C:E9:87:E7:6B:09"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.TrainHeroic.TrainHeroic",
         listOf(
             Hashes(
@@ -7812,6 +8463,21 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "B7:86:48:BB:81:D8:85:EB:87:03:CF:EF:FE:E1:24:21:EA:8A:55:67:56:8C:FE:4B:CD:F0:BF:66:78:6D:D1:B6"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.transferwise.android",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
+                ),
+                listOf(
+                    "14:9C:4E:A5:82:5A:81:06:55:89:D2:7A:60:EA:7E:55:4D:F4:B4:9E:3C:66:0C:B6:5B:A7:30:02:50:80:DB:D0"
                 ),
                 false
             )
@@ -7882,6 +8548,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.tryhackme.mobileapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "06:6E:11:96:74:2F:1C:BA:3D:27:26:83:D5:37:F1:B8:A1:5C:FC:D8:06:1D:4E:33:AD:7C:CD:84:8F:FF:55:96"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.turkishairlines.mobile",
         listOf(
             Hashes(
@@ -7890,6 +8570,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "DD:85:EB:7F:24:CC:AD:39:D3:B8:30:26:12:5C:D5:16:4E:19:FD:1E:AA:26:7F:A0:B0:73:AE:72:20:D2:75:6E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.tutpro.baresip",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "FE:CC:79:C2:0A:B7:25:B9:B7:8B:B1:6A:75:BA:9A:04:09:28:22:CF:52:BA:32:E4:A4:37:17:0A:68:02:06:02"
                 ),
                 false
             )
@@ -8033,7 +8727,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "ED:99:88:71:D7:9D:5E:91:A4:FF:BB:75:71:5B:1B:FD:DB:4B:06:8D:80:EF:C3:75:5F:AA:F0:3F:C5:87:D8:B2"
@@ -8108,6 +8803,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "34:25:D5:1C:A1:A8:DB:37:CA:E7:96:68:D0:FC:B8:3F:BA:05:62:3C:35:7D:9F:BD:30:4F:F3:71:D9:26:E2:A1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.usps.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "B8:CA:C7:74:6F:F8:96:1A:FB:45:19:EB:FB:8A:43:F1:72:51:AF:A1:4A:0D:E8:5F:99:C0:8C:08:1C:B5:24:B3"
                 ),
                 false
             )
@@ -8373,10 +9082,39 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "70:3B:0F:C8:DC:E8:8D:21:56:64:B0:97:CA:A1:2A:66:B7:E1:31:FE:43:19:AC:57:6B:3A:36:FA:3B:03:67:4D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.wegmans.wegmans2go",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "43:BC:14:3B:C9:62:7C:B3:45:FC:8A:F9:40:A1:21:DE:B3:6F:1D:C6:71:62:26:B1:46:2B:E5:2D:73:EB:58:F1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.wegmans.wegmansapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "43:BC:14:3B:C9:62:7C:B3:45:FC:8A:F9:40:A1:21:DE:B3:6F:1D:C6:71:62:26:B1:46:2B:E5:2D:73:EB:58:F1"
                 ),
                 false
             )
@@ -8426,7 +9164,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "39:87:D0:43:D1:0A:EF:AF:5A:87:10:B3:67:14:18:FE:57:E0:E1:9B:65:3C:9D:F8:25:58:FE:B5:FF:CE:5D:44",
@@ -8529,7 +9268,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "16:E0:AA:B4:BD:52:D9:99:8E:59:87:CA:20:7F:71:6B:CE:82:07:B7:47:4D:44:DE:51:F0:6D:FD:3D:C9:54:B7"
@@ -8705,6 +9445,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.zarrx.web",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "93:21:5A:F2:47:C1:3B:44:A1:5F:C8:D0:EC:F2:D2:FA:95:3D:F6:9D:46:E5:F5:00:47:3A:DC:C9:5F:AB:75:FB"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.zdf.android.mediathek",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "E6:F9:48:D0:24:B5:88:6C:77:CE:D9:FA:AD:33:B8:BC:C8:79:E8:B3:CF:DC:53:F5:6D:0F:A0:48:E4:80:23:E1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.zhiliaoapp.musically",
         listOf(
             Hashes(
@@ -8776,6 +9544,21 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.aoksystems.amg",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "01:1D:BF:47:D4:D2:E3:92:E0:3D:D4:61:74:0B:65:FB:E6:33:53:EC:C4:39:50:70:F9:17:78:A3:AD:14:5F:0D",
+                    "34:16:17:48:DF:56:C4:77:FA:E1:DD:78:A2:20:E7:5F:D4:1A:CD:B4:73:73:57:36:34:06:F9:78:CA:92:83:B1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.astubenbord.paperless_mobile",
         listOf(
             Hashes(
@@ -8799,6 +9582,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "F0:95:66:8A:4F:CC:79:C2:15:3E:15:42:8B:7C:0E:CC:FB:65:4F:5F:D3:B3:66:BD:4E:E0:7E:67:E8:1B:50:94"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.dak.dak_app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "84:BA:E8:B5:D0:92:F0:49:51:37:BA:34:1A:D1:CC:88:2C:D9:F9:43:3E:B7:DB:A7:9D:9E:0E:5B:9F:77:7B:A2"
                 ),
                 false
             )
@@ -8917,6 +9714,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.elster.elstersecure.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "06:C9:49:7F:9D:45:EF:CA:F2:FA:33:23:10:09:B4:60:21:48:E1:91:29:4C:DE:FE:12:B7:08:A3:CE:AC:1E:B1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.felixnuesse.extract",
         listOf(
             Hashes(
@@ -8993,6 +9804,35 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "66:37:43:A0:E4:D5:63:EA:B4:AE:5B:4B:87:47:8A:8A:35:92:85:C1:5A:D8:95:7E:E1:78:15:98:C6:0D:97:8F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.hafas.android.db",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "4C:77:78:80:DA:1F:27:AD:60:FD:6B:0F:B6:05:F4:19:AC:41:48:34:96:DC:5F:3F:A3:60:EB:E1:73:01:3A:93",
+                    "FF:88:BA:69:61:28:19:7F:27:95:D5:2A:4D:0A:5B:4B:4A:FA:46:91:8C:15:17:BD:04:B6:A7:08:CF:80:CF:7F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.hafas.android.sbahnberlin",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "FF:88:BA:69:61:28:19:7F:27:95:D5:2A:4D:0A:5B:4B:4A:FA:46:91:8C:15:17:BD:04:B6:A7:08:CF:80:CF:7F"
                 ),
                 false
             )
@@ -9094,7 +9934,8 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.DIRECT_APK_LINK,
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "DD:A9:21:96:50:57:4B:2D:70:2F:DF:2D:F9:0F:61:9B:D4:E2:D0:F3:A6:6E:26:BB:03:2F:2F:01:88:40:CF:8E"
@@ -9126,6 +9967,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "CA:6E:F5:65:07:4E:90:33:D6:A5:D5:DD:1B:B9:B1:E8:0B:B6:7E:43:D4:A9:A0:34:A5:51:C7:B0:5F:6C:FB:A3"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.meine_krankenkasse.vhoenixapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "D5:B4:2D:F3:19:D0:4F:64:73:06:FD:8B:57:32:E4:6E:44:46:89:38:46:F6:3D:B7:A4:8B:B6:FD:5A:8A:D0:DF"
                 ),
                 false
             )
@@ -9178,6 +10033,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "87:A6:C1:36:F5:49:9D:B2:55:C9:3F:4D:38:4C:B1:A5:D3:14:F6:90:8F:2B:F1:97:E0:EC:07:ED:58:BB:58:72"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.onedigital.blockchaininvestor.customer",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "75:1B:93:E6:75:49:97:6E:35:6B:E5:1F:E2:8F:CB:50:34:6E:6C:21:FC:D7:91:07:E9:DA:6B:EB:3C:EA:6B:BF"
                 ),
                 false
             )
@@ -9271,6 +10140,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.sbk.meinesbk",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "22:39:00:11:E3:5D:A6:AB:CF:B0:FD:73:16:81:C8:B5:6E:A0:05:AC:F5:5F:23:91:F3:74:26:8A:E6:8E:02:F2"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.schildbach.oeffi",
         listOf(
             Hashes(
@@ -9280,6 +10163,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "BA:61:B8:8F:0F:43:64:00:6F:A6:DB:84:B2:B9:2F:A6:19:12:A0:27:71:65:9B:20:7C:41:27:21:04:C2:E5:C4"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.sdirekt.carriertech.kundenportal",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "C9:00:19:B4:4B:76:95:07:A6:DA:7B:B3:E7:09:12:EA:EE:D3:4F:6A:2E:47:82:1B:A0:F3:71:6D:81:36:EC:38"
                 ),
                 false
             )
@@ -9323,6 +10220,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.sparda.banking.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "9D:B5:52:4D:FA:58:84:0B:EF:66:AB:85:7B:0A:0E:23:D3:F8:C7:59:8A:72:A4:92:9D:E0:08:6B:D1:3F:06:93"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.starfinanz.fico2.xamarin",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "48:53:EB:52:4C:DF:4A:22:EB:41:94:7B:0D:3F:49:F0:2F:9C:F3:00:42:88:0E:F6:29:85:47:92:2E:3A:E9:DD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.szalkowski.activitylauncher",
         listOf(
             Hashes(
@@ -9331,6 +10256,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "76:AD:D4:86:A2:75:E1:40:96:D7:C9:AA:BE:25:A5:26:6D:19:C7:61:B9:42:7B:60:BB:59:6F:79:A0:3E:D4:F7"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.tk.tkapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "64:59:9C:D0:AB:91:92:B7:CF:FA:91:10:3A:F5:CB:63:02:5B:63:2F:ED:BB:3B:0C:C4:9C:79:80:6E:B9:3D:6E"
                 ),
                 false
             )
@@ -9497,6 +10436,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "F4:79:47:27:E4:54:16:D8:7C:48:71:38:29:2B:70:9F:11:D1:CD:7D:AB:55:84:D8:C6:85:7D:92:E0:66:60:4B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "deezer.android.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "51:A8:91:A6:C5:D1:7B:4E:36:A6:F4:6B:AB:67:5C:1C:AE:78:6A:5A:F0:6F:51:D0:10:5D:AB:7E:C6:A9:45:16"
                 ),
                 false
             )
@@ -9831,6 +10784,15 @@ val internalVerificationInfoDatabase = setOf(
                     "57:F6:F8:E7:72:92:E1:61:5D:E2:3D:43:49:7F:00:7E:25:68:5A:B1:54:69:6D:31:BD:10:32:96:ED:65:35:18"
                 ),
                 false
+            ),
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "6C:DC:05:70:CF:94:62:BC:5A:BB:01:17:19:D7:5F:2E:F2:A1:17:C7:D7:C9:0C:FF:8C:4D:14:F5:B6:81:AA:26"
+                ),
+                false
             )
         )
     ),
@@ -9920,6 +10882,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "fi.frankstudents.frankapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "DE:C7:9D:F0:6C:36:27:F7:DF:CD:0A:6F:F2:7D:EB:93:B2:21:8A:76:72:91:CB:06:9C:9C:0E:8A:80:3E:FB:9A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "fi.hsl.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "F9:C1:3D:18:3F:29:81:F0:50:10:F9:BE:3C:01:1C:B1:44:0A:D6:5D:CB:22:2F:B9:E9:86:22:0B:10:5D:3E:0A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "fi.nordea.mobilebank",
         listOf(
             Hashes(
@@ -9929,6 +10919,20 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     "3E:46:30:6E:A8:93:00:F6:24:40:F2:03:5C:E7:AF:7B:45:D6:D0:75:4E:BB:8E:0C:13:63:D3:8F:18:34:6C:8F",
                     "73:B4:7A:19:85:F5:D6:7E:FB:DC:EB:86:D1:9C:38:6B:3B:8B:BB:DD:83:6A:14:38:CC:64:F2:A9:9C:E4:2A:FB"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "fi.sok.abcasemat",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "79:E6:0E:68:52:76:0A:7B:FC:0B:F7:53:1A:23:FB:25:44:B5:8F:8E:E7:98:30:20:04:B0:75:2C:86:C5:56:F8"
                 ),
                 false
             )
@@ -9957,6 +10961,21 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "A6:78:5F:A9:B3:DA:2A:1D:A4:AC:1A:6F:70:65:60:46:DD:7C:DD:A0:A4:42:E9:F1:B5:0D:97:07:69:05:FC:A5"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "fr.doctolib.www",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
+                ),
+                listOf(
+                    "19:9A:C4:B1:F6:81:74:65:06:FE:90:78:26:FB:42:94:C7:1F:7D:AE:F5:37:2D:D0:3B:A6:7C:E0:1C:4C:D0:83"
                 ),
                 false
             )
@@ -9997,6 +11016,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "CE:58:F4:DA:7C:70:5B:FA:A2:E5:D9:CF:D7:5C:63:07:C9:A6:AE:AA:D0:09:CF:38:97:15:8A:3F:E4:96:30:F6"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "fr.fan.wallet",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "3F:F7:BF:97:A7:7D:03:E2:C1:EC:1E:A9:FF:0C:5B:64:7E:BF:93:51:7D:FE:D9:39:78:68:81:33:9A:58:FF:31"
                 ),
                 false
             )
@@ -10091,7 +11124,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.FDROID
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
                 ),
                 listOf(
                     "5E:C0:A5:31:3A:A4:35:58:EE:75:B2:0B:58:CC:D8:19:4C:DB:F0:66:DF:94:A4:3B:A2:88:D9:33:D6:0B:86:CE"
@@ -10305,7 +11339,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "DD:CE:AA:D6:88:F0:05:D3:40:68:94:BA:00:FC:E3:FF:82:54:13:0A:10:2B:B2:52:E6:3C:D8:EA:A9:72:B2:EF"
@@ -10323,6 +11358,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "BA:8B:F0:32:98:62:70:05:ED:DF:F6:B1:D6:0B:3B:FA:A1:4E:E8:BD:C7:61:4F:FB:3B:B1:1C:58:8D:9E:3A:D7"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "io.ente.locker",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "FE:BD:D7:3B:5D:52:1C:CD:14:A2:F5:E6:9F:19:E8:C0:66:BE:5B:EF:70:D7:F5:18:49:FC:E1:0C:7C:81:AE:FD"
                 ),
                 false
             )
@@ -10347,7 +11396,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.DIRECT_APK_LINK
+                    Source.DIRECT_APK_LINK,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "35:ED:56:81:B7:0B:B3:BD:35:D9:0D:85:6A:F5:69:4C:50:4D:EF:46:AA:D8:3F:77:7B:1C:67:5C:F4:51:35:0B"
@@ -10359,6 +11409,15 @@ val internalVerificationInfoDatabase = setOf(
     InternalDatabaseVerificationInfo(
         "io.filen.app",
         listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "2C:90:DF:59:1A:39:E0:8A:AD:E9:4F:72:80:D1:92:D3:34:47:F0:1E:1E:12:75:19:82:B8:AE:C3:F9:0F:AD:AB"
+                ),
+                false
+            ),
             Hashes(
                 listOf(
                     Source.DIRECT_APK_LINK
@@ -10512,6 +11571,22 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "69:EF:2B:B1:59:8D:FC:DA:37:99:F6:B7:24:0D:5B:B8:F5:08:4B:5A:39:54:68:39:A2:CA:F6:F2:3F:4A:89:72"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "io.github.samolego.canta",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID,
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "0A:26:40:31:7C:43:27:21:88:C3:E1:31:94:C1:54:60:69:1F:12:C3:9E:A1:9B:BA:72:7D:D6:7F:B5:62:89:D4"
                 ),
                 false
             )
@@ -10884,6 +11959,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "me.blog.korn123.easydiary",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "34:FD:D8:AA:CE:2D:37:52:7E:94:78:C2:F1:5F:FF:70:41:B8:01:D5:92:40:07:1B:47:66:96:A5:4A:44:32:9E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "me.easyapps.easynotes",
         listOf(
             Hashes(
@@ -11047,7 +12136,9 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.APPVERIFIER,
-                    Source.DIRECT_APK_LINK
+                    Source.DIRECT_APK_LINK,
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "DC:C9:43:9E:C1:A6:C6:A8:D0:20:3F:34:23:EE:42:BC:C8:B9:70:62:8E:53:CB:73:A0:39:3F:39:8D:D5:B8:53"
@@ -11063,7 +12154,8 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     Source.APPVERIFIER,
                     Source.DIRECT_APK_LINK,
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "DC:C9:43:9E:C1:A6:C6:A8:D0:20:3F:34:23:EE:42:BC:C8:B9:70:62:8E:53:CB:73:A0:39:3F:39:8D:D5:B8:53"
@@ -11099,6 +12191,15 @@ val internalVerificationInfoDatabase = setOf(
     InternalDatabaseVerificationInfo(
         "me.zhanghai.android.files",
         listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "87:3B:9B:60:C7:7C:F7:F3:CD:5F:AE:66:D0:FE:11:2C:4A:86:97:3E:11:8E:E8:A2:9C:34:6C:4C:67:3C:97:F0"
+                ),
+                false
+            ),
             Hashes(
                 listOf(
                     Source.DIRECT_APK_LINK,
@@ -11642,7 +12743,8 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.DIRECT_APK_LINK,
-                    Source.FDROID
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
                 ),
                 listOf(
                     "01:CC:E9:31:6F:CB:77:EA:02:C6:DE:A8:1F:DE:9F:31:76:46:92:02:C0:CE:A0:51:4C:0E:03:CB:96:9B:C7:BE"
@@ -11918,6 +13020,16 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "6F:44:C5:4D:12:7C:E0:5B:2B:EE:4A:B7:C2:11:CA:5C:3D:17:5A:88:F3:52:E6:31:DA:C6:D9:51:50:1B:48:7F"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID,
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "C9:A4:06:BD:8E:61:4C:72:BB:DD:24:2D:56:79:5F:7A:5C:E1:3C:0C:F1:4B:AC:22:AE:C9:80:30:A7:1B:E4:86"
                 ),
                 false
             )
@@ -12377,6 +13489,15 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "B4:5C:1F:EC:A9:B0:18:07:97:2A:EE:30:41:B7:0F:3D:47:67:E6:99:09:EA:EC:75:3E:CF:B9:38:DE:B3:0A:63"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
                     Source.DIRECT_APK_LINK,
                     Source.FDROID,
                     Source.FDROID_IZZYONDROID
@@ -12460,6 +13581,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "7E:A7:4C:8E:1E:69:F2:35:D6:0A:23:F2:91:7A:4E:C1:9A:0D:1C:BC:73:EB:E4:67:0C:2C:E1:BA:E1:01:4E:5D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.kde.bettercounter",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "25:32:94:C6:84:D4:C2:31:C4:5A:2B:92:11:DF:AA:01:10:45:62:73:8B:62:A0:9D:BF:B7:14:50:B8:A6:66:F4"
                 ),
                 false
             )
@@ -13255,6 +14390,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "pe.com.interbank.mobilebanking",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "4A:4A:8C:95:8D:74:58:B9:03:1E:E5:D5:B5:66:55:19:DC:CC:F6:2A:6E:85:68:61:03:D2:4C:21:BE:DA:F8:61"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "pe.com.scotiabank.blpm.android.client",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "6B:5B:09:53:67:DA:54:BD:1F:E1:6C:AE:35:3E:61:59:A5:5D:2A:14:9F:82:BA:FC:95:09:E0:56:C8:80:88:0C"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "peergos.android",
         listOf(
             Hashes(
@@ -13442,6 +14605,7 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.ACCRESCENT,
+                    Source.FDROID,
                     Source.FDROID_IZZYONDROID
                 ),
                 listOf(
@@ -13629,6 +14793,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "67:E3:2A:6E:6A:7A:85:FF:5D:AE:BB:B1:D1:01:2E:1A:F2:A5:2A:4C:54:C0:FA:EF:54:9B:20:CC:12:4E:DA:CE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "snugsafety.com.snugsafety",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "62:96:F5:E2:7F:52:63:C2:DF:DF:AC:7D:8D:14:2A:A3:E0:50:00:C8:4B:E9:9D:05:05:4F:EE:EB:76:0E:6B:6B"
                 ),
                 false
             )
@@ -13878,6 +15056,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "9F:7F:36:6E:7E:5C:A6:59:A0:ED:56:A0:55:7F:9E:59:BD:3F:50:E9:72:AD:91:E5:FA:6B:E1:EF:AA:DA:DA:B7"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "waltti.com.mobiili",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "AF:93:CA:0A:06:5E:6E:33:50:9E:8D:81:94:8E:DC:69:B8:72:C1:79:78:68:18:39:4A:19:3E:B1:59:8B:FB:5A"
                 ),
                 false
             )
