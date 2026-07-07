@@ -2576,6 +2576,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.coingecko.coingeckoapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "C4:80:62:6A:2A:02:54:29:05:9C:14:32:15:40:86:66:DE:CB:D8:58:3C:2A:17:AB:73:C9:68:03:6F:24:D1:22"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.collabora.libreoffice",
         listOf(
             Hashes(
@@ -3373,6 +3387,21 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "E3:F9:E1:E0:CF:99:D0:E5:6A:05:5B:A6:5E:24:1B:33:99:F7:CE:A5:24:32:6B:0C:DD:6E:C1:32:7E:D0:FD:C1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.farcaster.mobile",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "55:84:D5:7E:65:95:3E:6D:A5:B0:04:D6:96:B7:ED:E1:A5:6D:D4:A9:40:F5:65:AF:DB:7C:7B:2C:D7:C8:23:7B",
+                    "8D:B5:93:29:9C:69:E1:43:3D:DD:58:FE:9B:40:C5:6A:21:F4:5A:31:A2:7E:5A:25:D1:44:49:4D:F8:14:14:8A"
                 ),
                 false
             )
@@ -7824,6 +7853,21 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.Slack",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
+                ),
+                listOf(
+                    "33:53:36:19:75:6E:87:01:A8:2E:78:87:56:5B:15:2D:C3:48:18:87:11:EB:B5:C4:8D:07:3B:2C:94:2F:7E:41"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.smbc_card.vpass",
         listOf(
             Hashes(
@@ -8604,6 +8648,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.twofasapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "B1:95:0E:D5:56:E1:36:02:77:11:38:C9:35:A1:43:D1:28:D0:20:AF:62:CB:06:FE:7E:41:1E:ED:39:89:0C:0B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.ubercab",
         listOf(
             Hashes(
@@ -9327,6 +9385,21 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "95:3F:5A:4C:22:E7:FD:16:AD:C3:F1:2E:B0:38:68:2A:AD:37:7F:EF:9A:18:B9:D1:2C:1A:BE:A7:89:11:C7:49"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.xiaomi.wearable",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE
+                ),
+                listOf(
+                    "3F:B1:84:66:B9:9C:E7:DC:F5:B8:5D:4C:32:6D:88:B0:4E:07:66:71:A0:12:59:A1:43:96:99:05:D5:4E:0F:1A",
+                    "B0:31:FE:98:A4:DB:B0:D4:D8:26:61:78:7F:25:DE:64:31:82:B3:78:E9:EF:63:2D:8A:DE:A7:5A:AB:58:F2:D8"
                 ),
                 false
             )
@@ -11870,6 +11943,22 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "00:65:8A:4F:77:3E:FC:FE:13:E0:1D:7E:C3:9C:35:F6:A5:29:CD:56:2F:43:B7:C8:EB:DE:76:FE:B2:34:FB:C9"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "jp.naver.line.android",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
+                ),
+                listOf(
+                    "E6:82:FE:0B:CD:60:90:7D:FE:D5:15:E0:B8:A4:DE:03:AA:1C:28:1D:11:1A:07:83:39:86:60:2B:60:98:AF:D2",
+                    "E6:E8:03:6E:01:23:4E:91:9F:BE:9C:F9:EA:5D:21:04:35:CF:C0:54:23:28:64:1A:A7:0A:01:8F:52:F6:3C:F8"
                 ),
                 false
             )
