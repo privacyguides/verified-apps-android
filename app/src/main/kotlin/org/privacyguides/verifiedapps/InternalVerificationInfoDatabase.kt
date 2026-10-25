@@ -4413,7 +4413,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "DF:08:C9:F2:D8:09:18:9D:9D:50:64:97:C1:57:45:A7:39:5A:41:53:6E:FB:43:3E:3A:EE:1A:ED:BE:11:B2:61"
@@ -10377,7 +10378,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.DIRECT_APK_LINK
+                    Source.DIRECT_APK_LINK,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "39:87:D0:43:D1:0A:EF:AF:5A:87:10:B3:67:14:18:FE:57:E0:E1:9B:65:3C:9D:F8:25:58:FE:B5:FF:CE:5D:44"
@@ -10387,7 +10389,8 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.APPVERIFIER,
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "39:87:D0:43:D1:0A:EF:AF:5A:87:10:B3:67:14:18:FE:57:E0:E1:9B:65:3C:9D:F8:25:58:FE:B5:FF:CE:5D:44",
