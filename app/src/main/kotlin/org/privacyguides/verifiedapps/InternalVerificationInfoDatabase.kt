@@ -6772,7 +6772,8 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
-                    Source.GOOGLE_PLAY_STORE
+                    Source.GOOGLE_PLAY_STORE,
+                    Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "EA:C7:62:C6:D4:E9:7D:5A:BB:5F:0D:02:36:EA:32:CE:C4:B1:67:1F:9E:AA:FB:D1:25:5F:36:B4:D3:97:20:A9"
