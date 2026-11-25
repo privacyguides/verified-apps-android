@@ -15,30 +15,14 @@ permissions:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    env:
-      PRIVACYGUIDES_DATA_URL: https://raw.githubusercontent.com/privacyguides/verified-apps/main/data.yml
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Download verified-apps database
-        run: curl -fsSL -o "$RUNNER_TEMP/data.yml" "$PRIVACYGUIDES_DATA_URL"
-
-      - name: Verify database attestation
-        run: |
-          for i in 1 2 3 4 5; do
-            if gh attestation verify -R privacyguides/verified-apps \
-              --cert-identity-regex 'https://github.com/privacyguides/.github/.github/workflows/sign-artifact.yml*' \
-              "$RUNNER_TEMP/data.yml" 2>/dev/null; then
-              exit 0
-            fi
-            echo "Attestation not yet available, retrying in 10s (attempt $i/5)..."
-            sleep 10
-          done
-          gh attestation verify -R privacyguides/verified-apps \
-            --cert-identity-regex 'https://github.com/privacyguides/.github/.github/workflows/sign-artifact.yml*' \
-            "$RUNNER_TEMP/data.yml"
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Download and verify verified-apps database
+        uses: privacyguides/verified-apps@07e8c098700d30cda21d01a661215134cf9a0e88
+        with:
+          source: main
+          fallback: commit
 
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
