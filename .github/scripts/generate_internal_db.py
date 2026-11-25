@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 """Replace InternalVerificationInfoDatabase.kt from privacyguides/verified-apps data.yml."""
 
 import argparse

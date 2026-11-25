@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Jonah Aragon
+SPDX-License-Identifier: MIT
+-->
+
 # Verified Apps
 
 Verified Apps is an app signing certificate hash viewer and verifier. It checks apps against a built-in database of known-good app signing fingerprints.

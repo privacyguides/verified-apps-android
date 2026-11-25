@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Jonah Aragon
+// SPDX-License-Identifier: MIT
+
 package org.privacyguides.verifiedapps.github
 
 import android.content.pm.PackageInstaller

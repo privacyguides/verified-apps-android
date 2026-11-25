@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # Download a checksum-pinned sops binary onto the runner.
 #
 # A sops already on PATH is not trusted by default since it runs with

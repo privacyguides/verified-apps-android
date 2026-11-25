@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # Decrypt named keys from a SOPS file and export them as masked env vars via
 # GITHUB_ENV for later steps. Fails on missing, empty, or CHANGEME values.
 #

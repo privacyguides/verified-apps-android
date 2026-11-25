@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # Builds a signed release APK and publishes it to a GitHub Release.
 # Signing material is in secrets/android-signing.yaml; SOPS_AGE_KEY decrypts it.
 

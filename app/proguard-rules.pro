@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2024-2025 soupslurpr
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: ISC AND MIT
+
 # Add project specific ProGuard rules here.
 # You can control the set of applied configuration files using the
 # proguardFiles setting in build.gradle.kts.

@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Jonah Aragon
+// SPDX-License-Identifier: MIT
+
 package org.privacyguides.verifiedapps.ui
 
 import org.junit.Assert.assertEquals

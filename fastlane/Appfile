@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # Distinct package so the Play build never collides with the GitHub build,
 # which keeps org.privacyguides.verifiedapps and its own signing key.
 package_name("org.privacyguides.verifiedapps.play")

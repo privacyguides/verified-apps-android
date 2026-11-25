@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Jonah Aragon
+SPDX-License-Identifier: MIT
+-->
+
 # Privacy Policy
 
 This app does not store any data permanently other than preferences. This app does not make network connections itself. When you choose to submit an app that is not in the internal database, the app opens your web browser to a GitHub issue form with verification fields pre-filled from data already shown on screen; submitting that form is handled by GitHub in your browser.

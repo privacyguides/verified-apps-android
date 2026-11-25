@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # From https://github.com/RoundSalmon4/AppVerifierBG/blob/feature/all-enhancements/.github/workflows/verify-reproducible.yml
 
 name: Verify Reproducible Build

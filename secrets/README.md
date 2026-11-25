@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Jonah Aragon
+SPDX-License-Identifier: MIT
+-->
+
 # CI secrets (SOPS)
 
 CI secrets live here as [SOPS](https://github.com/getsops/sops)-encrypted

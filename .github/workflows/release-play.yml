@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # Builds the Google Play variant and (optionally) uploads its App Bundle to
 # Play. Called by release.yml with upload=false (play-upload.yml handles
 # upload after publish); also dispatchable on its own as the retry path.

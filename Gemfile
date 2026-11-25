@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 source "https://rubygems.org"
 
 # fastlane drives the Google Play upload (`supply` / upload_to_play_store) and

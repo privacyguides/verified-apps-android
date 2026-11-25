@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # secrets/*.yaml are encrypted to both recipients below (CI key + recovery
 # key); either private key alone decrypts. See secrets/README.md.
 # After changing recipients: sops updatekeys --yes secrets/*.yaml

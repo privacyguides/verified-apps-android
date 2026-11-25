@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # Bump CalVer in app/build.gradle.kts and add a Play Store changelog for a database release.
 # Usage: scripts/bump-database-release.sh
 set -euo pipefail

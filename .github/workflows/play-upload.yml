@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # Uploads the attested App Bundle to Google Play when a maintainer publishes
 # the GitHub release (draft → published). Tag builds attach the AAB as a
 # release asset; this workflow downloads it and uploads to Play. A failure here

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 FROM debian:trixie AS base
 
 LABEL org.opencontainers.image.source="https://github.com/privacyguides/verified-apps-android"

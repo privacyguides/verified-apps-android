@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 # One-time SOPS migration helper (see secrets/MIGRATION.md): copy the files
 # exported by export-secrets-once.yml into secrets/, then verify the values
 # decrypt, both keystores open, the SSH key parses, and the service-account

@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2024-2025 soupslurpr
+// SPDX-FileCopyrightText: 2026 Jonah Aragon
+// SPDX-License-Identifier: ISC AND MIT
+
 package org.privacyguides.verifiedapps
 
 import org.privacyguides.verifiedapps.data.InternalDatabaseInfo

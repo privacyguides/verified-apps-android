@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2024-2025 soupslurpr
+SPDX-FileCopyrightText: 2026 Jonah Aragon
+SPDX-License-Identifier: ISC AND MIT
+-->
+
 <resources>
     <string name="app_name">Verified Apps</string>
     <string name="app_header">Verified Apps\nby Privacy Guides</string>

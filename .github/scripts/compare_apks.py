@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Jonah Aragon
+# SPDX-License-Identifier: MIT
+
 """Compare two APKs file-by-file, excluding signatures."""
 import zipfile
 import hashlib
