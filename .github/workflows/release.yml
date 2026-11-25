@@ -115,7 +115,7 @@ jobs:
           echo "idsig=${IDSIG_ASSET}" >> "$GITHUB_OUTPUT"
 
       - name: Upload release APK
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: built-apk
           path: |
@@ -132,7 +132,7 @@ jobs:
       MOBSF_API_KEY: ci-ephemeral-key
     steps:
       - name: Download release APK
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: built-apk
 
@@ -210,7 +210,7 @@ jobs:
         run: docker rm -f mobsf || true
 
       - name: Upload MobSF report
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: mobsf-security-report
@@ -276,7 +276,7 @@ jobs:
 
     steps:
       - name: Download release APK
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: built-apk
 
@@ -285,7 +285,7 @@ jobs:
       # rather than continue-on-error, and a download failure is fatal.
       - name: Download Play App Bundle
         if: needs.play.outputs.configured == 'true'
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: built-play-aab
 
