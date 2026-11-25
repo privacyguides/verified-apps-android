@@ -111,6 +111,20 @@ data class InternalDatabaseVerificationInfo(
  */
 val internalVerificationInfoDatabase = setOf(
     InternalDatabaseVerificationInfo(
+        "ai.privatebydesign.albi",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "C6:D4:B4:48:7E:BC:EF:11:47:64:8C:7E:54:A8:11:94:84:40:9C:22:E3:21:D1:64:C8:EF:AB:62:12:DD:F4:CE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "air.com.parkerstech.day",
         listOf(
             Hashes(
@@ -176,6 +190,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "58:1D:49:7A:77:F9:97:EC:3D:5F:28:60:F8:76:0F:E2:75:C0:38:60:33:F4:8C:38:14:40:8B:6B:5E:3E:63:C3"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "app.areada",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "02:F6:B0:E2:59:88:4A:C7:1C:01:D7:D3:2B:78:C7:C0:A0:7A:03:7E:3F:F1:65:47:1F:A1:9F:DA:FA:39:C3:A0"
                 ),
                 false
             )
@@ -294,6 +322,21 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "app.fluffy",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "4A:ED:2F:69:1D:F6:4A:7B:0F:EA:25:A6:B8:C8:01:83:C6:DC:52:0E:04:9D:AC:01:78:DE:FA:1D:64:72:22:8F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "app.govroam.getgovroam",
         listOf(
             Hashes(
@@ -302,6 +345,15 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "14:25:A0:14:D9:42:36:54:60:D6:05:82:E4:E5:A8:06:00:2C:67:B5:40:94:1C:6C:FF:6F:56:DD:CC:32:3E:96"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "27:96:EC:EB:F5:1F:18:90:14:30:D8:0A:2B:24:C1:3F:FC:DB:E2:4F:1E:F3:29:58:C3:BB:DA:EA:D0:6A:CE:83"
                 ),
                 false
             )
@@ -503,6 +555,50 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "app.podiumpodcasts.podium",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "F4:F0:C3:D1:56:F2:85:B0:D6:6E:28:8E:43:8E:69:0B:C1:C6:97:BE:3D:BB:8F:A4:86:CE:A1:BF:C9:64:9B:8F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "app.pwhs.blockads",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "22:9E:A4:95:84:36:0B:22:A8:C7:E7:E5:30:CF:B7:E1:10:3F:AA:1B:6B:A5:F3:28:37:69:1F:B9:6F:DC:FE:5A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "app.pwhs.universalinstaller",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "40:E1:D8:6C:62:28:80:9E:07:85:7A:62:ED:CF:72:95:2F:EA:66:4E:71:53:17:92:01:50:B9:37:EF:75:F5:DE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "app.revanced.manager.flutter",
         listOf(
             Hashes(
@@ -607,6 +703,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "B3:9E:7B:77:EC:85:34:83:64:6B:21:B4:A3:E3:CA:54:0B:A0:94:EF:8D:AA:18:E8:7E:0B:E1:FA:46:38:D3:21"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "at.bitfire.icsdroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "6F:A7:7C:06:FF:23:D1:7C:01:88:6F:DF:4B:28:93:67:B6:3E:E5:FA:32:7B:93:B9:B0:8C:D6:58:CE:83:F5:68"
                 ),
                 false
             )
@@ -825,6 +935,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "ch.rmy.android.http_shortcuts",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "B6:DE:3C:05:4F:09:81:3F:D6:C0:33:BC:CF:D6:4A:AB:FB:C6:36:80:A7:EB:BC:AC:64:E9:AE:14:E5:54:7A:5F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "ch.threema.app.libre",
         listOf(
             Hashes(
@@ -918,6 +1042,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "AE:C1:95:DC:FD:46:14:BD:3A:91:EC:26:D1:D5:14:C8:75:71:C5:CC:8D:CF:48:08:3F:92:83:14:3C:A2:B9:A6"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "cl.coders.faketraveler",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "FA:1B:47:D6:2E:BE:CE:21:30:E3:3A:22:18:6C:62:2B:CF:E2:F2:B9:A3:D5:C1:44:38:AD:94:07:80:93:68:2C"
                 ),
                 false
             )
@@ -1349,6 +1487,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.alexmercerind.audire",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "29:DA:10:94:31:62:D3:ED:38:6B:97:CF:F1:EF:BE:2F:9C:01:2C:9E:3A:5D:86:1F:8F:49:44:0B:16:C0:01:08"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.alibaba.aliexpresshd",
         listOf(
             Hashes(
@@ -1396,11 +1548,34 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "4D:86:AD:78:C7:1D:7D:9A:C2:C6:4B:93:B5:48:B8:A6:FA:7F:DF:68:3C:ED:02:37:31:78:2D:8D:CF:A7:D6:BC"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
                     Source.FDROID_IZZYONDROID,
                     Source.GOOGLE_PLAY_STORE
                 ),
                 listOf(
                     "AF:F6:56:D7:CA:84:D7:12:54:D2:72:C5:5F:B4:20:ED:F1:72:B2:54:9D:E1:4F:5C:CE:FD:5A:82:52:8D:F5:54"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.amaze.fileutilities",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "FB:89:9A:82:B2:67:3F:9B:80:C5:26:80:FD:82:2E:7E:82:05:52:70:71:23:FD:14:56:D9:26:BA:D8:F0:B2:AD"
                 ),
                 false
             )
@@ -1475,6 +1650,35 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "DC:DA:0E:27:5E:04:C3:3A:04:06:8A:FF:EB:D4:03:ED:CF:A6:AE:B5:5D:F5:64:85:D5:4B:14:7E:B6:CF:1F:55"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.amnesica.clearclipboard",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "8E:3B:3B:FB:83:08:FA:4C:D1:4B:9A:32:DE:B3:1E:0B:15:10:6D:25:EB:62:58:B6:E2:5C:96:3B:EB:F8:B3:EE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.amrdeveloper.linkhub",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "2B:9B:77:34:5E:B3:CA:D8:CE:36:B3:D6:DE:15:2A:57:05:E5:E7:BF:52:E8:02:64:F8:2A:8A:E6:F3:15:06:66"
                 ),
                 false
             )
@@ -1579,6 +1783,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.antoniegil.astronia",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "5D:68:C1:4F:1E:FD:95:D2:F7:CA:46:E2:44:B4:B7:CF:06:52:E9:29:AD:C6:CD:10:26:F8:C2:50:73:1B:22:B0"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.apiture.xpressmobile.tabut.sub",
         listOf(
             Hashes(
@@ -1587,6 +1805,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "E0:85:00:80:44:B1:CA:2C:35:F8:54:1B:0E:08:28:08:78:EF:19:65:87:2E:D4:24:6C:A2:B7:1B:08:D8:ED:11"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.apk.editor",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "B4:A4:ED:79:C2:8A:F4:44:B0:B0:9E:01:2C:88:E4:B2:07:B3:93:31:07:07:D4:B9:BB:41:8D:29:61:11:9C:46"
                 ),
                 false
             )
@@ -1730,6 +1962,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.armanmaurya.archiv",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "CE:A0:D7:86:39:36:FD:A4:48:46:D3:70:1F:47:07:6E:E5:B0:C7:FE:F3:37:71:2D:17:85:A9:87:95:FB:BA:95"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.artermobilize.alertable",
         listOf(
             Hashes(
@@ -1804,6 +2050,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "D2:4B:40:DE:53:0C:D6:22:A6:04:74:0C:9D:D0:36:47:5E:E6:AC:FB:32:6D:29:E3:4A:06:AD:CD:1F:6C:6A:1F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.atharok.btremote",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "E6:CF:16:29:D4:62:A3:68:6A:A4:BA:2D:37:E0:27:77:25:7F:D0:A3:BB:E5:54:0D:8C:70:F8:0E:12:D1:11:CD"
                 ),
                 false
             )
@@ -2200,6 +2460,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.biglybt.android.client",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "25:49:BD:C0:92:0B:E4:A7:C0:78:3F:75:C6:7C:F3:D3:26:56:FC:4A:69:44:5F:E6:46:68:D3:44:17:02:A7:AE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.bilingify.readest",
         listOf(
             Hashes(
@@ -2208,6 +2482,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "E0:E7:60:55:80:8D:3A:DE:A0:D1:CF:7C:20:85:40:A3:DD:4B:E6:4D:17:5C:0F:DE:26:57:7D:9C:5B:29:5F:51"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.bintianqi.owndroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "E5:D5:DB:17:6A:74:2C:56:6B:A6:02:0A:C2:4D:93:FA:BD:A5:F6:95:2D:7F:CC:AE:9E:3A:46:E9:84:8E:83:B5"
                 ),
                 false
             )
@@ -2406,6 +2694,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "5E:6E:4B:82:82:99:CA:01:D7:A4:92:21:1F:CC:88:FA:68:05:0B:AA:A2:5A:50:EA:69:59:6F:D2:A3:E6:B3:66"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.boxlabs.hexdroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "E1:DE:D9:7F:0C:94:99:58:A9:90:F7:2F:C0:A8:C1:45:33:CC:31:BF:1C:0D:AF:41:92:2F:73:01:E2:53:72:13"
                 ),
                 false
             )
@@ -2875,6 +3177,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.codedead.deadhash",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "33:46:CF:D5:67:6A:EF:D9:A2:7E:A2:5B:9F:13:A1:20:C2:F6:F6:8E:E2:6E:6F:8B:76:84:5C:EA:27:4E:A7:EE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.coinbase.android",
         listOf(
             Hashes(
@@ -2933,6 +3249,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.colnix.fta",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "84:1D:CE:09:CE:B0:33:AD:0C:D0:03:50:C6:BF:C1:FE:38:2D:69:37:80:8F:BA:7E:C2:0F:29:5E:24:B6:22:17"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.comdirect.phototan",
         listOf(
             Hashes(
@@ -2941,6 +3271,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "8F:EF:54:18:47:9F:56:B2:77:76:CD:91:14:E1:7D:DA:26:31:E1:8A:93:58:DA:90:FD:5B:1F:23:47:2A:60:3F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.companyname.andriodapp1",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "73:34:5E:7D:43:FE:B5:59:39:45:0D:E4:49:7D:64:C0:01:D2:AE:76:42:65:B6:9C:2C:BF:3E:A0:36:77:A8:A2"
                 ),
                 false
             )
@@ -3088,6 +3432,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "8C:66:55:88:44:7D:26:AE:B1:50:E7:F3:FD:C8:41:7C:0F:44:BF:E3:0B:C1:65:DA:FD:4C:61:76:05:5D:C5:4D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.dasp.worldcup2026",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "BC:B5:58:12:4D:78:E9:8E:85:BF:BA:A6:D3:05:9B:FF:FE:40:97:69:46:D9:51:8F:77:65:54:C7:8B:20:17:92"
                 ),
                 false
             )
@@ -3443,6 +3801,15 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "0E:7B:40:3C:10:1B:C1:F6:19:BA:55:38:29:31:EE:F8:CF:0B:69:4E:B3:C4:19:DB:3D:B1:7C:7F:72:E8:DF:A3"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
                     Source.GOOGLE_PLAY_STORE
                 ),
                 listOf(
@@ -3461,6 +3828,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "9E:73:D3:BA:39:DE:BA:6C:A9:DF:06:E2:8B:D9:BC:85:90:55:B8:6C:5A:17:29:93:0B:EF:25:84:86:19:85:74"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.drip",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "4C:FD:84:5C:10:E6:06:1B:7E:07:69:6A:17:48:55:79:9A:59:74:3F:B0:18:85:93:27:F1:E9:2D:D1:25:05:82"
                 ),
                 false
             )
@@ -3738,6 +4119,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.espruino.gadgetbridge.banglejs",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "01:CC:E9:31:6F:CB:77:EA:02:C6:DE:A8:1F:DE:9F:31:76:46:92:02:C0:CE:A0:51:4C:0E:03:CB:96:9B:C7:BE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.etesync.syncadapter",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "E3:A0:65:E5:4A:E1:D2:00:2D:31:0B:37:54:D0:0D:4E:66:CB:B7:1C:47:52:8A:08:9C:14:54:E1:70:69:17:80"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.eurostar.androidapp",
         listOf(
             Hashes(
@@ -3794,6 +4203,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.eyalm.adns",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "19:49:17:A5:3D:1C:AD:19:16:3D:A5:72:25:B9:A9:BD:88:37:0D:C2:1C:13:15:15:1E:8F:32:BB:6B:C2:7A:0B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.facebook.katana",
         listOf(
             Hashes(
@@ -3813,6 +4236,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "E3:F9:E1:E0:CF:99:D0:E5:6A:05:5B:A6:5E:24:1B:33:99:F7:CE:A5:24:32:6B:0C:DD:6E:C1:32:7E:D0:FD:C1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.faltenreich.diaguard",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "6F:67:B5:55:A0:FA:64:C4:F0:F1:6C:85:FA:57:96:E4:07:E9:F9:97:7D:B3:54:06:E6:2E:0F:42:34:60:45:CD"
                 ),
                 false
             )
@@ -4028,6 +4465,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.flasskamp.energize",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "58:EE:B8:AF:51:66:4B:25:E6:0E:6B:1B:98:8E:95:A1:1F:DB:40:29:9C:61:85:3A:8A:AD:93:37:FA:C9:B9:EC"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.flauschcode.broccoli",
         listOf(
             Hashes(
@@ -4061,6 +4512,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "33:43:3E:E6:A8:96:1C:D6:A1:22:6C:FB:B7:C8:C2:2C:90:F8:2D:69:F6:5D:5D:1E:99:3E:92:5C:A9:C8:28:44"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.floflacards.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "E9:DF:22:7F:11:BF:27:BD:24:64:37:DD:60:9C:16:A4:B4:B9:9F:80:B7:8C:93:E2:93:CB:4A:C9:59:F4:2D:9F"
                 ),
                 false
             )
@@ -4157,6 +4622,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.forrestguice.suntimeswidget",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "8F:72:A9:1F:27:0F:66:7D:C7:C9:07:F4:52:52:9D:7A:3E:40:42:2F:C3:7F:16:DF:5B:E6:01:0C:11:CD:F8:48"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.foxit.mobile.pdf.lite",
         listOf(
             Hashes(
@@ -4165,6 +4644,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "1A:D0:DE:1D:95:54:C5:3F:6C:45:3A:4B:7A:89:1F:11:EF:DE:F0:9B:74:93:C3:8D:BF:A7:3E:4C:4F:94:FC:8F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.fr3ts0n.ecu.gui.androbd",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "60:D7:57:5F:56:E8:FE:0E:26:83:65:D0:F9:0A:84:30:72:1A:02:88:F3:0F:19:14:35:B1:23:98:EC:1A:39:90"
                 ),
                 false
             )
@@ -4337,6 +4830,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.gbros.tabslite",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "49:80:5B:38:5A:A9:7F:72:5A:37:22:D3:D1:95:DE:84:A3:76:10:4A:AD:26:BD:FB:08:D5:2A:59:CB:CB:97:47"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.geeksville.mesh",
         listOf(
             Hashes(
@@ -4403,6 +4910,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "2B:47:AC:B3:D0:BC:0C:9C:CF:CA:B5:FD:BA:91:CA:DC:D1:6E:6B:EF:14:26:D7:3B:8A:F0:2C:76:C5:FC:5A:E8"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.ghostsq.commander",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "42:B1:74:15:42:B9:B8:E2:2D:4F:0F:03:36:C9:68:8D:3B:69:5E:EF:1D:79:13:51:35:D5:39:52:1D:7E:8A:20"
                 ),
                 false
             )
@@ -4546,6 +5067,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.github.mikulash.shareasqr",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "D1:51:57:BF:F0:B0:CC:43:6A:D4:1B:BA:05:47:7D:C8:34:7D:8E:C6:99:54:1A:D6:8F:EC:38:1A:25:98:7B:49"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.github.muellerma.coffee",
         listOf(
             Hashes(
@@ -4562,6 +5097,20 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     Source.APPVERIFIER,
                     Source.DIRECT_APK_LINK
+                ),
+                listOf(
+                    "90:43:1B:46:5B:44:03:31:14:5C:76:9C:40:D8:72:B0:79:BE:15:40:50:88:22:CD:FC:3A:2A:C3:97:D4:6C:AE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.github.muellerma.nfcreader",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
                 ),
                 listOf(
                     "90:43:1B:46:5B:44:03:31:14:5C:76:9C:40:D8:72:B0:79:BE:15:40:50:88:22:CD:FC:3A:2A:C3:97:D4:6C:AE"
@@ -4596,6 +5145,29 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.github.tmo1.sms_ie",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "C1:05:E6:D9:67:55:42:D4:34:A9:CD:E9:DC:79:B2:49:F1:AC:0A:FC:3B:8A:AE:C7:D5:C8:20:11:36:CF:FD:BE"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "D6:95:66:1B:70:FA:90:67:6A:76:3B:D1:A8:9E:FE:7E:77:3C:50:22:A1:E2:5B:3B:C2:1A:39:DB:A3:95:C5:57"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.gitlab.mudlej.MjPdfReader",
         listOf(
             Hashes(
@@ -4605,6 +5177,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "AF:92:A1:A8:1B:45:B9:D6:A5:D9:F1:63:7F:D6:BE:98:FD:88:9B:48:12:8C:00:9D:A9:AF:D7:BA:0F:C2:F0:89"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.gmail.jiwopene.temperature",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "F9:35:D4:78:CD:7F:46:A3:D9:82:22:54:BF:E9:BA:95:60:4F:D7:FD:02:78:4E:57:FC:54:5D:D3:06:D7:2A:BE"
                 ),
                 false
             )
@@ -5309,6 +5895,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.greenart7c3.nostrsigner",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "56:DC:63:19:96:A5:5C:22:84:79:04:48:C7:DC:9F:1D:D0:5D:F5:96:B2:CE:48:82:31:36:33:F5:60:2E:5F:E4"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.greeneking.orderandpay",
         listOf(
             Hashes(
@@ -5365,6 +5965,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.gtp.showapicturetoyourfriend",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "72:31:C2:62:CF:F6:1B:6C:60:8A:CC:56:7E:41:64:8D:1D:06:2A:D5:4B:22:8D:68:D3:79:DF:9D:36:2F:71:A2"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.guavahealth.app",
         listOf(
             Hashes(
@@ -5374,6 +5988,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "C2:9F:44:0D:6B:32:FF:86:4D:27:4F:D3:A2:CC:AE:F8:38:53:48:4B:E9:A1:05:A5:57:3B:99:4A:F4:6D:D0:E5"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.hardbacknutter.nevertoomanybooks",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "DF:97:1C:E7:D5:8D:3C:DF:37:7C:32:E0:E2:F5:3D:65:99:BD:7F:13:0A:50:C0:52:9C:45:58:3D:DC:12:A0:08"
                 ),
                 false
             )
@@ -5539,6 +6167,15 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "B9:34:BF:F7:20:9A:A0:8B:ED:D0:11:52:46:7A:24:80:87:AB:68:91:17:45:82:CC:23:8D:B2:4B:4F:97:D6:EF"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
                     Source.GOOGLE_PLAY_STORE,
                     Source.HTTPS_VERIFIED_DOMAIN
                 ),
@@ -5616,6 +6253,20 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     "4D:BF:93:A4:B5:E7:DC:59:D2:16:60:9D:7F:22:8E:AD:88:15:86:08:68:52:AD:4B:42:21:40:DD:18:90:5C:B0",
                     "82:FA:C9:72:33:B2:18:83:81:D8:6F:7A:8A:38:D6:AE:0B:B2:0A:90:B6:34:52:DF:16:BE:3F:43:80:78:80:84"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.jarsilio.android.autoautorotate",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "8F:70:D2:DF:F3:29:1F:F6:1E:12:77:0E:D6:69:C5:2E:D8:30:96:81:A3:6A:96:03:86:AF:DC:C1:8E:45:75:5F"
                 ),
                 false
             )
@@ -6298,6 +6949,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.lorenzovainigli.foodexpirationdates.foss",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "A4:4B:8D:A1:8B:45:6C:5F:0D:F1:A7:DC:5A:F9:9A:04:54:8A:80:0E:84:B7:9C:B6:68:9E:3B:22:CB:B4:1A:F7"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.lufthansa.android.lufthansa",
         listOf(
             Hashes(
@@ -6437,6 +7102,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.matrix.synapse.manager",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "2F:F1:40:9F:DC:C4:2C:59:93:E6:1D:E3:02:3B:6F:B1:A8:A6:66:CF:DD:0C:8B:D7:44:E2:7E:3C:0E:9C:E0:32"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.mattermost.rn",
         listOf(
             Hashes(
@@ -6502,6 +7181,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "F4:58:C7:8C:C4:61:20:5B:E2:C8:0B:94:8D:A9:E3:0A:1E:5E:A2:0A:7E:B4:2B:E5:79:9D:0C:D1:10:05:AE:64"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.menny.android.anysoftkeyboard",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "71:6B:E9:8A:10:A8:86:04:5C:C3:C3:9A:7A:BA:F5:01:B9:43:4B:96:02:B2:5D:02:A8:9C:32:6B:7C:7B:9D:0A"
                 ),
                 false
             )
@@ -6684,6 +7377,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.minar.birday",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "AB:4E:35:A0:33:AD:C5:A1:53:7A:5C:CB:6F:1F:01:7C:3D:C5:34:A7:4A:2A:D9:A8:B2:FF:18:59:85:0A:00:50"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.minrax.sofiabus",
         listOf(
             Hashes(
@@ -6783,6 +7490,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.monkopedia.healthdisconnect",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "F2:3D:A6:55:77:DB:71:E2:40:A5:1D:79:9C:38:47:99:09:95:5E:98:EA:75:93:FC:D2:89:2D:E4:23:CB:F5:93"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.mooneva.app",
         listOf(
             Hashes(
@@ -6791,6 +7512,15 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "96:B0:1B:6F:20:C4:6B:35:46:70:A1:00:92:7F:72:1D:40:3E:07:E8:BA:25:96:B5:27:24:AC:21:39:56:9F:83"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "D9:DF:FA:5F:30:3E:9B:80:72:5B:74:17:64:88:67:2A:35:2A:D8:48:33:77:D9:38:B2:E3:6F:76:0A:81:1F:CD"
                 ),
                 false
             )
@@ -6926,6 +7656,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.newoether.agora",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "5D:E2:6F:26:31:63:C2:20:C0:6C:23:D6:A8:2F:C0:34:D5:55:91:EC:4D:3F:F0:BA:D8:B9:DC:9B:7B:E1:AA:29"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.newsblur",
         listOf(
             Hashes(
@@ -6935,6 +7679,15 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "5C:5E:93:50:3C:6A:C4:89:88:6A:29:BE:0C:28:6B:A6:04:82:E2:C2:5A:A6:D6:EF:56:84:FD:6E:8F:D7:C3:19"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "AF:3E:76:E9:0D:BD:F4:07:F4:71:21:7C:D4:80:57:46:BE:C2:E1:9E:C5:10:50:0E:6D:F0:75:AC:C8:FB:B9:02"
                 ),
                 false
             )
@@ -7274,6 +8027,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.offlinecurrencyconverter.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "8E:B5:01:85:85:CD:59:6A:94:74:21:72:9A:D6:08:F6:61:E6:E6:B0:76:18:D2:FF:14:34:98:0A:FC:4F:69:F9"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.om1cael.hidroly",
         listOf(
             Hashes(
@@ -7410,6 +8177,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.openappslabs.fiveg",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "CA:C4:CC:2A:36:E0:B8:7E:5D:60:1D:90:C0:AC:15:E8:AB:4B:43:A2:D8:D9:CF:20:67:EB:19:50:0F:DE:C4:C7"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.orange.mobinilandme",
         listOf(
             Hashes(
@@ -7434,6 +8215,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "6F:C9:C2:E2:2D:07:D2:5C:E7:7E:2E:96:34:55:05:3C:38:B8:31:8A:1A:24:91:B3:ED:95:D5:0C:BA:85:49:3D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.oriondev.moneywallet",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "57:3A:38:66:35:5A:BE:6D:C9:0C:36:98:11:91:DE:3C:B7:20:AC:B1:1B:3D:A8:A9:F1:7D:7D:13:8F:C0:42:E5"
                 ),
                 false
             )
@@ -7538,6 +8333,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.paperknife.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "AE:E9:5E:35:A2:47:E9:FB:0F:E0:B4:1C:09:77:F8:89:B7:33:C3:89:88:C2:D1:C6:80:F7:14:E3:18:C1:E9:76"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.paperknifeplus.app",
         listOf(
             Hashes(
@@ -7596,6 +8405,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.pennywiseai.tracker",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "23:5D:65:2B:20:12:FD:70:CF:D6:B4:91:9F:2E:66:5E:68:4A:3A:14:99:8D:DD:28:6F:FD:07:7E:ED:4C:17:02"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.performance.meshview",
         listOf(
             Hashes(
@@ -7604,6 +8427,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "92:5C:7B:1D:F5:68:9F:EF:23:71:E1:F6:E7:1E:98:A3:95:62:95:DF:95:22:1B:AA:06:14:52:22:AA:89:F7:69"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.pg_axis.ytcnv",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "C9:59:9A:B3:88:0F:3B:D6:60:5A:EC:12:2E:8A:9B:06:83:30:EA:63:61:E5:07:1F:D1:18:0D:26:E2:06:0B:F1"
                 ),
                 false
             )
@@ -7676,6 +8513,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "68:92:26:16:82:81:AB:24:22:C9:EB:50:6C:BD:2C:3A:6C:3A:9A:5F:51:AE:C1:23:C9:41:93:D1:C5:87:E0:49"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.piwigo.piwigo_ng",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "72:9A:AA:9E:80:0C:D3:BA:D0:2B:1F:FA:B0:9A:DC:57:8D:91:42:61:CA:C8:7E:EC:46:D2:56:C6:ED:43:29:AC"
                 ),
                 false
             )
@@ -7789,6 +8640,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.pranshulgg.weather_master_app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "C9:7F:59:2A:D5:A4:26:EF:17:AA:4B:11:3A:A8:F9:C1:BC:3C:2F:26:75:C8:57:AD:86:BD:AC:C0:5F:BE:EE:01"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.presley.fit_book",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "01:1E:E1:A6:E4:E5:EC:D6:75:F6:7F:BF:3D:78:AD:82:61:4A:7A:7A:3F:24:ED:71:CC:9C:41:71:54:A0:F0:FD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.presley.flexify",
         listOf(
             Hashes(
@@ -7797,6 +8676,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "01:1E:E1:A6:E4:E5:EC:D6:75:F6:7F:BF:3D:78:AD:82:61:4A:7A:7A:3F:24:ED:71:CC:9C:41:71:54:A0:F0:FD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.printnotes.printnotes",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "85:8B:CD:A9:3E:08:F6:32:47:F8:B0:FF:C9:99:AB:B9:E3:E2:4A:05:98:08:CA:D2:93:35:51:FD:D0:BD:86:CF"
                 ),
                 false
             )
@@ -7910,6 +8803,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "84:81:D6:D5:5E:EA:B3:05:E2:3A:D1:CF:F5:47:44:04:CD:D1:EB:3C:16:19:7E:D5:30:6A:37:14:82:E8:C1:0F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.quitter.app",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "01:1E:E1:A6:E4:E5:EC:D6:75:F6:7F:BF:3D:78:AD:82:61:4A:7A:7A:3F:24:ED:71:CC:9C:41:71:54:A0:F0:FD"
                 ),
                 false
             )
@@ -8110,6 +9017,21 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "F4:47:DC:11:66:22:7B:E1:BC:E3:44:1F:38:D8:CD:FA:79:9A:4F:7D:14:58:DA:15:AE:33:C3:F7:7C:38:ED:0A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.rk.terminal",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "8A:D6:B5:93:B0:77:2C:96:F9:D0:5E:92:3B:61:0F:16:AE:D2:79:2C:66:4F:0C:D9:1F:0D:FD:62:70:98:34:6F"
                 ),
                 false
             )
@@ -8545,6 +9467,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.sb.recordequalizer",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "CA:EC:A8:86:70:04:BB:D7:91:60:AD:EF:8B:0E:8F:94:A8:98:BE:86:0A:0C:3D:99:68:85:91:A5:3B:61:7C:43"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.scee.psxandroid",
         listOf(
             Hashes(
@@ -8759,6 +9695,21 @@ val internalVerificationInfoDatabase = setOf(
     ),
     InternalDatabaseVerificationInfo(
         "com.shub39.grit",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "0F:E1:B9:F4:4A:4D:B9:7E:C5:09:48:F5:18:9F:6B:43:00:71:6C:C6:D4:84:3F:56:98:D6:14:A2:15:2E:21:88"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.shub39.rush",
         listOf(
             Hashes(
                 listOf(
@@ -9154,6 +10105,29 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.svenjacobs.app.leon",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "3E:94:E0:C5:89:4C:17:5F:7F:15:F5:17:D4:46:FE:E0:71:10:12:B1:B1:E7:62:ED:0C:B5:B2:8C:2C:20:13:5D"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "46:4A:DB:D4:A2:42:46:E4:18:56:3D:F6:46:8D:A9:6C:F4:B2:82:80:A3:91:47:B2:82:4D:E0:51:CA:D1:48:D7"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.swordfish.lemuroid",
         listOf(
             Hashes(
@@ -9255,6 +10229,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "2E:8C:34:27:C5:D3:2D:9D:A0:A0:A5:61:AF:2D:BE:1A:A1:18:C6:CA:0D:9F:C6:CB:1B:2E:19:AB:B3:36:5F:D4"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.tengu.sharetoclipboard",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "54:42:CF:0E:2D:A7:60:00:EC:EA:EE:73:73:AE:5D:6A:3E:E3:32:FB:32:CF:5D:3D:A0:50:3A:1D:D3:1A:26:26"
                 ),
                 false
             )
@@ -9399,6 +10387,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "A0:55:A8:6A:4F:75:38:D3:EE:2D:57:5C:06:74:32:81:B8:13:05:23:73:DE:A5:BF:F1:0D:20:15:81:55:13:41"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.thirtytwo.steps",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "B5:02:E2:F0:F3:CB:78:08:0F:85:08:B4:46:0B:C6:59:58:79:8A:10:D9:70:29:CD:59:45:A6:57:75:48:87:5B"
                 ),
                 false
             )
@@ -9603,6 +10605,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.tre.a11cellnetworkchanger",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "9A:6F:05:C6:54:5C:8F:13:B9:D1:EF:E0:CF:CC:AD:31:77:2C:14:6C:D2:29:51:10:F4:0A:71:C5:47:5D:D5:2B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.trianguloy.urlchecker",
         listOf(
             Hashes(
@@ -9647,6 +10663,34 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "E9:8D:02:21:B0:BD:46:E4:74:5A:12:8A:96:A0:18:24:74:D0:C7:48:29:E5:1D:87:A3:90:1E:FD:D1:98:C8:FE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.tristinbaker.defide",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "99:A9:80:A9:34:CB:01:49:BF:BD:D5:F4:35:84:71:FF:E6:93:02:E0:46:7B:AE:4D:85:74:D4:FE:ED:A3:40:10"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.trisven.safenotes",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "68:29:8D:7D:13:1B:9E:9E:33:4D:A4:DC:56:5A:2A:2E:69:B6:0E:7B:44:4A:0C:30:62:5A:2C:91:AC:C3:D7:C0"
                 ),
                 false
             )
@@ -9993,6 +11037,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.valhalla.thor",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "2C:E3:0E:23:B8:CD:DB:24:DD:5D:70:02:3F:CC:32:42:15:70:6C:51:A9:C4:C6:BD:F1:DE:CB:34:B1:C9:CA:3F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.Vali98.ChatterUI",
         listOf(
             Hashes(
@@ -10148,6 +11206,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "com.vishal2376.snaptick",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "68:25:30:97:45:04:37:10:7A:C4:6C:17:90:4E:10:2C:E3:CA:3F:A7:AE:5C:EC:F3:67:AC:38:BF:48:48:90:72"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "com.vivaldi.browser",
         listOf(
             Hashes(
@@ -10157,6 +11229,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "E8:A7:85:44:65:5B:A8:C0:98:17:F7:32:76:8F:56:89:B1:66:2E:C4:B2:BC:5A:0B:C0:EC:13:8D:33:CA:3D:1E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.vladpen.cams",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "04:14:F0:F0:AC:59:20:DA:07:1C:7C:19:FE:8D:FD:E5:19:6E:35:B1:57:AD:41:C7:E7:A1:45:D0:B2:CD:CF:26"
                 ),
                 false
             )
@@ -10227,6 +11313,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "AE:23:A0:34:36:DF:07:B0:CD:70:FE:88:1C:DA:2E:C1:D2:12:15:D7:B7:B0:CC:68:E6:7B:67:F5:DF:89:52:6A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "com.wa2c.android.cifsdocumentsprovider",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "32:64:44:88:EA:8F:82:47:D8:E1:07:B1:41:FB:B5:F1:67:48:64:AD:09:15:6B:A8:C3:57:A1:FC:A9:B5:7A:EB"
                 ),
                 false
             )
@@ -10900,6 +12000,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "cx.ring",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "41:56:82:37:5E:C0:BF:BD:31:73:1F:21:B8:B9:8E:35:DA:63:3F:11:59:FD:59:13:3B:AF:06:13:48:78:10:25"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "cx.vmx.sdcontacts",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "CF:06:CA:33:EB:51:26:62:8D:67:E9:82:DC:96:C1:72:98:09:83:B4:73:D2:7B:33:E8:F6:9B:59:05:D0:93:BC"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.aoksystems.amg",
         listOf(
             Hashes(
@@ -10909,6 +12037,20 @@ val internalVerificationInfoDatabase = setOf(
                 listOf(
                     "01:1D:BF:47:D4:D2:E3:92:E0:3D:D4:61:74:0B:65:FB:E6:33:53:EC:C4:39:50:70:F9:17:78:A3:AD:14:5F:0D",
                     "34:16:17:48:DF:56:C4:77:FA:E1:DD:78:A2:20:E7:5F:D4:1A:CD:B4:73:73:57:36:34:06:F9:78:CA:92:83:B1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.arnowelzel.android.periodical",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "EF:16:EF:5F:EE:58:B3:F0:96:4F:DD:69:32:70:52:4A:78:55:13:4E:B5:3C:13:D0:20:65:FF:C8:76:DB:AF:01"
                 ),
                 false
             )
@@ -10930,6 +12072,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.blau.android",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "AC:5D:0C:28:7A:06:0C:1F:D0:51:F1:D2:03:C4:CE:33:FF:70:08:73:5F:2D:38:D1:95:1A:90:0C:BD:67:39:69"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.christinecoenen.code.zapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "3D:6D:0B:90:23:28:BE:2B:DD:A7:67:86:14:4E:EA:3E:35:32:2C:BD:31:CF:7F:47:B6:D9:DA:2E:39:88:B4:A0"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.commerzbanking.mobil",
         listOf(
             Hashes(
@@ -10938,6 +12108,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "F0:95:66:8A:4F:CC:79:C2:15:3E:15:42:8B:7C:0E:CC:FB:65:4F:5F:D3:B3:66:BD:4E:E0:7E:67:E8:1B:50:94"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.cweiske.headphoneindicator",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "45:ED:6E:CA:94:95:D5:49:14:38:0D:3F:84:84:EB:6D:D2:CA:DB:B1:E4:7B:C5:FD:57:62:EC:37:07:83:F4:15"
                 ),
                 false
             )
@@ -11084,6 +12268,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.felixnuesse.disky",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "17:EB:5F:E8:5B:9D:3B:A5:F5:E1:D2:61:7D:C8:06:96:05:FD:C9:1F:A3:44:5C:0C:08:E7:00:F7:04:5B:96:7C"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.felixnuesse.extract",
         listOf(
             Hashes(
@@ -11195,6 +12393,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.indie42.guessiron",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "4F:00:A2:EF:3A:49:69:96:98:64:F8:9F:59:AF:BB:B8:6E:12:F6:0A:7D:15:01:42:00:1A:10:01:AB:8A:29:FD"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.ingdiba.bankingapp",
         listOf(
             Hashes(
@@ -11217,6 +12429,34 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "FA:B0:CF:11:32:91:4F:AD:12:A2:53:61:6B:9B:B6:CC:AB:87:B2:07:97:D2:58:95:0E:28:EE:AB:E4:21:0C:B1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.kaffeemitkoffein.tinyweatherforecastgermany",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "54:B3:C1:46:F2:C9:CC:D1:FE:23:17:13:20:51:7E:2A:AD:96:66:79:8D:38:3C:52:33:2F:FF:99:40:0A:79:6E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.kaiserdragon.callforwardingstatus",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "A0:CF:A0:D1:A0:0B:98:87:A1:70:1A:69:3B:DC:3C:2A:8E:84:D3:9D:8E:3A:98:D6:81:BD:34:68:CB:81:A4:DB"
                 ),
                 false
             )
@@ -11301,6 +12541,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.markusfisch.android.pielauncher",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "23:85:E4:9F:F0:72:D9:0D:CE:F9:DB:28:90:B3:30:53:3C:E4:72:EF:EB:79:01:99:4E:0D:22:2D:52:00:97:8B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.marmaro.krt.ffupdater",
         listOf(
             Hashes(
@@ -11352,6 +12606,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "BF:65:BB:D6:17:99:73:97:80:0D:02:E0:AC:2E:45:CE:E1:53:15:15:18:54:5C:23:EF:66:B3:CB:2C:FD:F7:BC"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.noisruker.openPasskeyAuth",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "5E:80:04:53:27:4D:72:D5:66:89:31:81:7F:82:BA:19:36:F2:42:3D:90:BD:16:30:D0:A2:EA:3B:CE:36:BC:CF"
                 ),
                 false
             )
@@ -11618,6 +12886,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "de.tadris.fitness",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "D6:0B:C3:DC:52:63:65:EA:58:83:B4:21:30:6A:A0:B5:0B:AD:E5:9A:ED:50:80:F1:07:0F:11:8F:E3:B7:F7:8E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.tap.easy_xkcd",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "CD:03:95:2F:93:FD:43:02:52:FF:8C:00:B7:90:A8:F2:EA:9C:17:49:0A:1F:15:F7:D7:D6:8A:03:A8:49:32:04"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "de.tk.tkapp",
         listOf(
             Hashes(
@@ -11666,6 +12962,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "FC:19:32:E0:84:64:AE:FC:AE:82:59:7D:C0:FC:9D:04:C0:8B:24:AA:09:D1:F9:50:DF:20:EA:81:23:4F:30:CB"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "de.westnordost.luftlinie",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "5F:2C:83:9F:3C:C5:DD:13:5D:2A:A1:69:6A:05:91:84:AB:D1:50:C7:9A:8A:3E:50:DF:CF:09:E1:48:7B:92:F4"
                 ),
                 false
             )
@@ -11812,6 +13122,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "dev.atajan.lingva_android",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "C2:0D:C5:ED:06:3B:D7:91:B4:6D:07:A7:35:ED:E1:67:C8:BB:52:4A:8C:9C:5B:D1:90:F6:E0:69:08:75:DF:F8"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "dev.bartuzen.qbitcontroller",
         listOf(
             Hashes(
@@ -11823,6 +13147,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "36:60:38:E5:1E:E4:10:78:A2:3A:37:FD:92:12:23:8E:BA:D0:3F:1D:E0:73:E8:1C:73:8B:B6:F0:7B:11:43:39"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "dev.brgr.outspoke",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "1E:E2:43:3E:BF:79:58:42:00:FB:FC:F0:1C:F3:23:E5:87:6F:D4:91:39:57:0F:E6:90:44:8E:7C:33:04:E3:88"
                 ),
                 false
             )
@@ -11852,6 +13190,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "2B:38:06:E7:45:D8:09:01:8A:51:BE:58:D0:63:5F:FC:74:CC:97:33:43:94:07:AB:1E:D0:42:4A:4D:B3:E1:FB"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "dev.dimension.flare",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "18:7B:97:6A:E0:67:51:EA:CD:30:64:94:16:DC:C7:25:B8:9B:F1:2D:D4:66:CC:CE:09:7B:B4:89:AD:76:97:68"
                 ),
                 false
             )
@@ -11964,6 +13316,63 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "dev.octoshrimpy.quik.fdroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "52:8B:89:A6:7E:25:86:35:BE:21:29:A7:4E:27:44:F9:02:0B:0B:12:27:08:F8:09:1B:5F:D3:CA:0C:1D:2D:DF"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "dev.pranav.applock",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "AF:7F:36:02:3C:6A:77:50:84:72:52:E5:D4:D1:4A:99:2B:62:13:64:60:07:05:E1:D8:B0:FE:44:D1:AC:8C:81"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "dev.rubec.otoscope",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "69:4D:49:76:7B:3E:3F:1A:40:24:07:2F:9B:13:FE:FC:44:FC:04:36:28:03:C5:5F:E0:3E:30:BA:27:07:AF:A9"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "dev.secam.simpletag",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "9B:30:CC:CC:B2:2C:D9:DF:FC:6E:F8:E4:FA:78:5C:F1:B4:F8:3F:9D:B1:FC:67:87:2D:09:A9:71:1C:AB:C4:88"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "dev.soupslurpr.appverifier",
         listOf(
             Hashes(
@@ -12007,6 +13416,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "dev.zwander.peertuberedirect",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "75:5C:46:BD:7C:E6:95:65:D9:80:04:C5:B1:38:3D:F9:BD:5B:4F:27:0D:E8:0F:39:92:FB:42:D8:22:11:3D:0B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "digital.ventral.ips",
         listOf(
             Hashes(
@@ -12017,6 +13440,34 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "03:24:3D:0C:0D:44:B6:E0:B4:1E:3C:B2:45:B1:DC:26:9B:E4:C3:FF:E1:77:F8:43:FC:00:5B:C4:EA:0C:74:26"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "dubrowgn.wattz",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "C8:8E:4E:EB:08:C2:DA:45:E5:76:67:3E:01:3A:75:BB:C3:C4:F2:FE:F8:CE:CC:A1:97:DF:05:AA:0D:8A:BF:F1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "dummydomain.yetanothercallblocker",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "29:05:D9:02:8D:07:74:8D:B7:FA:4F:E5:68:7B:B8:FB:C4:28:77:F2:25:90:9E:AA:0C:2A:DE:60:26:AD:D7:23"
                 ),
                 false
             )
@@ -12074,6 +13525,36 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "26:E0:02:F6:0D:0F:D6:C6:41:A5:8F:84:36:23:AC:2D:5A:A9:0A:80:F6:25:65:F5:20:61:83:62:7B:C2:96:85"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "eu.darken.capod",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "67:29:F9:DE:72:B4:FC:A9:96:15:B2:2F:98:44:00:AD:1F:3D:AA:24:11:D8:B1:E0:9F:32:1B:03:8F:AC:85:ED"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "eu.darken.sdmse",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "F4:90:03:2B:E5:38:3F:55:90:04:95:FA:7F:C2:07:EC:E2:E7:86:A5:C2:C6:CC:52:02:7B:99:54:8A:9C:E9:38"
                 ),
                 false
             )
@@ -12182,6 +13663,21 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "eu.hxreborn.cleanshare",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "32:B9:8D:C7:09:A7:EE:15:FA:E0:73:49:3A:1A:EC:A5:D4:28:31:6C:C0:D8:B8:F8:78:EE:D6:4B:A3:7F:32:97"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "eu.opencloud.android",
         listOf(
             Hashes(
@@ -12224,6 +13720,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "eu.zimbelstern.tournant",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "A2:3D:B5:FD:8A:AB:1B:88:05:11:25:E1:27:60:05:77:E3:DC:BC:80:FF:73:DD:FC:4A:8D:24:5B:17:65:C1:3F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "exa.free.bbin",
         listOf(
             Hashes(
@@ -12247,6 +13757,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "50:7C:1F:58:38:AD:8D:90:B7:75:E3:DE:31:21:42:C3:8A:63:BF:BB:67:E8:D9:C4:CA:86:1C:67:0E:13:98:49"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "f.cking.software",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "DC:AD:DD:B8:63:2D:D0:84:02:57:D4:98:83:79:3C:D0:1B:44:68:06:4F:FF:F2:AD:95:EE:20:9A:20:61:5C:B2"
                 ),
                 false
             )
@@ -12449,6 +13973,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "fr.gouv.etalab.mastodon",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "30:60:0C:C0:D4:30:A5:BD:1C:66:C1:21:C7:5F:7F:B9:E3:0D:E9:9D:85:97:E7:09:7F:A5:D7:58:01:16:46:9A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "fr.gouv.franceidentite",
         listOf(
             Hashes(
@@ -12491,6 +14029,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "fr.smarquis.sleeptimer",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "2C:7A:A1:E9:1C:D5:29:7A:86:A8:2B:11:A6:DB:7A:C9:04:40:E0:14:96:F3:30:C9:98:94:49:60:E5:CD:97:51"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "fr.vinted",
         listOf(
             Hashes(
@@ -12499,6 +14051,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "A0:6A:61:7E:8C:14:A1:EA:65:F6:4D:6E:79:30:39:9B:45:1A:00:1C:A8:87:C1:4C:A4:09:D1:87:8E:1B:2E:5B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "freemap.hikar",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "DE:73:77:01:0E:E4:A1:58:FA:3E:D5:A5:D5:8B:D0:55:73:A5:41:23:D2:1C:26:C1:C2:B2:7A:D9:F2:0C:E3:B3"
                 ),
                 false
             )
@@ -12723,6 +14289,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "info.guardianproject.ripple",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "92:7F:7E:38:B6:AC:BE:CD:84:E0:2D:AC:E3:3E:FA:9A:7A:2F:09:79:75:0F:28:F5:85:68:8E:E3:8B:3A:4E:28"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "info.zverev.ilya.every_door",
         listOf(
             Hashes(
@@ -12908,6 +14488,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "io.freetubeapp.freetube",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "4D:96:64:DA:AE:8A:83:53:27:56:AD:C8:77:7E:96:A6:DE:9F:84:97:BB:60:AD:1C:78:2A:DB:71:FA:E8:0F:C1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "io.github.devhyper.openvideoeditor",
         listOf(
             Hashes(
@@ -12983,6 +14577,21 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "23:27:F8:DC:CF:21:A2:1E:7D:40:C1:21:14:C9:FB:BA:92:5B:D7:E6:4D:56:F1:15:D5:44:B5:74:35:AD:DB:C1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "io.github.leonidius20.recorder.lite",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "11:9D:C8:E6:C1:AB:5C:87:B2:32:86:C7:E3:D8:9B:4B:2B:31:1D:09:9A:88:7C:40:58:CB:A1:C8:1A:94:76:36"
                 ),
                 false
             )
@@ -13071,6 +14680,21 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "io.github.wifi_password_manager",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "34:FF:A2:EE:65:8F:E0:36:B6:C5:D2:92:AE:B2:51:45:DE:69:57:ED:52:ED:D9:9F:4B:EB:8D:6B:36:31:C1:FF"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "io.heckel.ntfy",
         listOf(
             Hashes(
@@ -13126,6 +14750,34 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "11:19:4B:A8:09:B4:2D:DF:0E:1A:7D:EC:68:42:A5:9C:7F:F1:11:9C:54:82:E9:5F:EB:FF:D5:C6:01:4D:AA:5A"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "io.keepalive.android",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "C4:55:67:B7:12:D6:FD:79:79:DF:14:F6:6F:8A:5C:25:85:9E:E2:23:E1:F0:7E:91:5A:7E:EE:20:1C:14:BA:EF"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "io.keepalive.lite.android",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "C4:55:67:B7:12:D6:FD:79:79:DF:14:F6:6F:8A:5C:25:85:9E:E2:23:E1:F0:7E:91:5A:7E:EE:20:1C:14:BA:EF"
                 ),
                 false
             )
@@ -13326,6 +14978,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "it.feio.android.omninotes.foss",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "1E:EE:2B:A9:79:FB:76:23:29:C9:98:19:3D:F3:70:5C:32:51:15:C3:51:AE:B4:CA:A5:63:1B:AD:7A:67:02:A3"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "it.niedermann.owncloud.notes",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "3E:80:F3:2D:F2:C8:9E:4C:DD:3A:32:F1:00:21:78:D8:D4:F2:1B:9D:A8:9F:8A:DD:6A:BA:E2:9F:D3:C9:5C:0B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "jp.co.ana.android.tabidachi",
         listOf(
             Hashes(
@@ -13440,6 +15120,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "jp.nonbili.nora",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "EE:16:65:5F:C0:4D:22:82:40:04:BE:97:65:7A:9E:7C:CA:C3:DD:49:82:F0:49:18:87:02:DE:D5:2C:DA:21:26"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "keepass2android.keepass2android",
         listOf(
             Hashes(
@@ -13478,6 +15172,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "BA:F0:B1:5A:78:40:D7:78:2C:05:E4:BD:8B:99:D3:A6:C5:37:51:97:65:A9:36:88:FD:77:45:31:27:E1:E6:51"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "lying.fengfeng.foodrecords",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "F6:DF:1E:05:13:71:9D:03:4A:92:61:06:A5:D9:F3:7B:F0:54:57:E8:A7:52:1E:09:19:10:D3:CF:48:02:E1:0E"
                 ),
                 false
             )
@@ -13596,6 +15304,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "D4:05:CD:69:ED:E4:C2:20:74:C3:28:FB:82:56:89:A8:4A:B3:FC:A4:B3:FD:F0:B6:CC:13:33:AF:62:C6:7E:B3"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "me.lecaro.breakout",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "9E:B8:0B:A1:5D:A3:41:94:49:3F:16:93:77:B2:60:0E:61:A9:FA:BA:0F:E7:5B:2F:F3:6C:C5:52:A8:D1:7E:F6"
                 ),
                 false
             )
@@ -13768,6 +15490,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "me.timschneeberger.rootlessjamesdsp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "95:0B:C2:0F:05:7A:CB:B2:C4:CA:D7:5F:08:C7:25:C9:72:DB:B6:73:B7:B0:78:5D:9F:DA:88:C2:F5:1D:F3:73"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "me.zhanghai.android.files",
         listOf(
             Hashes(
@@ -13907,6 +15643,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "name.gdr.acastus_photon",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "A8:3C:1C:E4:1F:47:0D:D9:E5:2F:B5:66:A5:5C:F0:E1:DA:FF:29:B4:9A:AA:B8:BC:46:41:22:40:56:C7:B5:24"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "ncit.gov.efaasblue",
         listOf(
             Hashes(
@@ -13967,6 +15717,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "01:35:2E:DE:0D:91:D7:AA:11:70:12:6A:2E:A9:18:9C:E1:DC:C2:21:E1:D1:44:44:9F:13:26:BA:BA:7F:2D:48"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "net.canvoki.carburoid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "8C:DF:D3:89:B1:A7:97:99:43:20:13:21:18:8A:41:6E:D5:4D:BD:F1:C4:32:ED:07:E2:BB:44:B5:B3:CE:A7:22"
                 ),
                 false
             )
@@ -14068,6 +15832,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "9F:42:0E:41:61:46:B3:12:6D:DE:F8:8D:B9:F3:F9:8A:27:42:20:D7:F9:DC:45:C8:6C:0D:72:92:47:57:13:3B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "net.kollnig.missioncontrol.fdroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "D5:4D:E7:92:E8:B6:8C:B2:2D:3D:AD:7B:5C:9F:37:31:64:89:72:4C:E6:FB:21:57:24:63:EE:5D:4E:07:4F:01"
                 ),
                 false
             )
@@ -14180,6 +15958,15 @@ val internalVerificationInfoDatabase = setOf(
                     "49:40:34:51:E1:E2:2A:79:32:89:A6:0E:B3:4D:68:6B:C7:97:21:42:AD:DB:A0:61:74:7A:07:67:4B:02:3E:AB"
                 ),
                 false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "F4:F3:A4:76:47:C6:0D:84:BD:92:11:AF:5A:34:BB:40:D4:8B:E0:E9:0C:30:43:DF:5F:4C:F2:BC:7D:6C:B2:5E"
+                ),
+                false
             )
         )
     ),
@@ -14276,6 +16063,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "net.wigle.wigleandroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "69:9D:BE:E5:94:79:7D:7E:FB:68:1F:62:56:20:EC:1E:41:E4:1E:6A:57:AF:DC:D8:53:3F:8D:22:00:35:29:E8"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "net.youapps.transport",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "B3:BC:73:B1:17:DF:5D:FE:38:13:0C:6C:2B:94:68:52:AE:70:88:55:7F:E8:E4:33:F0:D9:98:3A:6B:55:CC:95"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "nl.appyhapps.healthsync",
         listOf(
             Hashes(
@@ -14298,6 +16113,21 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "BF:6B:4D:07:C8:62:42:CE:91:D3:4B:47:6E:10:EE:C6:27:BB:4E:61:04:68:CB:2A:98:D4:5B:12:76:62:57:33"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "nl.privacydragon.bookwyrm",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "05:51:27:4D:D6:23:7A:90:36:52:27:8C:C0:74:4C:CA:35:D7:5A:41:4A:0A:4E:F1:AC:8F:40:5A:F4:D5:60:0C"
                 ),
                 false
             )
@@ -14348,14 +16178,66 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "nodomain.xabd.privacyscanner",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "FC:E0:AE:50:FC:D2:1B:03:B9:6F:8F:E7:4C:F7:4C:76:FC:05:13:72:C0:79:80:D8:82:4C:01:CF:5C:75:CE:E5"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "nz.eloque.foss_wallet",
         listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "BF:8A:F6:D8:9E:55:95:D9:5F:4D:22:9E:C0:FD:97:1A:3C:75:2F:DB:AB:E8:33:77:23:0E:F9:2C:70:44:43:05"
+                ),
+                false
+            ),
             Hashes(
                 listOf(
                     Source.GOOGLE_PLAY_STORE
                 ),
                 listOf(
                     "CE:3C:E7:92:A7:65:42:7E:E0:6A:D6:BC:33:28:75:E5:0D:32:E2:26:A5:79:14:75:76:1D:D3:86:C7:F3:47:5D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "one.jwr.interstellar",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "D4:1C:E8:B1:25:12:D8:A0:9D:A4:DE:E5:F5:0A:58:AA:A0:9C:74:0E:74:90:6F:BB:ED:83:0B:32:1E:D1:F9:FB"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "opencontacts.open.com.opencontacts",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "B9:AB:2D:78:61:CD:40:B9:8C:A4:1A:1F:E0:AA:22:0D:53:13:58:29:FF:EA:F6:B6:C6:4B:3B:36:B2:DF:95:05"
                 ),
                 false
             )
@@ -14376,6 +16258,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.androidlabs.applistbackup",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "6B:54:49:21:42:85:BC:0E:98:9C:82:FE:F9:E2:76:EA:68:A0:61:9C:58:FC:6A:B2:FE:EF:1B:10:22:D8:1B:64"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.andstatus.todoagenda",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "95:77:DF:E6:DE:7A:E7:CE:7B:6B:E2:63:54:8C:F5:F3:5F:6A:BE:AD:64:0C:A3:89:5A:D4:E1:C0:B9:51:C7:88"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.azahar_emu.azahar",
         listOf(
             Hashes(
@@ -14384,6 +16294,48 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "5B:A2:56:3E:0D:13:FA:E2:AB:A0:67:D1:C2:30:CD:1C:86:3A:93:00:5C:10:D6:48:CE:5B:33:17:92:AA:0A:F1"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.billthefarmer.buses",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "10:51:3E:8B:9D:F6:B5:8D:2F:6B:83:A3:D9:37:EE:5C:F8:AA:9C:BB:E0:D6:94:39:E7:60:36:0C:A6:86:F0:7D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.billthefarmer.editor",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "DC:44:CA:63:EF:A2:98:03:55:D9:BC:4E:90:89:7F:6B:66:E0:C2:6E:E3:0B:01:90:C8:9A:6F:6B:2B:13:CC:09"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.billthefarmer.print",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "B6:EC:E1:EA:01:99:F5:C5:FD:8C:EC:6D:09:34:DC:87:7C:0D:83:14:64:2E:0D:A4:73:92:57:CC:53:16:24:28"
                 ),
                 false
             )
@@ -14451,6 +16403,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "AC:C4:DB:A4:8B:EA:4C:14:DF:80:36:1A:68:E5:60:7C:0B:DB:E4:DD:FA:FF:F6:0C:F5:CA:6C:09:19:0F:6B:83"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.calantas.mygeo",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "5A:79:22:7E:96:63:D9:A8:1D:D0:77:22:09:E1:21:22:26:47:F7:CE:19:7E:46:30:13:57:A6:64:BB:AB:B5:14"
                 ),
                 false
             )
@@ -14554,6 +16520,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.disroot.disrootapp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "25:AD:0D:7C:16:B4:22:31:15:8D:2E:36:E8:C1:80:88:52:5B:CC:4F:95:0F:2C:C7:B5:E3:B2:F6:7F:E7:E7:3F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.disspair.disspair",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "88:B9:F4:3D:99:1A:EC:89:F0:7A:8E:FF:C6:F9:DB:8A:10:3A:EF:79:71:B6:EA:92:95:90:61:36:C6:CD:0E:18"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.documentfoundation.libreoffice",
         listOf(
             Hashes(
@@ -14600,6 +16594,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "B7:A3:48:D9:01:70:D3:5F:05:6A:A1:C9:9B:49:08:7F:17:52:56:0A:28:AF:67:56:B1:7E:E1:12:C4:CA:1D:89"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.equeim.tremotesf",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "80:A3:A0:0F:FF:EF:91:59:47:9D:D1:61:BF:6A:D5:8A:50:DB:37:99:38:12:AD:C5:05:14:39:58:45:5A:90:6A"
                 ),
                 false
             )
@@ -14932,6 +16940,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.framasoft.peertube",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "C3:C6:05:C9:38:7A:A2:D6:FD:01:70:FB:E3:96:36:DC:83:84:5A:C4:E6:55:B4:E8:22:FD:BD:34:9B:02:93:DB"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.futo.inputmethod.latin",
         listOf(
             Hashes(
@@ -15020,6 +17042,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "FF:ED:27:78:FF:07:37:1E:63:67:B6:DC:F5:D7:C1:32:7C:57:FF:71:58:B8:44:40:29:18:2A:9A:A2:DD:70:85"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.hzontal.tellaFOSS",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "0F:98:D1:62:B4:43:E7:1D:E1:41:A9:3A:EC:27:C6:D5:AC:AA:72:5D:BA:4C:3F:CA:97:45:72:58:C1:93:A7:29"
                 ),
                 false
             )
@@ -15195,6 +17231,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.jshobbysoft.cameraalign",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "0A:54:7B:FD:35:F8:A3:A6:AF:B4:D9:46:F3:DE:23:5E:46:46:79:18:47:EC:31:3A:07:55:29:FD:73:3F:06:61"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.jw.jwlibrary.mobile",
         listOf(
             Hashes(
@@ -15203,6 +17253,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "7E:A7:4C:8E:1E:69:F2:35:D6:0A:23:F2:91:7A:4E:C1:9A:0D:1C:BC:73:EB:E4:67:0C:2C:E1:BA:E1:01:4E:5D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.jyutping.jyutping",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "88:DE:47:25:B0:02:55:58:22:7B:9E:76:2B:32:BB:AF:14:41:68:8B:39:B1:91:E9:8D:71:01:20:6B:1B:44:04"
                 ),
                 false
             )
@@ -15274,6 +17338,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.kiwix.kiwixmobile.standalone",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "6D:FB:FC:62:E1:65:87:A7:8A:A2:D9:58:5A:E9:BB:7F:69:73:C2:BF:84:03:4B:7B:90:10:1A:40:14:09:F5:AA"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.lichess.mobileV2",
         listOf(
             Hashes(
@@ -15293,6 +17371,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "5B:62:4B:BF:9D:72:D3:18:EA:4F:9E:E3:E2:DA:EB:A7:72:19:E5:97:11:6C:B5:93:12:30:7A:AD:18:44:94:5E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.ligi.survivalmanual",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "A8:E0:5C:FB:C3:43:D0:33:54:77:E4:C8:5B:1F:03:24:53:86:68:62:6A:20:B4:DC:34:8F:CF:0D:4C:D5:72:8B"
                 ),
                 false
             )
@@ -15334,6 +17426,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "15:FA:52:78:85:F7:04:21:10:30:4D:1A:F0:08:81:07:27:09:BD:38:E9:84:2C:AF:9C:D8:9E:08:06:1C:5E:52"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.maintainteam.hypatia",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "1B:00:8D:64:BB:95:AB:47:74:D6:8B:87:F2:2B:8B:E9:A2:72:F4:92:4D:F5:20:29:D7:E6:18:38:35:D9:18:CC"
                 ),
                 false
             )
@@ -15410,6 +17516,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.onionshare.android.fdroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "0D:EF:4C:8A:3C:5B:65:74:8F:37:DF:F6:DC:DF:FC:AF:3E:85:C7:80:9A:56:51:43:5C:29:09:FB:2B:A2:0B:F6"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.openobservatory.ooniprobe",
         listOf(
             Hashes(
@@ -15418,6 +17538,15 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "BF:7D:A8:2A:7C:77:87:EB:67:56:41:48:23:4B:6D:40:F0:EC:66:4B:F2:92:BC:7A:8F:15:47:FE:7F:E7:5E:84"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "CE:B3:9F:9F:79:50:A5:FE:84:DC:91:7A:D3:43:3D:14:63:55:C8:61:F7:F3:29:4C:E8:2D:55:FB:8C:B0:C0:E6"
                 ),
                 false
             )
@@ -15613,6 +17742,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.secuso.privacyfriendlyminesweeper",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "50:75:CE:FF:95:61:EB:51:B3:7D:48:37:6D:A6:10:23:0B:59:5A:BA:70:7E:2D:84:5F:9B:84:4E:A5:88:26:4D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.secuso.privacyfriendlynotes",
         listOf(
             Hashes(
@@ -15621,6 +17764,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "9B:E7:5E:46:FA:FA:2D:66:E9:B8:DB:B7:EA:6A:34:CC:09:6A:96:B2:D9:39:65:69:CF:F5:A7:F9:8F:6D:09:3D"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.stypox.dicio",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "F1:8A:3A:A2:8B:65:A3:B6:7F:1F:C9:F0:61:AA:34:54:71:AA:AB:F0:06:E3:FA:51:38:73:97:75:4B:86:D7:1F"
                 ),
                 false
             )
@@ -15797,6 +17954,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "org.totschnig.myexpenses",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "CC:73:D1:AF:73:2C:D0:2B:84:A9:C7:D5:6B:7B:64:B9:D6:9D:47:A2:65:EC:34:B0:88:D6:85:7D:9F:BF:97:CE"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "org.traccar.client",
         listOf(
             Hashes(
@@ -15915,11 +18086,105 @@ val internalVerificationInfoDatabase = setOf(
         listOf(
             Hashes(
                 listOf(
+                    Source.FDROID,
+                    Source.HTTPS_VERIFIED_DOMAIN
+                ),
+                listOf(
+                    "1C:3D:DB:0E:8F:32:58:B0:FF:3B:7B:6A:60:8D:19:E7:CD:EE:D3:8A:58:97:BB:DA:23:BA:C1:55:92:3B:12:67"
+                ),
+                false
+            ),
+            Hashes(
+                listOf(
                     Source.GOOGLE_PLAY_STORE,
                     Source.HTTPS_VERIFIED_DOMAIN
                 ),
                 listOf(
                     "F5:40:E9:37:41:9A:1F:E3:08:E3:35:31:35:9C:23:CE:19:DF:D8:4A:66:01:E2:EF:85:C2:17:C8:23:A7:08:7F"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.woheller69.gptassist",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "B7:07:DB:CA:61:C2:07:CE:74:BE:61:3B:77:53:8D:50:08:A6:1F:9E:7E:2E:BC:69:56:FA:B3:43:1A:77:8E:65"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.woheller69.lavatories",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "D8:BC:0C:F0:BF:CE:30:4F:34:BF:E2:AF:CB:C7:4C:42:74:D6:54:F6:92:20:C0:F2:69:70:D3:5F:CC:D1:9A:63"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.woheller69.level",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "23:4E:BF:A7:4F:EE:98:20:29:29:66:97:77:48:B6:D9:5C:D7:5B:4F:CB:1E:ED:38:1D:86:48:B3:6E:14:F5:CA"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.woheller69.omweather",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "7C:B8:32:6B:35:9F:CF:06:10:1C:F0:33:7B:56:AF:89:E3:95:2B:71:1C:9A:00:FF:DC:7F:7B:2F:8C:09:D8:5B"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.woheller69.spritpreise",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "19:51:4E:47:98:F6:5D:8C:64:63:DF:49:C3:12:C7:92:9B:71:ED:24:BA:7D:5C:DD:72:4B:18:B8:82:2B:16:73"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.woheller69.ttsengine",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "EE:03:D0:E5:E6:91:80:86:2D:0B:E4:BD:E3:6A:D1:58:39:A3:07:89:64:08:FC:6F:74:B7:6B:A3:1B:81:7E:71"
                 ),
                 false
             )
@@ -15959,6 +18224,20 @@ val internalVerificationInfoDatabase = setOf(
             Hashes(
                 listOf(
                     Source.FDROID,
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "61:05:14:5F:84:E5:CB:D6:97:F0:F6:E1:2C:97:77:04:2E:9B:2D:B6:67:A7:FF:0D:A4:12:F6:74:35:31:6D:D8"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "org.y20k.transistor",
+        listOf(
+            Hashes(
+                listOf(
                     Source.FDROID_IZZYONDROID
                 ),
                 listOf(
@@ -16020,6 +18299,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "1B:27:B1:7A:9D:F0:53:21:A9:3A:47:DF:31:ED:0D:66:45:EB:E5:5D:0E:89:90:81:57:D7:1C:10:32:D1:7C:10"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "pan.alexander.tordnscrypt.stable",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "97:7D:4C:A0:2C:A0:B9:49:48:C5:8B:E8:7B:C3:4B:BD:D5:8E:12:35:0D:E0:78:E2:8B:17:FC:DA:17:6B:31:41"
                 ),
                 false
             )
@@ -16118,6 +18411,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "DC:C9:43:9E:C1:A6:C6:A8:D0:20:3F:34:23:EE:42:BC:C8:B9:70:62:8E:53:CB:73:A0:39:3F:39:8D:D5:B8:53"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "proton.android.authenticator.fdroid",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "BC:60:67:89:F8:02:3C:FA:3A:67:71:57:79:60:48:E0:F5:8F:AD:D4:B1:A0:59:8C:99:9B:29:80:EA:B7:91:9D"
                 ),
                 false
             )
@@ -16477,6 +18784,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "slowscript.warpinator",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "EB:8C:95:5A:2A:5C:55:7D:61:8D:79:24:DC:0D:DF:C3:81:58:81:EB:93:A6:FA:CD:DD:A8:33:C0:DD:49:C2:37"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "snugsafety.com.snugsafety",
         listOf(
             Hashes(
@@ -16551,6 +18872,34 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "sushi.hardcore.droidfs",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "1B:89:34:D4:93:31:0A:34:2B:29:BB:E0:3B:C2:05:E0:D3:D5:86:59:D1:AB:AF:17:95:77:D9:47:45:24:99:D6"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "tech.dongdongbh.mindwtr",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID_IZZYONDROID
+                ),
+                listOf(
+                    "1A:3E:0A:B4:21:78:30:6C:36:53:4C:EE:2E:F3:B8:88:75:6C:6E:43:F0:D1:9D:E6:7F:7B:55:24:6C:47:3D:F5"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "tech.lolli.toolbox",
         listOf(
             Hashes(
@@ -16610,6 +18959,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "DC:28:10:10:FD:AC:57:C7:C4:D3:9C:74:CB:8C:8B:2F:CC:A9:42:8D:16:4E:43:8F:71:57:B5:E2:06:6C:11:A3"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "tribixbite.cleverkeys",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "3C:70:DE:88:52:FC:A5:BB:27:9C:99:98:D5:58:EA:76:06:13:1F:1F:93:7A:F3:5C:C9:43:EE:E1:AE:DF:B9:7E"
                 ),
                 false
             )
@@ -16782,6 +19145,20 @@ val internalVerificationInfoDatabase = setOf(
         )
     ),
     InternalDatabaseVerificationInfo(
+        "website.leifs.delta.foss",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "E0:72:D5:B7:6D:41:33:D8:5B:76:26:33:A7:50:87:18:48:F4:1C:ED:3D:6D:72:82:33:91:08:E9:BE:D1:5E:2E"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
         "ws.xsoh.etar",
         listOf(
             Hashes(
@@ -16824,6 +19201,20 @@ val internalVerificationInfoDatabase = setOf(
                 ),
                 listOf(
                     "C1:4D:3C:6B:B5:D6:D9:AE:CF:C5:0B:BC:C1:9B:29:6D:D4:E6:87:46:36:D5:4C:1A:64:1C:14:08:BF:7E:F9:62"
+                ),
+                false
+            )
+        )
+    ),
+    InternalDatabaseVerificationInfo(
+        "xyz.lepisma.harp",
+        listOf(
+            Hashes(
+                listOf(
+                    Source.FDROID
+                ),
+                listOf(
+                    "2B:A3:CA:9F:3A:34:1E:5A:26:75:76:37:B6:BC:B7:55:8C:DF:4F:FF:05:22:1F:86:49:8A:98:49:93:3F:D9:15"
                 ),
                 false
             )
