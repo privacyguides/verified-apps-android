@@ -483,7 +483,7 @@ private fun browserOnlyIntent(context: Context, uri: Uri): Intent? {
     }
     val browserPackages = packageManager.queryIntentActivities(
         browserProbeIntent,
-        PackageManager.ResolveInfoFlags.of(PackageManager.MATCH_DEFAULT_ONLY.toLong()),
+        PackageManager.MATCH_DEFAULT_ONLY,
     ).map { it.activityInfo.packageName }
         .distinct()
 
@@ -493,7 +493,7 @@ private fun browserOnlyIntent(context: Context, uri: Uri): Intent? {
 
     val defaultBrowserPackage = packageManager.resolveActivity(
         browserProbeIntent,
-        PackageManager.ResolveInfoFlags.of(PackageManager.MATCH_DEFAULT_ONLY.toLong()),
+        PackageManager.MATCH_DEFAULT_ONLY,
     )?.activityInfo?.packageName
         ?.takeIf { it in browserPackages }
 
@@ -517,7 +517,7 @@ private fun isGitHubAppInstalled(packageManager: PackageManager): Boolean =
     try {
         packageManager.getPackageInfo(
             "com.github.android",
-            PackageManager.PackageInfoFlags.of(0),
+            0,
         )
         true
     } catch (_: NameNotFoundException) {

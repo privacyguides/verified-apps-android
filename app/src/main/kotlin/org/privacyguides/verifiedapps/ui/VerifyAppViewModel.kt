@@ -112,9 +112,12 @@ class VerifyAppViewModel(application: Application) : AndroidViewModel(applicatio
                     return@launch
                 }
 
+                // Android 9 only collects an archive's certificates when GET_SIGNATURES
+                // is set; without it signingInfo comes back null there.
+                @Suppress("DEPRECATION")
                 val packageInfo = packageManager.getPackageArchiveInfo(
                     tempFile.path,
-                    PackageManager.GET_SIGNING_CERTIFICATES
+                    PackageManager.GET_SIGNING_CERTIFICATES or PackageManager.GET_SIGNATURES
                 )
                 // No signing info means we cannot produce fingerprints to compare.
                 if (packageInfo?.signingInfo == null) {
