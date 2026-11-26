@@ -71,5 +71,25 @@ class FormatEntryTests(unittest.TestCase):
         )
 
 
+class ChunkingTests(unittest.TestCase):
+    def test_splits_entries_into_bounded_chunks(self):
+        count = gen.CHUNK_SIZE * 2 + 1
+        data = [
+            {
+                "package": f"com.example.app{i}",
+                "signature": [{"fingerprint": "AA:BB", "source": "GitHub"}],
+            }
+            for i in range(count)
+        ]
+        kotlin = gen.generate_kotlin(data)
+        chunks = kotlin.split("private object DatabaseChunk")[1:]
+        self.assertEqual(
+            [chunk.count("InternalDatabaseVerificationInfo(") for chunk in chunks],
+            [gen.CHUNK_SIZE, gen.CHUNK_SIZE, 1],
+        )
+        for n in range(len(chunks)):
+            self.assertIn(f"DatabaseChunk{n}.entries", kotlin)
+
+
 if __name__ == "__main__":
     unittest.main()

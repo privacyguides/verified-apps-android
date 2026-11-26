@@ -8,6 +8,7 @@ import argparse
 import codecs
 import re
 import sys
+import textwrap
 from pathlib import Path
 
 import yaml
@@ -48,6 +49,13 @@ S8 = "        "
 S12 = "            "
 S16 = "                "
 S20 = "                    "
+
+# kotlinc compiles each initializer into a single method, and the JVM caps a
+# method at 64 KB of bytecode, which one setOf(...) hit between 1,239 and 1,680 apps.
+# One object per chunk gives every chunk its own method and constant pool.
+# shortcut: fixed entry count (~50 B of bytecode per entry today), not measured
+# size; chunk by size if entries ever average more than ~600 B.
+CHUNK_SIZE = 100
 
 
 def kotlin_string_escape(value: str) -> str:
@@ -209,6 +217,17 @@ def format_entry(package: str, signatures: list, display_to_enum: dict[str, str]
     )
 
 
+def format_chunk(index: int, entries: list[str]) -> str:
+    body = textwrap.indent(",\n".join(entries), S4)
+    return (
+        f"private object DatabaseChunk{index} {{\n"
+        f"{S4}val entries = listOf(\n"
+        f"{body}\n"
+        f"{S4})\n"
+        "}"
+    )
+
+
 def read_doc_comment() -> str:
     text = KOTLIN_SOURCE_FILE.read_text(encoding="utf-8")
     match = re.search(
@@ -235,11 +254,16 @@ def generate_kotlin(privacyguides_data: list) -> str:
         if entry:
             entries.append(entry)
 
-    body = ",\n".join(entries)
+    chunks = [entries[i : i + CHUNK_SIZE] for i in range(0, len(entries), CHUNK_SIZE)]
+    chunk_refs = ",\n".join(f"{S4}DatabaseChunk{n}.entries" for n in range(len(chunks)))
+    chunk_objects = "\n\n".join(format_chunk(n, chunk) for n, chunk in enumerate(chunks))
     source_enum = format_source_enum(display_to_enum)
 
     return "\n".join(
         [
+            # detekt's LargeClass counts lines, and a chunk object is all data.
+            '@file:Suppress("LargeClass")',
+            "",
             "package org.privacyguides.verifiedapps",
             "",
             "import org.privacyguides.verifiedapps.data.Hashes",
@@ -257,10 +281,13 @@ def generate_kotlin(privacyguides_data: list) -> str:
             " * The internal verification info database.",
             " *",
             " * Generated from https://github.com/privacyguides/verified-apps/blob/main/data.yml",
+            " * in chunks, because the JVM caps each initializer at 64 KB of bytecode.",
             " */",
-            "val internalVerificationInfoDatabase = setOf(",
-            body,
-            ")",
+            "val internalVerificationInfoDatabase = listOf(",
+            chunk_refs,
+            ").flatten().toSet()",
+            "",
+            chunk_objects,
             "",
         ]
     )
