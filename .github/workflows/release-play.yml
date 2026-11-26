@@ -183,7 +183,7 @@ jobs:
 
       - name: Set up Ruby & fastlane
         if: steps.cfg.outputs.configured == 'true'
-        uses: ruby/setup-ruby@78c62f2208e480ce3d5ae4dfd9b9e181acf48b63 # v1.344.0
+        uses: ruby/setup-ruby@145243922b4465b78e04dd66294782c7de45901f # v1.345.0
         with:
           ruby-version: "3.3"
           bundler-cache: true
@@ -300,7 +300,7 @@ jobs:
 
       - name: Upload Play App Bundle artifact
         if: steps.cfg.outputs.configured == 'true'
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: built-play-aab
           path: ${{ steps.aab.outputs.name }}

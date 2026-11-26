@@ -90,8 +90,8 @@ RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
 #     chmod -R a+rX "${GEM_HOME}" && \
 #     rm -rf /tmp/verified-apps-bundle
 
-ARG AGE_VERSION=1.3.1
-ARG SOPS_VERSION=3.13.1
+ARG AGE_VERSION=1.3.2
+ARG SOPS_VERSION=3.13.3
 ARG TARGETARCH
 
 # Installing age

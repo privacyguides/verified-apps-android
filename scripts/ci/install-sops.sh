@@ -13,23 +13,23 @@ if [ "${INSTALL_SOPS_ALLOW_SYSTEM:-0}" = "1" ] && command -v sops >/dev/null 2>&
   exit 0
 fi
 
-SOPS_VERSION="3.13.1"
+SOPS_VERSION="3.13.3"
 case "$(uname -s)-$(uname -m)" in
   Linux-x86_64)
     ASSET="sops-v${SOPS_VERSION}.linux.amd64"
-    SHA256="620a9d7e3352ababeca6908cea24a6e8b14ce89a448ddbd3f94f1ef3398f470a"
+    SHA256="e5bec3346a873ae91d871550f3e698c1aad962aff462a080e40f25fde17fef6b"
     ;;
   Linux-aarch64 | Linux-arm64)
     ASSET="sops-v${SOPS_VERSION}.linux.arm64"
-    SHA256="19576fb1734dbf8fb77eda0cf0f3a2218f99bf4d33b814318e5e10d6babb9820"
+    SHA256="53b0abacd38ef1b12a66d6c100956691b9cefce018d91f81e73ddf7438b94d77"
     ;;
   Darwin-arm64)
     ASSET="sops-v${SOPS_VERSION}.darwin.arm64"
-    SHA256="a2c0dd37eb031068af6ef213b78cfa67b7f1afd76c2e5cc404257f42bbc8367d"
+    SHA256="b97c0d434aab577dc40310e8d22ff9e45eef4c80638ab978daae9b4681c59286"
     ;;
   Darwin-x86_64)
     ASSET="sops-v${SOPS_VERSION}.darwin.amd64"
-    SHA256="dad79d1b1dea767ca38ffaa50e10330a3e807dd13c853ef9c880567acef4f1ef"
+    SHA256="42162d5cef10b74fcf80a045a70e658d7ce6e63d6ea1be6f347e44015714468d"
     ;;
   *)
     echo "Unsupported platform: $(uname -s)-$(uname -m)" >&2
