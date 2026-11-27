@@ -5925,6 +5925,20 @@ private object DatabaseChunk3 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.disney.disneyplus",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "B4:D2:51:E9:79:EA:97:4D:8F:07:0F:EB:5A:B6:9F:C4:C2:87:3F:4E:8A:DD:42:1F:F6:3A:D5:F2:78:9D:63:D4"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.dkbcodefactory.banking",
             listOf(
                 Hashes(
@@ -6151,7 +6165,12 @@ private object DatabaseChunk3 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk4 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.dsemu.drastic",
             listOf(
@@ -6165,12 +6184,7 @@ private object DatabaseChunk3 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk4 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.dt.opnsense_manager",
             listOf(
@@ -6505,6 +6519,20 @@ private object DatabaseChunk4 {
                     ),
                     listOf(
                         "67:69:9A:6B:3D:31:5D:EE:51:53:6A:67:B4:F1:C6:E7:E2:17:5F:98:4B:09:6B:C2:97:6E:51:2D:22:94:08:71"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.espn.score_center",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "14:D2:37:B8:B9:32:A4:35:D0:F5:19:47:49:80:8F:19:BE:03:35:84:78:CC:FC:E2:B6:85:A6:AD:AA:8C:7B:7D"
                     ),
                     false
                 )
@@ -7634,7 +7662,12 @@ private object DatabaseChunk4 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk5 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.garmin.android.apps.messenger",
             listOf(
@@ -7662,12 +7695,7 @@ private object DatabaseChunk4 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk5 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.geeksville.mesh",
             listOf(
@@ -9281,7 +9309,12 @@ private object DatabaseChunk5 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk6 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.greeneking.orderandpay",
             listOf(
@@ -9309,12 +9342,7 @@ private object DatabaseChunk5 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk6 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.grindrapp.android",
             listOf(
@@ -10802,7 +10830,12 @@ private object DatabaseChunk6 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk7 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.languagedrops.drops.international",
             listOf(
@@ -10830,12 +10863,7 @@ private object DatabaseChunk6 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk7 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.lego.legobuildinginstructions",
             listOf(
@@ -12298,7 +12326,12 @@ private object DatabaseChunk7 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk8 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.myklarnamobile",
             listOf(
@@ -12326,12 +12359,7 @@ private object DatabaseChunk7 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk8 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.navasgroup.share2archive",
             listOf(
@@ -13791,7 +13819,12 @@ private object DatabaseChunk8 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk9 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.planetfitness",
             listOf(
@@ -13819,12 +13852,7 @@ private object DatabaseChunk8 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk9 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.pleco.chinesesystem",
             listOf(
@@ -15235,7 +15263,12 @@ private object DatabaseChunk9 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk10 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.shazam.android",
             listOf(
@@ -15263,12 +15296,7 @@ private object DatabaseChunk9 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk10 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.shopify.arrive",
             listOf(
@@ -16752,7 +16780,12 @@ private object DatabaseChunk10 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk11 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.triodos.bankingnl",
             listOf(
@@ -16780,12 +16813,7 @@ private object DatabaseChunk10 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk11 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.tristinbaker.defide",
             listOf(
@@ -18242,7 +18270,12 @@ private object DatabaseChunk11 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk12 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.yash.xpenc",
             listOf(
@@ -18271,12 +18304,7 @@ private object DatabaseChunk11 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk12 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.yoc.swiss.swiss",
             listOf(
@@ -19721,7 +19749,12 @@ private object DatabaseChunk12 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk13 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "de.ph1b.audiobook",
             listOf(
@@ -19753,12 +19786,7 @@ private object DatabaseChunk12 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk13 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "de.qwerty287.ftpclient",
             listOf(
@@ -21330,7 +21358,12 @@ private object DatabaseChunk13 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk14 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "flipboard.app",
             listOf(
@@ -21358,12 +21391,7 @@ private object DatabaseChunk13 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk14 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "fr.doctolib.www",
             listOf(
@@ -22904,7 +22932,12 @@ private object DatabaseChunk14 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk15 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "io.simplelogin.android",
             listOf(
@@ -22954,12 +22987,7 @@ private object DatabaseChunk14 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk15 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "io.spaceapi.community.myhackerspace",
             listOf(
@@ -24524,7 +24552,12 @@ private object DatabaseChunk15 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk16 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "net.programmierecke.radiodroid2",
             listOf(
@@ -24552,12 +24585,7 @@ private object DatabaseChunk15 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk16 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "net.sourceforge.opencamera",
             listOf(
@@ -24805,6 +24833,20 @@ private object DatabaseChunk16 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "nl.meesman.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "07:36:04:C0:22:D7:E0:58:7B:FC:08:5A:28:E4:21:49:50:AC:AD:78:E9:5C:39:EB:F9:45:30:B5:BA:BF:64:7F"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "nl.moeilijkedingen.jellyfinaudioplayer",
             listOf(
                 Hashes(
@@ -24827,6 +24869,21 @@ private object DatabaseChunk16 {
                     ),
                     listOf(
                         "7A:D4:A3:50:37:39:80:3A:8E:EC:7F:2F:8D:9A:4E:67:8D:6F:33:F9:B7:7D:5B:E8:1E:2C:08:93:71:35:2A:F6"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "nl.nlziet",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "C0:35:B5:1C:69:B3:F3:0E:D1:6E:98:0E:58:4A:CB:B0:25:F7:41:3D:7A:1B:EB:BD:09:1D:39:94:09:DF:97:90"
                     ),
                     false
                 )
@@ -26072,7 +26129,12 @@ private object DatabaseChunk16 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk17 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "org.gnu.emacs",
             listOf(
@@ -26139,12 +26201,7 @@ private object DatabaseChunk16 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk17 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "org.inaturalist.android",
             listOf(
@@ -27723,7 +27780,12 @@ private object DatabaseChunk17 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk18 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "page.ooooo.geoshare",
             listOf(
@@ -27780,12 +27842,7 @@ private object DatabaseChunk17 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk18 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "peergos.android",
             listOf(
