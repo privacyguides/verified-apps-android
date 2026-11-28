@@ -132,7 +132,8 @@ val internalVerificationInfoDatabase = listOf(
     DatabaseChunk16.entries,
     DatabaseChunk17.entries,
     DatabaseChunk18.entries,
-    DatabaseChunk19.entries
+    DatabaseChunk19.entries,
+    DatabaseChunk20.entries
 ).flatten().toSet()
 
 private object DatabaseChunk0 {
@@ -224,6 +225,20 @@ private object DatabaseChunk0 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "air.com.rosettastone.mobile.CoursePlayer",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "70:B4:1B:A2:63:43:06:B7:0D:25:82:EF:91:10:76:14:A8:A0:69:6B:2B:51:AC:5F:19:E0:10:8A:76:10:7C:15"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "alt.nainapps.sharepaste.fdroid",
             listOf(
                 Hashes(
@@ -304,6 +319,20 @@ private object DatabaseChunk0 {
                     ),
                     listOf(
                         "02:F6:B0:E2:59:88:4A:C7:1C:01:D7:D3:2B:78:C7:C0:A0:7A:03:7E:3F:F1:65:47:1F:A1:9F:DA:FA:39:C3:A0"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "app.atrium",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "5E:BA:D1:FF:2F:9C:DC:63:F2:8B:36:4A:DD:F9:E8:58:33:0D:B2:69:09:D9:EB:A8:DF:BC:CB:99:8D:E3:73:51"
                     ),
                     false
                 )
@@ -418,6 +447,20 @@ private object DatabaseChunk0 {
                     ),
                     listOf(
                         "2F:CE:C1:AF:AB:57:A7:A9:E5:33:C8:F6:9E:B1:B0:AA:61:80:D2:BE:23:2F:8A:52:95:56:40:C0:AE:7E:84:FB"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "app.dawarich.Dawarich",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "5F:0B:34:52:74:93:5D:19:7E:5C:9F:5B:95:F1:33:A9:15:75:10:C5:58:9F:6C:AB:51:72:FD:70:27:D1:75:86"
                     ),
                     false
                 )
@@ -565,6 +608,34 @@ private object DatabaseChunk0 {
                     ),
                     listOf(
                         "33:84:C3:1F:CE:4A:7C:00:8A:8F:7B:26:52:BC:48:CC:43:21:F1:D2:C8:77:B1:8E:30:A4:ED:61:9A:F1:2F:6B"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "app.grapheneos.camera.play",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "24:B4:EB:FB:58:2B:56:1F:BC:C4:56:6E:AA:92:58:F2:30:27:B0:37:A9:48:A7:86:9F:91:7F:9C:4C:1D:27:DF"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "app.grapheneos.pdfviewer.play",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "BA:28:9E:24:11:13:04:4F:E9:9F:D0:0E:CE:49:B8:04:C7:8C:B1:AC:8B:E4:A8:25:75:9D:C9:B9:99:FB:54:45"
                     ),
                     false
                 )
@@ -1301,6 +1372,21 @@ private object DatabaseChunk0 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "au.com.amaysim.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "A1:6D:F4:57:D9:29:F4:4B:76:D2:5B:A0:D4:36:4F:0E:42:FA:23:58:BF:CA:94:37:4B:F0:89:AE:F8:60:30:2D"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "au.com.auspost.android",
             listOf(
                 Hashes(
@@ -1372,6 +1458,20 @@ private object DatabaseChunk0 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "au.com.nab.mobile",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "CE:E8:64:A9:B7:F3:99:BA:A6:3E:FF:04:3D:5A:1B:24:C1:D8:6F:1B:44:CF:BB:11:1A:0A:F3:4C:83:3D:AF:6A"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "au.com.qantas.qantas",
             listOf(
                 Hashes(
@@ -1394,6 +1494,20 @@ private object DatabaseChunk0 {
                     ),
                     listOf(
                         "CE:08:25:F4:CA:78:56:76:D9:0D:3A:F6:0F:54:FE:43:B8:42:7A:FE:9E:1B:B6:77:AD:D7:58:DA:C1:29:18:20"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "au.com.skybus",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "59:87:0A:5D:FC:42:68:3A:BC:D6:1D:F8:D3:C6:48:5C:C2:33:5C:73:91:3E:44:56:D9:72:86:80:8B:13:A2:62"
                     ),
                     false
                 )
@@ -1497,7 +1611,12 @@ private object DatabaseChunk0 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk1 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "au.gov.vic.ptv",
             listOf(
@@ -1507,6 +1626,20 @@ private object DatabaseChunk0 {
                     ),
                     listOf(
                         "0E:B2:EE:8B:BF:56:A9:F2:0D:72:3D:1F:81:EC:7B:8E:37:2A:18:2D:D5:0E:49:A7:23:0D:00:44:63:48:70:91"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "barilyuk.batterytemperature",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "E9:9D:38:AC:9A:FA:A7:6B:F1:87:FB:63:98:BB:73:AD:49:81:E9:B9:1F:19:8A:23:24:3C:A6:F3:20:34:45:0C"
                     ),
                     false
                 )
@@ -1618,12 +1751,7 @@ private object DatabaseChunk0 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk1 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "ca.autotrader.userapp",
             listOf(
@@ -2098,6 +2226,34 @@ private object DatabaseChunk1 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "cn.rbc.termuc",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "99:CF:29:47:08:88:48:60:2A:FF:6A:49:4B:00:C3:7C:33:AA:83:31:99:80:84:8B:2C:F0:29:E5:11:C9:14:A2"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "cn.wps.moffice_eng",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "64:39:90:87:8D:3C:A8:39:52:A5:BE:5F:3E:58:D9:F8:BB:6C:DC:57:BF:0F:22:87:00:21:20:71:C6:8D:B3:D7"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "co.cape.matrix",
             listOf(
                 Hashes(
@@ -2283,6 +2439,21 @@ private object DatabaseChunk1 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.ace.shell.production",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "93:6A:65:38:E6:54:01:29:EC:FA:1D:2F:3E:97:F6:D6:6A:91:D2:B8:8D:E9:BE:A1:3E:31:31:F5:41:AD:DD:8F",
+                        "E7:43:00:AA:90:22:93:A2:60:4C:BC:9C:29:A7:26:88:42:98:64:B6:B1:52:16:D1:03:DB:63:03:22:13:49:D1"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.acehardware.rewards",
             listOf(
                 Hashes(
@@ -2333,6 +2504,20 @@ private object DatabaseChunk1 {
                     ),
                     listOf(
                         "2C:A6:2F:D3:5E:B4:7E:4A:59:C6:2C:5F:7D:70:5F:96:70:57:D5:51:90:08:8A:A5:1D:46:B5:98:3D:F8:20:0E"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.actureunlock",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "EF:08:4C:EF:24:52:EF:AE:1B:4A:EC:E5:39:65:B3:ED:31:9B:4A:DE:A8:C8:2C:2A:B6:E3:3C:31:5B:F2:5B:4F"
                     ),
                     false
                 )
@@ -2431,6 +2616,20 @@ private object DatabaseChunk1 {
                     ),
                     listOf(
                         "D9:61:D7:16:56:26:D4:B9:46:D6:FB:0D:CB:38:11:E8:27:AD:F2:C4:BE:32:12:D2:71:DB:82:01:75:E0:55:F2"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.aetna.aetnahealth",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "24:1C:0C:7F:46:6A:25:F9:53:EC:6C:F5:96:A1:88:0B:C6:3C:37:51:F8:07:52:18:B2:9B:06:F1:42:02:30:30"
                     ),
                     false
                 )
@@ -2803,6 +3002,21 @@ private object DatabaseChunk1 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.alltrails.alltrails",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "48:CE:7D:26:B1:43:13:D8:7F:0D:18:E6:65:09:D8:90:F1:12:B6:94:24:E1:41:C0:09:B1:4F:B4:75:ED:B8:F8"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.ally.MobileBanking",
             listOf(
                 Hashes(
@@ -2900,6 +3114,26 @@ private object DatabaseChunk1 {
         ),
         InternalDatabaseVerificationInfo(
             "com.amazon.dee.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "2F:19:AD:EB:28:4E:B3:6F:7F:07:78:61:52:B9:A1:D1:4B:21:65:32:03:AD:0B:04:EB:BF:9C:73:AB:6D:76:25"
+                    ),
+                    false
+                )
+            )
+        )
+    )
+}
+
+private object DatabaseChunk2 {
+    val entries = listOf(
+        InternalDatabaseVerificationInfo(
+            "com.amazon.kindle",
             listOf(
                 Hashes(
                     listOf(
@@ -3126,12 +3360,7 @@ private object DatabaseChunk1 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk2 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.anker.charging",
             listOf(
@@ -3802,6 +4031,20 @@ private object DatabaseChunk2 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.australiansuper.android.australiansuper",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "71:9C:E8:07:5F:59:35:16:30:90:CE:F6:A1:B0:EF:99:AC:16:F1:14:62:2E:07:43:DD:C9:23:B3:6F:52:3D:6A"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.austrian.connector.android",
             listOf(
                 Hashes(
@@ -4022,6 +4265,20 @@ private object DatabaseChunk2 {
                     ),
                     listOf(
                         "B0:7E:99:7D:17:4E:10:F5:AA:60:EA:B3:88:17:81:AE:6C:42:72:60:A6:36:33:F0:88:E3:48:E3:2E:1D:66:F9"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.barclays.android.barclaysmobilebanking",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "DD:65:E3:58:00:29:8A:3E:FB:56:E5:86:06:B3:85:E9:AA:44:7F:8F:CA:7B:9D:B4:B7:E5:05:EE:CA:E0:64:40"
                     ),
                     false
                 )
@@ -4373,7 +4630,12 @@ private object DatabaseChunk2 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk3 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.bitwarden.authenticator",
             listOf(
@@ -4486,6 +4748,20 @@ private object DatabaseChunk2 {
                     listOf(
                         "79:43:7C:14:48:16:45:7B:D1:1B:6E:D0:C3:32:69:D9:7D:02:30:6B:E6:20:4F:16:CA:2C:41:93:51:D1:E1:9A",
                         "99:0F:4C:C5:BE:D9:01:E3:F0:84:5E:8E:E6:9B:F5:86:53:16:6B:4D:AA:77:D4:F2:EB:4E:05:BF:40:24:96:A0"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.bookfusion.android.reader",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "C5:33:C2:8C:C1:A7:2A:B4:98:50:A4:FD:4F:54:E8:E4:10:E0:2B:5D:5F:10:88:E0:91:6B:35:0E:7B:26:D3:07"
                     ),
                     false
                 )
@@ -4632,12 +4908,7 @@ private object DatabaseChunk2 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk3 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.brave.browser",
             listOf(
@@ -4680,6 +4951,20 @@ private object DatabaseChunk3 {
                     ),
                     listOf(
                         "9C:2D:B7:05:13:51:5F:DB:FB:BC:58:5B:3E:DF:3D:71:23:D4:DC:67:C9:4F:FD:30:63:61:C1:D7:9B:BF:18:AC"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.brentpanther.bitcoinwidget",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "E6:43:C1:31:A6:43:03:F7:D2:0B:9E:21:14:3C:D2:50:AC:92:60:69:31:5B:78:FC:AD:CF:50:78:D2:FA:3C:CF"
                     ),
                     false
                 )
@@ -4830,6 +5115,20 @@ private object DatabaseChunk3 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.bunq.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "E9:16:B6:DF:B9:BF:CE:15:82:14:80:4F:36:25:39:12:CE:5A:D8:3D:FD:61:61:CD:6E:16:EC:6B:1B:A1:2C:02"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.busuu.android.enc",
             listOf(
                 Hashes(
@@ -4928,6 +5227,34 @@ private object DatabaseChunk3 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.capcom.smurfsandroid",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "FA:46:4D:52:5C:B4:B8:8E:2D:4D:B3:98:84:9D:E8:C4:A0:B7:42:AD:C0:D3:58:E3:0D:E6:12:E2:F7:69:90:7A"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.capcom.smurfsvillage2",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "CD:08:48:50:EF:FE:29:63:03:CF:E7:0A:74:F7:49:BD:B3:01:53:27:10:A3:F4:DE:73:57:9C:8F:42:58:71:C5"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.capitalweather.android.weather",
             listOf(
                 Hashes(
@@ -4980,6 +5307,20 @@ private object DatabaseChunk3 {
                     ),
                     listOf(
                         "E9:2D:44:BA:9B:65:00:3C:73:40:68:3B:0A:92:34:F6:17:C1:B2:3A:1D:D9:0E:89:F7:D0:41:70:B7:2B:FC:86"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.carstream.for.android.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "77:59:8E:75:1C:40:97:FF:29:3A:7D:8A:DC:A3:52:BF:69:8D:DB:98:77:BF:D6:BA:BC:DC:D1:07:E2:88:A5:AE"
                     ),
                     false
                 )
@@ -5061,6 +5402,20 @@ private object DatabaseChunk3 {
                     ),
                     listOf(
                         "3C:49:83:4E:C2:79:0E:B4:72:33:08:04:01:A5:D3:7B:35:4B:D5:AC:63:9B:EE:AF:BB:EF:7C:56:20:05:E4:0C"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.chargemap_beta.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "04:87:54:78:CD:00:8D:F2:DC:D0:4C:D1:36:FD:59:C5:0C:DB:D3:2E:65:FF:83:C9:BC:A7:04:E7:34:81:7A:52"
                     ),
                     false
                 )
@@ -5360,6 +5715,20 @@ private object DatabaseChunk3 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.cleevio.ionity.android.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "AE:F7:3D:58:BB:F1:64:8B:44:62:48:4B:55:C6:EF:35:B9:B0:D1:CB:45:D1:C0:BC:FB:8B:D4:37:F8:54:C9:0C"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.cloudflare.onedotonedotonedotone",
             listOf(
                 Hashes(
@@ -5555,6 +5924,20 @@ private object DatabaseChunk3 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.connectyourcare.mobile30",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "A9:C8:C2:6F:2D:8D:2E:43:3F:77:8E:B1:B4:9F:C7:5B:8C:FF:F1:5D:0D:13:A0:30:FD:7B:6E:56:17:D8:D6:12"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.contactoffice.mailfence",
             listOf(
                 Hashes(
@@ -5563,6 +5946,20 @@ private object DatabaseChunk3 {
                     ),
                     listOf(
                         "97:FE:5D:AA:04:8D:40:D3:CC:F0:A1:09:8F:47:FC:99:D1:A0:36:FA:BA:AF:B9:80:1F:51:E5:63:69:59:14:38"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.costarastrology",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "0C:0E:48:9D:97:07:8D:4B:09:38:F7:3D:49:8A:3A:CF:1A:7F:7D:57:8E:85:DF:38:E8:1E:F5:F0:AC:E4:D4:F3"
                     ),
                     false
                 )
@@ -5718,7 +6115,12 @@ private object DatabaseChunk3 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk4 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.cylonid.nativealpha",
             listOf(
@@ -6137,12 +6539,7 @@ private object DatabaseChunk3 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk4 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.discoverfinancial.mobile",
             listOf(
@@ -6739,6 +7136,20 @@ private object DatabaseChunk4 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.electra.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "0B:34:23:7D:CA:49:7A:3B:FC:F5:6E:A2:8E:08:DE:7F:21:62:D9:04:BB:A6:AC:45:69:60:51:BD:37:23:F4:49"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.emirates.ek.android",
             listOf(
                 Hashes(
@@ -6761,6 +7172,20 @@ private object DatabaseChunk4 {
                     ),
                     listOf(
                         "F6:6D:80:CA:D4:96:AC:6E:02:FD:85:2A:04:69:02:9F:7F:7B:16:3D:CF:39:09:76:63:D7:7F:F0:F3:00:B2:4B"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.enredats.electromaps",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "B5:24:FD:B1:37:25:F5:8D:F7:F8:6D:5B:43:93:67:07:8C:D1:27:E5:67:FE:BA:0B:7C:AB:29:CB:E9:70:E7:49"
                     ),
                     false
                 )
@@ -7198,7 +7623,12 @@ private object DatabaseChunk4 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk5 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.fidelity.android",
             listOf(
@@ -7265,6 +7695,20 @@ private object DatabaseChunk4 {
                     ),
                     listOf(
                         "AA:16:9A:97:53:E2:FF:66:76:AC:26:E4:AF:35:73:FB:38:7F:05:C6:6D:E8:0D:C3:52:CE:33:24:BD:9A:B0:8F"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.fingersoft.legohillclimbadventures",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "CC:AC:18:45:FC:09:43:E2:D6:72:5B:20:B6:EC:2F:8D:55:EC:7C:91:71:5E:F3:F6:CE:08:4D:7A:E4:40:A2:74"
                     ),
                     false
                 )
@@ -7495,6 +7939,20 @@ private object DatabaseChunk4 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.florianthaler.githo",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "F0:71:49:E8:A9:B2:CC:41:35:DF:E7:43:BB:FA:FE:E0:67:2E:D5:96:B7:67:D3:02:05:08:BB:81:C7:F9:67:42"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.flux",
             listOf(
                 Hashes(
@@ -7504,6 +7962,20 @@ private object DatabaseChunk4 {
                     ),
                     listOf(
                         "BD:CC:CA:30:AE:93:30:2C:46:46:DB:9C:F2:3F:4E:47:59:C1:D5:B6:0A:D5:72:8B:35:AE:0F:C0:FE:B7:94:02"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.flyerschool.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "2E:F8:61:3C:85:7B:2E:CB:16:78:4C:04:DE:E0:2E:4C:AB:78:ED:AB:2F:17:4F:31:0D:42:65:87:98:10:18:D6"
                     ),
                     false
                 )
@@ -7654,12 +8126,7 @@ private object DatabaseChunk4 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk5 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.foxit.mobile.pdf.lite",
             listOf(
@@ -7697,6 +8164,21 @@ private object DatabaseChunk5 {
                     ),
                     listOf(
                         "26:B9:73:1D:D7:FB:EB:2D:24:D2:E1:48:60:CD:CC:14:75:5E:F8:34:2D:5F:4C:B9:5C:66:CE:BC:C7:0D:B1:CB"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.fresha.Fresha",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "75:2B:FB:A4:64:88:C2:8B:84:45:CD:AF:6E:D5:12:75:41:33:72:C8:9D:81:AA:07:E0:AD:31:E1:02:D6:E9:0B"
                     ),
                     false
                 )
@@ -8299,6 +8781,20 @@ private object DatabaseChunk5 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.github.metacubex.clash.meta",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "B3:91:08:43:CF:3C:45:14:71:5D:8E:86:73:7C:3B:B6:4B:ED:D1:32:E0:D4:D0:51:18:62:3E:7B:DC:54:1A:51"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.github.meypod.al_azan",
             listOf(
                 Hashes(
@@ -8527,6 +9023,20 @@ private object DatabaseChunk5 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.goodreads",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "17:97:24:FF:B6:5D:E3:51:90:BE:FE:00:3E:52:1E:B6:97:AB:61:DE:DC:E2:5E:46:F5:48:2B:84:52:C5:33:30"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.goodwy.contacts",
             listOf(
                 Hashes(
@@ -8639,7 +9149,12 @@ private object DatabaseChunk5 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk6 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.google.android.apps.docs",
             listOf(
@@ -9282,12 +9797,7 @@ private object DatabaseChunk5 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk6 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.google.android.gsf",
             listOf(
@@ -9535,6 +10045,20 @@ private object DatabaseChunk6 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.gorunjinian.metrovault",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "12:45:55:4C:EB:17:CE:A2:1E:99:12:AF:7B:F6:0D:38:D7:16:F5:88:4D:4B:36:64:E5:33:84:62:CC:76:FD:03"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.govee.home",
             listOf(
                 Hashes(
@@ -9576,10 +10100,33 @@ private object DatabaseChunk6 {
             listOf(
                 Hashes(
                     listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "35:12:51:57:CF:79:29:B4:3B:9C:05:E5:48:37:C8:3B:45:D3:CA:37:42:C8:B5:F4:0C:30:2F:D5:F5:AB:FE:5F"
+                    ),
+                    false
+                ),
+                Hashes(
+                    listOf(
                         Source.FDROID
                     ),
                     listOf(
                         "39:16:CB:37:00:F0:AB:8E:79:01:44:48:D0:00:42:9B:82:6A:59:E0:B4:36:4B:96:C9:4D:90:5A:65:59:D2:43"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.gradescope.student",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "40:A5:E6:B9:89:F0:44:05:79:12:AF:CB:DB:CB:63:4F:4D:41:43:12:16:6A:D4:71:3C:FD:64:DB:E4:FC:1D:8F"
                     ),
                     false
                 )
@@ -9622,6 +10169,20 @@ private object DatabaseChunk6 {
                     ),
                     listOf(
                         "5B:C8:66:6B:B7:85:52:97:A0:1F:C1:EF:62:F1:E8:B3:54:7F:C5:5E:4F:B6:1E:85:8A:A5:00:86:AA:1B:35:6D"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.grid.application",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "A2:50:44:21:75:C8:50:5F:06:4E:2A:8A:D2:30:81:BB:96:26:9A:C8:2C:B3:0A:4C:E8:76:FF:F3:4A:F3:7F:28"
                     ),
                     false
                 )
@@ -9728,6 +10289,20 @@ private object DatabaseChunk6 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.gumtree.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "4A:97:A7:53:DD:2D:3F:32:6A:46:F5:B9:3B:EB:E8:4D:21:8B:ED:01:B9:C9:6D:34:AE:DB:D8:52:8B:E2:E5:A6"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.gwitko.conduit",
             listOf(
                 Hashes(
@@ -9806,6 +10381,20 @@ private object DatabaseChunk6 {
                     ),
                     listOf(
                         "67:89:E6:13:40:28:F3:A8:01:D2:9C:A5:C2:C4:7B:B9:CA:EE:A7:9C:84:8F:C9:0C:89:29:90:A5:98:63:94:2E"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.headupnav.chargingstations",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "E5:98:D7:41:28:70:B4:38:C2:D1:A4:91:1C:5F:53:58:F5:9F:42:63:52:52:91:91:F3:90:4B:27:3E:9F:2A:E8"
                     ),
                     false
                 )
@@ -10024,6 +10613,20 @@ private object DatabaseChunk6 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.ifixit.ifixitmobile",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "4D:D6:8E:44:4D:82:CC:A6:AD:E4:C9:0E:96:6E:F2:D3:CA:A3:F0:4F:52:46:65:F5:75:EB:95:4F:5F:5F:00:04"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.imangi.templerun2",
             listOf(
                 Hashes(
@@ -10135,6 +10738,39 @@ private object DatabaseChunk6 {
                     ),
                     listOf(
                         "23:86:20:77:1D:F2:BC:2F:92:65:42:99:16:E3:E9:AE:8E:EA:9B:09:77:31:AC:E7:4B:71:76:60:EB:B5:44:4C"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.ingka.ikea.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "1F:D3:BB:D6:BD:D5:4C:B1:B1:ED:63:89:51:74:8D:F9:7F:09:85:93:8E:EC:62:42:86:7A:43:12:F9:7A:F0:92"
+                    ),
+                    false
+                )
+            )
+        )
+    )
+}
+
+private object DatabaseChunk7 {
+    val entries = listOf(
+        InternalDatabaseVerificationInfo(
+            "com.inkren.skritter.chinese",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "78:1C:AD:9A:86:3F:BA:DA:C1:DA:8F:CD:B0:D2:4C:8E:BB:CC:B5:43:B8:68:72:66:E5:7B:1B:43:46:BD:56:0C"
                     ),
                     false
                 )
@@ -10491,6 +11127,20 @@ private object DatabaseChunk6 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.jet2.holidays",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "4D:D3:5B:D8:E8:B9:FB:85:7C:BF:6F:D1:DD:C9:07:5A:C7:18:F0:26:17:19:FF:AE:84:94:2D:00:7D:ED:8C:91"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.jetpaclabs.jetpac",
             listOf(
                 Hashes(
@@ -10663,6 +11313,20 @@ private object DatabaseChunk6 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.jwscheduler.jws",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "37:59:5F:81:CC:7F:50:BF:2C:A4:BF:E3:53:36:95:2E:0C:ED:F6:38:77:DF:2D:D2:90:BF:D4:0B:2A:A3:58:61"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.k2040.geojoystick",
             listOf(
                 Hashes(
@@ -10736,6 +11400,20 @@ private object DatabaseChunk6 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.kazumaproject.markdownhelperkeyboard.lite.fdroid",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "EC:67:6C:30:F0:5F:39:47:A1:AE:C8:6D:02:EC:EA:D1:50:F7:72:79:0B:35:FC:AF:8A:F4:84:C1:DD:5E:B4:C0"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.ketchapp.stack",
             listOf(
                 Hashes(
@@ -10776,12 +11454,7 @@ private object DatabaseChunk6 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk7 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.keyontech.applister",
             listOf(
@@ -10812,6 +11485,36 @@ private object DatabaseChunk7 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.kick.mobile",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "B1:23:20:22:72:68:C9:C3:7E:19:0B:49:31:20:A7:F6:CE:83:C0:E9:A7:61:F9:21:3D:F6:77:B5:8D:09:5B:73"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.kickstarter.kickstarter",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "FC:A8:BF:E6:BC:D7:18:99:A7:1C:56:CA:DA:23:D4:08:8D:9F:05:16:D7:02:14:04:B5:B9:99:44:18:26:72:89"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.kiloo.subwaysurf",
             listOf(
                 Hashes(
@@ -10835,6 +11538,20 @@ private object DatabaseChunk7 {
                     ),
                     listOf(
                         "FC:E8:7D:A9:7F:79:13:01:DF:39:0B:FA:47:E8:16:85:19:11:67:CA:B5:DB:D5:55:DB:82:87:54:1F:78:6E:28"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.kingsoopers.mobile",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "13:14:5D:46:1D:E6:99:42:15:FE:15:51:AF:38:70:BB:89:85:45:AE:3A:73:5F:C0:8C:F4:24:9B:B3:2A:1A:1C"
                     ),
                     false
                 )
@@ -10907,6 +11624,20 @@ private object DatabaseChunk7 {
                     ),
                     listOf(
                         "AD:B8:11:84:1B:66:C5:B2:D4:26:47:D4:89:7D:8B:01:64:82:CA:46:31:A8:87:C6:80:5B:1E:33:BB:31:5D:14"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.kobobooks.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "CC:05:57:16:12:C8:00:0D:1E:2D:AD:3A:D4:B6:5D:01:5F:26:5E:19:32:AC:48:7C:E5:EA:9F:E1:E3:5B:A6:FD"
                     ),
                     false
                 )
@@ -11053,6 +11784,20 @@ private object DatabaseChunk7 {
                     ),
                     listOf(
                         "C8:10:AA:B7:EF:A4:D5:AD:3F:C2:94:1F:DF:5F:99:B8:8A:3B:73:F8:62:19:71:56:27:ED:B4:DA:BA:C5:41:A4"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.kurtlourens.no_mans_sky_recipes",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "D4:90:81:AB:C8:BE:3A:E1:8B:82:85:DB:1B:9B:5E:4B:02:E2:53:47:5D:05:DD:3C:94:F2:2B:E9:FD:6D:51:79"
                     ),
                     false
                 )
@@ -11382,6 +12127,20 @@ private object DatabaseChunk7 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.lixar.allegiant",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "3A:6D:D9:16:1E:3E:40:25:62:71:5E:B6:56:24:24:14:B0:84:F9:25:F2:4F:53:90:98:4D:D2:B8:A2:01:79:01"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.llamalab.automate",
             listOf(
                 Hashes(
@@ -11522,7 +12281,12 @@ private object DatabaseChunk7 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk8 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.maazm7d.termuxhub",
             listOf(
@@ -12167,6 +12931,21 @@ private object DatabaseChunk7 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.microsoft.office.word",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "1F:B4:DE:76:0F:40:F3:0E:66:D3:08:51:8A:1B:D9:D1:4E:F1:41:1B:FF:A9:D6:76:28:76:B6:02:66:1D:54:ED",
+                        "B9:25:13:6F:3E:A7:C0:A1:95:16:90:A1:AB:31:39:10:DA:81:F4:09:94:A8:53:42:EC:62:28:88:F1:28:70:51"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.microsoft.teams",
             listOf(
                 Hashes(
@@ -12317,12 +13096,7 @@ private object DatabaseChunk7 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk8 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.mixplorer.addon.archive",
             listOf(
@@ -12403,6 +13177,20 @@ private object DatabaseChunk8 {
                     ),
                     listOf(
                         "03:61:DD:85:0D:D3:AB:65:D9:2D:F4:18:9A:26:41:3D:A5:3A:FF:AA:31:8F:7D:AD:91:47:94:AD:A2:C9:B4:09"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.moi.lumine",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "84:20:D0:7C:43:A9:A1:6A:21:52:7A:66:EE:56:9C:22:7E:0C:14:15:B5:97:19:13:2B:84:54:01:2D:F6:29:0A"
                     ),
                     false
                 )
@@ -12681,6 +13469,21 @@ private object DatabaseChunk8 {
                     ),
                     listOf(
                         "84:86:D1:CB:98:E0:EB:EB:A9:0B:57:15:C5:E9:19:6C:68:67:F0:DB:10:44:D7:60:41:6C:13:9E:5C:10:CE:12"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.naturalgrocers.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "BB:99:9C:EB:66:01:97:64:66:5F:9C:11:F5:08:53:A1:57:7D:7F:B3:E0:42:EC:37:41:02:0C:AA:B3:4C:05:24"
                     ),
                     false
                 )
@@ -12975,7 +13778,12 @@ private object DatabaseChunk8 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk9 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.nhs.online.nhsonline",
             listOf(
@@ -13013,6 +13821,20 @@ private object DatabaseChunk8 {
                     ),
                     listOf(
                         "EC:F5:2A:0F:F5:00:37:4D:AE:75:55:A5:0B:4B:08:52:28:30:4A:F5:DE:AB:01:3A:BF:43:7F:E4:AB:03:C9:26"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.nintendo.znca",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "1B:C2:C2:5D:00:8B:FD:03:02:3C:1B:A6:01:40:DF:D2:C1:7F:85:0A:4A:D5:25:03:88:E2:CF:29:2E:02:16:7D"
                     ),
                     false
                 )
@@ -13357,6 +14179,20 @@ private object DatabaseChunk8 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.olioex.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "57:DA:8F:F7:A5:27:B2:64:CA:12:2E:48:98:62:99:33:51:0A:18:00:06:01:E9:DB:85:D0:7F:64:49:0D:73:3D"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.om1cael.hidroly",
             listOf(
                 Hashes(
@@ -13608,6 +14444,20 @@ private object DatabaseChunk8 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.originmobileapp",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "A7:07:9B:FF:6E:30:3A:21:17:14:F2:1A:A5:A9:9D:1E:41:31:FA:B2:4E:A9:37:67:6C:D6:2A:1D:1A:BC:6C:DC"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.oriondev.moneywallet",
             listOf(
                 Hashes(
@@ -13817,12 +14667,7 @@ private object DatabaseChunk8 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk9 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.paperknifeplus.app",
             listOf(
@@ -13862,6 +14707,20 @@ private object DatabaseChunk9 {
                     ),
                     listOf(
                         "68:84:C6:93:35:49:64:27:62:31:E6:D0:33:6B:96:5F:69:0B:F3:F1:5A:07:07:BB:59:50:5C:20:8E:5E:75:54"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.patreon.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "58:47:49:64:02:54:70:A3:B9:5E:2A:1E:31:90:79:A7:87:18:08:78:AF:89:15:F8:1A:2D:1E:77:68:3A:E2:3A"
                     ),
                     false
                 )
@@ -14104,6 +14963,20 @@ private object DatabaseChunk9 {
                     ),
                     listOf(
                         "C2:25:ED:7E:98:03:23:CE:42:3D:83:9B:3A:DF:C1:2A:5E:F8:89:40:4E:E4:9C:0C:BF:1A:ED:DB:DB:DF:E7:11"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.pinterest",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "34:1D:68:81:B1:EC:F3:83:61:FB:F8:C8:FB:AE:0A:A5:16:B4:53:75:C3:9E:F5:E7:8B:16:18:69:AC:C1:BC:FA"
                     ),
                     false
                 )
@@ -14385,7 +15258,12 @@ private object DatabaseChunk9 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk10 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.procrastilearn.app",
             listOf(
@@ -14753,6 +15631,20 @@ private object DatabaseChunk9 {
                     ),
                     listOf(
                         "CD:1F:0D:9A:62:D0:47:9C:4B:71:BB:C4:D5:19:69:82:69:D6:DC:49:9D:39:53:DE:75:28:08:7E:51:5A:19:68"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.rfi.sams.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "D4:B1:EF:64:39:5E:F6:0A:E7:78:11:5D:A6:6A:92:56:6F:13:53:0F:E3:D2:DF:1B:1C:BC:87:00:B0:3F:42:E6"
                     ),
                     false
                 )
@@ -15259,12 +16151,7 @@ private object DatabaseChunk9 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk10 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.samsung.android.spay",
             listOf(
@@ -15567,6 +16454,21 @@ private object DatabaseChunk10 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.securew2.paladin",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "EA:56:8B:0F:AC:B5:51:BB:B0:6F:09:12:9C:9F:82:A3:3D:B3:AE:3D:28:A9:05:E7:77:27:DA:FF:1B:4C:BB:40"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.secuso.privacyFriendlyCodeScanner",
             listOf(
                 Hashes(
@@ -15794,7 +16696,12 @@ private object DatabaseChunk10 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk11 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.signalsense.app",
             listOf(
@@ -15934,6 +16841,34 @@ private object DatabaseChunk10 {
                     ),
                     listOf(
                         "2F:1C:AA:FC:A1:ED:30:D0:B4:E3:88:63:EE:FA:BE:A0:E8:15:71:1F:A4:CF:79:B8:22:51:9A:82:59:D9:5A:58"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.soc.mycolorado",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "38:20:F9:0A:3B:8E:DF:26:66:67:D4:01:5C:69:AC:74:B8:10:DA:36:71:2C:44:3D:99:74:EF:86:B6:CE:82:53"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.sonos.acr2",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "7C:34:EB:3C:FB:DA:05:FA:F5:6E:88:90:A2:AB:BA:C1:4B:30:36:E6:E4:35:88:49:B9:8E:88:19:B6:B7:B3:29"
                     ),
                     false
                 )
@@ -16447,6 +17382,20 @@ private object DatabaseChunk10 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.sweak.qralarm",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID_IZZYONDROID
+                    ),
+                    listOf(
+                        "9D:88:90:E1:97:16:01:D1:E4:E5:A1:C0:0F:F1:E3:A1:54:38:10:D2:8E:1C:5B:E4:D2:B5:C0:89:64:B1:81:57"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.swordfish.lemuroid",
             listOf(
                 Hashes(
@@ -16757,12 +17706,7 @@ private object DatabaseChunk10 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk11 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.teslacoilsw.launcher",
             listOf(
@@ -16801,6 +17745,20 @@ private object DatabaseChunk11 {
                     listOf(
                         "A9:3D:D7:BD:DB:E5:D1:53:9D:04:50:FD:A1:5D:BC:D2:8C:79:3C:39:0D:5F:CF:04:16:9A:4F:38:5C:8A:FF:82",
                         "F6:17:6D:A5:77:0D:53:48:BF:95:AA:D2:9D:CB:C0:56:1D:C0:D3:D3:84:33:7F:0B:D2:2F:2A:FD:A2:41:B9:2E"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.tgc.sky.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "10:53:E2:23:D9:F9:21:90:0D:3D:3D:90:74:13:CC:EE:D4:2C:4A:21:0E:40:96:90:A9:94:03:0A:E8:D2:B5:73"
                     ),
                     false
                 )
@@ -16920,6 +17878,20 @@ private object DatabaseChunk11 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.tinkertools.pebblealarmsync",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "79:37:AF:6B:B7:E4:26:41:99:1F:A8:3D:DF:28:AE:7F:4A:C8:63:7C:65:83:DD:4D:4C:1C:16:71:7B:C0:31:09"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.tippingcanoe.pepperpl",
             listOf(
                 Hashes(
@@ -16976,6 +17948,34 @@ private object DatabaseChunk11 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.tokyoxpa3.androidproxy",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "3F:B0:1E:DF:2A:80:F5:BD:1D:A6:7B:FE:7B:30:23:46:1B:A9:0E:7F:26:16:21:9E:EE:59:70:71:4F:80:5B:DD"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.tombursch.kitchenowl",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "71:03:9D:6A:92:CC:AD:12:F0:17:68:5E:11:2D:74:EE:E4:0C:CC:2F:87:31:D9:D1:03:52:31:0D:19:4D:6D:22"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.tophat.android.app",
             listOf(
                 Hashes(
@@ -17012,6 +18012,21 @@ private object DatabaseChunk11 {
                     ),
                     listOf(
                         "F2:F0:EF:B6:17:AC:85:C3:65:BC:45:DC:78:D6:27:4D:84:81:DC:A6:0C:8A:C7:DA:13:83:6B:43:F4:37:6B:EF"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.totum.student",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "F6:80:5C:AC:38:CD:DA:D1:E9:05:CD:0C:3B:FF:A6:5C:04:0F:FA:46:43:91:50:37:ED:1D:EC:60:E2:F9:68:CF"
                     ),
                     false
                 )
@@ -17172,7 +18187,12 @@ private object DatabaseChunk11 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk12 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.transatel.selfcare.ubigi",
             listOf(
@@ -17693,6 +18713,21 @@ private object DatabaseChunk11 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.usbank.mobilebanking",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "62:D0:0A:C8:71:46:7D:11:AC:F3:30:ED:03:C7:DF:16:93:01:5E:A8:37:6D:38:08:B1:D0:96:AD:F8:52:5B:0D"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.usmobile.dashboard",
             listOf(
                 Hashes(
@@ -18034,6 +19069,20 @@ private object DatabaseChunk11 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.virginaustralia.vaapp",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "C8:8F:A9:C8:DE:DC:75:E8:C3:95:6F:55:17:6C:25:C7:71:73:47:C0:DD:98:05:DF:28:6B:C2:C2:A1:69:AB:1A"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.vishal2376.snaptick",
             listOf(
                 Hashes(
@@ -18065,6 +19114,15 @@ private object DatabaseChunk11 {
         InternalDatabaseVerificationInfo(
             "com.vitorpamplona.amethyst",
             listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "30:EA:E3:8B:EF:DB:55:3A:EB:B9:8C:0E:49:2D:04:8E:E1:F9:B5:25:4C:32:85:DD:24:F7:78:8B:A5:39:6A:EA"
+                    ),
+                    false
+                ),
                 Hashes(
                     listOf(
                         Source.FDROID,
@@ -18240,12 +19298,7 @@ private object DatabaseChunk11 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk12 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "com.walmart.android",
             listOf(
@@ -18445,6 +19498,20 @@ private object DatabaseChunk12 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "com.wetherspoon.orderandpay",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "DF:09:31:C3:2C:0A:44:FD:35:BE:08:65:59:71:55:11:44:7E:2D:57:E6:4A:26:6F:21:B0:F7:B0:24:EF:27:95"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "com.wf.wellsfargomobile",
             listOf(
                 Hashes(
@@ -18453,6 +19520,21 @@ private object DatabaseChunk12 {
                     ),
                     listOf(
                         "6A:2D:2B:76:89:BE:B7:59:B8:15:D4:AA:58:27:08:F6:1E:79:32:BB:1A:2B:82:13:E4:CF:1F:C3:D8:EC:4C:5E"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.what3words.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "5A:18:DC:1E:9D:C2:D3:F3:C7:52:55:5F:E5:EC:84:0E:E1:1D:7A:C2:36:CF:E2:B4:C8:B2:46:69:CA:A6:34:12"
                     ),
                     false
                 )
@@ -18616,7 +19698,12 @@ private object DatabaseChunk12 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk13 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "com.wmata.metropulse",
             listOf(
@@ -18695,6 +19782,20 @@ private object DatabaseChunk12 {
                     ),
                     listOf(
                         "DE:6E:C9:14:31:55:79:95:29:7B:F3:E6:5B:C8:03:49:BC:60:3A:04:70:81:60:61:8C:86:BC:99:94:17:1C:90"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "com.xatori.Plugshare",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "04:7A:DF:45:00:57:52:F3:39:E3:4C:C9:AC:05:6D:C0:0D:78:13:EE:34:35:84:FF:CF:99:43:9D:D2:1C:47:07"
                     ),
                     false
                 )
@@ -19288,6 +20389,34 @@ private object DatabaseChunk12 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "de.adac.Fuehrerschein",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "E9:D5:05:AB:A7:37:92:20:33:B8:7B:A1:3A:AA:6C:F4:A2:E0:4E:24:40:61:35:70:5F:4C:9D:98:61:18:A4:A5"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "de.adac.tourset",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "E9:D5:05:AB:A7:37:92:20:33:B8:7B:A1:3A:AA:6C:F4:A2:E0:4E:24:40:61:35:70:5F:4C:9D:98:61:18:A4:A5"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "de.aoksystems.amg",
             listOf(
                 Hashes(
@@ -19710,12 +20839,7 @@ private object DatabaseChunk12 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk13 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "de.freifunk_karte.freifunk_karte",
             listOf(
@@ -20046,7 +21170,12 @@ private object DatabaseChunk13 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk14 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "de.markusfisch.android.binaryeye",
             listOf(
@@ -20180,6 +21309,20 @@ private object DatabaseChunk13 {
                     ),
                     listOf(
                         "5E:80:04:53:27:4D:72:D5:66:89:31:81:7F:82:BA:19:36:F2:42:3D:90:BD:16:30:D0:A2:EA:3B:CE:36:BC:CF"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "de.nproth.pin",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "56:02:72:89:8F:F8:F6:0C:3C:0C:40:FC:7F:8A:58:1C:34:BB:11:22:7F:AE:F2:BE:37:76:B3:CE:F5:C9:E3:B4"
                     ),
                     false
                 )
@@ -20345,6 +21488,20 @@ private object DatabaseChunk13 {
                     ),
                     listOf(
                         "EB:CD:A4:06:40:F9:99:76:23:C5:54:A7:B9:8D:5A:53:1E:62:5A:A1:35:DE:BB:CC:65:8A:CA:11:D6:7F:D5:82"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "de.rossmann.app.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "17:D2:C7:65:FD:56:2F:4B:25:4F:1E:BB:95:74:30:2A:39:04:B1:73:99:1D:56:E8:8E:91:78:62:F1:2D:C2:74"
                     ),
                     false
                 )
@@ -21270,12 +22427,7 @@ private object DatabaseChunk13 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk14 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "dev.secam.simpletag",
             listOf(
@@ -21393,6 +22545,21 @@ private object DatabaseChunk14 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "dk.tacit.android.foldersync.lite",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "2D:20:10:1D:3A:40:63:16:AB:43:31:F7:5E:12:92:E6:1B:79:81:DC:36:E8:08:4B:2D:25:97:EC:40:7C:3E:05"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "dubrowgn.wattz",
             listOf(
                 Hashes(
@@ -21463,6 +22630,20 @@ private object DatabaseChunk14 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "energy.octopus.electricjuice.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "6C:1B:F3:DD:76:0D:9C:E2:00:C4:8E:88:33:66:A3:B1:A4:3F:35:08:8A:F1:35:78:5D:C8:17:80:8E:74:4E:E9"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "ephemeralwp.safespace",
             listOf(
                 Hashes(
@@ -21491,6 +22672,34 @@ private object DatabaseChunk14 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "es.aeat.pin24h",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "15:06:7C:61:6B:7D:CF:8D:16:3C:88:31:6C:20:03:F9:4D:4E:DD:9B:1F:3C:0B:C2:F3:CC:92:BE:A9:55:51:77"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "eu.artectrex.bunny",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "96:72:39:27:86:CD:D8:69:13:95:56:E8:B1:45:BF:98:FA:8E:D4:DD:A1:9C:39:06:3F:D0:1A:34:AA:EE:D6:00"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "eu.auct.twitter2nitter",
             listOf(
                 Hashes(
@@ -21504,7 +22713,12 @@ private object DatabaseChunk14 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk15 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "eu.darken.capod",
             listOf(
@@ -21745,6 +22959,20 @@ private object DatabaseChunk14 {
                     ),
                     listOf(
                         "5A:B1:45:57:3E:05:D3:D5:57:E6:83:5C:A8:0D:12:69:39:FD:32:9F:08:86:FC:62:56:24:A5:24:DD:8F:84:CB"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "eu.weblibre.gecko",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "BB:2A:97:F5:61:53:35:C9:E5:7C:86:6F:1C:30:ED:4F:D7:D7:BD:DC:BC:BC:06:68:FE:93:A5:79:17:3D:3D:2D"
                     ),
                     false
                 )
@@ -22548,6 +23776,20 @@ private object DatabaseChunk14 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "in.sunilpaulmathew.izzyondroid",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "43:5B:F0:96:FB:5A:07:17:6B:3F:9F:DC:00:C5:09:7A:CA:B3:5C:14:42:E6:47:20:EA:C8:12:58:5D:A9:3C:23"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "InfinityLoop1309.NewPipeEnhanced",
             listOf(
                 Hashes(
@@ -22781,6 +24023,20 @@ private object DatabaseChunk14 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "io.ente.locker.fdroid",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "33:FA:EE:93:AA:33:44:C6:A8:ED:47:03:E8:C6:D1:FA:99:21:98:09:F6:8C:7D:FA:3E:42:13:75:13:81:2C:96"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "io.ente.photos",
             listOf(
                 Hashes(
@@ -22874,12 +24130,7 @@ private object DatabaseChunk14 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk15 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "io.github.devhyper.openvideoeditor",
             listOf(
@@ -22971,6 +24222,20 @@ private object DatabaseChunk15 {
                     ),
                     listOf(
                         "18:C0:0C:34:7E:A1:00:1A:FC:DD:87:25:88:81:D2:4D:68:40:47:BB:EB:22:C4:7F:BE:7B:51:49:95:16:AB:54"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "io.github.gsantner.memetastic",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "60:FE:EC:EC:8A:19:A7:08:49:21:18:7A:5F:41:E5:D0:E3:CD:E1:15:C2:73:8D:B0:B7:B7:A4:53:6A:49:31:A1"
                     ),
                     false
                 )
@@ -23075,7 +24340,12 @@ private object DatabaseChunk15 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk16 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "io.github.lauworks.p02multicounter",
             listOf(
@@ -23143,6 +24413,20 @@ private object DatabaseChunk15 {
                     ),
                     listOf(
                         "4A:ED:2F:69:1D:F6:4A:7B:0F:EA:25:A6:B8:C8:01:83:C6:DC:52:0E:04:9D:AC:01:78:DE:FA:1D:64:72:22:8F"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "io.github.monsiu.custom_rr",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "53:1A:6B:AD:FA:5D:C8:3D:77:3B:A7:8C:C1:B3:73:83:DF:3D:A0:12:60:6C:F5:68:0A:66:40:9B:B0:12:08:61"
                     ),
                     false
                 )
@@ -23240,6 +24524,20 @@ private object DatabaseChunk15 {
                     ),
                     listOf(
                         "0A:26:40:31:7C:43:27:21:88:C3:E1:31:94:C1:54:60:69:1F:12:C3:9E:A1:9B:BA:72:7D:D6:7F:B5:62:89:D4"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "io.github.sds100.keymapper",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "F4:D7:53:30:27:10:C9:A7:A4:08:85:C8:91:AE:BD:B1:A0:F2:75:12:2F:DC:DB:7C:2F:45:A2:02:B2:13:F3:73"
                     ),
                     false
                 )
@@ -23597,6 +24895,20 @@ private object DatabaseChunk15 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "io.vertretungsplan.client.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "2F:E2:B0:9C:20:DC:13:3F:DB:E3:02:12:7B:92:86:7E:1A:EA:8E:03:5B:46:60:2C:37:E0:B8:06:23:DB:7D:4A"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "io.vikunja.app",
             listOf(
                 Hashes(
@@ -23764,6 +25076,20 @@ private object DatabaseChunk15 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "it.rignanese.leo.slimfacebook",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "3C:6C:E8:92:24:64:58:00:52:F7:F0:98:DC:B5:42:CE:51:7C:24:EE:42:0F:45:81:4F:55:BC:BA:AE:8E:25:1A"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "jp.co.ana.android.tabidachi",
             listOf(
                 Hashes(
@@ -23862,6 +25188,20 @@ private object DatabaseChunk15 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "jp.co.canon.ic.photolayout",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "6F:EE:8C:61:55:8F:85:58:84:09:51:26:73:11:03:FC:90:D3:FF:5A:3A:B3:F8:1E:4B:9F:23:FF:15:5F:1B:66"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "jp.co.canon.oip.android.opal",
             listOf(
                 Hashes(
@@ -23949,6 +25289,20 @@ private object DatabaseChunk15 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "jp.pokemon.pokemontcgp",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "70:12:F8:FD:DF:F8:68:50:69:AF:10:83:48:5F:E1:25:69:F3:F5:44:2B:1B:4D:52:3B:07:26:77:B9:F6:C6:F2"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "jp.telnavi.app.phone",
             listOf(
                 Hashes(
@@ -24016,6 +25370,20 @@ private object DatabaseChunk15 {
                     ),
                     listOf(
                         "09:55:EB:46:F4:84:82:73:54:16:E2:D0:50:EC:51:62:93:E9:E9:02:B4:AB:82:24:31:6C:50:78:51:7D:E6:20"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "lt.sb.mobileapp",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "2E:0F:D5:7A:5A:C6:2C:32:E8:22:A1:F4:BE:B5:B6:D9:F6:02:23:FB:57:FC:83:17:9F:DD:D0:CE:06:20:11:7B"
                     ),
                     false
                 )
@@ -24468,12 +25836,7 @@ private object DatabaseChunk15 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk16 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "mega.privacy.android.app",
             listOf(
@@ -24540,6 +25903,25 @@ private object DatabaseChunk16 {
                     ),
                     listOf(
                         "A6:DF:84:56:8E:02:9D:F7:99:DB:7F:D6:91:D6:48:EC:A9:89:3A:5F:F4:0A:A5:82:BB:D8:78:43:B3:5D:AE:17"
+                    ),
+                    false
+                )
+            )
+        )
+    )
+}
+
+private object DatabaseChunk17 {
+    val entries = listOf(
+        InternalDatabaseVerificationInfo(
+            "mobi.lockdown.weather",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "4E:8F:84:11:76:6F:D5:42:DA:DE:C0:72:6F:A5:A2:1B:57:5F:A8:A8:5B:4B:9F:BA:D0:85:D2:CE:CE:78:B5:24"
                     ),
                     false
                 )
@@ -24816,6 +26198,21 @@ private object DatabaseChunk16 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "net.frameo.app",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "D7:9C:B4:51:97:E9:E2:52:5F:E0:98:02:AE:F7:56:41:1F:B3:2B:5C:32:76:EC:16:B8:0E:E8:F9:0B:AA:23:31"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "net.gaast.giggity",
             listOf(
                 Hashes(
@@ -24915,6 +26312,20 @@ private object DatabaseChunk16 {
                     ),
                     listOf(
                         "F7:CD:D1:CC:59:94:D8:CE:9C:E2:D6:DF:A5:1B:82:3B:E9:17:DC:61:F2:52:8A:28:B2:05:21:4E:43:96:6B:C1"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "net.koofr.vault",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "1B:0B:E4:F0:9E:70:65:75:19:2C:0A:6C:A2:3A:EE:6C:5C:40:9D:E5:A6:47:DB:F7:9B:8B:EB:DC:12:8C:2D:62"
                     ),
                     false
                 )
@@ -25124,6 +26535,21 @@ private object DatabaseChunk16 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "net.primal.android",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "FC:8B:0F:A9:D8:37:AB:BF:CE:25:A1:D6:54:9E:B3:67:6B:CA:EA:AD:E2:9E:28:53:D3:B3:FD:5F:28:A0:5C:95"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "net.programmierecke.radiodroid2",
             listOf(
                 Hashes(
@@ -25272,6 +26698,20 @@ private object DatabaseChunk16 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "net.vonforst.evmap",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "27:82:35:9A:8A:19:61:4F:FE:C1:E8:9F:4C:83:41:79:C5:83:16:B5:CB:E7:94:5D:D2:76:7C:F6:D9:6E:62:60"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "net.wigle.wigleandroid",
             listOf(
                 Hashes(
@@ -25392,6 +26832,20 @@ private object DatabaseChunk16 {
                     ),
                     listOf(
                         "2C:43:FC:30:71:5B:10:05:23:C7:9A:62:88:92:C2:57:BB:4F:34:79:10:E3:4C:DC:68:6B:7F:EC:97:FB:D9:0B"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "nl.kpn.mijn",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "99:C2:5E:73:B0:20:1F:49:B7:43:4A:B2:9F:59:AD:71:7A:A4:53:55:AC:E6:62:69:E6:95:A9:ED:31:1F:CA:9B"
                     ),
                     false
                 )
@@ -25645,6 +27099,20 @@ private object DatabaseChunk16 {
                     ),
                     listOf(
                         "D4:1C:E8:B1:25:12:D8:A0:9D:A4:DE:E5:F5:0A:58:AA:A0:9C:74:0E:74:90:6F:BB:ED:83:0B:32:1E:D1:F9:FB"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "one.wafler.transportia",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID_IZZYONDROID
+                    ),
+                    listOf(
+                        "EF:3D:4B:6C:37:E1:A8:AE:14:8E:66:E0:80:C4:9F:5B:EA:E1:C8:93:89:AE:01:28:65:D6:F3:B6:D4:89:DF:21"
                     ),
                     false
                 )
@@ -26017,7 +27485,12 @@ private object DatabaseChunk16 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk18 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "org.cryptomator.lite",
             listOf(
@@ -26047,12 +27520,7 @@ private object DatabaseChunk16 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk17 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "org.decsync.cc",
             listOf(
@@ -27110,6 +28578,20 @@ private object DatabaseChunk17 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "org.kustom.widget",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "62:BE:AF:C9:B4:EB:12:AC:6B:24:2B:04:20:F1:1B:4B:3C:3F:7D:D3:C0:EB:73:2E:5D:79:1A:66:77:6C:C2:74"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "org.libre.agosto.p2play",
             listOf(
                 Hashes(
@@ -27293,6 +28775,15 @@ private object DatabaseChunk17 {
         InternalDatabaseVerificationInfo(
             "org.moire.opensudoku",
             listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "3E:56:00:A0:E6:8B:3A:93:CC:25:53:DA:75:05:B3:D1:67:37:BC:60:50:9C:45:36:7F:24:EE:DE:0B:70:A3:6E"
+                    ),
+                    false
+                ),
                 Hashes(
                     listOf(
                         Source.FDROID
@@ -27652,7 +29143,12 @@ private object DatabaseChunk17 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk19 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "org.scrib.transcriber",
             listOf(
@@ -27694,12 +29190,7 @@ private object DatabaseChunk17 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk18 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "org.secuso.privacyfriendlytapemeasure",
             listOf(
@@ -27747,6 +29238,20 @@ private object DatabaseChunk18 {
                     listOf(
                         "59:AA:11:A4:BF:97:58:34:FF:06:2D:40:8F:EE:25:23:C2:26:0C:BB:2C:C8:C0:1F:CD:A0:3E:AD:21:8A:90:7D",
                         "81:EA:CA:46:84:F2:73:D8:97:E9:6E:6E:89:4A:B7:73:46:8C:FA:B0:0A:25:AA:0A:2C:AF:0E:5F:01:D5:A5:00"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "org.sunsetware.phocid",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID
+                    ),
+                    listOf(
+                        "ED:20:B1:76:70:9C:0E:63:24:00:EE:D8:D5:BD:B3:AB:D5:10:08:67:19:FE:97:FE:90:46:B9:22:F8:FA:AF:4F"
                     ),
                     false
                 )
@@ -28155,6 +29660,20 @@ private object DatabaseChunk18 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "org.woheller69.exifedit",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID_IZZYONDROID
+                    ),
+                    listOf(
+                        "ED:93:4E:C7:1B:86:A3:72:BC:2E:5D:9F:9E:FD:FB:B5:2A:11:B8:97:C0:00:BA:E6:A3:3A:C5:9F:79:88:C6:B5"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "org.woheller69.gptassist",
             listOf(
                 Hashes(
@@ -28516,6 +30035,20 @@ private object DatabaseChunk18 {
                     ),
                     listOf(
                         "CB:4F:1E:A4:F0:BE:4A:91:EA:80:34:97:DD:A6:9F:31:84:5C:9A:98:F4:39:03:C5:60:17:CF:4A:B8:77:D8:9F"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "pl.pwpw.edohub",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "F5:5C:F8:90:54:3E:4B:7A:8F:DE:AA:5A:50:27:D0:2D:C5:C4:AA:AF:20:02:40:5C:62:D1:B5:2D:44:6C:BF:6F"
                     ),
                     false
                 )
@@ -29131,7 +30664,12 @@ private object DatabaseChunk18 {
                     false
                 )
             )
-        ),
+        )
+    )
+}
+
+private object DatabaseChunk20 {
+    val entries = listOf(
         InternalDatabaseVerificationInfo(
             "sh.haven.app",
             listOf(
@@ -29233,12 +30771,7 @@ private object DatabaseChunk18 {
                     false
                 )
             )
-        )
-    )
-}
-
-private object DatabaseChunk19 {
-    val entries = listOf(
+        ),
         InternalDatabaseVerificationInfo(
             "software.msm.portfolio_performance",
             listOf(
@@ -29598,6 +31131,21 @@ private object DatabaseChunk19 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "uk.co.xigxag.xigxagplayer",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE,
+                        Source.HTTPS_VERIFIED_DOMAIN
+                    ),
+                    listOf(
+                        "7E:2A:DF:40:1D:A6:A7:00:E5:83:FB:62:23:3C:70:17:36:8F:18:24:8D:A4:41:1A:D0:5E:94:49:FD:DF:8C:C0"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "uk.gov.hmrc.ptcalc",
             listOf(
                 Hashes(
@@ -29606,6 +31154,21 @@ private object DatabaseChunk19 {
                     ),
                     listOf(
                         "0B:75:D3:CA:1D:D1:2D:D9:AD:16:ED:80:E9:C5:B3:7B:D4:79:72:A8:7A:9D:DF:24:96:F6:F1:EC:9A:46:B1:DE"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "uk.me.amugofjava.anytime",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.FDROID,
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "F0:2B:75:19:E4:01:2C:14:49:FD:BB:2D:8C:F2:1C:1A:A0:A3:3D:A7:E7:5C:06:AD:79:8B:F0:78:01:6C:78:85"
                     ),
                     false
                 )
@@ -29801,6 +31364,20 @@ private object DatabaseChunk19 {
             )
         ),
         InternalDatabaseVerificationInfo(
+            "wtf.riedel.onesec",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "2B:77:53:46:BE:30:D0:6D:FD:99:AB:C1:50:FB:D1:CE:B1:5A:50:6B:D6:FF:B7:04:0B:50:11:63:82:DE:1E:DA"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
             "xyz.blueskyweb.app",
             listOf(
                 Hashes(
@@ -29893,6 +31470,20 @@ private object DatabaseChunk19 {
                     ),
                     listOf(
                         "88:A8:AF:E3:CC:BE:E0:80:C1:3B:73:83:2A:AB:8C:98:A9:F1:9D:1C:65:F3:BC:FD:50:B8:D0:1C:0B:C8:0E:9E"
+                    ),
+                    false
+                )
+            )
+        ),
+        InternalDatabaseVerificationInfo(
+            "xyz.zedler.patrick.doodle",
+            listOf(
+                Hashes(
+                    listOf(
+                        Source.GOOGLE_PLAY_STORE
+                    ),
+                    listOf(
+                        "64:50:87:9B:2C:3E:90:FF:37:99:03:A7:2A:ED:74:F2:E4:63:F7:96:43:3C:CC:B0:30:F6:BE:D7:78:43:78:B1"
                     ),
                     false
                 )
